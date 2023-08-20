@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/q-app-frontend/static/css/main.3c1304ed.css",
+    "main.js": "/q-app-frontend/static/js/main.d0c05e2b.js",
+    "index.html": "/q-app-frontend/index.html",
+    "main.3c1304ed.css.map": "/q-app-frontend/static/css/main.3c1304ed.css.map",
+    "main.d0c05e2b.js.map": "/q-app-frontend/static/js/main.d0c05e2b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3c1304ed.css",
+    "static/js/main.d0c05e2b.js"
+  ]
+}
