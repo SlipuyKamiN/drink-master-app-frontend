@@ -1,9 +1,11 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
+const BASE_URL = process.env.BASE_URL;
+
 export const recipesApi = createApi({
   reducerPath: 'recipesApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://641201246e3ca3175304119e.mockapi.io/api/recipes',
+    baseUrl: BASE_URL,
   }),
   tagTypes: ['recipes'],
   endpoints: builder => ({
