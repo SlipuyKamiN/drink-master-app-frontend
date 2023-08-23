@@ -4,15 +4,21 @@
 
 body {
   margin: 0;
-  //   font-family: 'Inter', sans-serif;
-  //   font-weight: 400;
-  //   font-size: 18px;
-  //   line-height: 1.4;
+  font-family: 'Manrope', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.28;
 
-  //   color: #242424;
+  color: $primary-white-color;
+  background-color: $main-bg-color;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-y: scroll;
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 1.37;
+  }
 }
 
 code {
@@ -60,8 +66,4 @@ html {
 
 button {
   cursor: pointer;
-}
-
-.container {
-  margin: 0 auto;
 }
