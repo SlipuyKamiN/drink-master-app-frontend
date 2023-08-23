@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-const BASE_URL = process.env.REACT_APP_BASE_URL;
+const BASE_URL = `${process.env.REACT_APP_BASE_URL}/users`;
 
 export const authApi = createApi({
   reducerPath: 'authApi',
@@ -9,27 +9,57 @@ export const authApi = createApi({
   }),
   tagTypes: ['auth'],
   endpoints: builder => ({
-    fetchAll: builder.query({
-      query: () => ({ url: '/auth' }),
+    getCurrent: builder.query({
+      query: () => ({ url: '/' }),
       providesTags: ['auth'],
     }),
-    addUser: builder.mutation({
-      query: ({ name, number }) => ({
-        url: '/auth',
+    signup: builder.mutation({
+      query: ({ name, email, password }) => ({
+        url: '/signup',
         method: 'POST',
-        body: { name, number },
+        body: { name, email, password },
       }),
       invalidatesTags: ['auth'],
     }),
-    deleteUser: builder.mutation({
-      query: ({ id }) => ({
-        url: `/auth/${id}`,
-        method: 'DELETE',
+    signin: builder.mutation({
+      query: ({ email, password }) => ({
+        url: '/signin',
+        method: 'POST',
+        body: { email, password },
+      }),
+      invalidatesTags: ['auth'],
+    }),
+    update: builder.mutation({
+      query: ({ avatarURL, name }) => ({
+        url: '/',
+        method: 'PATCH',
+        body: { avatarURL, name },
+      }),
+      invalidatesTags: ['auth'],
+    }),
+    logout: builder.mutation({
+      query: () => ({
+        url: `/logout`,
+        method: 'POST',
+      }),
+      invalidatesTags: ['auth'],
+    }),
+    subscribe: builder.mutation({
+      query: ({ email }) => ({
+        url: '/subscribe',
+        method: 'POST',
+        body: { email },
       }),
       invalidatesTags: ['auth'],
     }),
   }),
 });
 
-export const { useFetchAllQuery, useAddUserMutation, useDeleteUserMutation } =
-  authApi;
+export const {
+  useGetCurrentQuery,
+  useSigninMutation,
+  useSignupMutation,
+  useUpdateMutation,
+  useSubscribeMutation,
+  useLogoutMutation,
+} = authApi;
