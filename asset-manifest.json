@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/drink-master-app-frontend/static/css/main.bac0394c.css",
-    "main.js": "/drink-master-app-frontend/static/js/main.16ea6abb.js",
+    "main.css": "/drink-master-app-frontend/static/css/main.983af632.css",
+    "main.js": "/drink-master-app-frontend/static/js/main.9ddf1668.js",
     "index.html": "/drink-master-app-frontend/index.html",
-    "main.bac0394c.css.map": "/drink-master-app-frontend/static/css/main.bac0394c.css.map",
-    "main.16ea6abb.js.map": "/drink-master-app-frontend/static/js/main.16ea6abb.js.map"
+    "main.983af632.css.map": "/drink-master-app-frontend/static/css/main.983af632.css.map",
+    "main.9ddf1668.js.map": "/drink-master-app-frontend/static/js/main.9ddf1668.js.map"
   },
   "entrypoints": [
-    "static/css/main.bac0394c.css",
-    "static/js/main.16ea6abb.js"
+    "static/css/main.983af632.css",
+    "static/js/main.9ddf1668.js"
   ]
 }
