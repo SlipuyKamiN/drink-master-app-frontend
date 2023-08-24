@@ -6,14 +6,19 @@
   letter-spacing: 0em;
   text-align: left;
   color: $primary-white-color;
+  padding-top: 80px;
+  margin-bottom: 40px;
 
   @media screen and (min-width: 768px) {
     font-size: 56px;
     line-height: calc(60 / 56);
+    padding-top: 140px;
+    margin-bottom: 60px;
   }
 
   @media screen and (min-width: 1440px) {
     font-size: 64px;
     line-height: calc(68 / 64);
+    padding-top: 160px;
   }
 }
