@@ -1,5 +1,7 @@
+import RecipePageHero from 'components/RecipePage/RecipePageHero';
+
 const RecipePage = () => {
-  return <div>RecipePage</div>;
+  return <RecipePageHero />;
 };
 
 export default RecipePage;
