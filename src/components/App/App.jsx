@@ -12,32 +12,36 @@ import SigninPage from 'pages/SigninPage';
 import SignupPage from 'pages/SignupPage';
 import WelcomePage from 'pages/WelcomePage';
 import { Route, Routes } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 
 const App = () => {
   return (
-    <Routes>
-      <Route
-        path="/welcome"
-        element={<RestrictedRoute component={WelcomePage} />}
-      />
-      <Route
-        path="/signup"
-        element={<RestrictedRoute component={SignupPage} />}
-      />
-      <Route
-        path="/signin"
-        element={<RestrictedRoute component={SigninPage} />}
-      />
-      <Route path="/" element={<PrivateRoute component={SharedLayout} />}>
-        <Route index element={<MainPage />} />
-        <Route path="/drinks/:categoryName" element={<DrinksPage />} />
-        <Route path="/add" element={<AddRecipePage />} />
-        <Route path="/my" element={<MyRecipesPage />} />
-        <Route path="/favorite" element={<FavoritePage />} />
-        <Route path="/recipe/:recipeId" element={<RecipePage />} />
-        <Route path="*" element={<ErrorPage />} />
-      </Route>
-    </Routes>
+    <>
+      <Routes>
+        <Route
+          path="/welcome"
+          element={<RestrictedRoute component={WelcomePage} />}
+        />
+        <Route
+          path="/signup"
+          element={<RestrictedRoute component={SignupPage} />}
+        />
+        <Route
+          path="/signin"
+          element={<RestrictedRoute component={SigninPage} />}
+        />
+        <Route path="/" element={<PrivateRoute component={SharedLayout} />}>
+          <Route index element={<MainPage />} />
+          <Route path="/drinks/:categoryName" element={<DrinksPage />} />
+          <Route path="/add" element={<AddRecipePage />} />
+          <Route path="/my" element={<MyRecipesPage />} />
+          <Route path="/favorite" element={<FavoritePage />} />
+          <Route path="/recipe/:recipeId" element={<RecipePage />} />
+          <Route path="*" element={<ErrorPage />} />
+        </Route>
+      </Routes>
+      <ToastContainer />
+    </>
   );
 };
 
