@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkdrink_master_app_frontend=self.webpackChunkdrink_master_app_frontend||[]).push([[403],{403:function(e,n,r){r.r(n);var t=r(184);n.default=function(){return(0,t.jsx)("div",{children:"MyRecipesPage"})}}}]);
+//# sourceMappingURL=403.c4da1b3a.chunk.js.map

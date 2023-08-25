@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkdrink_master_app_frontend=self.webpackChunkdrink_master_app_frontend||[]).push([[236],{236:function(e,n,r){r.r(n);var t=r(184);n.default=function(){return(0,t.jsx)("div",{children:"AddRecipePage"})}}}]);
+//# sourceMappingURL=236.6a00452e.chunk.js.map
