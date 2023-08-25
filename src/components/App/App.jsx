@@ -1,18 +1,19 @@
+import { Route, Routes } from 'react-router-dom';
+import { lazy } from 'react';
+import WelcomePage from 'pages/WelcomePage';
+import SigninPage from 'pages/SigninPage';
+import SignupPage from 'pages/SignupPage';
+import MainPage from 'pages/MainPage';
 import PrivateRoute from 'components/PrivateRoute';
 import RestrictedRoute from 'components/RestrictedRoute';
 import SharedLayout from 'components/SharedLayout/SharedLayout';
-import ErrorPage from 'pages/404Page';
-import AddRecipePage from 'pages/AddRecipePage';
-import DrinksPage from 'pages/DrinksPage';
-import FavoritePage from 'pages/FavoritePage';
-import MainPage from 'pages/MainPage';
-import MyRecipesPage from 'pages/MyRecipesPage';
-import RecipePage from 'pages/RecipePage';
-import SigninPage from 'pages/SigninPage';
-import SignupPage from 'pages/SignupPage';
-import WelcomePage from 'pages/WelcomePage';
-import { Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
+const ErrorPage = lazy(() => import('pages/404Page'));
+const AddRecipePage = lazy(() => import('pages/AddRecipePage'));
+const DrinksPage = lazy(() => import('pages/DrinksPage'));
+const FavoritePage = lazy(() => import('pages/FavoritePage'));
+const MyRecipesPage = lazy(() => import('pages/MyRecipesPage'));
+const RecipePage = lazy(() => import('pages/RecipePage'));
 
 const App = () => {
   return (
