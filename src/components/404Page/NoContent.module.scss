@@ -1,0 +1,16 @@
+.wrapper {
+  width: 100%;
+
+  // change image
+  background-image: url('../../images/no-content-cocktail.png');
+  background-size: 375px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    background-image: url('../../images/no-content-cocktail@2x.png');
+  }
+}
