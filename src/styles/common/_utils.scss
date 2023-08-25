@@ -1,0 +1,22 @@
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 2px 1px 0 #4070cd;
+    color: #4070cd;
+    opacity: 0.9;
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 2px 2px 2px #3cbc81;
+    color: #3cbc81;
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 2px 1px 0 #4070cd;
+    color: #4070cd;
+    opacity: 0.9;
+  }
+}

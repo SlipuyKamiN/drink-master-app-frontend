@@ -1,0 +1,32 @@
+@import 'styles/common/vars';
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100dvw;
+  height: 100dvh;
+
+  backdrop-filter: blur(4px);
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  max-width: 335px;
+
+  border-radius: 16px;
+
+  background-color: $main-bg-color;
+
+  @media screen and (min-width: 768px) {
+    max-width: none;
+    width: 500px;
+
+    border-radius: 30px;
+  }
+}
