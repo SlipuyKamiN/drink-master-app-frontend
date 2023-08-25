@@ -21,10 +21,7 @@
 
   border-radius: 16px;
 
-  background-color: $primary-white-color;
-
-  color: $main-bg-color;
-  padding: 50px;
+  background-color: $main-bg-color;
 
   @media screen and (min-width: 768px) {
     max-width: none;
