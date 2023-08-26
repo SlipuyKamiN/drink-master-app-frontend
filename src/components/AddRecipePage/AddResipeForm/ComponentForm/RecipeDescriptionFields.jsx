@@ -27,6 +27,7 @@ const RecipeDescriptionFields = ({ handleInputChange, value }) => {
           name="drink-photo"
           accept="image/png, image/jpeg"
           onChange={handleInputChange.handleFileChange}
+          required
         />
       )}
       <br />
@@ -38,6 +39,7 @@ const RecipeDescriptionFields = ({ handleInputChange, value }) => {
         placeholder="Enter item title"
         onChange={handleInputChange.handleDrinkChange}
         value={value.drink}
+        required
       />
       <br />
       <br />
@@ -48,21 +50,24 @@ const RecipeDescriptionFields = ({ handleInputChange, value }) => {
         onChange={handleInputChange.handleDescriptionChange}
         value={value.description}
         placeholder="Enter about recipe"
+        required
       />
       <br />
       <br />
       <Select
         placeholder="Category"
         onChange={handleInputChange.handleCategoryChange}
-        value={value.category}
+        defaultValue={value.category}
         options={options1}
+        required
       />
       <br />
       <Select
         placeholder="Glass"
         onChange={handleInputChange.handleGlassChange}
-        value={value.glass}
+        defaultValue={value.glass}
         options={options2}
+        required
       />
     </>
   );

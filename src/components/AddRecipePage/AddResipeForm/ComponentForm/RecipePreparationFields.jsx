@@ -1,12 +1,16 @@
-const RecipePreparationFields = () => {
+import scss from './RecipeIngredientsFields.module.scss';
+
+const RecipePreparationFields = ({ handleTextareaChange }) => {
   return (
-    <textarea
-      name="instructions"
-      id=""
-      cols="30"
-      rows="8"
-      placeholder="Enter the recipe"
-    ></textarea>
+    <>
+      <h3 className={scss.title}>Recipe Preparation</h3>
+      <textarea
+        style={{ maxHeight: '100px' }}
+        onChange={handleTextareaChange}
+        rows="30"
+        placeholder="Enter the recipe"
+      />
+    </>
   );
 };
 
