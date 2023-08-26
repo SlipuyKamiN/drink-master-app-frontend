@@ -1,4 +1,5 @@
 // import cocktails from './cocktails.json';
+import { useState, useEffect } from 'react';
 import categories from './categories.json';
 import ingredients from './ingredients.json';
 import Select from 'react-select';
@@ -13,21 +14,67 @@ const ingredientsOptions = ingredients.map(item => {
 });
 
 const DrinksSearch = () => {
+  const [textInput, setTextInput] = useState('');
+  const [searchedCocktail, setSearchedCocktail] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('');
+  const [selectedIngredients, setSelectedIngredients] = useState('');
+
+  useEffect(() => {
+    const searchParams = {
+      searchedCocktail,
+      selectedCategory,
+      selectedIngredients,
+    };
+
+    console.log(searchParams);
+  }, [searchedCocktail, selectedCategory, selectedIngredients]);
+
+  const handleSelectCategory = evt => setSelectedCategory(evt.value);
+
+  const handleSelectIngredients = evt => setSelectedIngredients(evt.value);
+
+  const handleChange = evt => {
+    setTextInput(evt.target.value);
+  };
+
+  const handleSubmit = evt => {
+    evt.preventDefault();
+    setSearchedCocktail(textInput);
+    // setTextInput('');
+  };
+
   return (
     <div>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="name">
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Enter the text"
+            value={textInput}
+            onChange={handleChange}
+            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+          ></input>
+          <button type="submit"></button>
+        </label>
+      </form>
       <Select
         className={sass.select}
         classNamePrefix="select"
-        defaultValue={categoriesOptions[0]}
+        defaultValue=""
         name="category"
         options={categoriesOptions}
+        onChange={handleSelectCategory}
       />
       <Select
         className={sass.select}
         classNamePrefix="select"
-        defaultValue={ingredientsOptions[0]}
+        defaultValue=""
         name="glasses"
         options={ingredientsOptions}
+        onChange={handleSelectIngredients}
       />
     </div>
   );
