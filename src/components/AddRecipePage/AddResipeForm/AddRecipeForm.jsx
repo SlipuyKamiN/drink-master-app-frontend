@@ -1,3 +1,4 @@
+import { nanoid } from '@reduxjs/toolkit';
 import RecipeDescriptionFields from '././ComponentForm/RecipeDescriptionFields';
 import RecipeIngredientsFields from '././ComponentForm/RecipeIngredientsFields';
 import RecipePreparationFields from '././ComponentForm/RecipePreparationFields';
@@ -10,7 +11,9 @@ const AddRecipeForm = () => {
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
   const [glass, setGlass] = useState('');
-  const [ingredients, setIngredients] = useState([]);
+  const [ingredients, setIngredients] = useState([
+    { id: 'qwe123', ingredient: '', amount: '', measurement: '' },
+  ]);
   const [quantity, setQuantity] = useState(1);
   const [instructions, setInstructions] = useState([]);
 
@@ -23,12 +26,15 @@ const AddRecipeForm = () => {
   const handleCategoryChange = event => setCategory(event.value);
   const handleGlassChange = event => setGlass(event.value);
 
-  const handleIngredientsChange = (index, field, value) => {
-    const updatedIngredients = [...ingredients];
-    const targetIngredient = updatedIngredients[index] || {};
-    targetIngredient[field] = value;
-    updatedIngredients[index] = targetIngredient;
-    setIngredients(updatedIngredients);
+  const handleIngredientsChange = (idToUpdate, field, value) => {
+    setIngredients(prev =>
+      ingredients.map(item => {
+        if (item.id === idToUpdate) {
+          item[field] = value;
+        }
+        return item;
+      })
+    );
   };
 
   const handleTextareaChange = event => {
@@ -37,14 +43,14 @@ const AddRecipeForm = () => {
     setInstructions(lines);
   };
 
-  const addIngredient = () => setQuantity(prev => prev + 1);
-  const removeIngredient = index => {
-    if (quantity === 1) {
-      return alert('Must have at leastone ingredient');
-    }
-    const updatedIngredients = ingredients.filter((_, i) => i !== index);
-    setIngredients(updatedIngredients);
-    setQuantity(prev => prev - 1);
+  const addIngredient = () =>
+    setIngredients(prev => [
+      ...prev,
+      { id: nanoid(), ingredient: '', amount: '', measurement: '' },
+    ]);
+
+  const removeIngredient = idToRemove => {
+    setIngredients(prev => prev.filter(({ id }) => id !== idToRemove));
   };
 
   const handleFormSubmit = event => {
