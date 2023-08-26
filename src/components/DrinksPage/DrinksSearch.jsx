@@ -44,7 +44,7 @@ const DrinksSearch = () => {
   };
 
   return (
-    <div>
+    <div className={sass.wrapper}>
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">
           <input
