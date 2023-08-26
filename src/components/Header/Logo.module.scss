@@ -1,0 +1,30 @@
+.link {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: #F3F3F3;
+    ;
+}
+.logoText {
+    font-size: 16px;
+    line-height: 1.125;
+    font-weight: 600;
+    margin-left: 8px;
+
+    @media screen and (min-width: 768px) {
+        font-size: 18px;
+        line-height: 1.22;
+        margin-left: 14px;
+    }
+}
+.logoImg {
+    width: 22px;
+    height: 22px;
+    fill: currentColor;
+
+    @media screen and (min-width: 768px) {
+        width: 28px;
+        height: 28px;
+    }
+}
+
