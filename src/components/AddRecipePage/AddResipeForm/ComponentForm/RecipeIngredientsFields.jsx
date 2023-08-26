@@ -8,20 +8,10 @@ const RecipeIngredientsFields = ({
   addIngredient,
   removeIngredient,
   handleIngredientsChange,
+  reductionIngredient,
 }) => {
-  console.log(ingredients);
-  const inputIndices = Array.from({ length: quantity }, (_, item) => item);
-
-  const handleIngredientNameChange = (idToUpdate, value) => {
-    handleIngredientsChange(idToUpdate, 'ingredient', value);
-  };
-
-  const handleAmountChange = (idToUpdate, value) => {
-    handleIngredientsChange(idToUpdate, 'amount', value);
-  };
-
-  const handleMeasurementChange = (idToUpdate, value) => {
-    handleIngredientsChange(idToUpdate, 'measurement', value);
+  const handleIngredientChange = (idToUpdate, field, value) => {
+    handleIngredientsChange(idToUpdate, field, value);
   };
 
   const options1 = [
@@ -45,7 +35,7 @@ const RecipeIngredientsFields = ({
     <>
       <h3 className={scss.title}>Ingredients</h3>
       <br />
-      <button type="button" onClick={removeIngredient}>
+      <button type="button" onClick={reductionIngredient}>
         -
       </button>
       <span className={scss.title}>{quantity}</span>
@@ -54,13 +44,15 @@ const RecipeIngredientsFields = ({
       </button>
       <br />
       <br />
-      {ingredients.map(item => (
-        <div key={item.id} className={scss.thumb}>
+      {ingredients.map(({ id }) => (
+        <div key={id} className={scss.thumb}>
           <Select
             className={scss.input}
             options={options1}
-            name={item}
-            onChange={event => handleIngredientNameChange(item.id, event.value)}
+            name="ingredient"
+            onChange={event =>
+              handleIngredientChange(id, 'ingredient', event.value)
+            }
             placeholder="Ingredient"
             required
           />
@@ -68,9 +60,10 @@ const RecipeIngredientsFields = ({
           <input
             className={scss.input}
             type="text"
-            value={item.amount}
-            name={`amount-${item}`}
-            onChange={event => handleAmountChange(item.id, event.target.value)}
+            name="amount"
+            onChange={event =>
+              handleIngredientChange(id, event.target.name, event.target.value)
+            }
             placeholder="Amount ingredient"
             required
           />
@@ -79,8 +72,10 @@ const RecipeIngredientsFields = ({
           <Select
             className={scss.input}
             options={options2}
-            name={`measurement-${item}`}
-            onChange={event => handleMeasurementChange(item.id, event.value)}
+            name="measurement"
+            onChange={event =>
+              handleIngredientChange(id, 'measurement', event.value)
+            }
             placeholder="Measurement"
             required
           />
@@ -88,8 +83,7 @@ const RecipeIngredientsFields = ({
             <button
               type="button"
               onClick={() => {
-                console.log(item);
-                removeIngredient(item.id);
+                removeIngredient(id);
               }}
             >
               <FiX fontSize="35px" />

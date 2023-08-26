@@ -12,7 +12,7 @@ const AddRecipeForm = () => {
   const [category, setCategory] = useState('');
   const [glass, setGlass] = useState('');
   const [ingredients, setIngredients] = useState([
-    { id: 'qwe123', ingredient: '', amount: '', measurement: '' },
+    { id: nanoid(), ingredient: '', amount: '', measurement: '' },
   ]);
   const [quantity, setQuantity] = useState(1);
   const [instructions, setInstructions] = useState([]);
@@ -27,7 +27,7 @@ const AddRecipeForm = () => {
   const handleGlassChange = event => setGlass(event.value);
 
   const handleIngredientsChange = (idToUpdate, field, value) => {
-    setIngredients(prev =>
+    setIngredients(() =>
       ingredients.map(item => {
         if (item.id === idToUpdate) {
           item[field] = value;
@@ -43,16 +43,26 @@ const AddRecipeForm = () => {
     setInstructions(lines);
   };
 
-  const addIngredient = () =>
+  const addIngredient = () => {
+    setQuantity(prev => prev + 1);
+
     setIngredients(prev => [
       ...prev,
       { id: nanoid(), ingredient: '', amount: '', measurement: '' },
     ]);
+  };
 
   const removeIngredient = idToRemove => {
     setIngredients(prev => prev.filter(({ id }) => id !== idToRemove));
   };
 
+  const reductionIngredient = () => {
+    if (quantity === 1) {
+      return alert('Must have at leastone ingredient');
+    }
+    setQuantity(prev => prev - 1);
+    setIngredients(prev => prev.slice(0, prev.length - 1));
+  };
   const handleFormSubmit = event => {
     event.preventDefault();
     const formData = new FormData();
@@ -81,6 +91,7 @@ const AddRecipeForm = () => {
         handleIngredientsChange={handleIngredientsChange}
         addIngredient={addIngredient}
         removeIngredient={removeIngredient}
+        reductionIngredient={reductionIngredient}
       />
       <br />
       <br />
