@@ -1,9 +1,16 @@
 import Container from 'components/Shared/Container';
+import FollowUs from './FollowUs';
+import Nav from './Nav';
+import SubscribeForm from './SubscribeForm';
 
 const Footer = () => {
   return (
     <footer>
-      <Container>Footer</Container>
+      <Container>
+        <FollowUs/>
+        <Nav/>
+        <SubscribeForm/>
+      </Container>
     </footer>
   );
 };
