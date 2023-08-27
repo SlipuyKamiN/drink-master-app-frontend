@@ -1,15 +1,21 @@
-import { useFetchAllQuery, useDeleteFavoriteMutation } from '../../redux/favoritsSlice';
-import data from "../../DB/cocktails.json";
+// import data from "../../DB/cocktails.json";
+import RecipesItem from "./RecipesItem";
+import css from "./RecipesList.module.scss";
 
 
 const RecipesList = () => {
-  const { data } = useFetchAllQuery();
-  
-  console.log(data);
-  
-  const { removeFavoriteItem } = useDeleteFavoriteMutation();
+  // const { data } = useFetchAllQuery();
+  // console.log(data);
+  // const { removeFavoriteItem } = useDeleteFavoriteMutation();
 
-  return <ul>RecipesList</ul>;
+
+  return <section className={css.ContainerRecipesList}>
+    <ul className={css.RecipesList}>
+    <RecipesItem />
+    <RecipesItem />
+    <RecipesItem />
+  </ul>
+  </section>
 };
 
 export default RecipesList;
