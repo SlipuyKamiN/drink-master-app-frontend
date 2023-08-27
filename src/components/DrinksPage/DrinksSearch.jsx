@@ -4,6 +4,7 @@ import categories from './categories.json';
 import ingredients from './ingredients.json';
 import Select from 'react-select';
 import { useForm } from 'react-hook-form';
+import windowDimensions from '../../hooks/useWindowDimensions';
 import sass from './DrinksSearch.module.scss';
 
 const categoriesOptions = categories.map(item => {
@@ -17,14 +18,22 @@ const ingredientsOptions = ingredients.map(item => {
 const DrinksSearch = () => {
   const { register, handleSubmit } = useForm();
   const [searchedCocktail, setSearchedCocktail] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('Cocktail');
   const [selectedIngredients, setSelectedIngredients] = useState('');
+  const [perPage, setPerpage] = useState('');
+
+  const viewPortWidth = windowDimensions().width;
+
+  useEffect(() => {
+    setPerpage(viewPortWidth >= 1440 ? 9 : 10);
+  }, [perPage, viewPortWidth]);
 
   useEffect(() => {
     const searchParams = {
       searchedCocktail,
       selectedCategory,
       selectedIngredients,
+      perPage,
     };
 
     if (!searchedCocktail && !selectedCategory && !selectedIngredients) {
@@ -46,7 +55,7 @@ const DrinksSearch = () => {
 
     console.log(filtred);
     console.log(searchParams);
-  }, [searchedCocktail, selectedCategory, selectedIngredients]);
+  }, [perPage, searchedCocktail, selectedCategory, selectedIngredients]);
 
   const handleSelectCategory = evt => setSelectedCategory(evt.value);
 
