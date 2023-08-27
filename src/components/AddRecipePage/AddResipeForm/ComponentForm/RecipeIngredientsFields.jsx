@@ -1,6 +1,6 @@
 import scss from './RecipeIngredientsFields.module.scss';
 import Select from 'react-select';
-import { FiX } from 'react-icons/fi';
+import { FiX, FiMinus, FiPlus } from 'react-icons/fi';
 
 const RecipeIngredientsFields = ({
   ingredients,
@@ -32,18 +32,27 @@ const RecipeIngredientsFields = ({
     { value: 'cups', label: 'cups' },
   ];
   return (
-    <>
-      <h3 className={scss.title}>Ingredients</h3>
-      <br />
-      <button type="button" onClick={reductionIngredient}>
-        -
-      </button>
-      <span className={scss.title}>{quantity}</span>
-      <button type="button" onClick={addIngredient}>
-        +
-      </button>
-      <br />
-      <br />
+    <div className={scss.wraper__ingridients}>
+      <div className={scss.wraper__ingridient}>
+        <h3 className={scss.recipe__title}>Ingredients</h3>
+        <div className={scss.counter}>
+          <button
+            className={scss.counter__btn}
+            type="button"
+            onClick={reductionIngredient}
+          >
+            <FiMinus className={scss.counter__icon} />
+          </button>
+          <p>{quantity}</p>
+          <button
+            className={scss.counter__btn}
+            type="button"
+            onClick={addIngredient}
+          >
+            <FiPlus className={scss.counter__icon} />
+          </button>
+        </div>
+      </div>
       {ingredients.map(({ id }) => (
         <div key={id} className={scss.thumb}>
           <Select
@@ -56,7 +65,7 @@ const RecipeIngredientsFields = ({
             placeholder="Ingredient"
             required
           />
-          <br />
+
           <input
             className={scss.input}
             type="text"
@@ -67,8 +76,7 @@ const RecipeIngredientsFields = ({
             placeholder="Amount ingredient"
             required
           />
-          <br />
-          <br />
+
           <Select
             className={scss.input}
             options={options2}
@@ -81,17 +89,18 @@ const RecipeIngredientsFields = ({
           />
           {ingredients.length !== 1 && (
             <button
+              className={scss.counter__btn}
               type="button"
               onClick={() => {
                 removeIngredient(id);
               }}
             >
-              <FiX fontSize="35px" />
+              <FiX className={scss.ingridient__icon} />
             </button>
           )}
         </div>
       ))}
-    </>
+    </div>
   );
 };
 

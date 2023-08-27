@@ -1,0 +1,61 @@
+@import 'styles/common/vars';
+.wrapper {
+  margin-bottom: 80px;
+}
+
+.wrapper__img {
+  position: relative;
+  width: 335px;
+  height: 320px;
+  margin-bottom: 40px;
+  border-radius: 8px;
+  color: rgba(22, 31, 55, 0.5);
+  background: rgba(22, 31, 55, 0.5);
+}
+
+.input__file {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+  width: 50px;
+  height: 50px;
+}
+
+.img {
+  width: 335px;
+  height: 320px;
+}
+
+.btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+  width: 50px;
+  height: 50px;
+  pointer-events: none;
+}
+
+.text {
+  position: absolute;
+  left: 128px;
+  bottom: 96px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: calc(20 / 16);
+  color: $primary-white-color;
+}
+
+.input {
+  margin-bottom: 34px;
+  color: $primary-white-color;
+  letter-spacing: -0.28px;
+  background-color: inherit;
+  width: 335px;
+  padding-bottom: 14px;
+  border: none;
+  border-bottom: 1px solid rgba(243, 243, 243, 0.5);
+}

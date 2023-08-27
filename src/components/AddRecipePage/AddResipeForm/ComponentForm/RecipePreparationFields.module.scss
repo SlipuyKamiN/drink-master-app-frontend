@@ -1,0 +1,20 @@
+.wrapper__textarea {
+  margin-bottom: 20px;
+}
+.title {
+  font-size: 28px;
+  font-weight: 600;
+  line-height: calc(32 / 28);
+  margin-bottom: 40px;
+}
+
+.textarea {
+  display: block;
+  width: 335px;
+  height: 184px;
+  padding: 16px 18px;
+  background-color: inherit;
+  border-radius: 14px;
+  border: 1px solid rgba(243, 243, 243, 0.5);
+  color: rgba(243, 243, 243, 0.5);
+}

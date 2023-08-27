@@ -1,3 +1,11 @@
-.form {
-  color: black;
+@import 'styles/common/vars';
+
+.btn {
+  display: block;
+  padding: 14px 40px;
+  align-items: flex-start;
+  gap: 10px;
+  border-radius: 42px;
+  background: $primary-white-color;
+  font-weight: 600;
 }

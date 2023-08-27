@@ -1,12 +1,59 @@
-.title {
-  color: white;
+.wraper__ingridients {
+  margin-bottom: 80px;
+}
+
+.wraper__ingridient {
+  display: flex;
+  margin-bottom: 40px;
+}
+
+.counter {
+  display: flex;
+  gap: 16px;
+
+  padding: 10px 11px;
+  align-items: center;
+  justify-content: center;
+  width: 104px;
+  border-radius: 200px;
+  border: 1px solid rgba(243, 243, 243, 0.5);
+  opacity: 0.8;
+  font-size: 14px;
+
+  font-weight: 400;
+  line-height: calc(18 / 14);
+}
+
+.counter__btn {
+  display: block;
+  background-color: inherit;
+  border: none;
+  color: inherit;
+}
+
+.counter__icon {
+  width: 16px;
+  height: 16px;
+}
+
+.recipe__title {
+  font-size: 28px;
+  font-weight: 600;
+  line-height: calc(32 / 28);
+  margin-right: 77px;
 }
 
 .thumb {
   display: flex;
-  gap: 15px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.ingridient__icon {
+  width: 18px;
 }
 
 .input {
-  width: 150px;
+  width: 100px;
 }

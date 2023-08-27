@@ -63,6 +63,7 @@ const AddRecipeForm = () => {
     setQuantity(prev => prev - 1);
     setIngredients(prev => prev.slice(0, prev.length - 1));
   };
+
   const handleFormSubmit = event => {
     event.preventDefault();
     const formData = new FormData();
@@ -71,7 +72,7 @@ const AddRecipeForm = () => {
     instructions.map();
   };
   return (
-    <form className={scss.form} onSubmit={handleFormSubmit} action="">
+    <form onSubmit={handleFormSubmit} action="">
       <RecipeDescriptionFields
         handleInputChange={{
           handleFileChange,
@@ -82,8 +83,6 @@ const AddRecipeForm = () => {
         }}
         value={{ selectedImage, drink, description, category, glass }}
       />
-      <br />
-      <br />
       <RecipeIngredientsFields
         ingredients={ingredients}
         quantity={quantity}
@@ -93,10 +92,10 @@ const AddRecipeForm = () => {
         removeIngredient={removeIngredient}
         reductionIngredient={reductionIngredient}
       />
-      <br />
-      <br />
       <RecipePreparationFields handleTextareaChange={handleTextareaChange} />
-      <button type="submit">Add</button>
+      <button className={scss.btn} type="submit">
+        Add
+      </button>
     </form>
   );
 };
