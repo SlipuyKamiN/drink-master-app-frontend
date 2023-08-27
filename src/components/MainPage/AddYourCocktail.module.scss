@@ -1,0 +1,67 @@
+@import 'styles/common/vars';
+
+.hero {
+  padding: 128px 0 386px;
+
+  @media screen and (min-width: 768px) {
+    padding: 184px 0 419px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    padding: 160px 0 316px;
+  }
+}
+
+.content {
+  max-width: 266px;
+
+  margin-bottom: 32px;
+
+  line-height: calc(20 / 14);
+
+  @media screen and (min-width: 768px) {
+    max-width: none;
+    width: 449px;
+
+    margin-bottom: 40px;
+
+    font-size: 18px;
+    line-height: calc(24 / 18);
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 500px;
+  }
+}
+
+.addPage {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 152px;
+  height: 46px;
+
+  font-weight: 600;
+  color: $secondary-bg-blue-color;
+
+  background-color: $primary-white-color;
+  border-radius: 42px;
+
+  cursor: pointer;
+
+  transition: color $transition-duration, background-color $transition-duration;
+
+  &:hover {
+    color: $primary-white-color;
+    background-color: $secondary-bg-blue-color;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 170px;
+    height: 54px;
+
+    font-size: 16px;
+    line-height: calc(18 / 16);
+  }
+}

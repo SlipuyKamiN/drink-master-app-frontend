@@ -1,0 +1,79 @@
+@import 'styles/common/vars';
+
+.card {
+  width: 335px;
+  // flex-basis: calc((100% - 0) / 1);
+
+  @media screen and (min-width: 768px) {
+    width: 342px;
+    // flex-basis: calc((100% - 20px) / 2);
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 400px;
+    // flex-basis: calc((100% - 40px) / 3);
+  }
+}
+
+.cardThumb {
+  height: 360px;
+
+  border-radius: 8px;
+
+  overflow: hidden;
+
+  @media screen and (min-width: 768px) {
+  }
+
+  @media screen and (min-width: 1440px) {
+    height: 400px;
+  }
+}
+
+.cardThumb > img {
+  height: 100%;
+}
+
+.cardInfo {
+  padding: 14px 0 28px;
+
+  display: flex;
+  justify-content: space-between;
+
+  @media screen and (min-width: 768px) {
+    padding: 14px 0 20px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    padding: 14px 0 60px;
+  }
+}
+
+.cardName {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: calc(18 / 16);
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+    line-height: calc(24 / 18);
+  }
+}
+
+.linkIngredients {
+  font-weight: 500;
+  color: rgba($color: $primary-white-color, $alpha: 0.5);
+
+  transition: color $transition-duration;
+
+  cursor: pointer;
+
+  &:hover {
+    color: $primary-white-color;
+  }
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: calc(18 / 16);
+  }
+}
