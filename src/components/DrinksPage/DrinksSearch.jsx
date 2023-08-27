@@ -2,6 +2,7 @@
 import cocktails from './cocktails.json';
 // delete after backend connecting ^^^^^^^^^^^
 import { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import categories from './categories.json';
 import ingredients from './ingredients.json';
 import Select from 'react-select';
@@ -26,27 +27,40 @@ const DrinksSearch = () => {
   const [searchedCocktail, setSearchedCocktail] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('Cocktail');
   const [selectedIngredients, setSelectedIngredients] = useState('');
-  const [perPage, setPerpage] = useState('');
+  const [perPage, setPerpage] = useState(10);
+  const [searchParams, setSearchParams] = useSearchParams('');
 
-  const viewPortWidth = windowDimensions().width;
+  // const search = searchParams.get('search');
+  // const ingredient = searchParams.get('ingredient');
+  // const category = searchParams.get('category');
+  // const page = searchParams.get('page');
+  // const limit = searchParams.get('limit');
+
+  const { width } = windowDimensions();
 
   useEffect(() => {
-    setPerpage(viewPortWidth >= 1440 ? 9 : 10);
-  }, [perPage, viewPortWidth]);
+    setPerpage(width >= 1440 ? 9 : 10);
+  }, [perPage, width]);
 
   useEffect(() => {
-    const searchParams = {
+    setSearchParams({
+      search: searchedCocktail,
+      ingredient: selectedIngredients,
+      category: selectedCategory,
+      page: 1,
+      limit: perPage,
+    });
+
+    console.log(searchParams);
+
+    // delete after backend connecting VVVVVVVVVV
+
+    const Params = {
       searchedCocktail,
       selectedCategory,
       selectedIngredients,
       perPage,
     };
-
-    // delete after backend connecting VVVVVVVVVV
-
-    if (!searchedCocktail && !selectedCategory && !selectedIngredients) {
-      return;
-    }
 
     const filtred = cocktails.filter(
       item =>
@@ -62,48 +76,92 @@ const DrinksSearch = () => {
     );
 
     console.log(filtred);
+    console.log(Params);
 
     // delete after backend connecting ^^^^^^^^^^^
+  }, [
+    searchParams,
+    setSearchParams,
+    perPage,
+    searchedCocktail,
+    selectedCategory,
+    selectedIngredients,
+  ]);
 
-    console.log(searchParams);
-  }, [perPage, searchedCocktail, selectedCategory, selectedIngredients]);
+  const handleSelectCategory = evt =>
+    setSelectedCategory(evt.value === 'All categories' ? '' : evt.value);
 
-  const handleSelectCategory = evt => setSelectedCategory(evt.value);
+  const handleSelectIngredients = evt =>
+    setSelectedIngredients(evt.value === 'All ingredients' ? '' : evt.value);
 
-  const handleSelectIngredients = evt => setSelectedIngredients(evt.value);
+  const selectStyles = {
+    control: styles => ({
+      ...styles,
+      borderRadius: '200px',
+      backgroundColor: '#161F37',
+      height: '54px',
+      color: '#F3F3F3',
+      paddingLeft: '14px',
+      border: 'none',
+    }),
+    input: styles => ({ ...styles, color: '#F3F3F3', border: 'none' }),
+    inputContainer: styles => ({ ...styles, color: '#F3F3F3' }),
+    option: styles => ({
+      ...styles,
+      color: '#F3F3F3',
+      backgroundColor: '#161F37',
+      border: 'none',
+    }),
+    singleValue: (provided, state) => ({
+      ...provided,
+      color: '#F3F3F3',
+      fontFamily: 'Manrope',
+      fontSize: '14px',
+    }),
+  };
 
   return (
     <div className={sass.wrapper}>
       <form
+        className={sass.form}
         onSubmit={handleSubmit(data => {
           setSearchedCocktail(data.name);
         })}
       >
         <input
+          className={sass.input}
           {...register('name')}
           placeholder="Enter the text"
           type="text"
           name="name"
-          // pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          // title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
         ></input>
-        <button type="submit"></button>
+        <button className={sass.submit} type="submit"></button>
       </form>
       <Select
         className={sass.select}
         classNamePrefix="select"
+        placeholder="Select a category..."
         defaultValue=""
         name="category"
-        options={categoriesOptions}
+        options={[
+          { value: 'All categories', label: 'All categories' },
+          ...categoriesOptions,
+        ]}
         onChange={handleSelectCategory}
+        styles={selectStyles}
       />
       <Select
         className={sass.select}
         classNamePrefix="select"
+        placeholder="Select ingredient..."
         defaultValue=""
         name="glasses"
-        options={ingredientsOptions}
+        options={[
+          { value: 'All ingredients', label: 'All ingredients' },
+          ...ingredientsOptions,
+        ]}
         onChange={handleSelectIngredients}
+        styles={selectStyles}
       />
     </div>
   );
