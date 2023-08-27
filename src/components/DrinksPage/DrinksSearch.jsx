@@ -7,7 +7,7 @@ import categories from './categories.json';
 import ingridients from './ingredients.json';
 import Select from 'react-select';
 import { useForm } from 'react-hook-form';
-import windowDimensions from '../../hooks/useWindowDimensions';
+import useWindowDimensions from '../../hooks/useWindowDimensions';
 import sass from './DrinksSearch.module.scss';
 
 // change after backend connecting VVVVVVVVVV
@@ -28,10 +28,12 @@ const DrinksSearch = () => {
   // const [selectedCategory, setSelectedCategory] = useState('Cocktail');
   // const [selectedIngredients, setSelectedIngredients] = useState('');
   // const [perPage, setPerpage] = useState(10);
+  const { width } = useWindowDimensions();
   const [searchParams, setSearchParams] = useSearchParams({
     category: 'Cocktail',
     limit: 10,
   });
+  const [allParams] = useState(() => Object.fromEntries([...searchParams]));
 
   // const search = searchParams.get('search');
   // const ingredient = searchParams.get('ingredient');
@@ -39,17 +41,16 @@ const DrinksSearch = () => {
   // const page = searchParams.get('page');
   // const limit = searchParams.get('limit');
 
-  const { width } = windowDimensions();
   console.log(width);
-  const allParams = Object.fromEntries([...searchParams]);
   console.log(allParams);
 
   useEffect(() => {
     // setPerpage(width >= 1440 ? 9 : 10);
-    // setSearchParams({
-    //   ...allParams,
-    //   limit: width >= 1440 ? 9 : 10,
-    // });
+
+    setSearchParams({
+      ...allParams,
+      limit: width >= 1440 ? 9 : 10,
+    });
   }, [setSearchParams, allParams, width]);
 
   // useEffect(() => {
