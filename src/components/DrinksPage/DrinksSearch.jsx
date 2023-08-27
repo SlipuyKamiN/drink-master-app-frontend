@@ -1,4 +1,6 @@
+// delete after backend connecting VVVVVVVVVV
 import cocktails from './cocktails.json';
+// delete after backend connecting ^^^^^^^^^^^
 import { useState, useEffect } from 'react';
 import categories from './categories.json';
 import ingredients from './ingredients.json';
@@ -7,6 +9,8 @@ import { useForm } from 'react-hook-form';
 import windowDimensions from '../../hooks/useWindowDimensions';
 import sass from './DrinksSearch.module.scss';
 
+// change after backend connecting VVVVVVVVVV
+
 const categoriesOptions = categories.map(item => {
   return { value: item, label: item };
 });
@@ -14,6 +18,8 @@ const categoriesOptions = categories.map(item => {
 const ingredientsOptions = ingredients.map(item => {
   return { value: item.title, label: item.title };
 });
+
+// change after backend connecting ^^^^^^^^^^^
 
 const DrinksSearch = () => {
   const { register, handleSubmit } = useForm();
@@ -36,6 +42,8 @@ const DrinksSearch = () => {
       perPage,
     };
 
+    // delete after backend connecting VVVVVVVVVV
+
     if (!searchedCocktail && !selectedCategory && !selectedIngredients) {
       return;
     }
@@ -54,6 +62,9 @@ const DrinksSearch = () => {
     );
 
     console.log(filtred);
+
+    // delete after backend connecting ^^^^^^^^^^^
+
     console.log(searchParams);
   }, [perPage, searchedCocktail, selectedCategory, selectedIngredients]);
 
@@ -73,8 +84,8 @@ const DrinksSearch = () => {
           placeholder="Enter the text"
           type="text"
           name="name"
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+          // pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+          // title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
         ></input>
         <button type="submit"></button>
       </form>
