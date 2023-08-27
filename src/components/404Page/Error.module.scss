@@ -1,0 +1,25 @@
+@import 'styles/common/vars';
+
+.text {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin: 0 auto;
+  padding: 248px 0 322px;
+
+  width: 265px;
+
+  text-align: center;
+  font-size: 120px;
+  font-weight: 600;
+  line-height: 1.02;
+
+  color: rgba($color: $primary-white-color, $alpha: 0.1);
+
+  @media screen and (min-width: 768px) {
+    width: 301px;
+
+    font-size: 150px;
+  }
+}
