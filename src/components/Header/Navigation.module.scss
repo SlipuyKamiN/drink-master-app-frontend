@@ -6,7 +6,7 @@
   padding: 20px 40px;
 }
 .nav {
-  margin-left: 234px;
+//   margin-left: 234px;
 }
 
 .list {
@@ -24,14 +24,15 @@
   border-radius: 40px;
   border: 1px solid rgba(243, 243, 243, 0.2);
   padding: 8px 16px;
-  transition: backgroung-color $transition-duration;
-
+  background-color: transparent;
+  transition: background-color $transition-duration;
   &:hover,
   :focus {
-    background-color: $secondary-bg-blue-color
+    background-color: $secondary-bg-blue-color;
   }
 }
 .active {
   composes: link;
   background-color: $secondary-bg-blue-color;
 }
+
