@@ -1,8 +1,8 @@
 // delete after backend connecting VVVVVVVVVV
 // import cocktails from './cocktails.json';
 // delete after backend connecting ^^^^^^^^^^^
-import { useState, useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useCallback, useEffect } from 'react';
+import { useLocation, useSearchParams } from 'react-router-dom';
 import categories from './categories.json';
 import ingridients from './ingredients.json';
 import Select from 'react-select';
@@ -33,7 +33,11 @@ const DrinksSearch = () => {
     category: 'Cocktail',
     limit: 10,
   });
-  const [allParams] = useState(() => Object.fromEntries([...searchParams]));
+  const { search } = useLocation();
+
+  const getSearchParams = useCallback(() => {
+    return Object.fromEntries([...searchParams]);
+  }, [searchParams]);
 
   // const search = searchParams.get('search');
   // const ingredient = searchParams.get('ingredient');
@@ -41,17 +45,20 @@ const DrinksSearch = () => {
   // const page = searchParams.get('page');
   // const limit = searchParams.get('limit');
 
-  console.log(width);
-  console.log(allParams);
+  // console.log(width);
 
   useEffect(() => {
     // setPerpage(width >= 1440 ? 9 : 10);
 
     setSearchParams({
-      ...allParams,
+      ...getSearchParams(),
       limit: width >= 1440 ? 9 : 10,
     });
-  }, [setSearchParams, allParams, width]);
+  }, [setSearchParams, width, getSearchParams]);
+
+  useEffect(() => {
+    console.log(getSearchParams());
+  }, [search]);
 
   // useEffect(() => {
   // setSearchParams({
@@ -100,14 +107,14 @@ const DrinksSearch = () => {
   const handleSelectCategory = evt =>
     // setSelectedCategory(evt.value === 'All categories' ? '' : evt.value);
     setSearchParams({
-      ...allParams,
+      ...getSearchParams(),
       category: evt.value === 'All categories' ? '' : evt.value,
     });
 
   const handleSelectIngridients = evt =>
     // setSelectedIngredients(evt.value === 'All ingredients' ? '' : evt.value);
     setSearchParams({
-      ...allParams,
+      ...getSearchParams(),
       ingredient: evt.value === 'All ingridients' ? '' : evt.value,
     });
 
@@ -144,7 +151,7 @@ const DrinksSearch = () => {
         onSubmit={handleSubmit(data => {
           // setSearchedCocktail(data.name);
           setSearchParams({
-            ...allParams,
+            ...getSearchParams(),
             search: data.name,
           });
         })}
