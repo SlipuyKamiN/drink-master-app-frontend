@@ -42,16 +42,15 @@ const DrinksSearch = () => {
     setPerpage(width >= 1440 ? 9 : 10);
   }, [perPage, width]);
 
+  const allParams = Object.fromEntries([...searchParams]);
   useEffect(() => {
-    setSearchParams({
-      search: searchedCocktail,
-      ingredient: selectedIngredients,
-      category: selectedCategory,
-      page: 1,
-      limit: perPage,
-    });
-
-    console.log(searchParams);
+    // setSearchParams({
+    //   search: searchedCocktail,
+    //   ingredient: selectedIngredients,
+    //   category: selectedCategory,
+    //   page: 1,
+    //   limit: perPage,
+    // });
 
     // delete after backend connecting VVVVVVVVVV
 
@@ -89,10 +88,18 @@ const DrinksSearch = () => {
   ]);
 
   const handleSelectCategory = evt =>
-    setSelectedCategory(evt.value === 'All categories' ? '' : evt.value);
+    // setSelectedCategory(evt.value === 'All categories' ? '' : evt.value);
+    setSearchParams({
+      ...allParams,
+      category: evt.value === 'All categories' ? '' : evt.value,
+    });
 
   const handleSelectIngredients = evt =>
-    setSelectedIngredients(evt.value === 'All ingredients' ? '' : evt.value);
+    // setSelectedIngredients(evt.value === 'All ingredients' ? '' : evt.value);
+    setSearchParams({
+      ...allParams,
+      ingredient: evt.value === 'All ingredients' ? '' : evt.value,
+    });
 
   const selectStyles = {
     control: styles => ({
