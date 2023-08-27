@@ -1,14 +1,61 @@
 @import 'styles/common/vars';
 
 .hero {
+  max-width: 375px;
+  margin: 0 auto;
   padding: 128px 0 386px;
 
+  background-image: url('../../images/hero-cocktail-small@1x.png');
+  background-repeat: no-repeat;
+  background-position: right top 34px;
+  background-size: 273px 700px;
+
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    background-image: url('../../images/hero-cocktail-small@2x.png');
+  }
+
   @media screen and (min-width: 768px) {
+    max-width: none;
+    width: 768px;
     padding: 184px 0 419px;
+
+    background-image: url('../../images/hero-cocktail-medium@1x.png');
+    background-position: right top -84px;
+    background-size: 445px 1001px;
+
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url('../../images/hero-cocktail-medium@2x.png');
+    }
   }
 
   @media screen and (min-width: 1440px) {
+    width: 1440px;
     padding: 160px 0 316px;
+
+    background-image: url('../../images/hero-cocktail-large@1x.png');
+    background-size: 710px 790px;
+
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url('../../images/hero-cocktail-large@2x.png');
+    }
+  }
+}
+
+.wrapper {
+  margin-left: 20px;
+
+  @media screen and (min-width: 768px) {
+    margin-left: 32px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    margin-left: 100px;
   }
 }
 
