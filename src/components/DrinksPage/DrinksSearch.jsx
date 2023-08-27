@@ -1,10 +1,10 @@
 // delete after backend connecting VVVVVVVVVV
-import cocktails from './cocktails.json';
+// import cocktails from './cocktails.json';
 // delete after backend connecting ^^^^^^^^^^^
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import categories from './categories.json';
-import ingredients from './ingredients.json';
+import ingridients from './ingredients.json';
 import Select from 'react-select';
 import { useForm } from 'react-hook-form';
 import windowDimensions from '../../hooks/useWindowDimensions';
@@ -16,7 +16,7 @@ const categoriesOptions = categories.map(item => {
   return { value: item, label: item };
 });
 
-const ingredientsOptions = ingredients.map(item => {
+const ingridientsOptions = ingridients.map(item => {
   return { value: item.title, label: item.title };
 });
 
@@ -24,11 +24,14 @@ const ingredientsOptions = ingredients.map(item => {
 
 const DrinksSearch = () => {
   const { register, handleSubmit } = useForm();
-  const [searchedCocktail, setSearchedCocktail] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('Cocktail');
-  const [selectedIngredients, setSelectedIngredients] = useState('');
-  const [perPage, setPerpage] = useState(10);
-  const [searchParams, setSearchParams] = useSearchParams('');
+  // const [searchedCocktail, setSearchedCocktail] = useState('');
+  // const [selectedCategory, setSelectedCategory] = useState('Cocktail');
+  // const [selectedIngredients, setSelectedIngredients] = useState('');
+  // const [perPage, setPerpage] = useState(10);
+  const [searchParams, setSearchParams] = useSearchParams({
+    category: 'Cocktail',
+    limit: 10,
+  });
 
   // const search = searchParams.get('search');
   // const ingredient = searchParams.get('ingredient');
@@ -37,55 +40,61 @@ const DrinksSearch = () => {
   // const limit = searchParams.get('limit');
 
   const { width } = windowDimensions();
-
-  useEffect(() => {
-    setPerpage(width >= 1440 ? 9 : 10);
-  }, [perPage, width]);
-
+  console.log(width);
   const allParams = Object.fromEntries([...searchParams]);
+  console.log(allParams);
+
   useEffect(() => {
+    // setPerpage(width >= 1440 ? 9 : 10);
     // setSearchParams({
-    //   search: searchedCocktail,
-    //   ingredient: selectedIngredients,
-    //   category: selectedCategory,
-    //   page: 1,
-    //   limit: perPage,
+    //   ...allParams,
+    //   limit: width >= 1440 ? 9 : 10,
     // });
+  }, [setSearchParams, allParams, width]);
 
-    // delete after backend connecting VVVVVVVVVV
+  // useEffect(() => {
+  // setSearchParams({
+  //   search: searchedCocktail,
+  //   ingredient: selectedIngredients,
+  //   category: selectedCategory,
+  //   page: 1,
+  //   limit: perPage,
+  // });
 
-    const Params = {
-      searchedCocktail,
-      selectedCategory,
-      selectedIngredients,
-      perPage,
-    };
+  // delete after backend connecting VVVVVVVVVV
 
-    const filtred = cocktails.filter(
-      item =>
-        (!selectedCategory ||
-          item.category.toLowerCase() === selectedCategory.toLowerCase()) &&
-        (!selectedIngredients ||
-          item.ingredients.some(
-            subItem =>
-              subItem.title.toLowerCase() === selectedIngredients.toLowerCase()
-          )) &&
-        (!searchedCocktail ||
-          item.drink.toLowerCase().includes(searchedCocktail.toLowerCase()))
-    );
+  // const Params = {
+  //   searchedCocktail,
+  //   selectedCategory,
+  //   selectedIngredients,
+  //   perPage,
+  // };
 
-    console.log(filtred);
-    console.log(Params);
+  // const filtred = cocktails.filter(
+  //   item =>
+  //     (!selectedCategory ||
+  //       item.category.toLowerCase() === selectedCategory.toLowerCase()) &&
+  //     (!selectedIngredients ||
+  //       item.ingredients.some(
+  //         subItem =>
+  //           subItem.title.toLowerCase() === selectedIngredients.toLowerCase()
+  //       )) &&
+  //     (!searchedCocktail ||
+  //       item.drink.toLowerCase().includes(searchedCocktail.toLowerCase()))
+  // );
 
-    // delete after backend connecting ^^^^^^^^^^^
-  }, [
-    searchParams,
-    setSearchParams,
-    perPage,
-    searchedCocktail,
-    selectedCategory,
-    selectedIngredients,
-  ]);
+  // console.log(filtred);
+  // console.log(Params);
+
+  // delete after backend connecting ^^^^^^^^^^^
+  // }, [
+  //   searchParams,
+  //   setSearchParams,
+  //   perPage,
+  //   searchedCocktail,
+  //   selectedCategory,
+  //   selectedIngredients,
+  // ]);
 
   const handleSelectCategory = evt =>
     // setSelectedCategory(evt.value === 'All categories' ? '' : evt.value);
@@ -94,11 +103,11 @@ const DrinksSearch = () => {
       category: evt.value === 'All categories' ? '' : evt.value,
     });
 
-  const handleSelectIngredients = evt =>
+  const handleSelectIngridients = evt =>
     // setSelectedIngredients(evt.value === 'All ingredients' ? '' : evt.value);
     setSearchParams({
       ...allParams,
-      ingredient: evt.value === 'All ingredients' ? '' : evt.value,
+      ingredient: evt.value === 'All ingridients' ? '' : evt.value,
     });
 
   const selectStyles = {
@@ -132,7 +141,11 @@ const DrinksSearch = () => {
       <form
         className={sass.form}
         onSubmit={handleSubmit(data => {
-          setSearchedCocktail(data.name);
+          // setSearchedCocktail(data.name);
+          setSearchParams({
+            ...allParams,
+            search: data.name,
+          });
         })}
       >
         <input
@@ -160,14 +173,14 @@ const DrinksSearch = () => {
       <Select
         className={sass.select}
         classNamePrefix="select"
-        placeholder="Select ingredient..."
+        placeholder="Select ingridient..."
         defaultValue=""
         name="glasses"
         options={[
-          { value: 'All ingredients', label: 'All ingredients' },
-          ...ingredientsOptions,
+          { value: 'All ingridients', label: 'All ingridients' },
+          ...ingridientsOptions,
         ]}
-        onChange={handleSelectIngredients}
+        onChange={handleSelectIngridients}
         styles={selectStyles}
       />
     </div>
