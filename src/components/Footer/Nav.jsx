@@ -1,14 +1,14 @@
-// import { Route, Routes, Navigate } from "react-router-dom";
-// import { lazy, Suspense} from "react";
+import { Link } from "react-router-dom";
+import scss from "./Nav.module.scss"
+
 
 const Nav = () => {
-  return <ul>
-    <li><a href="http:/">Drinks</a></li>
-    <li><a href="http:/">Add recipes</a></li>
-    <li><a href="http:/">My recipes</a></li>
-    <li><a href="http:/">Favorites</a></li>
-    </ul>
-
+  return <nav className={scss.navigate}>
+  <Link to="/drinks/:categoryName">Drinks</Link>
+  <Link to="/add">Add recipes</Link>
+  <Link to="/my">My recipes</Link>
+  <Link to="/favorite">Favorites</Link>
+</nav>
 };
 
 export default Nav;

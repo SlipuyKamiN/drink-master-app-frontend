@@ -1,0 +1,21 @@
+.socialsLink {
+  display: flex;
+  padding: 8px;
+  align-items: center;
+  gap: 8px;
+  border-radius: 10px;
+  border: 1px solid rgba(243, 243, 243, 0.2);
+}
+
+.socialsList {
+  display: flex;
+  text-align: center;
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.socialsIcon {
+  width: 28px;
+  height: 28px;
+  opacity: 0.8;
+}

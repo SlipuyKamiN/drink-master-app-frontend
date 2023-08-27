@@ -1,38 +1,38 @@
-import scss from "./FollowUs.module.scss"
+import styles from "./FollowUs.module.scss"
 import {BiLogoFacebook, BiLogoInstagram, BiLogoYoutube} from 'react-icons/bi'
 
 
 const FollowUs = () => {
   return <div>
-      <ul className={scss.socials}>
-    <li className={scss.socialsItem}>
+      <ul className={styles.socialsList}>
+    <li className={styles.socialsItem}>
                     <a
-                      className={scss.socialsLink}
+                      className={styles.socialsLink}
                       href="http://facebook.com"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <BiLogoFacebook/>
+                      <BiLogoFacebook className={styles.socialsIcon}/>
                     </a>
                   </li>
-                  <li className={scss.socialsItem}>
+                  <li className={styles.socialsItem}>
                     <a
-                      className={scss.socialsLink}
+                      className={styles.socialsLink}
                       href="http://instagram.com"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <BiLogoInstagram/>
+                      <BiLogoInstagram className={styles.socialsIcon}/>
                     </a>
                   </li>
-                  <li className={scss.socialsItem}>
+                  <li className={styles.socialsItem}>
                     <a
-                      className={scss.socialsLink}
+                      className={styles.socialsLink}
                       href="http://youtube.com"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <BiLogoYoutube/>
+                      <BiLogoYoutube className={styles.socialsIcon}/>
                     </a>
                   </li>
     </ul>
