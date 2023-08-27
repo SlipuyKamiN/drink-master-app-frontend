@@ -62,6 +62,7 @@ const RecipeDescriptionFields = ({ handleInputChange, value }) => {
           required
         />
         <Select
+          classNamePrefix="select-description"
           placeholder="Category"
           onChange={handleInputChange.handleCategoryChange}
           defaultValue={value.category}
@@ -69,7 +70,8 @@ const RecipeDescriptionFields = ({ handleInputChange, value }) => {
           required
         />
         <Select
-          className={scss.input}
+          classNamePrefix="select-description"
+          className="select-description-input"
           placeholder="Glass"
           onChange={handleInputChange.handleGlassChange}
           defaultValue={value.glass}
