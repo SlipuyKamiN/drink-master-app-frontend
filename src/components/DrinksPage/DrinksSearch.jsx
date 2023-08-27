@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import categories from './categories.json';
 import ingredients from './ingredients.json';
 import Select from 'react-select';
+import { useForm } from 'react-hook-form';
 import sass from './DrinksSearch.module.scss';
 
 const categoriesOptions = categories.map(item => {
@@ -14,22 +15,21 @@ const ingredientsOptions = ingredients.map(item => {
 });
 
 const DrinksSearch = () => {
-  const [textInput, setTextInput] = useState('');
+  const { register, handleSubmit } = useForm();
   const [searchedCocktail, setSearchedCocktail] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedIngredients, setSelectedIngredients] = useState('');
-  const [filtredCocktails, setFiltredCocktails] = useState([]);
 
   useEffect(() => {
-    if (!searchedCocktail && !selectedCategory && !selectedIngredients) {
-      return;
-    }
-
     const searchParams = {
       searchedCocktail,
       selectedCategory,
       selectedIngredients,
     };
+
+    if (!searchedCocktail && !selectedCategory && !selectedIngredients) {
+      return;
+    }
 
     const filtred = cocktails.filter(
       item =>
@@ -40,10 +40,9 @@ const DrinksSearch = () => {
             subItem =>
               subItem.title.toLowerCase() === selectedIngredients.toLowerCase()
           )) &&
-        (!searchedCocktail || item.drink.includes(searchedCocktail))
+        (!searchedCocktail ||
+          item.drink.toLowerCase().includes(searchedCocktail.toLowerCase()))
     );
-
-    setFiltredCocktails(filtred);
 
     console.log(filtred);
     console.log(searchParams);
@@ -53,32 +52,22 @@ const DrinksSearch = () => {
 
   const handleSelectIngredients = evt => setSelectedIngredients(evt.value);
 
-  const handleChange = evt => {
-    setTextInput(evt.target.value);
-  };
-
-  const handleSubmit = evt => {
-    evt.preventDefault();
-    setSearchedCocktail(textInput);
-    // setTextInput('');
-  };
-
   return (
     <div className={sass.wrapper}>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="name">
-          <input
-            type="text"
-            name="name"
-            id="name"
-            placeholder="Enter the text"
-            value={textInput}
-            onChange={handleChange}
-            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-          ></input>
-          <button type="submit"></button>
-        </label>
+      <form
+        onSubmit={handleSubmit(data => {
+          setSearchedCocktail(data.name);
+        })}
+      >
+        <input
+          {...register('name')}
+          placeholder="Enter the text"
+          type="text"
+          name="name"
+          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+        ></input>
+        <button type="submit"></button>
       </form>
       <Select
         className={sass.select}
