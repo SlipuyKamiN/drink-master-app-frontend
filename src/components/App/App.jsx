@@ -7,6 +7,7 @@ import MainPage from 'pages/MainPage';
 import PrivateRoute from 'components/PrivateRoute';
 import RestrictedRoute from 'components/RestrictedRoute';
 import SharedLayout from 'components/SharedLayout/SharedLayout';
+import { ToastContainer } from 'react-toastify';
 const ErrorPage = lazy(() => import('pages/404Page'));
 const AddRecipePage = lazy(() => import('pages/AddRecipePage'));
 const DrinksPage = lazy(() => import('pages/DrinksPage'));
@@ -16,29 +17,32 @@ const RecipePage = lazy(() => import('pages/RecipePage'));
 
 const App = () => {
   return (
-    <Routes>
-      <Route
-        path="/welcome"
-        element={<RestrictedRoute component={WelcomePage} />}
-      />
-      <Route
-        path="/signup"
-        element={<RestrictedRoute component={SignupPage} />}
-      />
-      <Route
-        path="/signin"
-        element={<RestrictedRoute component={SigninPage} />}
-      />
-      <Route path="/" element={<PrivateRoute component={SharedLayout} />}>
-        <Route index element={<MainPage />} />
-        <Route path="/drinks/:categoryName" element={<DrinksPage />} />
-        <Route path="/add" element={<AddRecipePage />} />
-        <Route path="/my" element={<MyRecipesPage />} />
-        <Route path="/favorite" element={<FavoritePage />} />
-        <Route path="/recipe/:recipeId" element={<RecipePage />} />
-        <Route path="*" element={<ErrorPage />} />
-      </Route>
-    </Routes>
+    <>
+      <Routes>
+        <Route
+          path="/welcome"
+          element={<RestrictedRoute component={WelcomePage} />}
+        />
+        <Route
+          path="/signup"
+          element={<RestrictedRoute component={SignupPage} />}
+        />
+        <Route
+          path="/signin"
+          element={<RestrictedRoute component={SigninPage} />}
+        />
+        <Route path="/" element={<PrivateRoute component={SharedLayout} />}>
+          <Route index element={<MainPage />} />
+          <Route path="/drinks/:categoryName" element={<DrinksPage />} />
+          <Route path="/add" element={<AddRecipePage />} />
+          <Route path="/my" element={<MyRecipesPage />} />
+          <Route path="/favorite" element={<FavoritePage />} />
+          <Route path="/recipe/:recipeId" element={<RecipePage />} />
+          <Route path="*" element={<ErrorPage />} />
+        </Route>
+      </Routes>
+      <ToastContainer />
+    </>
   );
 };
 
