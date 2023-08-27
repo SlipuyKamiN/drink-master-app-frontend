@@ -12,7 +12,6 @@ const RecipesItem = () => {
   
   return <>
     <li className={css.RecipesItem}>
-      RecipesItem
       <div className={css.wraperCard}>
         <img
           className={css.RecipesItemImg}

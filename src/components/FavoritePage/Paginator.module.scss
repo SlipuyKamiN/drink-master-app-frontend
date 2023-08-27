@@ -1,0 +1,41 @@
+.PaginatorContainer{
+    display: flex;
+    justify-content: center;
+}
+
+.PaginatorBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: none;
+    padding: 0px;
+    width: 27px;
+    height: 27px;
+    border-radius: 50%;
+    color: #f3f3f3;
+    transition: color 250ms linear;
+
+    &:hover{
+        background-color: #434D67;
+    }
+
+    &:active{
+        background-color: #555964;
+    }
+}
+
+.arrow{
+    opacity: 0.3;
+    transition: color 250ms linear;
+    
+    &:active{
+        opacity: 1;
+        color: inherit;
+    }
+}
+
+.PaginatorList{
+    margin-left: 50px;
+    margin-right: 50px;
+}
