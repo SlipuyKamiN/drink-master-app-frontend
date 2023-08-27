@@ -1,21 +1,27 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { resetUser, setUser } from './userSlice';
 
-const BASE_URL = `${process.env.REACT_APP_BASE_URL}/users`;
+const BASE_URL = `${process.env.REACT_APP_BASE_URL}/api`;
 
 export const authApi = createApi({
   reducerPath: 'authApi',
   baseQuery: fetchBaseQuery({
     baseUrl: BASE_URL,
+    prepareHeaders: (headers, { getState }) => {
+      const token = getState().user.token;
+
+      if (token) {
+        headers.set('authorization', `Bearer ${token}`);
+      }
+
+      return headers;
+    },
   }),
   tagTypes: ['auth'],
   endpoints: builder => ({
-    getCurrent: builder.query({
-      query: () => ({ url: '/' }),
-      providesTags: ['auth'],
-    }),
     signup: builder.mutation({
       query: ({ name, email, password }) => ({
-        url: '/signup',
+        url: '/auth/signup',
         method: 'POST',
         body: { name, email, password },
       }),
@@ -23,24 +29,37 @@ export const authApi = createApi({
     }),
     signin: builder.mutation({
       query: ({ email, password }) => ({
-        url: '/signin',
+        url: '/auth/signin',
         method: 'POST',
         body: { email, password },
       }),
+      async onQueryStarted(arg, { dispatch, queryFulfilled }) {
+        dispatch(setUser((await queryFulfilled).data));
+      },
       invalidatesTags: ['auth'],
     }),
-    update: builder.mutation({
-      query: ({ avatarURL, name }) => ({
-        url: '/',
-        method: 'PATCH',
-        body: { avatarURL, name },
+    currentUser: builder.query({
+      query: () => ({
+        url: '/auth/current',
       }),
-      invalidatesTags: ['auth'],
     }),
     logout: builder.mutation({
       query: () => ({
-        url: `/logout`,
+        url: `/auth/logout`,
         method: 'POST',
+      }),
+      async onQueryStarted(arg, { dispatch, queryFulfilled }) {
+        await queryFulfilled;
+        dispatch(resetUser());
+      },
+      invalidatesTags: ['auth'],
+    }),
+    updateUser: builder.mutation({
+      query: body => ({
+        url: '/auth/user',
+        method: 'PATCH',
+        body,
+        formData: true,
       }),
       invalidatesTags: ['auth'],
     }),
@@ -56,10 +75,10 @@ export const authApi = createApi({
 });
 
 export const {
-  useGetCurrentQuery,
   useSigninMutation,
   useSignupMutation,
-  useUpdateMutation,
-  useSubscribeMutation,
+  useCurrentUserQuery,
   useLogoutMutation,
+  useUpdateUserMutation,
+  useSubscribeMutation,
 } = authApi;

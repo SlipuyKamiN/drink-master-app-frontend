@@ -1,10 +1,14 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { authApi } from './authSlice';
-import { cocktailsApi } from './cocktailsSlice';
+import { recipesApi } from './recipesSlice';
+import { userReducer } from './userSlice';
+import { myRecipesApi } from './myRecipesSlice';
 
 const rootReducer = combineReducers({
   [authApi.reducerPath]: authApi.reducer,
-  [cocktailsApi.reducerPath]: cocktailsApi.reducer,
+  [recipesApi.reducerPath]: recipesApi.reducer,
+  [myRecipesApi.reducerPath]: myRecipesApi.reducer,
+  user: userReducer,
 });
 
 export const store = configureStore({
@@ -12,5 +16,6 @@ export const store = configureStore({
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware()
       .concat(authApi.middleware)
-      .concat(cocktailsApi.middleware),
+      .concat(recipesApi.middleware)
+      .concat(myRecipesApi.middleware),
 });
