@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import scss from './SignupForm.module.scss';
 
 const SigninForm = () => {
   const {
@@ -15,10 +16,11 @@ const SigninForm = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <label>
+    <div className={scss.div}>
+      <form className={scss.form} onSubmit={handleSubmit(onSubmit)}>
+        <label className={scss.label}>
           <input
+            className={scss.input}
             placeholder="Email"
             {...register('email', {
               required: 'Must be filled!',
@@ -28,12 +30,13 @@ const SigninForm = () => {
               },
             })}
           />
+          <div className={scss.error}>
+            {errors?.email && <p>{errors?.email?.message || 'Error!'}</p>}
+          </div>
         </label>
-        <div>
-          {errors?.email && <p>{errors?.email?.message || 'Error!'}</p>}
-        </div>
-        <label>
+        <label className={scss.label}>
           <input
+            className={scss.input}
             placeholder="Password"
             {...register('password', {
               required: 'Must be filled!',
@@ -52,15 +55,17 @@ const SigninForm = () => {
               },
             })}
           />
+          <div className={scss.error}>
+            {errors?.password && <p>{errors?.password?.message || 'Error!'}</p>}
+          </div>
         </label>
-        <div>
-          {errors?.password && <p>{errors?.password?.message || 'Error!'}</p>}
-        </div>
-        <button type="submit" disabled={!isValid}>
+        <button className={scss.btn} type="submit" disabled={!isValid}>
           Sign In
         </button>
       </form>
-      <NavLink to="/signup">Registration</NavLink>
+      <NavLink className={scss.nav} to="/signup">
+        Registration
+      </NavLink>
     </div>
   );
 };
