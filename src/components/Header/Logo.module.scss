@@ -3,14 +3,13 @@
     justify-content: flex-start;
     align-items: center;
     color: #F3F3F3;
-    ;
+    gap: 8px;
 }
 .logoText {
     font-size: 16px;
     line-height: 1.125;
     font-weight: 600;
-    margin-left: 8px;
-
+ 
     @media screen and (min-width: 768px) {
         font-size: 18px;
         line-height: 1.22;
