@@ -32,8 +32,8 @@ const RecipesItem = () => {
             className={css.RecipesItemButton}
             type="button">
             <FiTrash2
+              className={css.RecipesItemIcon}
               size={24}
-              color="#F3F3F3"
             />
           </button>
         </div>

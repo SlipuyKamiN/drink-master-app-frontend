@@ -56,18 +56,41 @@
     align-items: center;
     width: 151px;
     height: 46px;
-
     background-color: #161F37;
     border-radius: 50px;
+        
+    &:hover {
+        background-color: #F3F3F3;
+        color: #161F37
+    }
+
+    &:active{
+        background-color: #c2bebe;
+    }
 }
 
 .RecipesItemButton{
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-left: 8px;
     width: 46px;
     border-radius: 50px;
-    background-color: #161F37;
     border: none;
-    margin-left: 8px;
+    background-color: #161F37;
+    color: #F3F3F3;
+    transition: color 250ms linear;
+
+    &:hover {
+        background-color: #F3F3F3;
+        color: #161F37;
+    }
+
+    &:active{
+        background-color: #c2bebe;
+    }
+}
+
+.RecipesItemIcon{
+    color: inherit
 }
