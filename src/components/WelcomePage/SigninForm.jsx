@@ -18,8 +18,8 @@ const SigninForm = () => {
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <label>
-          Email
           <input
+            placeholder="Email"
             {...register('email', {
               required: 'Must be filled!',
               pattern: {
@@ -33,13 +33,22 @@ const SigninForm = () => {
           {errors?.email && <p>{errors?.email?.message || 'Error!'}</p>}
         </div>
         <label>
-          Password
           <input
+            placeholder="Password"
             {...register('password', {
               required: 'Must be filled!',
               minLength: {
                 value: 6,
-                message: 'Must be at least 6 characters long!',
+                message: 'Must be between 6 and 16 characters!',
+              },
+              maxLength: {
+                value: 16,
+                message: 'Must be between 6 and 16 characters!',
+              },
+              pattern: {
+                value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$/,
+                message:
+                  'Must contain at least 1 uppercase letter, 1 lowercase letter and 1 number!',
               },
             })}
           />
