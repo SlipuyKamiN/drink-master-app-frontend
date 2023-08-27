@@ -14,6 +14,10 @@ const RecipesList = () => {
     <RecipesItem />
     <RecipesItem />
     <RecipesItem />
+        <RecipesItem />
+    <RecipesItem />
+    <RecipesItem />
+
   </ul>
   </section>
 };
