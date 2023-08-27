@@ -1,3 +1,11 @@
+
+.RecipesItem{
+    list-style-type: none;
+
+    //! delete in the futures
+    margin-bottom: 40px;
+}
+
 .wraperCard {
     display: block;
     width: 335px;
@@ -6,12 +14,10 @@
     border: 2px solid rgb(239, 233, 233);
 }
 
-.RecipesItem{
-    list-style-type: none;
-}
 .RecipesItemImg{
     height: 360px;
     margin-bottom: 18px;
+    border-radius: 10px;
 }
 
 .RecipesItemTitle{
@@ -39,6 +45,11 @@
     color: #f3f3f3;
 }
 
+.wraperBottom{
+    display: flex;
+    border: 2px solid rgb(239, 233, 233);
+}
+
 .RecipesItemLink{
     display: flex;
     justify-content: center;
@@ -50,7 +61,13 @@
     border-radius: 50px;
 }
 
-.wraperBottom{
+.RecipesItemButton{
     display: flex;
-    border: 2px solid rgb(239, 233, 233);
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    border-radius: 50px;
+    background-color: #161F37;
+    border: none;
+    margin-left: 8px;
 }
