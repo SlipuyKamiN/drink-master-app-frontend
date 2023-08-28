@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useLocation, useSearchParams } from 'react-router-dom';
 import categories from './categories.json';
 import ingridients from './ingredients.json';
@@ -19,41 +19,61 @@ const ingridientsOptions = ingridients.map(item => {
 
 // change after backend connecting ^^^^^^^^^^^
 
-const DrinksSearch = () => {
+const DrinksSearch = ({ onFilterChange }) => {
   const { register, handleSubmit } = useForm();
-  const { width } = useWindowDimensions();
-  const [searchParams, setSearchParams] = useSearchParams({
-    category: 'Cocktail',
-    limit: 10,
-  });
-  const { search } = useLocation();
+  const [filter, setFilter] = useState({});
 
-  const getSearchParams = useCallback(() => {
-    return Object.fromEntries([...searchParams]);
-  }, [searchParams]);
+  // console.log(filter);
 
   useEffect(() => {
-    setSearchParams({
-      ...getSearchParams(),
-      limit: width >= 1440 ? 9 : 10,
-    });
-  }, [setSearchParams, width, getSearchParams]);
+    onFilterChange(filter);
+  }, [filter]);
 
-  useEffect(() => {
-    console.log(getSearchParams());
-  }, [search]);
+  // const handleFilterChange = () => {
+  //   onFilterChange(filter);
+  // };
 
-  const handleSelectCategory = evt =>
-    setSearchParams({
-      ...getSearchParams(),
+  // const { width } = useWindowDimensions();
+  // const [searchParams, setSearchParams] = useSearchParams({
+  //   category: 'Cocktail',
+  //   limit: 10,
+  // });
+  // const { search } = useLocation();
+
+  // const getSearchParams = useCallback(() => {
+  //   return Object.fromEntries([...searchParams]);
+  // }, [searchParams]);
+
+  // useEffect(() => {
+  //   setSearchParams({
+  //     ...getSearchParams(),
+  //     limit: width >= 1440 ? 9 : 10,
+  //   });
+  // }, [setSearchParams, width, getSearchParams]);
+
+  // useEffect(() => {
+  //   console.log(getSearchParams());
+  // }, [search]);
+
+  const handleSelectCategory = evt => {
+    // onFilterChange(filter);
+    setFilter({
+      // ...getSearchParams(),
+      ...filter,
       category: evt.value === 'All categories' ? '' : evt.value,
     });
+    // onFilterChange(filter);
+  };
 
-  const handleSelectIngridients = evt =>
-    setSearchParams({
-      ...getSearchParams(),
+  const handleSelectIngridients = evt => {
+    // onFilterChange(filter);
+    setFilter({
+      // ...getSearchParams(),
+      ...filter,
       ingredient: evt.value === 'All ingridients' ? '' : evt.value,
     });
+    // onFilterChange(filter);
+  };
 
   const selectStyles = {
     control: styles => ({
@@ -86,10 +106,12 @@ const DrinksSearch = () => {
       <form
         className={sass.form}
         onSubmit={handleSubmit(data => {
-          setSearchParams({
-            ...getSearchParams(),
+          setFilter({
+            // ...getSearchParams(),
+            ...filter,
             search: data.name,
           });
+          // onFilterChange(filter);
         })}
       >
         <input
