@@ -6,6 +6,8 @@
   //   margin-bottom: auto;
   margin-left: 20px;
   width: 335px;
+  // background-image: url('../images/welcomePage-background-image.png');
+  // background-color: transparent;
 
   @media screen and (min-width: 768px) {
     // margin-top: 400px;
@@ -30,6 +32,24 @@
     align-items: start;
     justify-content: start;
   }
+}
+
+.wrapper {
+  width: 100vh;
+  height: 100vh;
+
+  // change image
+  background-image: url('../images/welcomePage-background-image.png');
+  background-size: 375px;
+  background-position: right;
+  background-repeat: no-repeat;
+  background-color: transparent;
+
+  // @media (min-device-pixel-ratio: 2),
+  //   (min-resolution: 192dpi),
+  //   (min-resolution: 2dppx) {
+  //   background-image: url('../../images/no-content-cocktail@2x.png');
+  // }
 }
 
 // .background {
