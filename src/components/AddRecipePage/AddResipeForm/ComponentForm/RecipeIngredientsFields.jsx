@@ -1,24 +1,31 @@
 import scss from './RecipeIngredientsFields.module.scss';
 import Select from 'react-select';
 import { FiX, FiMinus, FiPlus } from 'react-icons/fi';
+import { useGetIngredientsListQuery } from 'redux/recipesSlice';
 
 const RecipeIngredientsFields = ({
   ingredients,
   quantity,
+  user,
   addIngredient,
   removeIngredient,
   handleIngredientsChange,
   reductionIngredient,
 }) => {
+  const { data: ingridientsList, isSuccess: isIngridients } =
+    useGetIngredientsListQuery('', {
+      skip: !user,
+    });
+
   const handleIngredientChange = (idToUpdate, field, value) => {
     handleIngredientsChange(idToUpdate, field, value);
   };
-
-  const options1 = [
-    { value: 'lem', label: 'lem' },
-    { value: 'jus', label: 'jus' },
-    { value: 'beer', label: 'beer' },
-  ];
+  const ingridientsOptions = () => {
+    const ingridientOption = ingridientsList.map(({ title }) => {
+      return { value: title, label: title };
+    });
+    return ingridientOption;
+  };
 
   const options2 = [
     { value: 'cl', label: 'cl' },
@@ -58,7 +65,7 @@ const RecipeIngredientsFields = ({
         <div key={id} className={scss.thumb}>
           <Select
             classNamePrefix="ingridient-select"
-            options={options1}
+            options={isIngridients ? ingridientsOptions() : []}
             name="ingredient"
             onChange={event =>
               handleIngredientChange(id, 'ingredient', event.value)

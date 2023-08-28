@@ -1,17 +1,32 @@
 import Select from 'react-select';
 import scss from './RecipeDescriptionFields.module.scss';
 import { FiPlus } from 'react-icons/fi';
-const RecipeDescriptionFields = ({ handleInputChange, value }) => {
-  const options1 = [
-    { value: 'cocktail', label: 'Cocktail' },
-    { value: 'csnake', label: 'Cnake' },
-    { value: 'beer', label: 'Beer' },
-  ];
-  const options2 = [
-    { value: 'cocktail glass', label: 'Cocktail glass' },
-    { value: 'csnake glass', label: 'Cnake glass' },
-    { value: 'beer glass', label: 'Beer glass' },
-  ];
+import {
+  useGetCategoriesListQuery,
+  useGetGlassListQuery,
+} from 'redux/recipesSlice';
+
+const RecipeDescriptionFields = ({ handleInputChange, value, user }) => {
+  // const [dispatch, { data: user }] = useSigninMutation();
+
+  const { data: categoryList, isSuccess: isCategory } =
+    useGetCategoriesListQuery('', {
+      skip: !user,
+    });
+  const { data: glassList, isSuccess: isGlass } = useGetGlassListQuery('', {
+    skip: !user,
+  });
+
+  // useEffect(() => {
+  //   dispatch({ email: 'marias@gmail.com', password: 'Qwerty123' });
+  // }, []);
+
+  const getOptionsForSelect = listOptions => {
+    const options = listOptions.map(item => {
+      return { value: item, label: item };
+    });
+    return options;
+  };
 
   return (
     <div className={scss.wrapper}>
@@ -67,17 +82,17 @@ const RecipeDescriptionFields = ({ handleInputChange, value }) => {
             placeholder=""
             onChange={handleInputChange.handleCategoryChange}
             defaultValue={value.category}
-            options={options1}
+            options={isCategory ? getOptionsForSelect(categoryList) : []}
             required
           />
         </label>
         <label className={scss.recipeDescription__label}>
           <Select
-            classNamePrefix="select-description"
+            classNamePrefix="select-description-glass"
             placeholder=""
             onChange={handleInputChange.handleGlassChange}
             defaultValue={value.glass}
-            options={options2}
+            options={isGlass ? getOptionsForSelect(glassList) : []}
             required
           />
         </label>

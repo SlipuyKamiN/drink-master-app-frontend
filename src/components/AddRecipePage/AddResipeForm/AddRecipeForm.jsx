@@ -3,7 +3,9 @@ import RecipeDescriptionFields from '././ComponentForm/RecipeDescriptionFields';
 import RecipeIngredientsFields from '././ComponentForm/RecipeIngredientsFields';
 import RecipePreparationFields from '././ComponentForm/RecipePreparationFields';
 import scss from './AddRecipeForm.module.scss';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useSigninMutation } from 'redux/authSlice';
+import { useCreateNewRecipeMutation } from 'redux/myRecipesSlice';
 
 const AddRecipeForm = () => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -16,6 +18,13 @@ const AddRecipeForm = () => {
   ]);
   const [quantity, setQuantity] = useState(1);
   const [instructions, setInstructions] = useState([]);
+
+  const [dispatch, { data: user }] = useSigninMutation();
+  const [dispatch1, { data, isSuccess, isError }] =
+    useCreateNewRecipeMutation();
+  useEffect(() => {
+    dispatch({ email: 'marias@gmail.com', password: 'Qwerty123' });
+  }, []);
 
   const handleFileChange = event => {
     const file = event.target.files[0];
@@ -66,11 +75,39 @@ const AddRecipeForm = () => {
 
   const handleFormSubmit = event => {
     event.preventDefault();
-    const formData = new FormData();
-    formData.append('image', selectedImage);
+    const ingredient = ingredients.map(item => {
+      return {
+        title: item.ingredient,
+        measure: `${item.amount} ${item.measurement}`,
+      };
+    });
+    const fo = {
+      drink,
+      description,
+      category,
+      glass,
+      instructions,
+      ingredients: ingredient,
+      recipe: selectedImage,
+    };
+    console.log(fo);
 
-    instructions.map();
+    const formData = new FormData();
+
+    formData.append('drink', drink);
+    formData.append('description', description);
+    formData.append('category', category);
+    formData.append('glass', glass);
+    formData.append('ingredients', ingredient);
+    instructions.forEach((text, index) => {
+      formData.append(`[${index}]`, text);
+    });
+    formData.append('recipe', selectedImage);
+
+    console.log(formData);
+    dispatch1(formData);
   };
+  console.log(data, isSuccess, isError);
   return (
     <form onSubmit={handleFormSubmit} action="">
       <RecipeDescriptionFields
@@ -82,6 +119,7 @@ const AddRecipeForm = () => {
           handleGlassChange,
         }}
         value={{ selectedImage, drink, description, category, glass }}
+        user={user}
       />
       <RecipeIngredientsFields
         ingredients={ingredients}
@@ -91,6 +129,7 @@ const AddRecipeForm = () => {
         addIngredient={addIngredient}
         removeIngredient={removeIngredient}
         reductionIngredient={reductionIngredient}
+        user={user}
       />
       <RecipePreparationFields handleTextareaChange={handleTextareaChange} />
       <button className={scss.btn} type="submit">
