@@ -7,15 +7,35 @@
   border: 1px solid rgba(243, 243, 243, 0.2);
 }
 
+.socialsIcon {
+  width: 22px;
+  height: 22px;
+  opacity: 0.8;
+
+  @media screen and (min-width: 768px) {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+.socialsIcon:hover,
+.socialsIcon:focus {
+  opacity: 1;
+  scale: 1.1;
+}
+
 .socialsList {
   display: flex;
   text-align: center;
-  gap: 16px;
-  margin-top: 40px;
-}
+  gap: 14px;
+  margin-top: 20px;
 
-.socialsIcon {
-  width: 28px;
-  height: 28px;
-  opacity: 0.8;
+  @media screen and (min-width: 768px) {
+    margin-top: 28px;
+    gap: 16px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    margin-top: 40px;
+  }
 }

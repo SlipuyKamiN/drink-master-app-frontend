@@ -1,9 +1,24 @@
 .navigate {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 14px;
   color: #f3f3f3;
   font-size: 14px;
   font-weight: 500;
   line-height: 22.4px; /* 160% */
+  margin-bottom: 40px;
+
+  @media screen and (min-width: 768px) {
+    gap: 16px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 22.4px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    gap: 24px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 22.4px;
+  }
 }
