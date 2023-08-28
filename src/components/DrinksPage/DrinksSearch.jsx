@@ -27,7 +27,7 @@ const DrinksSearch = ({ onFilterChange }) => {
 
   useEffect(() => {
     onFilterChange(filter);
-  }, [filter]);
+  }, [filter, onFilterChange]);
 
   // const handleFilterChange = () => {
   //   onFilterChange(filter);

@@ -40,12 +40,15 @@ const DrinksPage = ({ category }) => {
     });
   }, [setSearchParams, getSearchParams, category]);
 
-  const handleFilterChange = filter => {
-    setSearchParams({
-      ...getSearchParams(),
-      ...filter,
-    });
-  };
+  const handleFilterChange = useCallback(
+    filter => {
+      setSearchParams({
+        ...getSearchParams(),
+        ...filter,
+      });
+    },
+    [getSearchParams, setSearchParams]
+  );
 
   useEffect(() => {
     // const { search, category, ingredient, limit } = getSearchParams();
