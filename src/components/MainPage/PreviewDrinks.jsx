@@ -1,13 +1,26 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import useWindowDimensions from '../../hooks/useWindowDimensions';
+import { useGetMainPageRecipesQuery } from 'redux/recipesSlice';
 
 import DrinkCard from 'components/Shared/DrinkCard';
 
 import sass from './PreviewDrinks.module.scss';
+import { useSigninMutation } from 'redux/authSlice';
 
 const PreviewDrinks = () => {
-  const { width, height } = useWindowDimensions();
+  const { width } = useWindowDimensions();
+  const [dispatch, { data: userData, isLoading: loginIn }] =
+    useSigninMutation();
+  const { data, isLoading, isError } = useGetMainPageRecipesQuery('');
+
+  useEffect(() => {
+    dispatch({ email: 'vik000777@gmail.com', password: '1234567Aa' });
+  }, [dispatch]);
+
   console.log(width);
+  console.log(userData, loginIn);
+  console.log(data, isLoading, isError);
 
   return (
     <section className={sass.drinks}>
