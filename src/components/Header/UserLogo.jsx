@@ -3,7 +3,7 @@ import css from './UserLogo.module.scss';
 const UserLogo = () => {
   return (
     <button className={css.btn} type="button">
-      <img src="" alt=""User icon height="44px" width="44px"/>
+      <img src="src/images/no-content-cocktail.png" alt="User icon" height="44px" width="44px" className={css.img}/>
       <p className={css.text}>Alexey</p>
     </button>
   );
