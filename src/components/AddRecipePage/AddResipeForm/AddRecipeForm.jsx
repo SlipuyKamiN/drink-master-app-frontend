@@ -12,7 +12,7 @@ const AddRecipeForm = () => {
   const [category, setCategory] = useState('');
   const [glass, setGlass] = useState('');
   const [ingredients, setIngredients] = useState([
-    { id: nanoid(), ingredient: '', amount: '', measurement: '' },
+    { id: nanoid(), ingredient: '', amount: '1', measurement: 'cl' },
   ]);
   const [quantity, setQuantity] = useState(1);
   const [instructions, setInstructions] = useState([]);

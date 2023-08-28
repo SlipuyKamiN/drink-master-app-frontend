@@ -61,23 +61,26 @@ const RecipeDescriptionFields = ({ handleInputChange, value }) => {
           placeholder="Enter about recipe"
           required
         />
-        <Select
-          classNamePrefix="select-description"
-          placeholder="Category"
-          onChange={handleInputChange.handleCategoryChange}
-          defaultValue={value.category}
-          options={options1}
-          required
-        />
-        <Select
-          classNamePrefix="select-description"
-          className="select-description-input"
-          placeholder="Glass"
-          onChange={handleInputChange.handleGlassChange}
-          defaultValue={value.glass}
-          options={options2}
-          required
-        />
+        <label className={scss.recipeDescription__label}>
+          <Select
+            classNamePrefix="select-description"
+            placeholder=""
+            onChange={handleInputChange.handleCategoryChange}
+            defaultValue={value.category}
+            options={options1}
+            required
+          />
+        </label>
+        <label className={scss.recipeDescription__label}>
+          <Select
+            classNamePrefix="select-description"
+            placeholder=""
+            onChange={handleInputChange.handleGlassChange}
+            defaultValue={value.glass}
+            options={options2}
+            required
+          />
+        </label>
       </div>
     </div>
   );

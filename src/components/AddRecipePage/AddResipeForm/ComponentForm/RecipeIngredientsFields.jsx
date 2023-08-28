@@ -31,6 +31,7 @@ const RecipeIngredientsFields = ({
     { value: 'cubes', label: 'cubes' },
     { value: 'cups', label: 'cups' },
   ];
+
   return (
     <div className={scss.wraper__ingridients}>
       <div className={scss.wraper__ingridient}>
@@ -53,10 +54,10 @@ const RecipeIngredientsFields = ({
           </button>
         </div>
       </div>
-      {ingredients.map(({ id }) => (
+      {ingredients.map(({ id, amount, measurement }) => (
         <div key={id} className={scss.thumb}>
           <Select
-            className={scss.input}
+            classNamePrefix="ingridient-select"
             options={options1}
             name="ingredient"
             onChange={event =>
@@ -73,18 +74,19 @@ const RecipeIngredientsFields = ({
             onChange={event =>
               handleIngredientChange(id, event.target.name, event.target.value)
             }
-            placeholder="Amount ingredient"
+            value={amount}
             required
           />
 
           <Select
-            className={scss.input}
+            classNamePrefix="amount-select"
             options={options2}
             name="measurement"
             onChange={event =>
               handleIngredientChange(id, 'measurement', event.value)
             }
-            placeholder="Measurement"
+            placeholder=""
+            defaultValue={options2[0]}
             required
           />
           {ingredients.length !== 1 && (
