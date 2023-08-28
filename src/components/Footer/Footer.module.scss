@@ -9,12 +9,29 @@
 
 .footerMainContent {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 40px;
+  // justify-content: space-between;
   margin-bottom: 80px;
 
   @media screen and (min-width: 768px) {
-    // column-gap: 40px;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.socialsAndNav {
+  display: flex;
+  justify-content: space-between;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    flex-direction: row;
+    gap: 389px;
   }
 }
 

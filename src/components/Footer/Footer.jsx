@@ -10,11 +10,13 @@ const Footer = () => {
     <footer className={styles.footer}>
       <Container>
         <div className={styles.footerMainContent}>
-          <div className={styles.followUsBlock}>
-            <Logo />
-            <FollowUs />
+          <div className={styles.socialsAndNav}>
+            <div className={styles.followUsBlock}>
+              <Logo />
+              <FollowUs />
+            </div>
+            <Nav />
           </div>
-          <Nav />
           <SubscribeForm className={styles.subscribeForm} />
         </div>
         <div className={styles.bottomString}>
