@@ -2,6 +2,8 @@ import { NavLink } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import scss from './SignupForm.module.scss';
 import { useSignupMutation } from 'redux/authSlice';
+import { notification } from 'components/Shared/notification';
+import LoadingSpinner from 'components/Shared/LoadingSpinner';
 
 // const emailRegexp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 // const passwordRegexp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$/;
@@ -26,6 +28,10 @@ const SignupForm = () => {
     // alert(JSON.stringify(data));
     reset();
   };
+
+  if (isError) {
+    notification();
+  }
 
   return (
     <div className={scss.div}>
@@ -81,8 +87,12 @@ const SignupForm = () => {
             {errors?.password && <p>{errors?.password?.message || 'Error!'}</p>}
           </div>
         </label>
-        <button className={scss.btn} type="submit" disabled={!isValid}>
-          Sign Up
+        <button
+          className={scss.btn}
+          type="submit"
+          disabled={!isValid || isLoading}
+        >
+          {isLoading ? <LoadingSpinner size={50} /> : 'Sign Up'}
         </button>
       </form>
       <NavLink className={scss.nav} to="/signin">

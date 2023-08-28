@@ -2,6 +2,8 @@ import { NavLink } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import scss from './SignupForm.module.scss';
 import { useSigninMutation } from 'redux/authSlice';
+import { notification } from 'components/Shared/notification';
+import LoadingSpinner from 'components/Shared/LoadingSpinner';
 
 const SigninForm = () => {
   const [dispatch, { data, isLoading, isError }] = useSigninMutation();
@@ -19,6 +21,10 @@ const SigninForm = () => {
     // alert(JSON.stringify(data));
     reset();
   };
+
+  if (isError) {
+    notification();
+  }
 
   return (
     <div className={scss.div}>
@@ -64,8 +70,12 @@ const SigninForm = () => {
             {errors?.password && <p>{errors?.password?.message || 'Error!'}</p>}
           </div>
         </label>
-        <button className={scss.btn} type="submit" disabled={!isValid}>
-          Sign In
+        <button
+          className={scss.btn}
+          type="submit"
+          disabled={!isValid || isLoading}
+        >
+          {isLoading ? <LoadingSpinner size={50} /> : 'Sign In'}
         </button>
       </form>
       <NavLink className={scss.nav} to="/signup">
