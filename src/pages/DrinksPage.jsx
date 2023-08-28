@@ -4,12 +4,17 @@ import Container from 'components/Shared/Container';
 import MainTitle from 'components/Shared/MainTitle';
 import { useLocation, useSearchParams } from 'react-router-dom';
 import useWindowDimensions from '../hooks/useWindowDimensions';
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
+import { useSearchRecipesQuery } from '../redux/recipesSlice';
 
 const DrinksPage = ({ category }) => {
+  const [query, setQuery] = useState('');
+  const { data, isLoading, isError } = useSearchRecipesQuery(query, {
+    // skip: !userData,
+  });
   const { width } = useWindowDimensions();
   const [searchParams, setSearchParams] = useSearchParams({
-    // category: 'Cocktail',
+    category: 'Cocktail',
     limit: 10,
   });
   const getSearchParams = useCallback(() => {
@@ -18,19 +23,22 @@ const DrinksPage = ({ category }) => {
   const { search } = useLocation();
 
   useEffect(() => {
+    setSearchParams({
+      ...getSearchParams(),
+      limit: width >= 1440 ? 9 : 10,
+    });
+  }, [setSearchParams, width, getSearchParams]);
+
+  useEffect(() => {
     if (!category) {
-      setSearchParams({
-        ...getSearchParams(),
-        category: 'Cocktail',
-      });
-    } else {
-      setSearchParams({
-        ...getSearchParams(),
-        category: 'All categories' ? '' : category,
-        limit: width >= 1440 ? 9 : 10,
-      });
+      return;
     }
-  }, [setSearchParams, width, getSearchParams, category]);
+
+    setSearchParams({
+      ...getSearchParams(),
+      category: 'All categories' ? '' : category,
+    });
+  }, [setSearchParams, getSearchParams, category]);
 
   const handleFilterChange = filter => {
     setSearchParams({
@@ -40,6 +48,12 @@ const DrinksPage = ({ category }) => {
   };
 
   useEffect(() => {
+    // const { search, category, ingredient, limit } = getSearchParams();
+    setQuery({
+      ...getSearchParams(),
+    });
+
+    console.log(query);
     console.log(getSearchParams());
   }, [getSearchParams, search]);
 
