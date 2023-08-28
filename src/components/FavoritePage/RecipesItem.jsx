@@ -2,13 +2,17 @@
 import css from "./RecipesItem.module.scss";
 import placeholder from "../../images/thumb-placeholder-large.png";
 
-// import resepies from '../../DB/cocktails.json';
-// const useFetchAllQuery = () => resepies;
 
 const RecipesItem = () => {
-  // const recipies = useFetchAllQuery();
-  // console.log(recipies);
+/*
+вставляю необхідні дані отримані з пропсу
 
+в посилання на коктель: визначаю базовий url + id:коктелю
+після чого відправляю на сторвнку коктелю
+
+коли я натискаю на кнопку видалення, то викликається редюсер 
+який відправляє на бекенд запит зі зміною статусу улюблений
+*/
   
   return <>
     <li className={css.RecipesItem}>
