@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/drink-master-app-frontend/static/css/main.2f77ddd7.css",
-    "main.js": "/drink-master-app-frontend/static/js/main.34188ba1.js",
+    "main.js": "/drink-master-app-frontend/static/js/main.e466a946.js",
     "static/css/340.cee10079.chunk.css": "/drink-master-app-frontend/static/css/340.cee10079.chunk.css",
     "static/js/340.27e52a44.chunk.js": "/drink-master-app-frontend/static/js/340.27e52a44.chunk.js",
     "static/js/236.6a00452e.chunk.js": "/drink-master-app-frontend/static/js/236.6a00452e.chunk.js",
@@ -13,7 +13,7 @@
     "static/media/no-content-cocktail.png": "/drink-master-app-frontend/static/media/no-content-cocktail.575a33f8acc537f0bd25.png",
     "index.html": "/drink-master-app-frontend/index.html",
     "main.2f77ddd7.css.map": "/drink-master-app-frontend/static/css/main.2f77ddd7.css.map",
-    "main.34188ba1.js.map": "/drink-master-app-frontend/static/js/main.34188ba1.js.map",
+    "main.e466a946.js.map": "/drink-master-app-frontend/static/js/main.e466a946.js.map",
     "340.cee10079.chunk.css.map": "/drink-master-app-frontend/static/css/340.cee10079.chunk.css.map",
     "340.27e52a44.chunk.js.map": "/drink-master-app-frontend/static/js/340.27e52a44.chunk.js.map",
     "236.6a00452e.chunk.js.map": "/drink-master-app-frontend/static/js/236.6a00452e.chunk.js.map",
@@ -24,6 +24,6 @@
   },
   "entrypoints": [
     "static/css/main.2f77ddd7.css",
-    "static/js/main.34188ba1.js"
+    "static/js/main.e466a946.js"
   ]
 }
