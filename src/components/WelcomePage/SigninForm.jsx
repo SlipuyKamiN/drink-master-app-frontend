@@ -1,8 +1,12 @@
 import { NavLink } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import scss from './SignupForm.module.scss';
+import { useSigninMutation } from 'redux/authSlice';
 
 const SigninForm = () => {
+  const [dispatch, { data, isLoading, isError }] = useSigninMutation();
+  console.log(data, isLoading, isError);
+
   const {
     register,
     formState: { errors, isValid },
@@ -11,7 +15,8 @@ const SigninForm = () => {
   } = useForm({ mode: 'onBlur' });
 
   const onSubmit = data => {
-    alert(JSON.stringify(data));
+    dispatch(data);
+    // alert(JSON.stringify(data));
     reset();
   };
 

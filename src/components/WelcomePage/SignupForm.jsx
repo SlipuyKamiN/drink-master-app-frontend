@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import scss from './SignupForm.module.scss';
+import { useSignupMutation } from 'redux/authSlice';
 
 // const emailRegexp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 // const passwordRegexp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$/;
@@ -10,6 +11,9 @@ import scss from './SignupForm.module.scss';
 // onClick={()=>{setHidePassword(!hidePassword)}}
 
 const SignupForm = () => {
+  const [dispatch, { data, isLoading, isError }] = useSignupMutation();
+  console.log(data, isLoading, isError);
+
   const {
     register,
     formState: { errors, isValid },
@@ -18,7 +22,8 @@ const SignupForm = () => {
   } = useForm({ mode: 'onBlur' });
 
   const onSubmit = data => {
-    alert(JSON.stringify(data));
+    dispatch(data);
+    // alert(JSON.stringify(data));
     reset();
   };
 
