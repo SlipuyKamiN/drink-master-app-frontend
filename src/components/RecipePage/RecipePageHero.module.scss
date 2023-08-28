@@ -70,11 +70,12 @@ padding-bottom: 40px;
 }
 
 .beverageImg {
-width: 100%;
-height: 400px;
-object-fit: cover;
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
 
-@media screen and (min-width: 1440px) {
-    width: 400px;
-}
+    @media screen and (min-width: 1440px) {
+        width: 400px;
+    }
 }
