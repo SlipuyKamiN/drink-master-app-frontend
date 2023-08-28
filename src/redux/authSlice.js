@@ -42,6 +42,9 @@ export const authApi = createApi({
       query: () => ({
         url: '/auth/current',
       }),
+      async onQueryStarted(arg, { dispatch, queryFulfilled }) {
+        dispatch(setUser((await queryFulfilled).data));
+      },
     }),
     logout: builder.mutation({
       query: () => ({
