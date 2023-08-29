@@ -23,56 +23,22 @@ const DrinksSearch = ({ onFilterChange }) => {
   const { register, handleSubmit } = useForm();
   const [filter, setFilter] = useState({});
 
-  // console.log(filter);
-
   useEffect(() => {
     onFilterChange(filter);
   }, [filter, onFilterChange]);
 
-  // const handleFilterChange = () => {
-  //   onFilterChange(filter);
-  // };
-
-  // const { width } = useWindowDimensions();
-  // const [searchParams, setSearchParams] = useSearchParams({
-  //   category: 'Cocktail',
-  //   limit: 10,
-  // });
-  // const { search } = useLocation();
-
-  // const getSearchParams = useCallback(() => {
-  //   return Object.fromEntries([...searchParams]);
-  // }, [searchParams]);
-
-  // useEffect(() => {
-  //   setSearchParams({
-  //     ...getSearchParams(),
-  //     limit: width >= 1440 ? 9 : 10,
-  //   });
-  // }, [setSearchParams, width, getSearchParams]);
-
-  // useEffect(() => {
-  //   console.log(getSearchParams());
-  // }, [search]);
-
   const handleSelectCategory = evt => {
-    // onFilterChange(filter);
     setFilter({
-      // ...getSearchParams(),
       ...filter,
       category: evt.value === 'All categories' ? '' : evt.value,
     });
-    // onFilterChange(filter);
   };
 
   const handleSelectIngridients = evt => {
-    // onFilterChange(filter);
     setFilter({
-      // ...getSearchParams(),
       ...filter,
       ingredient: evt.value === 'All ingridients' ? '' : evt.value,
     });
-    // onFilterChange(filter);
   };
 
   const selectStyles = {
@@ -107,11 +73,9 @@ const DrinksSearch = ({ onFilterChange }) => {
         className={sass.form}
         onSubmit={handleSubmit(data => {
           setFilter({
-            // ...getSearchParams(),
             ...filter,
             search: data.name,
           });
-          // onFilterChange(filter);
         })}
       >
         <input
