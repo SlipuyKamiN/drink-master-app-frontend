@@ -38,8 +38,7 @@ const RecipeDescriptionFields = ({ handleInputChange, value, user }) => {
             alt="Preview"
           />
         ) : (
-          <>
-            {' '}
+            <div className={scss.wrapper__file}>
             <input
               className={scss.input__file}
               type="file"
@@ -52,7 +51,8 @@ const RecipeDescriptionFields = ({ handleInputChange, value, user }) => {
               <FiPlus size="28" color="#161F37" />
             </button>
             <p className={scss.text}>Add image</p>
-          </>
+            </div>
+          
         )}
       </div>
       <div>

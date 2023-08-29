@@ -3,6 +3,8 @@ import Select from 'react-select';
 import { FiX, FiMinus, FiPlus } from 'react-icons/fi';
 import { useGetIngredientsListQuery } from 'redux/recipesSlice';
 
+
+
 const RecipeIngredientsFields = ({
   ingredients,
   quantity,
@@ -51,7 +53,7 @@ const RecipeIngredientsFields = ({
           >
             <FiMinus className={scss.counter__icon} />
           </button>
-          <p>{quantity}</p>
+          <p className={scss.counter__quantity}>{quantity}</p>
           <button
             className={scss.counter__btn}
             type="button"

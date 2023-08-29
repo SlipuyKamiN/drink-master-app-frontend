@@ -6,6 +6,8 @@ import scss from './AddRecipeForm.module.scss';
 import { useState, useEffect } from 'react';
 import { useSigninMutation } from 'redux/authSlice';
 import { useCreateNewRecipeMutation } from 'redux/myRecipesSlice';
+import { useNavigate } from "react-router-dom";
+import { notification } from 'components/Shared/notification';
 
 const AddRecipeForm = () => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -22,6 +24,8 @@ const AddRecipeForm = () => {
   const [dispatch, { data: user }] = useSigninMutation();
   const [dispatch1, { data, isSuccess, isError }] =
     useCreateNewRecipeMutation();
+
+    const navigate = useNavigate();
   useEffect(() => {
     dispatch({ email: 'marias@gmail.com', password: 'Qwerty123' });
   }, []);
@@ -67,7 +71,7 @@ const AddRecipeForm = () => {
 
   const reductionIngredient = () => {
     if (quantity === 1) {
-      return alert('Must have at leastone ingredient');
+      return notification('Must have at leastone ingredient');
     }
     setQuantity(prev => prev - 1);
     setIngredients(prev => prev.slice(0, prev.length - 1));
@@ -81,16 +85,6 @@ const AddRecipeForm = () => {
         measure: `${item.amount} ${item.measurement}`,
       };
     });
-    const fo = {
-      drink,
-      description,
-      category,
-      glass,
-      instructions,
-      ingredients: ingredient,
-      recipe: selectedImage,
-    };
-    console.log(fo);
 
     const formData = new FormData();
 
@@ -104,9 +98,12 @@ const AddRecipeForm = () => {
 
     console.log(formData);
     dispatch1(formData);
+    console.log(data, isSuccess, isError);
+    if(isError) notification();
+    navigate("/my");
   };
 
-  console.log(data, isSuccess, isError);
+  
   return (
     <form onSubmit={handleFormSubmit} action="">
       <RecipeDescriptionFields

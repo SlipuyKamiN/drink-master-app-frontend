@@ -5,7 +5,7 @@ import MainTitle from 'components/Shared/MainTitle';
 const AddRecipePage = () => {
   return (
     <Container>
-      <MainTitle title="Add resipe" />
+      <MainTitle title="Add recipe" />
       <AddRecipeForm />
     </Container>
   );

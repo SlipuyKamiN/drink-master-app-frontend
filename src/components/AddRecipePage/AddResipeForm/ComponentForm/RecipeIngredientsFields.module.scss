@@ -6,13 +6,14 @@
 
 .wraper__ingridient {
   display: flex;
+  align-content: center;
+  justify-content: space-between;
   margin-bottom: 40px;
 }
 
 .counter {
   display: flex;
   gap: 16px;
-
   padding: 10px 11px;
   align-items: center;
   justify-content: center;
@@ -24,6 +25,14 @@
 
   font-weight: 400;
   line-height: calc(18 / 14);
+
+  @media screen and (min-width: 768px) {
+    gap: 18px;
+    width: 114px;
+    
+  }
+
+  
 }
 
 .counter__btn {
@@ -38,11 +47,27 @@
   height: 16px;
 }
 
+.counter__quantit {
+  @media screen and (min-width: 768px) {
+    font-size: 17px;
+line-height: 156%;
+    
+  }
+  
+}
+
 .recipe__title {
   font-size: 28px;
   font-weight: 600;
   line-height: calc(32 / 28);
-  margin-right: 77px;
+  // margin-right: 77px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 40px;
+    line-height: calc(44 / 40); 
+    
+  }
+ 
 }
 
 .thumb {
@@ -56,6 +81,11 @@
 
 .ingridient__icon {
   width: 18px;
+
+  @media screen and (min-width: 768px) {
+    width: 20px;
+    
+  }
 }
 
 .input {
@@ -66,14 +96,17 @@
   border-radius: 200px;
   border: 1px solid rgba(243, 243, 243, 0.5);
   opacity: 0.8;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 18px;
+ 
   color: $primary-white-color;
   background-color: inherit;
   text-align: center;
   border: none;
   z-index: 111;
   outline: none;
+  @media screen and (min-width: 768px) {
+    font-size: 17px;
+line-height: 156%;
+    
+  }
+  
 }
