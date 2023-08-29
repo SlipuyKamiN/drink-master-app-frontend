@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { toast } from 'react-toastify';
 import useWindowDimensions from '../../hooks/useWindowDimensions';
 import { useGetMainPageRecipesQuery } from 'redux/recipesSlice';
+import { notification } from 'components/Shared/notification';
 
 import LoadingSpinner from 'components/Shared/LoadingSpinner';
 import DrinkCard from 'components/Shared/DrinkCard';
@@ -32,7 +32,8 @@ const PreviewDrinks = () => {
   }
 
   if (isError) {
-    return toast.error(`${isError}`);
+    notification();
+    return;
   }
 
   return (
