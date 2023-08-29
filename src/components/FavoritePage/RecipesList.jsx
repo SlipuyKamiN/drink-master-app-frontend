@@ -7,16 +7,15 @@ const RecipesList = ({ data }) => {
   прокидую пробсом необхідні для рендеру дані
   */
  
-  const { favorites} = data;
-
-  // console.log("favorites", favorites);
+  const { favorites } = data;
+  console.log("favorites", favorites);
   
   return <section className={css.ContainerRecipesList}>
     <ul className={css.RecipesList}>
-      {favorites.map(({ id, description, drink, drinkThumb }) => (
+      {favorites.map(({ _id, description, drink, drinkThumb }) => (
         <RecipesItem
-          key={id}
-          id={id}
+          key={_id}
+          id={_id}
           description={description}
           drink={drink}
           drinkThumb={drinkThumb}
