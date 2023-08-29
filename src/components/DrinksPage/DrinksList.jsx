@@ -1,7 +1,7 @@
-import cocktails from './cocktails.json';
+// import cocktails from './cocktails.json';
 import sass from './DrinksList.module.scss';
 
-const DrinksList = () => {
+const DrinksList = cocktails => {
   return (
     <div>
       <ul className={sass.list}>
