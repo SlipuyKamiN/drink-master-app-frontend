@@ -1,52 +1,81 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import useWindowDimensions from '../../hooks/useWindowDimensions';
 import { useGetMainPageRecipesQuery } from 'redux/recipesSlice';
 
+import LoadingSpinner from 'components/Shared/LoadingSpinner';
 import DrinkCard from 'components/Shared/DrinkCard';
 
 import sass from './PreviewDrinks.module.scss';
-import { useSigninMutation } from 'redux/authSlice';
 
 const PreviewDrinks = () => {
+  const [amountDrinks, setAmountDrinks] = useState(0);
   const { width } = useWindowDimensions();
-  const [dispatch, { data: userData, isLoading: loginIn }] =
-    useSigninMutation();
-  const { data, isLoading, isError } = useGetMainPageRecipesQuery('');
 
   useEffect(() => {
-    dispatch({ email: 'vik000777@gmail.com', password: '1234567Aa' });
-  }, [dispatch]);
+    if (width < 768) {
+      setAmountDrinks(1);
+      return;
+    }
+    if (width >= 1440) {
+      setAmountDrinks(3);
+      return;
+    }
+    setAmountDrinks(2);
+  }, [width]);
 
-  console.log(width);
-  console.log(userData, loginIn);
-  console.log(data, isLoading, isError);
+  const { data, isLoading, isError } = useGetMainPageRecipesQuery('');
+
+  if (!data || isLoading) {
+    return <LoadingSpinner size={60} />;
+  }
+
+  if (isError) {
+    return toast.error(`${isError}`);
+  }
 
   return (
-    <section className={sass.drinks}>
-      PreviewDrinks
-      {/* <ul className={sass.drinksList}>
-        {data.map(({ _id: { $oid }, category }) => {
-          return (
-            <li key={$oid}>
-              <Link to={`/drinks/${category}`} className={sass.drinksCategory}>
-                {category}
-                <ul className={sass.categorysList}>
-                  {data.map(item => {
-                    return <DrinkCard key={''} data={item} />;
-                  })}
+    <>
+      {isLoading && <LoadingSpinner />}
+      <section className={sass.drinks}>
+        <ul className={sass.drinksList}>
+          {data.map(({ category, drinks, _id }) => {
+            return (
+              <li key={`${category}${_id}`}>
+                <Link
+                  to={`/drinks/${category}`}
+                  className={sass.drinksCategory}
+                >
+                  {category}
+                </Link>
+                <ul className={sass.categoryList}>
+                  {drinks
+                    .slice(0, amountDrinks)
+                    .map(({ _id, drink, drinkThumb }) => {
+                      return (
+                        <li>
+                          <DrinkCard
+                            key={_id}
+                            id={_id}
+                            drink={drink}
+                            drinkThumb={drinkThumb}
+                          />
+                        </li>
+                      );
+                    })}
                 </ul>
-              </Link>
-            </li>
-          );
-        })}
-      </ul> */}
-      <div className={sass.wrapper}>
-        <Link to="/drinks" className={sass.drinksPage}>
-          Other drinks
-        </Link>
-      </div>
-    </section>
+              </li>
+            );
+          })}
+        </ul>
+        <div className={sass.wrapper}>
+          <Link to="/drinks/All categories" className={sass.drinksPage}>
+            Other drinks
+          </Link>
+        </div>
+      </section>
+    </>
   );
 };
 

@@ -1,28 +1,26 @@
 @import 'styles/common/vars';
 
 .card {
-  width: 335px;
-  // flex-basis: calc((100% - 0) / 1);
+  width: 360px;
 
   @media screen and (min-width: 768px) {
     width: 342px;
-    // flex-basis: calc((100% - 20px) / 2);
   }
 
   @media screen and (min-width: 1440px) {
     width: 400px;
-    // flex-basis: calc((100% - 40px) / 3);
   }
 }
 
 .cardThumb {
-  height: 360px;
+  height: 335px;
 
   border-radius: 8px;
 
   overflow: hidden;
 
   @media screen and (min-width: 768px) {
+    height: 360px;
   }
 
   @media screen and (min-width: 1440px) {
@@ -32,6 +30,7 @@
 
 .cardThumb > img {
   height: 100%;
+  width: 100%;
 }
 
 .cardInfo {

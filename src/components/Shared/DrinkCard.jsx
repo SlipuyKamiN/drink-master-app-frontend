@@ -2,62 +2,30 @@ import { Link } from 'react-router-dom';
 
 import sass from './DrinkCard.module.scss';
 
-const DrinkCard = ({ data }) => {
-  const {
-    _id: { $oid },
-    drinkThumb,
-    drink,
-  } = data;
-
+const DrinkCard = ({ id, drink, drinkThumb }) => {
   return (
     <div className={sass.card}>
       <div className={sass.cardThumb}>
-        {/* <img src={`${drinkThumb}`} alt={drink} /> */}
-        <picture>
-          <source
-            media="(min-width: 1440px)"
-            srcset={
-              drinkThumb
-                ? `${drinkThumb}`
-                : '../../images/thumb-placeholder-large.png'
-            }
-            type="image/png"
-          />
-
-          <source
-            media="(min-width: 768px)"
-            srcset={
-              drinkThumb
-                ? `${drinkThumb}`
-                : '../../images/thumb-placeholder-medium.png'
-            }
-            type="image/png"
-          />
-
-          <source
-            media="(max-width: 767.99px)"
-            srcset={
-              drinkThumb
-                ? `${drinkThumb}`
-                : '../../images/thumb-placeholder-small.png'
-            }
-            type="image/png"
-          />
-
-          <img
-            src={
-              drinkThumb
-                ? `${drinkThumb}`
-                : '../../images/thumb-placeholder-small.png'
-            }
-            alt={drink}
-            loading="lazy"
-          />
-        </picture>
+        <img
+          srcSet={
+            drinkThumb
+              ? `${drinkThumb} 400w,
+         ${drinkThumb} 220w,
+         ${drinkThumb} 90w`
+              : `
+         ../../images/thumb-placeholder-large.png 400w,
+         ../../images/thumb-placeholder-medium.png 220w,
+         ../../images/thumb-placeholder-small.png 90w`
+          }
+          sizes="(min-width: 1440px) 400px, (min-width: 768px) 220px, (min-width: 375px) 90px, 100vw"
+          src={drinkThumb || '../../images/thumb-placeholder-small.png'}
+          alt={drink}
+          loading="lazy"
+        />
       </div>
       <div className={sass.cardInfo}>
         <p className={sass.cardName}>{drink}</p>
-        <Link to={`/recipe/${$oid}`} className={sass.linkIngredients}>
+        <Link to={`/recipe/${id}`} className={sass.linkIngredients}>
           Ingredients
         </Link>
       </div>

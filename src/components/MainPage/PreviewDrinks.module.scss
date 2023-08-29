@@ -17,6 +17,7 @@
 }
 
 .drinksCategory {
+  display: inline-block;
   padding: 12px 0 24px;
 
   font-weight: 600;
@@ -40,12 +41,24 @@
 .categoryList {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
+  // flex-wrap: wrap;
 
   @media screen and (min-width: 768px) {
     gap: 20px;
   }
 }
+
+// .categoryItem {
+//   flex-basis: 100%;
+
+//   @media screen and (min-width: 768px) {
+//     flex-basis: calc((100% - 20px) / 2);
+//   }
+
+//   @media screen and (min-width: 1440px) {
+//     flex-basis: calc((100% - 40px) / 3);
+//   }
+// }
 
 .wrapper {
   display: flex;
