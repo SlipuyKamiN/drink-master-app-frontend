@@ -1,8 +1,8 @@
-import Paginator from "components/FavoritePage/Paginator";
-import RecipesList from "components/FavoritePage/RecipesList";
 import { useGetFavoritesQuery } from "redux/recipesSlice";
 import { useSigninMutation } from "redux/authSlice";
 import { useEffect } from "react";
+import Paginator from "components/FavoritePage/Paginator";
+import RecipesList from "components/FavoritePage/RecipesList";
 import LoadingSpinner from 'components/Shared/LoadingSpinner';
 
 
@@ -10,7 +10,6 @@ const FavoritePage = () => {
 
   const [dispatch, { data: userData,  }] = useSigninMutation();
   const { data, isLoading, isError } = useGetFavoritesQuery('', { skip: !userData });
-  // const query = "page=1&limit=8";
   
 
   useEffect(() => {
