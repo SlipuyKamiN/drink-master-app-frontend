@@ -98,15 +98,14 @@ const AddRecipeForm = () => {
     formData.append('description', description);
     formData.append('category', category);
     formData.append('glass', glass);
-    formData.append('ingredients', ingredient);
-    instructions.forEach((text, index) => {
-      formData.append(`[${index}]`, text);
-    });
+    formData.append('ingredients', JSON.stringify(ingredient));
+    formData.append('instructions', JSON.stringify(instructions));
     formData.append('recipe', selectedImage);
 
     console.log(formData);
     dispatch1(formData);
   };
+
   console.log(data, isSuccess, isError);
   return (
     <form onSubmit={handleFormSubmit} action="">
