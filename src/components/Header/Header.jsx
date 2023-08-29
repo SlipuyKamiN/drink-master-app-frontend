@@ -3,7 +3,7 @@ import Logo from './Logo';
 import Navigation from './Navigation';
 import css from './Header.module.scss';
 import UserLogo from './UserLogo';
-import UserLogoModal from './UserLogoModal';
+// import UserLogoModal from './UserLogoModal';
 import useWindowDimensions from 'hooks/useWindowDimensions';
 
 
@@ -17,7 +17,7 @@ const Header = () => {
           <Logo />
           {width > 1439 ? <Navigation /> : null}
           <UserLogo/>
-          <UserLogoModal/>
+          {/* <UserLogoModal/> */}
         </div>
       </Container>
     </header>

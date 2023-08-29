@@ -1,12 +1,15 @@
 @import '../../index.scss';
 
 .modal {
-    display: none;
+  display: block;
+  position: absolute;
+  top: 44px;
   padding: 18px;
   outline: auto;
-}
+  }
 .btn {
   height: 44px;
+  width: 141px;
   display: flex;
   align-items: center;
   justify-content: center;

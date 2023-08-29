@@ -5,7 +5,12 @@
   align-items: center;
   gap: 10px;
 }
-
+.userWrapper {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  position: relative;
+}
 .text {
   font-size: 16px;
   font-weight: 500;
@@ -33,4 +38,5 @@
 }
 .img {
   object-fit: cover;
+  border-radius: 50%;
 }
