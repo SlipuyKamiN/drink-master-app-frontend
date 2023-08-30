@@ -87,3 +87,24 @@ padding-bottom: 40px;
         width: 400px;
     }
 }
+
+.videoLink {
+    font-size: 13px;
+    color: #c5c5c5;
+
+    display: block;
+
+    margin-top: 10px;
+    margin-left: 10px;
+
+    text-decoration-line: underline;
+    text-decoration-thickness: 0.01em;
+    text-underline-offset: 2px; 
+
+    transition: text-underline-offset $transition-duration, color $transition-duration;
+
+    &:hover {
+        text-underline-offset: -13px;
+        color: $primary-white-color;
+    }
+}
