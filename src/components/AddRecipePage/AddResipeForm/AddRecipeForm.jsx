@@ -21,13 +21,13 @@ const AddRecipeForm = () => {
   const [quantity, setQuantity] = useState(1);
   const [instructions, setInstructions] = useState([]);
 
-  const [dispatch, { data: user }] = useSigninMutation();
-  const [dispatch1, { data, isSuccess, isError }] =
+  const [dispatch1, { data: user }] = useSigninMutation();
+  const [dispatch] =
     useCreateNewRecipeMutation();
 
     const navigate = useNavigate();
   useEffect(() => {
-    dispatch({ email: 'marias@gmail.com', password: 'Qwerty123' });
+    dispatch1({ email: 'marias@gmail.com', password: 'Qwerty123' });
   }, []);
 
   const handleFileChange = event => {
@@ -96,11 +96,11 @@ const AddRecipeForm = () => {
     formData.append('instructions', JSON.stringify(instructions));
     formData.append('recipe', selectedImage);
 
-    console.log(formData);
-    dispatch1(formData);
-    console.log(data, isSuccess, isError);
-    if(isError) notification();
-    navigate("/my");
+    dispatch(formData).unwrap().then(()=> {
+      navigate("/my");
+    }).catch(error => notification(error.message));
+    
+    
   };
 
   

@@ -85,7 +85,7 @@ const RecipeIngredientsFields = ({
             onChange={event =>
               handleIngredientChange(id, event.target.name, event.target.value)
             }
-            value='1'
+            defaultValue='1'
             required
           />
 

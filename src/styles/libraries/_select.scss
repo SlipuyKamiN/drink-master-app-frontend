@@ -54,6 +54,11 @@
  }
   }
 
+  &__indicator {
+    padding: 0 !important;
+    cursor: pointer !important;
+  }
+  
   &__menu-list {
     margin: 0 !important;
     gap: 0 !important;
@@ -176,6 +181,11 @@
     color: rgba(243, 243, 243, 0.4) !important;
   }
 
+  &__indicator {
+    padding: 0 !important;
+    cursor: pointer !important;
+  }
+
   &__indicator-separator {
     background-color: inherit !important;
   }
@@ -224,6 +234,7 @@
 
   &__indicator {
     padding: 0 !important;
+    cursor: pointer !important;
   }
 
   &__placeholder {
@@ -304,11 +315,12 @@
   }
 
   &__value-container {
-    padding: 0 0 0 18px !important;
+    padding: 0 0 0 25px !important;
   }
 
   &__indicator {
     padding: 0 !important;
+    cursor: pointer !important;
   }
 
   &__placeholder {
@@ -327,7 +339,7 @@
   &__menu {
     border-radius: 12px !important;
     background: #161f37 !important;
-    padding: 10px !important;
+    padding: 15px !important;
     z-index: 22222 !important;
   }
 
@@ -338,11 +350,8 @@
     @media screen and (min-width: 768px) {
       font-size: 14px !important;
     line-height: calc(18 / 12) !important;
-      height: 284px !important;
+      height: 268px !important;
     }
-   @media screen and (min-width: 1440px) {
-    height:306px !important;
- }
   }
   &__option {
     background-color: inherit !important;
