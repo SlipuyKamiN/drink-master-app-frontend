@@ -62,9 +62,12 @@ padding-bottom: 40px;
     border-radius: 42px;
     background-color: $primary-white-color;
     transition: background-color $transition-duration;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
     
 
-    &:hover, &:focus {
+    &:hover {
         background-color: #6094fc;
     }
 

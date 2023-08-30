@@ -1,8 +1,10 @@
 import { useSelector } from 'react-redux';
+import { useToggleFavoriteMutation } from 'redux/recipesSlice';
 import Container from 'components/Shared/Container';
-import titleStyles from 'components/Shared/MainTitle.module.scss';
-import sass from './RecipePageHero.module.scss';
 import placeholder from 'images/thumb-placeholder-large.png';
+import LoadingSpinner from 'components/Shared/LoadingSpinner';
+import sass from './RecipePageHero.module.scss';
+import titleStyles from 'components/Shared/MainTitle.module.scss';
 
 const {
   heroWrapper,
@@ -19,6 +21,12 @@ const RecipePageHero = ({ recipe }) => {
 
   const isFavorite = recipe?.users.find(() => userId);
 
+  const [dispatch, { isLoading }] = useToggleFavoriteMutation();
+
+  const handleFavButtonClick = () => {
+    dispatch(recipe._id);
+  };
+
   return (
     <Container>
       <div className={heroWrapper}>
@@ -28,10 +36,11 @@ const RecipePageHero = ({ recipe }) => {
             {recipe?.drink}
           </h2>
           <p className={description}>{recipe?.description}</p>
-          <button className={addToFavButton}>
+          <button className={addToFavButton} onClick={handleFavButtonClick}>
             {isFavorite
               ? 'Remove from favorite recipe'
               : 'Add to favorite recipe'}
+            {isLoading && <LoadingSpinner />}
           </button>
         </div>
 

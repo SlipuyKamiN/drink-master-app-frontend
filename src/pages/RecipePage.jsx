@@ -1,11 +1,12 @@
-import RecipeInngredientsList from 'components/RecipePage/RecipeInngredientsList';
-import RecipePageHero from 'components/RecipePage/RecipePageHero';
-import RecipePreparation from 'components/RecipePage/RecipePreparation';
-import LoadingSpinner from 'components/Shared/LoadingSpinner';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSigninMutation } from 'redux/authSlice';
 import { useGetRecipeByIdQuery } from 'redux/recipesSlice';
+import RecipeInngredientsList from 'components/RecipePage/RecipeInngredientsList';
+import RecipePageHero from 'components/RecipePage/RecipePageHero';
+import RecipePreparation from 'components/RecipePage/RecipePreparation';
+import LoadingSpinner from 'components/Shared/LoadingSpinner';
+import { notification } from 'components/Shared/notification';
 
 const RecipePage = () => {
   const [dispatch, { data: userData }] = useSigninMutation();
@@ -20,13 +21,11 @@ const RecipePage = () => {
     skip: !userData,
   });
 
-  if (isError) alert('error');
+  if (isError) notification();
 
   if (!data || isLoading) {
     return <LoadingSpinner />;
   }
-
-  console.log(data);
 
   return (
     <>
