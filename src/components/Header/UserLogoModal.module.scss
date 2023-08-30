@@ -4,11 +4,13 @@
   display: block;
   width: 177px;
   position: absolute;
-  top: 44px;
+  top: 45px;
+  left: 50%;
   padding: 18px;
   background-color: $secondary-bg-blue-color;
   border-radius: 8px;
-  }
+  transform: translateX(-50%);
+}
 .btn {
   display: flex;
   width: 143px;
@@ -30,8 +32,8 @@
 
   &:hover,
   &:focus {
-color: $secondary-bg-blue-color;
-background-color: $primary-white-color;
+    color: $secondary-bg-blue-color;
+    background-color: $primary-white-color;
   }
 }
 .logoutBtn {
