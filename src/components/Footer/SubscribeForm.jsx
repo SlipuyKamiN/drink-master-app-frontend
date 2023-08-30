@@ -19,16 +19,17 @@ const SubscribeForm = () => {
   });
 
   const formSubmit = ({ email }) => {
-    dispatch({ email });
-
-    if (isError) {
-      notification('There is no user with this email registered!');
-    } else {
-      reset({ email: '' });
-    }
+    dispatch({ email })
+      .unwrap()
+      .then(() => {
+        reset({ email: '' });
+      })
+      .catch(notification);
   };
 
-  if (isError) notification('There is no user with this email registered!');
+  if (isError && !data) {
+    notification('There is no user with this email registered!');
+  }
 
   return (
     <div className={styles.subscribeForm}>
@@ -47,7 +48,9 @@ const SubscribeForm = () => {
           className={styles.subscribeFormInput}
           {...register('email')}
         />
-        {errors.email && <p>{errors.email.message}</p>}
+        {errors.email && (
+          <p className={styles.errorText}>{errors.email.message}</p>
+        )}
         <button
           type="submit"
           className={styles.subscribeButton}
