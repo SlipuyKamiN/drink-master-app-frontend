@@ -7,8 +7,6 @@
 }
 
 .subscribeText {
-  color: #f3f3f3;
-  font-family: Manrope;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -35,8 +33,6 @@
   color: rgb(243, 243, 243);
   padding-left: 24px;
   font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
   line-height: 18px;
   margin-bottom: 18px;
 
@@ -64,4 +60,15 @@
     font-size: 17px;
     line-height: 156%; /* 26.52px */
   }
+}
+
+.subscribeButton:hover,
+.subscribeButton:focus {
+  border: 2px solid rgba(64, 112, 205, 0.5);
+  background: #f3f3f3;
+  color: #161f37;
+}
+.subscribeButton:disabled {
+  background: #434d67;
+  color: rgba(243, 243, 243, 0.2);
 }
