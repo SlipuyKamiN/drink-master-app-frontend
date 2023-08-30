@@ -1,4 +1,4 @@
-@import 'styles/common/vars';
+@import '../../styles/common/vars';
 
 .subscribeForm {
   width: 100%;
@@ -32,7 +32,7 @@
   border-radius: 200px;
   border: 1px solid rgb(243, 243, 243, 0.2);
   background-color: inherit;
-  color: rgb(243, 243, 243);
+  color: $primary-white-color;
   padding-left: 24px;
   font-size: 14px;
   line-height: 18px;
@@ -50,7 +50,7 @@
   border-radius: 200px;
   border: 1px solid rgb(243, 243, 243, 0.2);
   // opacity: 0.2;
-  color: #f3f3f3;
+  color: $primary-white-color;
   background-color: inherit;
   text-align: center;
   font-size: 16px;
@@ -67,11 +67,11 @@
 .subscribeButton:hover,
 .subscribeButton:focus {
   border: 2px solid rgba(64, 112, 205, 0.5);
-  background: #f3f3f3;
-  color: #161f37;
+  background: $primary-white-color;
+  color: $secondary-bg-blue-color;
 }
 .subscribeButton:disabled {
-  background: #434d67;
+  background: $disabled-blue-color;
   color: rgba(243, 243, 243, 0.2);
   .errorText {
     color: $error-red-color;
