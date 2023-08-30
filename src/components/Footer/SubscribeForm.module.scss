@@ -69,6 +69,9 @@
 }
 
 .errorText {
+  margin-bottom: 8px;
+
   color: $error-red-color;
   font-size: 14px;
+  line-height: 1.16;
 }
