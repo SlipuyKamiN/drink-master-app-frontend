@@ -18,8 +18,8 @@ const SubscribeForm = () => {
     resolver: yupResolver(validationSchema),
   });
 
-  const formSubmit = ({ email }) => {
-    dispatch({ email })
+  const formSubmit = data => {
+    dispatch(data)
       .unwrap()
       .then(() => {
         reset({ email: '' });
@@ -45,7 +45,9 @@ const SubscribeForm = () => {
           type="text"
           name="email"
           placeholder="Enter the email"
-          className={styles.subscribeFormInput}
+          className={`${styles.subscribeFormInput} ${
+            errors.email && dirtyFields.email ? styles.invalid : styles.valid
+          }`}
           {...register('email')}
         />
         {errors.email && (
