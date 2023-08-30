@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/drink-master-app-frontend/static/css/main.a0f0d1b0.css",
-    "main.js": "/drink-master-app-frontend/static/js/main.070da762.js",
+    "main.css": "/drink-master-app-frontend/static/css/main.a0f63266.css",
+    "main.js": "/drink-master-app-frontend/static/js/main.e2ca76cb.js",
     "static/css/340.cee10079.chunk.css": "/drink-master-app-frontend/static/css/340.cee10079.chunk.css",
     "static/js/340.27e52a44.chunk.js": "/drink-master-app-frontend/static/js/340.27e52a44.chunk.js",
     "static/js/236.6a00452e.chunk.js": "/drink-master-app-frontend/static/js/236.6a00452e.chunk.js",
@@ -9,12 +9,18 @@
     "static/js/339.50f8477b.chunk.js": "/drink-master-app-frontend/static/js/339.50f8477b.chunk.js",
     "static/js/403.c4da1b3a.chunk.js": "/drink-master-app-frontend/static/js/403.c4da1b3a.chunk.js",
     "static/js/671.6a5413a8.chunk.js": "/drink-master-app-frontend/static/js/671.6a5413a8.chunk.js",
+    "static/media/hero-cocktail-medium@2x.png": "/drink-master-app-frontend/static/media/hero-cocktail-medium@2x.db80c3a67e48398c4234.png",
+    "static/media/hero-cocktail-large@2x.png": "/drink-master-app-frontend/static/media/hero-cocktail-large@2x.1fe59bc69c5819c26a0c.png",
     "static/media/welcomePage-background-image.png": "/drink-master-app-frontend/static/media/welcomePage-background-image.21b41d0f05a299d1cb83.png",
+    "static/media/hero-cocktail-small@2x.png": "/drink-master-app-frontend/static/media/hero-cocktail-small@2x.9cb6832962ae5a15bec2.png",
     "static/media/no-content-cocktail@2x.png": "/drink-master-app-frontend/static/media/no-content-cocktail@2x.c484f488d7f32c744feb.png",
+    "static/media/hero-cocktail-large@1x.png": "/drink-master-app-frontend/static/media/hero-cocktail-large@1x.5c55c8be7a0a250a9cf0.png",
+    "static/media/hero-cocktail-medium@1x.png": "/drink-master-app-frontend/static/media/hero-cocktail-medium@1x.44397777d15a5a00ca7f.png",
+    "static/media/hero-cocktail-small@1x.png": "/drink-master-app-frontend/static/media/hero-cocktail-small@1x.e84d2e419ccd117d47a7.png",
     "static/media/no-content-cocktail.png": "/drink-master-app-frontend/static/media/no-content-cocktail.575a33f8acc537f0bd25.png",
     "index.html": "/drink-master-app-frontend/index.html",
-    "main.a0f0d1b0.css.map": "/drink-master-app-frontend/static/css/main.a0f0d1b0.css.map",
-    "main.070da762.js.map": "/drink-master-app-frontend/static/js/main.070da762.js.map",
+    "main.a0f63266.css.map": "/drink-master-app-frontend/static/css/main.a0f63266.css.map",
+    "main.e2ca76cb.js.map": "/drink-master-app-frontend/static/js/main.e2ca76cb.js.map",
     "340.cee10079.chunk.css.map": "/drink-master-app-frontend/static/css/340.cee10079.chunk.css.map",
     "340.27e52a44.chunk.js.map": "/drink-master-app-frontend/static/js/340.27e52a44.chunk.js.map",
     "236.6a00452e.chunk.js.map": "/drink-master-app-frontend/static/js/236.6a00452e.chunk.js.map",
@@ -24,7 +30,7 @@
     "671.6a5413a8.chunk.js.map": "/drink-master-app-frontend/static/js/671.6a5413a8.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a0f0d1b0.css",
-    "static/js/main.070da762.js"
+    "static/css/main.a0f63266.css",
+    "static/js/main.e2ca76cb.js"
   ]
 }
