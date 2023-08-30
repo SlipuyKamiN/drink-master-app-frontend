@@ -2,15 +2,16 @@ import css from "./Paginator.module.scss";
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
 
-const Paginator = ({ totalHits, onChange }) => {
+const Paginator = ({ totalHits,  setCurrentPage}) => {
 
   console.log("totalHits:", totalHits);
-  let litit = 8;
+  let litit = 3;
   const numberOfButtons = Math.ceil(totalHits / litit);
   const numbersArray = Array.from({ length: numberOfButtons }, (_, index) => index + 1);
 
   const handleBtnPaginations = (num) => {
-    onChange(num)
+    setCurrentPage(num);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
 
