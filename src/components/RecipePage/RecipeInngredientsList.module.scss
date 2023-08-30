@@ -1,5 +1,7 @@
+@import 'styles/common/vars';
+
 .title {
-    color: rgba(243, 243, 243, 0.50);
+    color: rgba($primary-white-color, 0.50);
     font-size: 16px;
     font-weight: 500;
     line-height: calc(20 / 16);
@@ -20,6 +22,10 @@
     flex-wrap: wrap;
     gap: 21px;
 
+    @media screen and (max-width: 374px) {
+            justify-content: center;
+        }
+
     @media screen and (min-width: 1440px) {
         gap: 35px;
     }
@@ -32,7 +38,7 @@
 }
 
 .inngredientsImgWrapper {
-    background: rgba(22, 31, 55, 0.50);
+    background: rgba($secondary-bg-blue-color, 0.5);
     border-radius: 8px;
 
     width: 157px;
@@ -62,7 +68,6 @@
 }
 
 .inngredientsName {
-    // color: #F3F3F3;
     font-weight: 500;
     line-height: calc(18 / 14);
 
@@ -73,7 +78,7 @@
 }
 
 .inngredientsRatio {
-    color: rgba(243, 243, 243, 0.50);
+    color: rgba($primary-white-color, 0.50);
     font-weight: 500;
     line-height: calc(18 / 14);
 

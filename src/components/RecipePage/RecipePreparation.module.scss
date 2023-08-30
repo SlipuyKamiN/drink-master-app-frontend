@@ -1,3 +1,5 @@
+@import 'styles/common/vars';
+
 .title {
     font-size: 28px;
     font-weight: 600;
@@ -48,7 +50,7 @@
 
 .preparationItem {
     padding-bottom: 14px;
-    border-bottom: 1px solid rgba(243, 243, 243, 0.20);
+    border-bottom: 1px solid rgba($primary-white-color, 0.2);
 }
 
 .img {
