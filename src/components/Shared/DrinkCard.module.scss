@@ -1,0 +1,80 @@
+@import 'styles/common/vars';
+
+.card {
+  max-width: 360px;
+
+  @media screen and (min-width: 768px) {
+    max-width: none;
+    width: 342px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 400px;
+  }
+}
+
+.cardThumb {
+  height: 360px;
+
+  border-radius: 8px;
+
+  overflow: hidden;
+
+  @media screen and (min-width: 768px) {
+    height: 360px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    height: 400px;
+  }
+}
+
+.cardThumb > img {
+  height: 100%;
+  // width: 100%;
+}
+
+.cardInfo {
+  padding: 14px 0 8px;
+
+  display: flex;
+  justify-content: space-between;
+
+  @media screen and (min-width: 768px) {
+    padding: 14px 0 20px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    padding: 14px 0 60px;
+  }
+}
+
+.cardName {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: calc(18 / 16);
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+    line-height: calc(24 / 18);
+  }
+}
+
+.linkIngredients {
+  font-weight: 500;
+  color: rgba($color: $primary-white-color, $alpha: 0.5);
+
+  transition: color $transition-duration;
+
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    color: $primary-white-color;
+  }
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: calc(18 / 16);
+  }
+}

@@ -1,0 +1,30 @@
+@import 'styles/common/vars';
+
+.title {
+  max-width: 279px;
+
+  margin-bottom: 16px;
+
+  font-size: 32px;
+  font-weight: 600;
+  line-height: calc(38 / 32);
+
+  @media screen and (min-width: 768px) {
+    max-width: none;
+    width: 483px;
+
+    margin-bottom: 28px;
+
+    font-size: 56px;
+    line-height: calc(60 / 56);
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 715px;
+
+    margin-bottom: 28px;
+
+    font-size: 64px;
+    line-height: calc(68 / 64);
+  }
+}
