@@ -64,7 +64,7 @@ padding-bottom: 40px;
     transition: background-color $transition-duration;
     
 
-    &:hover {
+    &:hover, &:focus {
         background-color: #6094fc;
     }
 
