@@ -6,20 +6,12 @@ import {
   useGetGlassListQuery,
 } from 'redux/recipesSlice';
 
-const RecipeDescriptionFields = ({ handleInputChange, value, user }) => {
-  // const [dispatch, { data: user }] = useSigninMutation();
-
+const RecipeDescriptionFields = ({ handleInputChange, value}) => {
   const { data: categoryList, isSuccess: isCategory } =
-    useGetCategoriesListQuery('', {
-      skip: !user,
-    });
-  const { data: glassList, isSuccess: isGlass } = useGetGlassListQuery('', {
-    skip: !user,
-  });
+    useGetCategoriesListQuery('');
+  const { data: glassList, isSuccess: isGlass } = useGetGlassListQuery('');
 
-  // useEffect(() => {
-  //   dispatch({ email: 'marias@gmail.com', password: 'Qwerty123' });
-  // }, []);
+  
 
   const getOptionsForSelect = listOptions => {
     const options = listOptions.map(item => {

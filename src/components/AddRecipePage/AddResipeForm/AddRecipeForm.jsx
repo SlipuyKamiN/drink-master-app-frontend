@@ -3,8 +3,7 @@ import RecipeDescriptionFields from '././ComponentForm/RecipeDescriptionFields';
 import RecipeIngredientsFields from '././ComponentForm/RecipeIngredientsFields';
 import RecipePreparationFields from '././ComponentForm/RecipePreparationFields';
 import scss from './AddRecipeForm.module.scss';
-import { useState, useEffect } from 'react';
-import { useSigninMutation } from 'redux/authSlice';
+import { useState} from 'react';
 import { useCreateNewRecipeMutation } from 'redux/myRecipesSlice';
 import { useNavigate } from "react-router-dom";
 import { notification } from 'components/Shared/notification';
@@ -21,14 +20,10 @@ const AddRecipeForm = () => {
   const [quantity, setQuantity] = useState(1);
   const [instructions, setInstructions] = useState([]);
 
-  const [dispatch1, { data: user }] = useSigninMutation();
   const [dispatch] =
     useCreateNewRecipeMutation();
 
     const navigate = useNavigate();
-  useEffect(() => {
-    dispatch1({ email: 'marias@gmail.com', password: 'Qwerty123' });
-  }, []);
 
   const handleFileChange = event => {
     const file = event.target.files[0];
@@ -115,7 +110,7 @@ const AddRecipeForm = () => {
           handleGlassChange,
         }}
         value={{ selectedImage, drink, description, category, glass }}
-        user={user}
+        // user={user}
       />
       <RecipeIngredientsFields
         ingredients={ingredients}
@@ -125,7 +120,7 @@ const AddRecipeForm = () => {
         addIngredient={addIngredient}
         removeIngredient={removeIngredient}
         reductionIngredient={reductionIngredient}
-        user={user}
+        // user={user}
       />
       <RecipePreparationFields handleTextareaChange={handleTextareaChange} />
       <button className={scss.btn} type="submit">

@@ -8,16 +8,13 @@ import { useGetIngredientsListQuery } from 'redux/recipesSlice';
 const RecipeIngredientsFields = ({
   ingredients,
   quantity,
-  user,
   addIngredient,
   removeIngredient,
   handleIngredientsChange,
   reductionIngredient,
 }) => {
   const { data: ingredientsList, isSuccess: isIngredients } =
-    useGetIngredientsListQuery('', {
-      skip: !user,
-    });
+    useGetIngredientsListQuery('');
 
   const handleIngredientChange = (idToUpdate, field, value) => {
     handleIngredientsChange(idToUpdate, field, value);

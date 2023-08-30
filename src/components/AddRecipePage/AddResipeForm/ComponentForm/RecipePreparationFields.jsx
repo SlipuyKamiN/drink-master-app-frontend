@@ -6,7 +6,6 @@ const RecipePreparationFields = ({ handleTextareaChange }) => {
       <h3 className={scss.title}>Recipe Preparation</h3>
       <textarea
         className={scss.textarea__value}
-        // style={{ maxHeight: '100px' }}
         onChange={handleTextareaChange}
         rows="30"
         placeholder="Enter the recipe"
