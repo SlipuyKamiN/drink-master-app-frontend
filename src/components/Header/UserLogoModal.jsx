@@ -22,10 +22,10 @@ const UserLogoModal = () => {
   return (
     <div className={css.modal}>
       <button type="button" className={css.btn} onClick={handleSignupClick}>
-        <p>Edit profile</p>
+        <p className={css.text}>Edit profile</p>
         <FiEdit2 height="14px" width="14px" />
       </button>
-      <button type="button" className={css.btn} onClick={handleSignoutClick} disabled={isDisabled}>
+      <button type="button" className={`${css.btn} ${css.logoutBtn}`} onClick={handleSignoutClick} disabled={isDisabled}>
         Log out
       </button>
     </div>

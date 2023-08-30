@@ -12,31 +12,49 @@
   position: relative;
 }
 .text {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
-  line-height: 1.5;
+  line-height: 1.29;
   color: $primary-white-color;
+
+  @media screen and (min-width:768px) {
+    font-size: 16px;
+    line-height: 1.5;
+  }
 }
 
 .btn {
-  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 14px;
+  gap: 8px;
   border: none;
+  padding: 0;
   text-align: center;
   background-color: var(--main-color);
   text-decoration: none;
   font-family: inherit;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 14px;
+  line-height: 1.29;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
   outline: auto;//!!
+
+  @media screen and (min-width:768px) {
+    gap: 14px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
 }
 .img {
   object-fit: cover;
   border-radius: 50%;
+  height: 32px;
+  width: 32px;
+
+  @media screen and (min-width: 768px) {
+    height: 44px;
+    width: 44px;
+  }
 }

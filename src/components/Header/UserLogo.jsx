@@ -11,7 +11,7 @@ const UserLogo = () => {
   return (
     <div className={css.userWrapper}>
     <button className={css.btn} type="button">
-      <img src={avatarURL || tempIcon} alt="User icon" height="44px" width="44px" className={css.img}/>
+      <img src={avatarURL || tempIcon} alt="User icon" className={css.img}/>
       <p className={css.text}>{name || "No user"}</p>
     </button>
     <UserLogoModal/>
