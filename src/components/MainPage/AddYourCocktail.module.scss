@@ -48,14 +48,14 @@
 }
 
 .wrapper {
-  margin-left: 20px;
+  padding-left: 20px;
 
   @media screen and (min-width: 768px) {
-    margin-left: 32px;
+    padding-left: 32px;
   }
 
   @media screen and (min-width: 1440px) {
-    margin-left: 100px;
+    padding-left: 100px;
   }
 }
 

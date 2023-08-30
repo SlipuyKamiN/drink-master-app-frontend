@@ -38,8 +38,8 @@ const PreviewDrinks = () => {
   }
 
   return (
-    <Container>
-      <section className={sass.drinks}>
+    <section className={sass.drinks}>
+      <Container>
         <ul className={sass.drinksList}>
           {data.map(({ category, drinks, _id }) => {
             return (
@@ -73,8 +73,8 @@ const PreviewDrinks = () => {
             Other drinks
           </Link>
         </div>
-      </section>
-    </Container>
+      </Container>
+    </section>
   );
 };
 
