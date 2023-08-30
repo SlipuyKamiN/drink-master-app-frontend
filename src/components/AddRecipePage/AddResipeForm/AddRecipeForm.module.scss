@@ -1,5 +1,20 @@
 @import 'styles/common/vars';
 
+.addRecipe {
+  @media screen and (min-width: 1440px) {
+    display: flex;
+ justify-content: space-between;
+  }
+}
+
+.addRecipe__wrapper {
+  @media screen and (min-width: 1440px) {
+    width: 313px;
+    height: 320px;
+    background-color: beige;
+  }
+}
+
 .btn {
   display: block;
   padding: 14px 40px;
@@ -7,5 +22,30 @@
   gap: 10px;
   border-radius: 42px;
   background: $primary-white-color;
+  border: none;
   font-weight: 600;
+  color:$secondary-bg-blue-color;
+  transition: color $transition-duration, background-color $transition-duration;
+  @media screen and (min-width: 768px) {
+    padding: 18px 44px;
+   font-size: 16px;
+   line-height: calc(18 / 16); 
+  }
 }
+
+.btn:active {
+  border: 2px solid rgba(64, 112, 205, 0.50);
+}
+
+.btn:hover,
+.btn:focus {
+color: $primary-white-color;
+background-color: $secondary-bg-blue-color;
+}
+
+.btn:disabled {
+  color: rgba(243, 243, 243, 0.20);
+  background-color: $disabled-blue-color;
+}
+
+  

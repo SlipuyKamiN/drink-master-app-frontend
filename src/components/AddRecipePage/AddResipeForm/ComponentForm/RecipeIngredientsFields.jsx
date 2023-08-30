@@ -14,7 +14,7 @@ const RecipeIngredientsFields = ({
   handleIngredientsChange,
   reductionIngredient,
 }) => {
-  const { data: ingridientsList, isSuccess: isIngridients } =
+  const { data: ingredientsList, isSuccess: isIngredients } =
     useGetIngredientsListQuery('', {
       skip: !user,
     });
@@ -22,11 +22,11 @@ const RecipeIngredientsFields = ({
   const handleIngredientChange = (idToUpdate, field, value) => {
     handleIngredientsChange(idToUpdate, field, value);
   };
-  const ingridientsOptions = () => {
-    const ingridientOption = ingridientsList.map(({ title }) => {
+  const ingredientsOptions = () => {
+    const ingredientOption = ingredientsList.map(({ title }) => {
       return { value: title, label: title };
     });
-    return ingridientOption;
+    return ingredientOption;
   };
 
   const options2 = [
@@ -42,9 +42,9 @@ const RecipeIngredientsFields = ({
   ];
 
   return (
-    <div className={scss.wraper__ingridients}>
-      <div className={scss.wraper__ingridient}>
-        <h3 className={scss.recipe__title}>Ingredients</h3>
+    <div className={scss.ingredients}>
+      <div className={scss.wrapper}>
+        <h3 className={scss.ingredients__title}>Ingredients</h3>
         <div className={scss.counter}>
           <button
             className={scss.counter__btn}
@@ -63,11 +63,13 @@ const RecipeIngredientsFields = ({
           </button>
         </div>
       </div>
+      <ul>
       {ingredients.map(({ id, amount, measurement }) => (
-        <div key={id} className={scss.thumb}>
+        <li key={id} className={scss.ingredients__thumb}>
+          <div className={scss.ingredients__wrapper}>
           <Select
-            classNamePrefix="ingridient-select"
-            options={isIngridients ? ingridientsOptions() : []}
+            classNamePrefix="ingredient-select"
+            options={isIngredients ? ingredientsOptions() : []}
             name="ingredient"
             onChange={event =>
               handleIngredientChange(id, 'ingredient', event.value)
@@ -77,13 +79,13 @@ const RecipeIngredientsFields = ({
           />
 
           <input
-            className={scss.input}
+            className={scss.ingredients__input}
             type="text"
             name="amount"
             onChange={event =>
               handleIngredientChange(id, event.target.name, event.target.value)
             }
-            value={amount}
+            value='1'
             required
           />
 
@@ -98,19 +100,21 @@ const RecipeIngredientsFields = ({
             defaultValue={options2[0]}
             required
           />
+          </div>
           {ingredients.length !== 1 && (
             <button
-              className={scss.counter__btn}
+              className={scss.ingredients__btn}
               type="button"
               onClick={() => {
                 removeIngredient(id);
               }}
             >
-              <FiX className={scss.ingridient__icon} />
+              <FiX className={scss.ingridients__icon} />
             </button>
           )}
-        </div>
+        </li>
       ))}
+      </ul>
     </div>
   );
 };

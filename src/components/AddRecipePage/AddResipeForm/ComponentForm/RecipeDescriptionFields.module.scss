@@ -1,48 +1,119 @@
 @import 'styles/common/vars';
-.wrapper {
+.form {
   margin-bottom: 80px;
-
   @media screen and (min-width: 768px) {
     max-height: 320px;
     display: flex;
-    justify-content: space-between;
-    
+    justify-content: space-between; 
+  }
+  @media screen and (min-width: 1440px) {
+    width: 833px;
+    margin-bottom: 160px;
+  }
+
+  &__wrapper {
+    position: relative;
+    width: 335px;
+    height: 320px;
+    margin-bottom: 40px;
+    border-radius: 8px;
+    color: rgba(22, 31, 55, 0.5);
+    background: rgba(22, 31, 55, 0.5);
+    @media screen and (min-width: 768px) {
+      width: 320px;
+    }
+    @media screen and (min-width: 1440px) {
+      width: 400px;
+      height: 400px;
+      margin-bottom: 0;
+    }
+  }
+
+  &__input {
+    display: block;
+    margin-bottom: 34px;
+    color: $primary-white-color;
+    letter-spacing: -0.28px;
+    background-color: inherit;
+    width: 335px;
+    padding-bottom: 14px;
+    border: none;
+    opacity: 0.5;
+    letter-spacing: -0.28px;
+    border-bottom: 1px solid rgba(243, 243, 243, 0.5);
+    @media screen and (min-width: 768px) {
+      width: 352px;
+      margin-bottom: 40px;
+      padding-bottom: 18px;
+      font-size: 17px;
+    }
+    @media screen and (min-width: 1440px) {
+      width: 393px;
+    }
   }
 }
 
-.wrapper__img {
-  position: relative;
-  width: 335px;
-  height: 320px;
-  margin-bottom: 40px;
-  border-radius: 8px;
-  color: rgba(22, 31, 55, 0.5);
-  background: rgba(22, 31, 55, 0.5);
 
-  @media screen and (min-width: 768px) {
-    width: 320px;
-    margin-bottom: 80px;
-  }
-}
 
-.wrapper__file {
+.file {
   padding-top: 116px;
-}
-.input__file {
-  position: absolute;
-  left: 142px;
-  display: block;
-  width: 50px;
-  height: 50px;
-  margin: auto 0;
+  @media screen and (min-width: 1440px) {
+    padding-top: 156px;
+  }
 
-  @media screen and (min-width: 768px) {
-    left: 135px;
+  &__input {
+    position: absolute;
+    left: 142px;
+    display: block;
+    width: 50px;
+    height: 50px;
+    margin: auto 0;
+    @media screen and (min-width: 768px) {
+      left: 135px;
+      font-size: 16px;
+      letter-spacing: -0.32px;
+    }
+    @media screen and (min-width: 1440px) {
+     left: 175px;
+    }
+  }
+
+  &__btn {
+    position: absolute;
+    left: 142px;
+    display: block;
+    width: 50px;
+    height: 50px;
+    pointer-events: none;
+    z-index: 111;
+    @media screen and (min-width: 768px) {
+      left: 135px;
+    }
+    @media screen and (min-width: 1440px) {
+      left: 175px;
+    }
+  }
+
+  &__text {
+    position: absolute;
+    left: 128px;
+    bottom: 116px;
     font-size: 16px;
-letter-spacing: -0.32px;
-    
+    font-weight: 500;
+    line-height: calc(20 / 16);
+    color: $primary-white-color;
+    @media screen and (min-width: 768px) {
+     left: 118px;
+    }
+    @media screen and (min-width: 1440px) {
+      left: 160px;
+      bottom: 156px;
+    }
   }
 }
+
+
+
 
 .img {
   width: 335px;
@@ -54,71 +125,174 @@ letter-spacing: -0.32px;
   }
 }
 
-.btn {
-  position: absolute;
- 
-  left: 142px;
+
+
+
+
+
+
+// .form {
+  //   margin-bottom: 80px;
+  //   @media screen and (min-width: 768px) {
+  //     max-height: 320px;
+  //     display: flex;
+  //     justify-content: space-between;
+  //   }
+  //   @media screen and (min-width: 1440px) {
+  //     width: 833px;
+  //     margin-bottom: 160px;
+  //   }
   
-  display: block;
-  width: 50px;
-  height: 50px;
-  pointer-events: none;
-  z-index: 111;
-
-  @media screen and (min-width: 768px) {
-    left: 135px;
+  //   &__wrapper {
+  //     position: relative;
+  //     width: 335px;
+  //     height: 320px;
+  //     margin-bottom: 40px;
+  //     border-radius: 8px;
+  //     color: rgba(22, 31, 55, 0.5);
+  //     background: rgba(22, 31, 55, 0.5);
     
-  }
-}
-
-.text {
-  position: absolute;
-  left: 128px;
-  bottom: 116px;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: calc(20 / 16);
-  color: $primary-white-color;
-
-  @media screen and (min-width: 768px) {
-   left: 118px;
-  }
-}
-
-.input {
-  display: block;
-  margin-bottom: 34px;
-  color: $primary-white-color;
-  letter-spacing: -0.28px;
-  background-color: inherit;
-  width: 335px;
-  padding-bottom: 14px;
-  border: none;
-  opacity: 0.5;
-  font-size: 14px;
-  font-weight: 400;
-  letter-spacing: -0.28px;
-  border-bottom: 1px solid rgba(243, 243, 243, 0.5);
-
-  @media screen and (min-width: 768px) {
-    width: 352px;
-    margin-bottom: 40px;
-    padding-bottom: 18px;
+  //     @media screen and (min-width: 768px) {
+  //       width: 320px;
+  //       // margin-bottom: 80px;
+  //     }
     
-  }
-}
-
-// .recipeDescription__label {
-//   position: relative;
-// }
-
-// .recipeDescription__input {
-//   &::after {
-//     content: 'Category';
-//     position: absolute;
-//     width: 100px;
-//     left: 0;
-//     top: 50%;
-//     transform: translateY(-50%);
-//   }
-// }
+  //     @media screen and (min-width: 1440px) {
+  //       width: 400px;
+  //       height: 400px;
+  //       margin-bottom: 0;
+        
+  //     }}
+  
+  //     &__input {
+  //       display: block;
+  //       margin-bottom: 34px;
+  //       color: $primary-white-color;
+  //       letter-spacing: -0.28px;
+  //       background-color: inherit;
+  //       width: 335px;
+  //       padding-bottom: 14px;
+  //       border: none;
+  //       opacity: 0.5;
+        
+  //       letter-spacing: -0.28px;
+  //       border-bottom: 1px solid rgba(243, 243, 243, 0.5);
+      
+  //       @media screen and (min-width: 768px) {
+  //         width: 352px;
+  //         margin-bottom: 40px;
+  //         padding-bottom: 18px;
+  //         font-size: 17px;
+          
+  //       }
+      
+  //       @media screen and (min-width: 1440px) {
+  //         width: 393px;
+        
+  //       }
+      
+        
+  //     }
+  // }
+  
+  // // .form__img {
+  // //   position: relative;
+  // //   width: 335px;
+  // //   height: 320px;
+  // //   margin-bottom: 40px;
+  // //   border-radius: 8px;
+  // //   color: rgba(22, 31, 55, 0.5);
+  // //   background: rgba(22, 31, 55, 0.5);
+  
+  // //   @media screen and (min-width: 768px) {
+  // //     width: 320px;
+  // //     // margin-bottom: 80px;
+  // //   }
+  
+  // //   @media screen and (min-width: 1440px) {
+  // //     width: 400px;
+  // //     height: 400px;
+  // //     margin-bottom: 0;
+      
+  // //   }
+  // // }
+  
+  // .file {
+  //   padding-top: 116px;
+  //   @media screen and (min-width: 1440px) {
+  //     padding-top: 156px;
+  //   }
+  
+  //   &____input {
+  //     position: absolute;
+  //     left: 142px;
+  //     display: block;
+  //     width: 50px;
+  //     height: 50px;
+  //     margin: auto 0;
+  //     @media screen and (min-width: 768px) {
+  //       left: 135px;
+  //       font-size: 16px;
+  //   letter-spacing: -0.32px; 
+  //     }
+  //     @media screen and (min-width: 1440px) {
+  //      left: 175px;
+  //     }
+  //   }
+  
+  //   &__btn {
+  //     position: absolute;
+     
+  //     left: 142px;
+      
+  //     display: block;
+  //     width: 50px;
+  //     height: 50px;
+  //     pointer-events: none;
+  //     z-index: 111;
+    
+  //     @media screen and (min-width: 768px) {
+  //       left: 135px;
+        
+  //     }
+    
+  //     @media screen and (min-width: 1440px) {
+  //       left: 175px;
+        
+  //     }
+  //   }
+  
+  //   &__text {
+  //     position: absolute;
+  //     left: 128px;
+  //     bottom: 116px;
+  //     font-size: 16px;
+  //     font-weight: 500;
+  //     line-height: calc(20 / 16);
+  //     color: $primary-white-color;
+    
+  //     @media screen and (min-width: 768px) {
+  //      left: 118px;
+  //     }
+    
+  //     @media screen and (min-width: 1440px) {
+  //       left: 160px;
+  //       bottom: 156px;
+        
+  //     }
+  //   }
+    
+  // }
+  
+  
+  
+  // .img {
+  //   width: 335px;
+  //   height: 320px;
+  
+  //   @media screen and (min-width: 768px) {
+  //     width: 320px;
+      
+  //   }
+  // }
+  

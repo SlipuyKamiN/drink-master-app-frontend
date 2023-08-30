@@ -29,8 +29,8 @@ const RecipeDescriptionFields = ({ handleInputChange, value, user }) => {
   };
 
   return (
-    <div className={scss.wrapper}>
-      <div className={scss.wrapper__img}>
+    <div className={scss.form}>
+      <div className={scss.form__wrapper}>
         {value.selectedImage ? (
           <img
             className={scss.img}
@@ -38,26 +38,26 @@ const RecipeDescriptionFields = ({ handleInputChange, value, user }) => {
             alt="Preview"
           />
         ) : (
-            <div className={scss.wrapper__file}>
+            <div className={scss.file}>
             <input
-              className={scss.input__file}
+              className={scss.file__input}
               type="file"
               name="drink-photo"
               accept="image/png, image/jpeg"
               onChange={handleInputChange.handleFileChange}
               required
             />
-            <button className={scss.btn} type="button">
+            <button className={scss.file__btn} type="button">
               <FiPlus size="28" color="#161F37" />
             </button>
-            <p className={scss.text}>Add image</p>
+            <p className={scss.file__text}>Add image</p>
             </div>
           
         )}
       </div>
       <div>
         <input
-          className={scss.input}
+          className={scss.form__input}
           type="text"
           name="drink"
           id=""
@@ -67,7 +67,7 @@ const RecipeDescriptionFields = ({ handleInputChange, value, user }) => {
           required
         />
         <input
-          className={scss.input}
+          className={scss.form__input}
           type="text"
           name="description"
           id=""
@@ -76,7 +76,7 @@ const RecipeDescriptionFields = ({ handleInputChange, value, user }) => {
           placeholder="Enter about recipe"
           required
         />
-        <label className={scss.recipeDescription__label}>
+       
           <Select
             classNamePrefix="select-description"
             placeholder=""
@@ -85,8 +85,8 @@ const RecipeDescriptionFields = ({ handleInputChange, value, user }) => {
             options={isCategory ? getOptionsForSelect(categoryList) : []}
             required
           />
-        </label>
-        <label className={scss.recipeDescription__label}>
+       
+        
           <Select
             classNamePrefix="select-description-glass"
             placeholder=""
@@ -95,7 +95,7 @@ const RecipeDescriptionFields = ({ handleInputChange, value, user }) => {
             options={isGlass ? getOptionsForSelect(glassList) : []}
             required
           />
-        </label>
+      
       </div>
     </div>
   );
