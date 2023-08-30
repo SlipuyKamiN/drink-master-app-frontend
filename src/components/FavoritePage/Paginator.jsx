@@ -1,18 +1,19 @@
-import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import css from "./Paginator.module.scss";
+import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
-const Paginator = ({totalHits}) => {
+
+const Paginator = ({ totalHits, onChange }) => {
 
   console.log("totalHits:", totalHits);
-  const numberOfButtons = Math.ceil(25 / 8);
+  let litit = 8;
+  const numberOfButtons = Math.ceil(totalHits / litit);
   const numbersArray = Array.from({ length: numberOfButtons }, (_, index) => index + 1);
 
-  console.log("numberOfButtons", numberOfButtons);
-  console.log('numbersArray', numbersArray);
-
-  const handleBtnPaginations = () => {
-    
+  const handleBtnPaginations = (num) => {
+    onChange(num)
   };
+
+
 
   return (
     <div className={css.PaginatorContainer}>
@@ -30,7 +31,7 @@ const Paginator = ({totalHits}) => {
          {numbersArray.map((buttonNumber) => (
            <button
              className={css.PaginatorBtn}
-             onClick={handleBtnPaginations}
+             onClick={()=>handleBtnPaginations(buttonNumber)}
             name={buttonNumber}
             type="button"
           >
