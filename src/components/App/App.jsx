@@ -8,6 +8,10 @@ import PrivateRoute from 'components/PrivateRoute';
 import RestrictedRoute from 'components/RestrictedRoute';
 import SharedLayout from 'components/SharedLayout/SharedLayout';
 import { ToastContainer } from 'react-toastify';
+import { useSelector } from 'react-redux';
+import { useCurrentUserQuery } from 'redux/authSlice';
+import { getUserState } from 'redux/userSelectors';
+import LoadingSpinner from 'components/Shared/LoadingSpinner';
 const ErrorPage = lazy(() => import('pages/404Page'));
 const AddRecipePage = lazy(() => import('pages/AddRecipePage'));
 const DrinksPage = lazy(() => import('pages/DrinksPage'));
@@ -16,6 +20,13 @@ const MyRecipesPage = lazy(() => import('pages/MyRecipesPage'));
 const RecipePage = lazy(() => import('pages/RecipePage'));
 
 const App = () => {
+  const user = useSelector(getUserState);
+  const skip = !user.token && !user.isLoggedIn;
+
+  const { isLoading } = useCurrentUserQuery('', { skip });
+
+  if (isLoading) return <LoadingSpinner size={150} />;
+
   return (
     <>
       <Routes>
