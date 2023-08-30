@@ -1,10 +1,12 @@
-import { useCallback, useEffect, useState } from 'react';
-import { useLocation, useSearchParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+// import { useLocation, useSearchParams } from 'react-router-dom';
 import categories from './categories.json';
 import ingridients from './ingredients.json';
 import Select from 'react-select';
 import { useForm } from 'react-hook-form';
-import useWindowDimensions from '../../hooks/useWindowDimensions';
+// import useWindowDimensions from '../../hooks/useWindowDimensions';
+import { useGetCategoriesListQuery } from '../../redux/recipesSlice';
+import { useGetIngredientsListQuery } from '../../redux/recipesSlice';
 import sass from './DrinksSearch.module.scss';
 
 // change after backend connecting VVVVVVVVVV
@@ -20,8 +22,35 @@ const ingridientsOptions = ingridients.map(item => {
 // change after backend connecting ^^^^^^^^^^^
 
 const DrinksSearch = ({ onFilterChange }) => {
+  const { data: categoryList } = useGetCategoriesListQuery();
+  console.log(categoryList);
+  const { data: ingredientsList } = useGetIngredientsListQuery();
+  console.log(ingredientsList);
   const { register, handleSubmit } = useForm();
+  // const [categoriesOptions, setCategoriesOptions] = useState([]);
+  // const [ingridientsOptions, setIngridientsOptions] = useState([]);
   const [filter, setFilter] = useState({});
+
+  // useEffect(() => {
+  //   setCategoriesOptions(
+  //     categoryList.map(item => {
+  //       return { value: item, label: item };
+  //     })
+  //   );
+  //   setIngridientsOptions(
+  //     ingredientsList.map(item => {
+  //       return { value: item, label: item };
+  //     })
+  //   );
+  // }, [categoryList, ingredientsList]);
+
+  // const categoriesOptions = categoryList.map(item => {
+  //   return { value: item, label: item };
+  // });
+
+  // const ingridientsOptions = ingredientsList.map(item => {
+  //   return { value: item.title, label: item.title };
+  // });
 
   useEffect(() => {
     onFilterChange(filter);

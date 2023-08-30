@@ -6,16 +6,21 @@ import { useLocation, useSearchParams } from 'react-router-dom';
 import useWindowDimensions from '../hooks/useWindowDimensions';
 import { useCallback, useEffect, useState } from 'react';
 import { useSearchRecipesQuery } from '../redux/recipesSlice';
-import { useSigninMutation } from 'redux/authSlice';
+// import { useGetCategoriesListQuery } from '../redux/recipesSlice';
+import { useParams } from 'react-router-dom';
+// import { useSigninMutation } from 'redux/authSlice';
 import { notification } from 'components/Shared/notification';
-import LoadingSpinner from 'components/Shared/LoadingSpinner';
+// import LoadingSpinner from 'components/Shared/LoadingSpinner';
 
-const DrinksPage = ({ category }) => {
-  const [dispatch, { data: userData }] = useSigninMutation();
+const DrinksPage = () => {
+  const { categoryName: category } = useParams();
+  // console.log(category);
+
   const [query, setQuery] = useState('');
-  const { data, isLoading, isError } = useSearchRecipesQuery(query, {
-    skip: !userData,
-  });
+  const { data, isError } = useSearchRecipesQuery(query);
+  // const { data: categoryList } = useGetCategoriesListQuery();
+  // console.log(categoryList);
+  // const [categoryList, setCategoryList] = useState(null);
   const { width } = useWindowDimensions();
   const [searchParams, setSearchParams] = useSearchParams({
     category: category || 'Cocktail',
@@ -27,15 +32,10 @@ const DrinksPage = ({ category }) => {
   }, [searchParams]);
   const { search } = useLocation();
 
-  useEffect(() => {
-    dispatch({
-      password: 'AA223355aa',
-      email: 'Jacky@mail.com',
-    });
-  }, [dispatch]);
-
-  console.log(userData);
-  console.log(data);
+  // useEffect(() => {
+  // const categoriesList = useGetCategoriesListQuery();
+  //   console.log(categoryList);
+  // }, [categoryList]);
 
   useEffect(() => {
     setSearchParams({
@@ -44,16 +44,41 @@ const DrinksPage = ({ category }) => {
     });
   }, [setSearchParams, width, getSearchParams]);
 
-  useEffect(() => {
-    if (!category) {
-      return;
-    }
-
+  if (category === 'All categories') {
     setSearchParams({
       ...getSearchParams(),
-      category: 'All categories' ? '' : category,
+      category: '',
     });
-  }, [setSearchParams, getSearchParams, category]);
+  }
+
+  // useEffect(() => {
+  //   if (!categoryList?.includes(category)) {
+  //     setSearchParams({
+  //       ...getSearchParams(),
+  //       category: 'Cocktail',
+  //     });
+  //   }
+  // }, [category, categoryList, getSearchParams, setSearchParams]);
+
+  // if (categoryList) {
+  //   if (categoryList.includes(category)) {
+  //     setSearchParams({
+  //       ...getSearchParams(),
+  //       category: 'Cocktail',
+  //     });
+  //   }
+  // }
+
+  // useEffect(() => {
+  //   if (!category) {
+  //     return;
+  //   }
+
+  //   setSearchParams({
+  //     ...getSearchParams(),
+  //     category: 'All categories' ? '' : category,
+  //   });
+  // }, [setSearchParams, getSearchParams, category]);
 
   const handleFilterChange = useCallback(
     filter => {
@@ -77,18 +102,19 @@ const DrinksPage = ({ category }) => {
       `?search=${search}&category=${category}&ingredient=${ingredient}&limit=${limit}&page=${page}`
     );
 
-    console.log(getSearchParams());
+    // console.log(getSearchParams());
   }, [getSearchParams, search]);
 
   if (isError) {
     notification('No drinks were found');
+    // return;
   }
 
   return (
     <Container>
       <MainTitle title="Drinks"></MainTitle>
       <DrinksSearch onFilterChange={handleFilterChange}></DrinksSearch>
-      {isLoading && LoadingSpinner}
+      {/* {isLoading && <LoadingSpinner />} */}
       <DrinksList cocktails={data}></DrinksList>
     </Container>
   );
