@@ -63,17 +63,17 @@ padding-bottom: 40px;
     border-color: transparent;
     border-radius: 42px;
 
-    background-color: $primary-white-color;
-    
-    transition: background-color $transition-duration;
-
     display: flex;
     flex-direction: row;
     gap: 10px;
-    
 
-    &:hover {
-        background-color: #6094fc;
+    background-color: $primary-white-color;
+    
+    transition: background-color $transition-duration, color $transition-duration;  
+
+    &:hover, &:focus {
+        background-color: $secondary-bg-blue-color;
+        color: $primary-white-color
     }
 
     @media screen and (min-width: 768px) {
@@ -108,7 +108,7 @@ padding-bottom: 40px;
 
     transition: text-underline-offset $transition-duration, color $transition-duration;
 
-    &:hover {
+    &:hover, &:focus {
         text-underline-offset: -13px;
         color: $primary-white-color;
     }

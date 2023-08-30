@@ -18,7 +18,6 @@ const {
 } = sass;
 
 const RecipePageHero = ({ recipe }) => {
-  console.log(recipe);
   const userId = useSelector(state => state.user._id);
 
   const isFavorite = recipe?.users.find(() => userId);
@@ -30,39 +29,42 @@ const RecipePageHero = ({ recipe }) => {
   };
 
   return (
-    <Container>
-      <div className={heroWrapper}>
-        <div className={beverageInfo}>
-          <p className={glassType}>{recipe?.glass}</p>
-          <h2 className={`${titleStyles.title} ${titleDistance}`}>
-            {recipe?.drink}
-          </h2>
-          <p className={description}>{recipe?.description}</p>
-          <button className={addToFavButton} onClick={handleFavButtonClick}>
-            {isFavorite
-              ? 'Remove from favorite recipe'
-              : 'Add to favorite recipe'}
-            {isLoading && <LoadingSpinner />}
-          </button>
-          {recipe?.video && (
-            <a
-              href={recipe.video}
-              target="_blank"
-              rel="noreferrer"
-              className={videoLink}
-            >
-              Click to see a video instruction
-            </a>
-          )}
+    <section>
+      <Container>
+        <div className={heroWrapper}>
+          <div className={beverageInfo}>
+            <p className={glassType}>{recipe?.glass}</p>
+            <h2 className={`${titleStyles.title} ${titleDistance}`}>
+              {recipe?.drink}
+            </h2>
+            {recipe?.description && (
+              <p className={description}>{recipe.description}</p>
+            )}
+            <button className={addToFavButton} onClick={handleFavButtonClick}>
+              {isFavorite
+                ? 'Remove from favorite recipe'
+                : 'Add to favorite recipe'}
+              {isLoading && <LoadingSpinner color={'#da1414'} />}
+            </button>
+            {recipe?.video && (
+              <a
+                href={recipe.video}
+                target="_blank"
+                rel="noreferrer"
+                className={videoLink}
+              >
+                Click to see a video instruction
+              </a>
+            )}
+          </div>
+          <img
+            className={beverageImg}
+            src={recipe?.drinkThumb ?? placeholder}
+            alt="Beverage"
+          />
         </div>
-
-        <img
-          className={beverageImg}
-          src={recipe?.drinkThumb ?? placeholder}
-          alt="Beverage"
-        />
-      </div>
-    </Container>
+      </Container>
+    </section>
   );
 };
 
