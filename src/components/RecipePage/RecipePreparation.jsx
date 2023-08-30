@@ -27,7 +27,10 @@ const RecipePreparation = ({ instructions }) => {
               {splittedSentence.map(
                 item =>
                   item?.length > 0 && (
-                    <li className={preparationItem} key={item}>
+                    <li
+                      className={preparationItem}
+                      key={item + splittedSentence.indexOf(item)}
+                    >
                       {item}
                     </li>
                   )

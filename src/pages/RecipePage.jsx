@@ -9,12 +9,12 @@ import { notification } from 'components/Shared/notification';
 const RecipePage = () => {
   const { recipeId } = useParams();
 
-  const { data, isLoading, isError } = useGetRecipeByIdQuery(recipeId, {});
+  const { data, isLoading, isError } = useGetRecipeByIdQuery(recipeId);
 
   if (isError) notification();
 
   if (!data || isLoading) {
-    return <LoadingSpinner />;
+    return <LoadingSpinner size={200} />;
   }
 
   return (
