@@ -16,7 +16,8 @@ jobs:
           npm install
           npm run lint:js
           npm run build
-
+        env:
+            REACT_APP_BASE_URL: ${{ secrets.REACT_APP_BASE_URL }}
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.0
         with:
