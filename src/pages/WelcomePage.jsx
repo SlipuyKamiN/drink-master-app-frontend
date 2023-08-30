@@ -1,14 +1,16 @@
-import { useEffect } from "react";
-import { useSigninMutation } from 'redux/authSlice';
-
+import AuthNav from 'components/WelcomePage/AuthNav';
+import AuthNavTitle from 'components/WelcomePage/AuthNavTitle';
+import scss from './WelcomePage.module.scss';
 
 const WelcomePage = () => {
-  const [dispatch] = useSigninMutation();
-  useEffect(()=> {
-    dispatch({ email: 'alex@mail.com', password: 'Passw0rd' });//
-  },[dispatch])
-
-  return <div>WelcomePage</div>;
+  return (
+    <section className={scss.wrapper}>
+      <div className={`${scss.container} ${scss.center}`}>
+        <AuthNavTitle title="Welcome to the app!" />
+        <AuthNav />
+      </div>
+    </section>
+  );
 };
 
 export default WelcomePage;
