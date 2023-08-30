@@ -1,9 +1,10 @@
 @import 'styles/common/vars';
 
 .card {
-  width: 360px;
+  max-width: 360px;
 
   @media screen and (min-width: 768px) {
+    max-width: none;
     width: 342px;
   }
 
@@ -13,7 +14,7 @@
 }
 
 .cardThumb {
-  height: 335px;
+  height: 360px;
 
   border-radius: 8px;
 
@@ -30,11 +31,11 @@
 
 .cardThumb > img {
   height: 100%;
-  width: 100%;
+  // width: 100%;
 }
 
 .cardInfo {
-  padding: 14px 0 28px;
+  padding: 14px 0 8px;
 
   display: flex;
   justify-content: space-between;
@@ -67,7 +68,8 @@
 
   cursor: pointer;
 
-  &:hover {
+  &:hover,
+  &:focus {
     color: $primary-white-color;
   }
 

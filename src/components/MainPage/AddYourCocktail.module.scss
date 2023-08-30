@@ -19,7 +19,7 @@
   @media screen and (min-width: 768px) {
     max-width: none;
     width: 768px;
-    padding: 184px 0 419px;
+    padding: 184px 0 439px;
 
     background-image: url('../../images/hero-cocktail-medium@1x.png');
     background-position: right top -84px;
@@ -34,7 +34,7 @@
 
   @media screen and (min-width: 1440px) {
     width: 1440px;
-    padding: 160px 0 316px;
+    padding: 160px 0 296px;
 
     background-image: url('../../images/hero-cocktail-large@1x.png');
     background-size: 710px 790px;
@@ -99,7 +99,8 @@
 
   transition: color $transition-duration, background-color $transition-duration;
 
-  &:hover {
+  &:hover,
+  &:focus {
     color: $primary-white-color;
     background-color: $secondary-bg-blue-color;
   }

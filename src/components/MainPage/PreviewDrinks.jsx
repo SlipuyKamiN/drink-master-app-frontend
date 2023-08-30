@@ -4,6 +4,7 @@ import useWindowDimensions from '../../hooks/useWindowDimensions';
 import { useGetMainPageRecipesQuery } from 'redux/recipesSlice';
 import { notification } from 'components/Shared/notification';
 
+import Container from 'components/Shared/Container';
 import LoadingSpinner from 'components/Shared/LoadingSpinner';
 import DrinkCard from 'components/Shared/DrinkCard';
 
@@ -37,8 +38,7 @@ const PreviewDrinks = () => {
   }
 
   return (
-    <>
-      {isLoading && <LoadingSpinner />}
+    <Container>
       <section className={sass.drinks}>
         <ul className={sass.drinksList}>
           {data.map(({ category, drinks, _id }) => {
@@ -55,14 +55,12 @@ const PreviewDrinks = () => {
                     .slice(0, amountDrinks)
                     .map(({ _id, drink, drinkThumb }) => {
                       return (
-                        <li>
-                          <DrinkCard
-                            key={_id}
-                            id={_id}
-                            drink={drink}
-                            drinkThumb={drinkThumb}
-                          />
-                        </li>
+                        <DrinkCard
+                          key={_id}
+                          id={_id}
+                          drink={drink}
+                          drinkThumb={drinkThumb}
+                        />
                       );
                     })}
                 </ul>
@@ -76,7 +74,7 @@ const PreviewDrinks = () => {
           </Link>
         </div>
       </section>
-    </>
+    </Container>
   );
 };
 

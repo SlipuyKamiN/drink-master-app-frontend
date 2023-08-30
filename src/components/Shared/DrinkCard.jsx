@@ -4,7 +4,7 @@ import sass from './DrinkCard.module.scss';
 
 const DrinkCard = ({ id, drink, drinkThumb }) => {
   return (
-    <div className={sass.card}>
+    <li className={sass.card}>
       <div className={sass.cardThumb}>
         <img
           srcSet={
@@ -29,7 +29,7 @@ const DrinkCard = ({ id, drink, drinkThumb }) => {
           Ingredients
         </Link>
       </div>
-    </div>
+    </li>
   );
 };
 
