@@ -1,0 +1,115 @@
+@import 'styles/common/vars';
+
+.hero {
+  max-width: 375px;
+  margin: 0 auto;
+  padding: 128px 0 386px;
+
+  background-image: url('../../images/hero-cocktail-small@1x.png');
+  background-repeat: no-repeat;
+  background-position: right top 34px;
+  background-size: 273px 700px;
+
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    background-image: url('../../images/hero-cocktail-small@2x.png');
+  }
+
+  @media screen and (min-width: 768px) {
+    max-width: none;
+    width: 768px;
+    padding: 184px 0 439px;
+
+    background-image: url('../../images/hero-cocktail-medium@1x.png');
+    background-position: right top -84px;
+    background-size: 445px 1001px;
+
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url('../../images/hero-cocktail-medium@2x.png');
+    }
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 1440px;
+    padding: 160px 0 296px;
+
+    background-image: url('../../images/hero-cocktail-large@1x.png');
+    background-size: 710px 790px;
+
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url('../../images/hero-cocktail-large@2x.png');
+    }
+  }
+}
+
+.wrapper {
+  padding-left: 20px;
+
+  @media screen and (min-width: 768px) {
+    padding-left: 32px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    padding-left: 100px;
+  }
+}
+
+.content {
+  max-width: 266px;
+
+  margin-bottom: 32px;
+
+  line-height: calc(20 / 14);
+
+  @media screen and (min-width: 768px) {
+    max-width: none;
+    width: 449px;
+
+    margin-bottom: 40px;
+
+    font-size: 18px;
+    line-height: calc(24 / 18);
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 500px;
+  }
+}
+
+.addPage {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 152px;
+  height: 46px;
+
+  font-weight: 600;
+  color: $secondary-bg-blue-color;
+
+  background-color: $primary-white-color;
+  border-radius: 42px;
+
+  cursor: pointer;
+
+  transition: color $transition-duration, background-color $transition-duration;
+
+  &:hover,
+  &:focus {
+    color: $primary-white-color;
+    background-color: $secondary-bg-blue-color;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 170px;
+    height: 54px;
+
+    font-size: 16px;
+    line-height: calc(18 / 16);
+  }
+}
