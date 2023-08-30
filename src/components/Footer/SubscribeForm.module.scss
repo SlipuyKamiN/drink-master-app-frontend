@@ -1,3 +1,5 @@
+@import 'styles/common/vars';
+
 .subscribeForm {
   width: 100%;
 
@@ -71,4 +73,8 @@
 .subscribeButton:disabled {
   background: #434d67;
   color: rgba(243, 243, 243, 0.2);
+  .errorText {
+    color: $error-red-color;
+    font-size: 14px;
+  }
 }
