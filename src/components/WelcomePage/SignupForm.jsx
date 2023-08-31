@@ -54,6 +54,9 @@ const SignupForm = () => {
       >
         <label className={scss.label}>
           <input
+            style={
+              errors.name && { border: '1px solid rgba(218, 20, 20, 0.50)' }
+            }
             type="text"
             className={scss.input}
             placeholder="Name"
@@ -77,6 +80,9 @@ const SignupForm = () => {
 
         <label className={scss.label}>
           <input
+            style={
+              errors.email && { border: '1px solid rgba(218, 20, 20, 0.50)' }
+            }
             type="email"
             className={scss.input}
             placeholder="Email"
