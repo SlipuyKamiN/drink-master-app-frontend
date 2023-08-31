@@ -2,6 +2,7 @@ import css from './UserLogoModal.module.scss';
 import { useState } from 'react';
 import { FiEdit2 } from 'react-icons/fi';
 import { useLogoutMutation } from 'redux/authSlice';
+import { notification } from 'components/Shared/notification';
 
 const UserLogoModal = () => {
   const [isDisabled, setIsDisabled] = useState(false);

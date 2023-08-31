@@ -16,7 +16,6 @@ const UserLogo = () => {
   };
 
   return (
-    <>
       <div className={css.userWrapper}>
         <button className={css.btn} type="button" onClick={handleShowModal}>
           <img
@@ -28,7 +27,6 @@ const UserLogo = () => {
         </button>
         {showModal && <UserLogoModal />}
       </div>
-    </>
   );
 };
 
