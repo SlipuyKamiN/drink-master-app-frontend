@@ -42,9 +42,11 @@
 }
 
 .subscribeFormInput.valid {
+  outline: 2px solid $success-green-color;
 }
 
 .subscribeFormInput.invalid {
+  outline: 2px solid $error-red-color;
 }
 
 .subscribeButton {
