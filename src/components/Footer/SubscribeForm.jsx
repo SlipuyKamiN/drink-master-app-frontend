@@ -46,7 +46,7 @@ const SubscribeForm = () => {
           name="email"
           placeholder="Enter the email"
           className={`${styles.subscribeFormInput} ${
-            errors.email && dirtyFields.email && styles.invalid
+            errors.email && dirtyFields.email ? styles.invalid : styles.valid
           }`}
           {...register('email')}
         />
