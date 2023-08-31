@@ -19,9 +19,12 @@ const AddRecipeForm = () => {
   ]);
   const [quantity, setQuantity] = useState(1);
   const [instructions, setInstructions] = useState([]);
+  const [showError, setShowError] = useState(false)
 
-  const [dispatch] =
+  const [dispatch, {isLoading}] =
     useCreateNewRecipeMutation();
+ const setRequireError = field => <p className={scss.error}>{`The field ${field} must be filled`}
+ </p>
 
     const navigate = useNavigate();
 
@@ -91,8 +94,10 @@ const AddRecipeForm = () => {
     formData.append('instructions', JSON.stringify(instructions));
     formData.append('recipe', selectedImage);
 
+    if(selectedImage === "" || drink === '' || category === '' || glass === '' || description === '') return setShowError(true)
     dispatch(formData).unwrap().then(()=> {
       navigate("/my");
+      setShowError(false)
     }).catch(error => notification(error.message));
   
   };
@@ -106,7 +111,8 @@ const AddRecipeForm = () => {
           handleDescriptionChange,
           handleGlassChange,
         }}
-        value={{ selectedImage, drink, description, category, glass }}
+        value={{ selectedImage, drink, description, category, glass, showError }}
+        setRequireError={setRequireError}
       />
       <RecipeIngredientsFields
         ingredients={ingredients}
@@ -118,7 +124,7 @@ const AddRecipeForm = () => {
         reductionIngredient={reductionIngredient}
       />
       <RecipePreparationFields handleTextareaChange={handleTextareaChange} />
-      <button className={scss.btn} type="submit">
+      <button className={scss.btn} type="submit" disabled={isLoading ? true : false}>
         Add
       </button>
     </form>

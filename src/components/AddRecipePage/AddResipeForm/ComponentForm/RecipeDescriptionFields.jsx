@@ -6,7 +6,7 @@ import {
   useGetGlassListQuery,
 } from 'redux/recipesSlice';
 
-const RecipeDescriptionFields = ({ handleInputChange, value}) => {
+const RecipeDescriptionFields = ({ handleInputChange, value, setRequireError}) => {
   const { data: categoryList, isSuccess: isCategory } =
     useGetCategoriesListQuery('');
   const { data: glassList, isSuccess: isGlass } = useGetGlassListQuery('');
@@ -39,6 +39,7 @@ const RecipeDescriptionFields = ({ handleInputChange, value}) => {
               onChange={handleInputChange.handleFileChange}
               required
             />
+            setShowError
             <button className={scss.file__btn} type="button">
               <FiPlus size="28" color="#161F37" />
             </button>
@@ -56,8 +57,10 @@ const RecipeDescriptionFields = ({ handleInputChange, value}) => {
           placeholder="Enter item title"
           onChange={handleInputChange.handleDrinkChange}
           value={value.drink}
-          required
+          
+          // required
         />
+        {value.showError && value.drink === '' && setRequireError('drink')}
         <input
           className={scss.form__input}
           type="text"
@@ -66,18 +69,18 @@ const RecipeDescriptionFields = ({ handleInputChange, value}) => {
           onChange={handleInputChange.handleDescriptionChange}
           value={value.description}
           placeholder="Enter about recipe"
-          required
+          // required
         />
-       
+       {value.showError && value.description === '' && setRequireError('description')}
           <Select
             classNamePrefix="select-description"
             placeholder=""
             onChange={handleInputChange.handleCategoryChange}
             defaultValue={value.category}
             options={isCategory ? getOptionsForSelect(categoryList) : []}
-            required
+            // required
           />
-       
+        {value.showError && value.category === '' && setRequireError('category')}
         
           <Select
             classNamePrefix="select-description-glass"
@@ -85,9 +88,9 @@ const RecipeDescriptionFields = ({ handleInputChange, value}) => {
             onChange={handleInputChange.handleGlassChange}
             defaultValue={value.glass}
             options={isGlass ? getOptionsForSelect(glassList) : []}
-            required
+            // required
           />
-      
+       {value.showError && value.glass === '' && setRequireError('glass')}
       </div>
     </div>
   );
