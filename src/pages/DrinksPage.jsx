@@ -6,24 +6,16 @@ import { useLocation, useSearchParams } from 'react-router-dom';
 import useWindowDimensions from '../hooks/useWindowDimensions';
 import { useCallback, useEffect, useState } from 'react';
 import { useSearchRecipesQuery } from '../redux/recipesSlice';
-// import { useGetCategoriesListQuery } from '../redux/recipesSlice';
 import { useParams } from 'react-router-dom';
-// import { useSigninMutation } from 'redux/authSlice';
 import { notification } from 'components/Shared/notification';
-// import LoadingSpinner from 'components/Shared/LoadingSpinner';
 
 const DrinksPage = () => {
   const { categoryName: category } = useParams();
-  // console.log(category);
-
   const [query, setQuery] = useState('');
   const { data, isError } = useSearchRecipesQuery(query);
-  // const { data: categoryList } = useGetCategoriesListQuery();
-  // console.log(categoryList);
-  // const [categoryList, setCategoryList] = useState(null);
   const { width } = useWindowDimensions();
   const [searchParams, setSearchParams] = useSearchParams({
-    category: category || 'Cocktail',
+    category: category.replace('_', '/') || 'Cocktail',
     limit: 10,
     page: 1,
   });
@@ -31,11 +23,6 @@ const DrinksPage = () => {
     return Object.fromEntries([...searchParams]);
   }, [searchParams]);
   const { search } = useLocation();
-
-  // useEffect(() => {
-  // const categoriesList = useGetCategoriesListQuery();
-  //   console.log(categoryList);
-  // }, [categoryList]);
 
   useEffect(() => {
     setSearchParams({
@@ -51,35 +38,6 @@ const DrinksPage = () => {
     });
   }
 
-  // useEffect(() => {
-  //   if (!categoryList?.includes(category)) {
-  //     setSearchParams({
-  //       ...getSearchParams(),
-  //       category: 'Cocktail',
-  //     });
-  //   }
-  // }, [category, categoryList, getSearchParams, setSearchParams]);
-
-  // if (categoryList) {
-  //   if (categoryList.includes(category)) {
-  //     setSearchParams({
-  //       ...getSearchParams(),
-  //       category: 'Cocktail',
-  //     });
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   if (!category) {
-  //     return;
-  //   }
-
-  //   setSearchParams({
-  //     ...getSearchParams(),
-  //     category: 'All categories' ? '' : category,
-  //   });
-  // }, [setSearchParams, getSearchParams, category]);
-
   const handleFilterChange = useCallback(
     filter => {
       setSearchParams({
@@ -89,6 +47,16 @@ const DrinksPage = () => {
     },
     [getSearchParams, setSearchParams]
   );
+
+  // const handlePageChange = useCallback(
+  //   page => {
+  //     setSearchParams({
+  //       ...getSearchParams(),
+  //       ...page,
+  //     });
+  //   },
+  //   [getSearchParams, setSearchParams]
+  // );
 
   useEffect(() => {
     const {
@@ -101,21 +69,22 @@ const DrinksPage = () => {
     setQuery(
       `?search=${search}&category=${category}&ingredient=${ingredient}&limit=${limit}&page=${page}`
     );
-
-    // console.log(getSearchParams());
   }, [getSearchParams, search]);
 
   if (isError) {
     notification('No drinks were found');
-    // return;
   }
 
   return (
     <Container>
       <MainTitle title="Drinks"></MainTitle>
       <DrinksSearch onFilterChange={handleFilterChange}></DrinksSearch>
-      {/* {isLoading && <LoadingSpinner />} */}
       <DrinksList cocktails={data}></DrinksList>
+      {/* <Pagination
+        onPageChange={handlePageChange}
+        limit={getSearchParams().limit}
+        totalDrinks={data.totalHits}
+      ></Pagination> */}
     </Container>
   );
 };

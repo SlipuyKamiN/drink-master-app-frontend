@@ -11,17 +11,17 @@ const DrinksSearch = ({ onFilterChange }) => {
   const { register, handleSubmit } = useForm();
   const [filter, setFilter] = useState({});
   let categoriesOptions = [];
-  let ingridientsOptions = [];
+  let ingredientsOptions = [];
 
   if (categoryList && ingredientsList) {
     const categories = categoryList.map(item => {
       return { value: item, label: item };
     });
     categoriesOptions.push(...categories);
-    const ingridients = ingredientsList.map(item => {
+    const ingredients = ingredientsList.map(item => {
       return { value: item.title, label: item.title };
     });
-    ingridientsOptions.push(...ingridients);
+    ingredientsOptions.push(...ingredients);
   }
 
   useEffect(() => {
@@ -35,10 +35,10 @@ const DrinksSearch = ({ onFilterChange }) => {
     });
   };
 
-  const handleSelectIngridients = evt => {
+  const handleSelectingredients = evt => {
     setFilter({
       ...filter,
-      ingredient: evt.value === 'All ingridients' ? '' : evt.value,
+      ingredient: evt.value === 'All ingredients' ? '' : evt.value,
     });
   };
 
@@ -104,14 +104,14 @@ const DrinksSearch = ({ onFilterChange }) => {
       <Select
         className={sass.select}
         classNamePrefix="select"
-        placeholder="Select ingridient..."
+        placeholder="Select ingredient..."
         defaultValue=""
         name="glasses"
         options={[
-          { value: 'All ingridients', label: 'All ingridients' },
-          ...ingridientsOptions,
+          { value: 'All ingredients', label: 'All ingredients' },
+          ...ingredientsOptions,
         ]}
-        onChange={handleSelectIngridients}
+        onChange={handleSelectingredients}
         styles={selectStyles}
       />
     </div>
