@@ -23,10 +23,13 @@ const SignupForm = () => {
 
   const {
     register,
-    formState: { errors, isValid },
+    formState: { errors, isValid, dirtyFields },
     handleSubmit,
     reset,
-  } = useForm({ mode: 'onBlur' });
+  } = useForm({
+    mode: 'onBlur',
+    defaultValues: { name: '', email: '', password: '' },
+  });
 
   const onSubmit = ({ name, email, password }) => {
     dispatch({ name, email, password })
@@ -66,15 +69,6 @@ const SignupForm = () => {
                 }}
               />
             )}
-            {/* {isValid && (
-              <BiCheckCircle
-                style={{
-                  width: '24px',
-                  height: '24px',
-                  color: 'green',
-                }}
-              />
-            )} */}
           </span>
         </label>
         <div className={scss.error}>
@@ -95,7 +89,7 @@ const SignupForm = () => {
             })}
           />
           <span className={scss.circle}>
-            {errors?.name?.message && (
+            {errors?.email?.message && (
               <BiErrorCircle
                 style={{
                   width: '24px',
@@ -104,17 +98,22 @@ const SignupForm = () => {
                 }}
               />
             )}
-            {/* <BiCheckCircle
-              style={{
-                width: '24px',
-                height: '24px',
-                color: 'green',
-              }}
-            /> */}
+            {!errors.email && dirtyFields.email && (
+              <BiCheckCircle
+                style={{
+                  width: '24px',
+                  height: '24px',
+                  color: '#3CBC81',
+                }}
+              />
+            )}
           </span>
         </label>
         <div className={scss.error}>
           {errors?.email && <p>{errors?.email?.message || 'Error!'}</p>}
+          {!errors.email && dirtyFields.email && (
+            <p style={{ color: '#3CBC81' }}>This is an CORRECT email</p>
+          )}
         </div>
         <label className={scss.label}>
           <input
@@ -144,14 +143,15 @@ const SignupForm = () => {
             }}
             className={scss.circle}
           >
-            {hidePassword ? (
+            {hidePassword && dirtyFields.password && (
               <FiEyeOff
                 style={{
                   width: '24px',
                   height: '24px',
                 }}
               />
-            ) : (
+            )}
+            {!hidePassword && (
               <FiEye
                 style={{
                   width: '24px',

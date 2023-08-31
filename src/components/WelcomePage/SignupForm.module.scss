@@ -22,9 +22,9 @@
 
   margin-bottom: 14px;
   border-radius: 200px;
-  border: 1px solid rgba(243, 243, 243, 0.5);
+  border: 1px solid rgba(243, 243, 243, 0.2);
   background-color: transparent;
-  // opacity: 0.8;
+  opacity: 0.8;
 
   @media screen and (min-width: 768px) {
     font-size: 17px;
@@ -32,6 +32,11 @@
     padding-top: 14px;
     padding-bottom: 15px;
   }
+}
+
+.input:hover,
+.input:focus {
+  border: 1px solid rgba(243, 243, 243, 0.5);
 }
 
 .btn {
