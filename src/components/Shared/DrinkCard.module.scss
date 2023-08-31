@@ -32,6 +32,13 @@
 .cardThumb > img {
   height: 100%;
   // width: 100%;
+  background: rgb(74, 63, 63);
+  background: linear-gradient(
+    140deg,
+    rgba(74, 63, 63, 0.8660714285714286) 0%,
+    rgba(98, 66, 66, 0.8380602240896359) 32%,
+    rgba(130, 110, 110, 0.8772759103641457) 94%
+  );
 }
 
 .cardInfo {
@@ -71,6 +78,10 @@
   &:hover,
   &:focus {
     color: $primary-white-color;
+  }
+
+  &:active {
+    color: rgba(64, 112, 205, 0.5);
   }
 
   @media screen and (min-width: 768px) {
