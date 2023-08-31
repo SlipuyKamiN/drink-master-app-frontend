@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/671.6a5413a8.chunk.js","mappings":"8JAIA,UAJmB,WACjB,OAAO,yBAAK,cACb,C","sources":["pages/RecipePage.jsx"],"sourcesContent":["const RecipePage = () => {\n  return <div>RecipePage</div>;\n};\n\nexport default RecipePage;\n"],"names":[],"sourceRoot":""}
