@@ -8,10 +8,22 @@
 }
 
 .addRecipe__wrapper {
+  padding: 80px 0;
+  @media screen and (min-width: 768px) {
+    padding-bottom: 140px;
+    
+  }
   @media screen and (min-width: 1440px) {
     width: 313px;
-    height: 320px;
-    background-color: beige;
+    
+   padding: 0;
+    
+  }
+}
+
+.form {
+  @media screen and (min-width: 1440px) {
+   padding-bottom: 140px;
   }
 }
 

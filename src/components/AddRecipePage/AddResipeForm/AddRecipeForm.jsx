@@ -94,13 +94,10 @@ const AddRecipeForm = () => {
     dispatch(formData).unwrap().then(()=> {
       navigate("/my");
     }).catch(error => notification(error.message));
-    
-    
-  };
-
   
+  };
   return (
-    <form onSubmit={handleFormSubmit} action="">
+    <form onSubmit={handleFormSubmit} className={scss.form} action="">
       <RecipeDescriptionFields
         handleInputChange={{
           handleFileChange,
@@ -110,7 +107,6 @@ const AddRecipeForm = () => {
           handleGlassChange,
         }}
         value={{ selectedImage, drink, description, category, glass }}
-        // user={user}
       />
       <RecipeIngredientsFields
         ingredients={ingredients}
@@ -120,7 +116,6 @@ const AddRecipeForm = () => {
         addIngredient={addIngredient}
         removeIngredient={removeIngredient}
         reductionIngredient={reductionIngredient}
-        // user={user}
       />
       <RecipePreparationFields handleTextareaChange={handleTextareaChange} />
       <button className={scss.btn} type="submit">
