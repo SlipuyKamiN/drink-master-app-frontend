@@ -1,0 +1,93 @@
+@import 'styles/common/vars';
+
+.title {
+    color: rgba($primary-white-color, 0.50);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: calc(20 / 16);
+    margin-bottom: 20px;
+
+    @media screen and (min-width: 768px) {
+        margin-bottom: 24px;
+    }
+
+}
+
+.listWrapper {
+    padding-bottom: 80px;
+}
+
+.inngredientsList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 21px;
+
+    @media screen and (max-width: 374px) {
+            justify-content: center;
+        }
+
+    @media screen and (min-width: 1440px) {
+        gap: 35px;
+    }
+}
+
+.inngredientsItem {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    @media screen and (min-width: 768px) {
+        gap: 14px;
+    }
+}
+
+.inngredientsImgWrapper {
+    background: rgba($secondary-bg-blue-color, 0.5);
+    border-radius: 8px;
+
+    width: 157px;
+    height: 157px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media screen and (min-width: 768px) {
+        width: 220px;
+        height: 220px;
+    }
+}
+
+.inngredientsImg {
+    width: 107px;
+
+    @media screen and (min-width: 768px) {
+            width: 157px;
+        }
+}
+
+.inngredientsInfo {
+    display: flex;
+    justify-content: space-between;
+}
+
+.inngredientsName {
+    font-weight: 500;
+    line-height: calc(18 / 14);
+
+    @media screen and (min-width: 768px) {
+        font-size: 18px;
+        line-height: calc(24 / 18);
+    }
+
+}
+
+.inngredientsRatio {
+    color: rgba($primary-white-color, 0.50);
+    font-weight: 500;
+    line-height: calc(18 / 14);
+
+    @media screen and (min-width: 768px) {
+            font-size: 16px;
+        }
+}
