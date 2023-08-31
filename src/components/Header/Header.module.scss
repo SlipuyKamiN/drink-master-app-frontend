@@ -1,11 +1,46 @@
+@import '../../index.scss';
 .header {
-    border-bottom: 1px solid rgba(243, 243, 243, 0.20);
+  border-bottom: 1px solid rgba(243, 243, 243, 0.2);
 }
 .wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 22.5px;
+  padding-bottom: 22.5px;
+  .rightWrapper {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 22.5px;
-    padding-bottom: 22.5px;
+    gap: 14px;
 
+    @media screen and (min-width: 768px) {
+      gap: 24px;
+    }
+  }
+}
+.btn {
+  display: flex;
+  align-items: center;
+  border: none;
+  padding: 0;
+  background-color: transparent;
+  border: 1px solid transparent;
+  font-family: inherit;
+  transition: all $transition-duration;
+
+  &:hover,
+  &:focus {
+    background-color: $secondary-bg-blue-color;
+  }
+  &:active {
+    border: 1px solid rgba(64, 112, 205, 0.5);
+  }
+}
+.img {
+  width: 32px;
+  height: 32px;
+
+  @media screen and (min-width: 768px) {
+    width: 38px;
+    height: 38px;
+  }
 }
