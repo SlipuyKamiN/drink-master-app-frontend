@@ -59,7 +59,7 @@
   }
 
   &:active {
-    color: rgba(64, 112, 205, 0.5);
+    color: rgba($color: $main-blue-color, $alpha: 0.5);
   }
 }
 
@@ -121,7 +121,7 @@
   &:active {
     color: $secondary-bg-blue-color;
     background-color: $primary-white-color;
-    border-color: rgba(64, 112, 205, 0.5);
+    border-color: rgba($color: $main-blue-color, $alpha: 0.5);
   }
 
   @media screen and (min-width: 768px) {
