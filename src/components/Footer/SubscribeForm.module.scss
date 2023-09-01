@@ -42,6 +42,11 @@
   }
 }
 
+.subscribeFormInput::placeholder {
+  color: $primary-white-color;
+  opacity: 1;
+}
+
 .subscribeFormInput.valid {
   outline: 2px solid $success-green-color;
   background: url(../../images/icon_Done.png);
@@ -89,15 +94,11 @@
 .subscribeButton:disabled {
   background: $disabled-blue-color;
   color: rgba(243, 243, 243, 0.2);
-  .errorText {
-    color: $error-red-color;
-    font-size: 14px;
-  }
-  .errorText {
-    margin-bottom: 8px;
+}
 
-    color: $error-red-color;
-    font-size: 14px;
-    line-height: 1.16;
-  }
+.errorText {
+  margin-bottom: 8px;
+  color: $error-red-color;
+  font-size: 12px;
+  line-height: 1.16;
 }

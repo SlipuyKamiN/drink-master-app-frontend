@@ -1,9 +1,11 @@
 .footer {
   padding-top: 40px;
+  padding-bottom: 18px;
   border-top: 1px solid rgba(243, 243, 243, 0.2);
 
   @media screen and (min-width: 768px) {
     padding-top: 80px;
+    padding-bottom: 24px;
   }
 }
 
@@ -44,7 +46,6 @@
   line-height: 16px;
   letter-spacing: -0.24px;
   opacity: 0.9;
-  padding-bottom: 18px;
 
   @media screen and (min-width: 768px) {
     flex-direction: row;
@@ -52,7 +53,6 @@
     font-size: 14px;
     line-height: 18px;
     letter-spacing: -0.28px;
-    padding-bottom: 24px;
   }
 }
 

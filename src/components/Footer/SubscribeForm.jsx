@@ -5,7 +5,6 @@ import { notification } from 'components/Shared/notification';
 import { useForm } from 'react-hook-form';
 import { validationSchema } from './validationSchema';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { BiCheckCircle, BiErrorCircle } from 'react-icons/bi';
 
 const SubscribeForm = () => {
   const [dispatch, { data, isLoading, isError }] = useSubscribeMutation();
