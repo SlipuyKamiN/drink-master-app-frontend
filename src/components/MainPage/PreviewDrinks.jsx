@@ -45,7 +45,7 @@ const PreviewDrinks = () => {
             return (
               <li key={`${category}${_id}`}>
                 <Link
-                  to={`/drinks/${category}`}
+                  to={`/drinks/${category.replace('/', '_')}`}
                   className={sass.drinksCategory}
                 >
                   {category}
