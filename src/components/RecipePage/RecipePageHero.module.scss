@@ -80,7 +80,7 @@
     
     transition: background-color $transition-duration, color $transition-duration;  
 
-    &:hover, &:focus {
+    &:hover, &:focus, &:active {
         background-color: $secondary-bg-blue-color;
         color: $primary-white-color
     }
@@ -117,7 +117,7 @@
 
     transition: text-underline-offset $transition-duration, color $transition-duration;
 
-    &:hover, &:focus {
+    &:hover, &:focus, &:active {
         text-underline-offset: -13px;
         color: $primary-white-color;
     }
