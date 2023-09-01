@@ -46,7 +46,7 @@
   linear-gradient(1deg, #0A0A11 -0.56%, rgba(10, 10, 17, 0.00) 21.93%),
   linear-gradient(82deg, #0A0A11 11.89%, rgba(10, 10, 17, 0.00) 82.65%),
   url('../images/welcomePage-background-image.jpeg');
-  background-color: #0A0A11;
+  background-color: $main-bg-color;
   background-repeat: no-repeat;
   
   background-size: 520px 550px, 257px 247px, 549px 543px, cover, cover, cover, cover;
