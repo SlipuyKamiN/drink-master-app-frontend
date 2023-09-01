@@ -1,9 +1,10 @@
 import { useGetPopularListQuery} from "redux/recipesSlice";
 import scss from './PopularRecipe.module.scss'
+// import LoadingSpinner from "components/Shared/LoadingSpinner";
+import { LiaCocktailSolid } from 'react-icons/lia';
 
 const PopularRecipe = () => {
   const {data, isSuccess} = useGetPopularListQuery('');
-
   const checkLengthBookTitle = (title, length) => {
     if (title.length > length) {
       return `${title.slice(0, length)}...`;
@@ -11,7 +12,6 @@ const PopularRecipe = () => {
   
     return title;
   };
-  console.log(data)
   return <div className={scss.popular}>
     <h2 className={scss.popular__title}>Popular recipe</h2>
   <ul className={scss.popular__list}>
@@ -28,6 +28,12 @@ const PopularRecipe = () => {
           </a>
         </li>)}
   </ul>
+  {isSuccess && data.length === 0 &&
+  <div className={scss.spinner}>
+    <LiaCocktailSolid size='70px' color='white'/>
+    <p className={scss.text}>The list of popular recipes is currently empty
+</p>
+    </div>}
   </div>
 };
 

@@ -1,6 +1,6 @@
 import scss from './RecipePreparationFields.module.scss';
 
-const RecipePreparationFields = ({ handleTextareaChange }) => {
+const RecipePreparationFields = ({ handleTextareaChange, instructions, isShowError }) => {
   return (
     <div className={scss.textarea}>
       <h3 className={scss.title}>Recipe Preparation</h3>
@@ -10,6 +10,7 @@ const RecipePreparationFields = ({ handleTextareaChange }) => {
         rows="30"
         placeholder="Enter the recipe"
       />
+       {isShowError && instructions.length === 0 && <p className={scss.error}>The field preparation must be filled</p>}
     </div>
   );
 };

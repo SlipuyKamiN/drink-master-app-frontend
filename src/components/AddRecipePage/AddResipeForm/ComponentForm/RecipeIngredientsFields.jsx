@@ -8,6 +8,7 @@ import { useGetIngredientsListQuery } from 'redux/recipesSlice';
 const RecipeIngredientsFields = ({
   ingredients,
   quantity,
+  isShowError,
   addIngredient,
   removeIngredient,
   handleIngredientsChange,
@@ -61,7 +62,7 @@ const RecipeIngredientsFields = ({
         </div>
       </div>
       <ul>
-      {ingredients.map(({ id, amount, measurement }) => (
+      {ingredients.map(({ id, amount, measurement, ingredient }) => (
         <li key={id} className={scss.ingredients__thumb}>
           <div className={scss.ingredients__wrapper}>
           <Select
@@ -72,9 +73,9 @@ const RecipeIngredientsFields = ({
               handleIngredientChange(id, 'ingredient', event.value)
             }
             placeholder="Ingredient"
-            required
+           
           />
-
+  {isShowError && ingredient === '' && <p className={scss.error}>The field ingredient must be filled</p>}
           <input
             className={scss.ingredients__input}
             type="text"

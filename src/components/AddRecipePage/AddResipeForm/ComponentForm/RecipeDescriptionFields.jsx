@@ -6,7 +6,7 @@ import {
   useGetGlassListQuery,
 } from 'redux/recipesSlice';
 
-const RecipeDescriptionFields = ({ handleInputChange, value, setRequireError}) => {
+const RecipeDescriptionFields = ({ handleInputChange, value}) => {
   const { data: categoryList, isSuccess: isCategory } =
     useGetCategoriesListQuery('');
   const { data: glassList, isSuccess: isGlass } = useGetGlassListQuery('');
@@ -37,18 +37,17 @@ const RecipeDescriptionFields = ({ handleInputChange, value, setRequireError}) =
               name="drink-photo"
               accept="image/png, image/jpeg"
               onChange={handleInputChange.handleFileChange}
-              required
             />
-            setShowError
             <button className={scss.file__btn} type="button">
               <FiPlus size="28" color="#161F37" />
             </button>
             <p className={scss.file__text}>Add image</p>
+            {value.isShowError && value.selectedImage === null && <p className={`${scss.error} ${scss.error__img}`}>The field image must be filled</p>}
             </div>
           
         )}
       </div>
-      <div>
+      <div className={scss.category}>
         <input
           className={scss.form__input}
           type="text"
@@ -57,10 +56,8 @@ const RecipeDescriptionFields = ({ handleInputChange, value, setRequireError}) =
           placeholder="Enter item title"
           onChange={handleInputChange.handleDrinkChange}
           value={value.drink}
-          
-          // required
         />
-        {value.showError && value.drink === '' && setRequireError('drink')}
+         {value.isShowError && value.drink === '' && <p className={`${scss.error} ${scss.error__drink}` }>The field drink must be filled</p>}
         <input
           className={scss.form__input}
           type="text"
@@ -71,7 +68,7 @@ const RecipeDescriptionFields = ({ handleInputChange, value, setRequireError}) =
           placeholder="Enter about recipe"
           // required
         />
-       {value.showError && value.description === '' && setRequireError('description')}
+       {value.isShowError && value.description === '' && <p className={`${scss.error} ${scss.error__description}` }>The field description must be filled</p>}
           <Select
             classNamePrefix="select-description"
             placeholder=""
@@ -80,7 +77,7 @@ const RecipeDescriptionFields = ({ handleInputChange, value, setRequireError}) =
             options={isCategory ? getOptionsForSelect(categoryList) : []}
             // required
           />
-        {value.showError && value.category === '' && setRequireError('category')}
+        {value.isShowError && value.category === '' && <p className={`${scss.error} ${scss.error__category}` }>The field category must be filled</p>}
         
           <Select
             classNamePrefix="select-description-glass"
@@ -90,7 +87,7 @@ const RecipeDescriptionFields = ({ handleInputChange, value, setRequireError}) =
             options={isGlass ? getOptionsForSelect(glassList) : []}
             // required
           />
-       {value.showError && value.glass === '' && setRequireError('glass')}
+       {value.isShowError && value.glass === '' && <p className={`${scss.error} ${scss.error__glass}` }>The field glass must be filled</p>}
       </div>
     </div>
   );

@@ -65,3 +65,15 @@ height: 89px;
    
 }
 }
+
+.spinner {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.text {
+    color: rgba(243, 243, 243, 0.50);
+    overflow: hidden;
+    text-overflow: ellipsis;
+   max-width: 200px;
+}

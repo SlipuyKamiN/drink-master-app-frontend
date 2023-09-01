@@ -29,7 +29,12 @@
     }
   }
 
+  &__thumb{
+    
+  }
+
   &__input {
+    
     display: block;
     margin-bottom: 34px;
     color: $primary-white-color;
@@ -81,6 +86,7 @@
 
   &__btn {
     position: absolute;
+    top: 110px;
     left: 142px;
     display: block;
     width: 50px;
@@ -91,6 +97,7 @@
       left: 135px;
     }
     @media screen and (min-width: 1440px) {
+      top:  150px;
       left: 175px;
     }
   }
@@ -126,13 +133,45 @@
 }
 
 .error {
-
+  position: absolute;
   color: red;
-  
   font-size: 12px;
+ 
+
+  &__drink{
+    top:33px;
+    @media screen and (min-width: 768px) {
+      top: 43px;
+    } 
+  }
+
+  &__description{
+    top: 99px;
+    @media screen and (min-width: 768px) {
+      top: 122px
+    }
+  }
+
+  &__category{
+    bottom: 56px;
+    @media screen and (min-width: 768px) {
+      bottom: 106px;
+    }
+  } 
+
+  &__img{
+    bottom: 100px;
+    left: 90px;
+    @media screen and (min-width: 1440px) {
+      bottom: 140px;
+      left: 125px;
+    }
+  }
+
 }
 
 
 
-
-
+.category {
+  position: relative;
+}

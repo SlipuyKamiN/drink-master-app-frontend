@@ -19,12 +19,10 @@ const AddRecipeForm = () => {
   ]);
   const [quantity, setQuantity] = useState(1);
   const [instructions, setInstructions] = useState([]);
-  const [showError, setShowError] = useState(false)
+  const [isShowError, setisShowError] = useState(false)
 
   const [dispatch, {isLoading}] =
     useCreateNewRecipeMutation();
- const setRequireError = field => <p className={scss.error}>{`The field ${field} must be filled`}
- </p>
 
     const navigate = useNavigate();
 
@@ -94,10 +92,10 @@ const AddRecipeForm = () => {
     formData.append('instructions', JSON.stringify(instructions));
     formData.append('recipe', selectedImage);
 
-    if(selectedImage === "" || drink === '' || category === '' || glass === '' || description === '') return setShowError(true)
+    if(selectedImage === null || drink === '' || category === '' || glass === '' || description === '' || instructions.length === 0) return setisShowError(true)
     dispatch(formData).unwrap().then(()=> {
       navigate("/my");
-      setShowError(false)
+      setisShowError(false)
     }).catch(error => notification(error.message));
   
   };
@@ -111,19 +109,19 @@ const AddRecipeForm = () => {
           handleDescriptionChange,
           handleGlassChange,
         }}
-        value={{ selectedImage, drink, description, category, glass, showError }}
-        setRequireError={setRequireError}
+        value={{ selectedImage, drink, description, category, glass, isShowError }}
       />
       <RecipeIngredientsFields
         ingredients={ingredients}
         quantity={quantity}
+        isShowError={isShowError}
         setIngredients={setIngredients}
         handleIngredientsChange={handleIngredientsChange}
         addIngredient={addIngredient}
         removeIngredient={removeIngredient}
         reductionIngredient={reductionIngredient}
       />
-      <RecipePreparationFields handleTextareaChange={handleTextareaChange} />
+      <RecipePreparationFields handleTextareaChange={handleTextareaChange} instructions={instructions} isShowErrorr={isShowError}/>
       <button className={scss.btn} type="submit" disabled={isLoading ? true : false}>
         Add
       </button>
