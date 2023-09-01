@@ -16,9 +16,8 @@ import { useState } from 'react';
 // onClick={()=>{setHidePassword(!hidePassword)}}
 
 const SignupForm = () => {
-  const [dispatch, { data, isLoading, isError }] = useSignupMutation();
+  const [dispatch, { isLoading }] = useSignupMutation();
   const [login] = useSigninMutation();
-  console.log(data, isLoading, isError);
   const [hidePassword, setHidePassword] = useState(true);
 
   const {
@@ -27,7 +26,7 @@ const SignupForm = () => {
     handleSubmit,
     reset,
   } = useForm({
-    mode: 'onBlur',
+    mode: 'onChange',
     defaultValues: { name: '', email: '', password: '' },
   });
 
@@ -38,12 +37,8 @@ const SignupForm = () => {
         login({ email, password });
         reset();
       })
-      .catch(notification());
+      .catch(e => notification(e.data.message));
   };
-
-  if (isError) {
-    notification();
-  }
 
   return (
     <div className={scss.div}>
@@ -63,7 +58,7 @@ const SignupForm = () => {
             {...register('name', { required: 'Must be filled!' })}
           />
           <span className={scss.circle}>
-            {errors?.name?.message && (
+            {errors.name?.message && (
               <BiErrorCircle
                 style={{
                   width: '24px',
@@ -72,12 +67,18 @@ const SignupForm = () => {
                 }}
               />
             )}
+            {!errors.name && dirtyFields.name && (
+              <BiCheckCircle
+                style={{
+                  width: '24px',
+                  height: '24px',
+                  color: '#3CBC81',
+                }}
+              />
+            )}
           </span>
         </label>
-        <div className={scss.error}>
-          {errors?.name && <p>{errors?.name?.message || 'Error!'}</p>}
-        </div>
-
+        {errors.name && <p className={scss.error}>{errors.name.message}</p>}
         <label className={scss.label}>
           <input
             style={
@@ -95,7 +96,7 @@ const SignupForm = () => {
             })}
           />
           <span className={scss.circle}>
-            {errors?.email?.message && (
+            {errors.email?.message && (
               <BiErrorCircle
                 style={{
                   width: '24px',
@@ -115,12 +116,12 @@ const SignupForm = () => {
             )}
           </span>
         </label>
-        <div className={scss.error}>
-          {errors?.email && <p>{errors?.email?.message || 'Error!'}</p>}
-          {!errors.email && dirtyFields.email && (
-            <p style={{ color: '#3CBC81' }}>This is an CORRECT email</p>
-          )}
-        </div>
+        {errors.email && <p className={scss.error}>{errors.email.message}</p>}
+        {!errors.email && dirtyFields.email && (
+          <p style={{ color: '#3CBC81' }} className={scss.error}>
+            This is an CORRECT email
+          </p>
+        )}
         <label className={scss.label}>
           <input
             type={hidePassword ? 'password' : 'text'}
@@ -167,9 +168,14 @@ const SignupForm = () => {
             )}
           </span>
         </label>
-        <div className={scss.error}>
-          {errors?.password && <p>{errors?.password?.message || 'Error!'}</p>}
-        </div>
+        {errors.password && (
+          <p className={scss.error}>{errors.password.message}</p>
+        )}
+        {!errors.password && dirtyFields.password && (
+          <p style={{ color: '#3CBC81' }} className={scss.error}>
+            This is an CORRECT password
+          </p>
+        )}
         <button
           className={scss.btn}
           type="submit"
