@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/drink-master-app-frontend/static/css/main.ca594dc6.css",
+    "main.css": "/drink-master-app-frontend/static/css/main.772fcd84.css",
     "main.js": "/drink-master-app-frontend/static/js/main.dbbb096a.js",
     "static/css/340.cee10079.chunk.css": "/drink-master-app-frontend/static/css/340.cee10079.chunk.css",
     "static/js/340.7aba2529.chunk.js": "/drink-master-app-frontend/static/js/340.7aba2529.chunk.js",
@@ -10,19 +10,24 @@
     "static/js/403.01797f88.chunk.js": "/drink-master-app-frontend/static/js/403.01797f88.chunk.js",
     "static/css/326.e82ddd5f.chunk.css": "/drink-master-app-frontend/static/css/326.e82ddd5f.chunk.css",
     "static/js/326.cd54d1c6.chunk.js": "/drink-master-app-frontend/static/js/326.cd54d1c6.chunk.js",
-    "static/media/welcomePage-background-image.jpeg": "/drink-master-app-frontend/static/media/welcomePage-background-image.7a501cb293db1e2ee3e2.jpeg",
     "static/media/hero-cocktail-medium@2x.png": "/drink-master-app-frontend/static/media/hero-cocktail-medium@2x.db80c3a67e48398c4234.png",
     "static/media/hero-cocktail-large@2x.png": "/drink-master-app-frontend/static/media/hero-cocktail-large@2x.1fe59bc69c5819c26a0c.png",
     "static/media/hero-cocktail-small@2x.png": "/drink-master-app-frontend/static/media/hero-cocktail-small@2x.9cb6832962ae5a15bec2.png",
     "static/media/no-content-cocktail@2x.png": "/drink-master-app-frontend/static/media/no-content-cocktail@2x.c484f488d7f32c744feb.png",
     "static/media/cocktail.jpg": "/drink-master-app-frontend/static/media/cocktail.14926a77d9ace0f2fcbd.jpg",
     "static/media/hero-cocktail-large@1x.png": "/drink-master-app-frontend/static/media/hero-cocktail-large@1x.5c55c8be7a0a250a9cf0.png",
+    "static/media/welcomePage-background_desk@2x.jpg": "/drink-master-app-frontend/static/media/welcomePage-background_desk@2x.2135a4544a1b4c73641a.jpg",
     "static/media/hero-cocktail-medium@1x.png": "/drink-master-app-frontend/static/media/hero-cocktail-medium@1x.44397777d15a5a00ca7f.png",
+    "static/media/welcomePage-background_tab@2x.jpg": "/drink-master-app-frontend/static/media/welcomePage-background_tab@2x.c9a4713a6996b3d5525d.jpg",
     "static/media/hero-cocktail-small@1x.png": "/drink-master-app-frontend/static/media/hero-cocktail-small@1x.e84d2e419ccd117d47a7.png",
+    "static/media/welcomePage-background_mob@2x.jpg": "/drink-master-app-frontend/static/media/welcomePage-background_mob@2x.170ffcde141c88e85a60.jpg",
     "static/media/no-content-cocktail.png": "/drink-master-app-frontend/static/media/no-content-cocktail.575a33f8acc537f0bd25.png",
+    "static/media/welcomePage-background_desk.jpg": "/drink-master-app-frontend/static/media/welcomePage-background_desk.b4eb149f4cb988e858ba.jpg",
+    "static/media/welcomePage-background_tab.jpg": "/drink-master-app-frontend/static/media/welcomePage-background_tab.3a68dd6fedb3f24a8241.jpg",
+    "static/media/welcomePage-background_mob.jpg": "/drink-master-app-frontend/static/media/welcomePage-background_mob.61d2db8005da79c4ea3b.jpg",
     "index.html": "/drink-master-app-frontend/index.html",
     "static/media/logo.svg": "/drink-master-app-frontend/static/media/logo.80126d4702763ace5a9f9504fd7203b4.svg",
-    "main.ca594dc6.css.map": "/drink-master-app-frontend/static/css/main.ca594dc6.css.map",
+    "main.772fcd84.css.map": "/drink-master-app-frontend/static/css/main.772fcd84.css.map",
     "main.dbbb096a.js.map": "/drink-master-app-frontend/static/js/main.dbbb096a.js.map",
     "340.cee10079.chunk.css.map": "/drink-master-app-frontend/static/css/340.cee10079.chunk.css.map",
     "340.7aba2529.chunk.js.map": "/drink-master-app-frontend/static/js/340.7aba2529.chunk.js.map",
@@ -34,7 +39,7 @@
     "326.cd54d1c6.chunk.js.map": "/drink-master-app-frontend/static/js/326.cd54d1c6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ca594dc6.css",
+    "static/css/main.772fcd84.css",
     "static/js/main.dbbb096a.js"
   ]
 }
