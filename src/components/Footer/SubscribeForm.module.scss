@@ -38,15 +38,22 @@
   @media screen and (min-width: 768px) {
     font-size: 17px;
     line-height: 156%; /* 26.52px */
+    width: 100%;
   }
 }
 
 .subscribeFormInput.valid {
   outline: 2px solid $success-green-color;
+  background: url(../../images/icon_Done.png);
+  background-repeat: no-repeat;
+  background-position: 95% 50%;
 }
 
 .subscribeFormInput.invalid {
   outline: 2px solid $error-red-color;
+  background: url(../../images/icon_Error.png);
+  background-repeat: no-repeat;
+  background-position: 95% 50%;
 }
 
 .subscribeButton {
@@ -71,6 +78,10 @@
 
 .subscribeButton:hover,
 .subscribeButton:focus {
+  background: $secondary-bg-blue-color;
+  color: $primary-white-color;
+}
+.subscribeButton:active {
   border: 2px solid rgba(64, 112, 205, 0.5);
   background: $primary-white-color;
   color: $secondary-bg-blue-color;

@@ -5,6 +5,7 @@ import { notification } from 'components/Shared/notification';
 import { useForm } from 'react-hook-form';
 import { validationSchema } from './validationSchema';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { BiCheckCircle, BiErrorCircle } from 'react-icons/bi';
 
 const SubscribeForm = () => {
   const [dispatch, { data, isLoading, isError }] = useSubscribeMutation();
@@ -41,15 +42,27 @@ const SubscribeForm = () => {
         className={styles.subscribeFormFields}
         onSubmit={handleSubmit(formSubmit)}
       >
-        <input
-          type="text"
-          name="email"
-          placeholder="Enter the email"
-          className={`${styles.subscribeFormInput} ${
-            errors.email && dirtyFields.email ? styles.invalid : styles.valid
-          }`}
-          {...register('email')}
-        />
+        <label className={styles.label}>
+          <input
+            type="text"
+            name="email"
+            placeholder="Enter the email"
+            className={`${styles.subscribeFormInput} ${
+              errors.email && dirtyFields.email ? styles.invalid : styles.valid
+            }`}
+            {...register('email')}
+          />
+          {/* <span className={styles.circle}>
+            <BiCheckCircle
+              style={{
+                width: '24px',
+                height: '24px',
+                color: '#3CBC81',
+              }}
+            />
+          </span> */}
+        </label>
+
         {errors.email && (
           <p className={styles.errorText}>{errors.email.message}</p>
         )}
