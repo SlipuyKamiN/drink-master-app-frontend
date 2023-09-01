@@ -1,0 +1,106 @@
+@import '../../styles/common/vars';
+
+.subscribeForm {
+  width: 100%;
+
+  @media screen and (min-width: 768px) {
+    width: 309px;
+  }
+}
+
+.subscribeText {
+  line-height: 20px;
+
+  @media screen and (min-width: 768px) {
+    gap: 24px;
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
+
+.subscribeFormFields {
+  display: flex;
+  flex-direction: column;
+  margin-top: 24px;
+}
+
+.subscribeFormInput {
+  height: 56px;
+  border-radius: 200px;
+  border: 1px solid rgb(243, 243, 243, 0.2);
+  background-color: inherit;
+  color: $primary-white-color;
+  padding-left: 24px;
+  font-size: 14px;
+  line-height: 18px;
+  margin-bottom: 18px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 17px;
+    line-height: 156%; /* 26.52px */
+    width: 100%;
+  }
+}
+
+.subscribeFormInput::placeholder {
+  color: $primary-white-color;
+  opacity: 1;
+}
+
+.subscribeFormInput.valid {
+  outline: 1px solid $success-green-color;
+  border: transparent;
+  background: url(../../images/icon_Done.png);
+  background-repeat: no-repeat;
+  background-position: 95% 50%;
+}
+
+.subscribeFormInput.invalid {
+  outline: 1px solid $error-red-color;
+  border: transparent;
+  background: url(../../images/icon_Error.png);
+  background-repeat: no-repeat;
+  background-position: 95% 50%;
+}
+
+.subscribeButton {
+  height: 56px;
+  flex-shrink: 0;
+  border-radius: 200px;
+  border: 1px solid rgb(243, 243, 243, 0.2);
+  // opacity: 0.2;
+  color: $primary-white-color;
+  background-color: inherit;
+  text-align: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 18px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 17px;
+    line-height: 156%; /* 26.52px */
+  }
+}
+
+.subscribeButton:hover,
+.subscribeButton:focus {
+  background: $secondary-bg-blue-color;
+  color: $primary-white-color;
+}
+.subscribeButton:active {
+  border: 2px solid rgba(64, 112, 205, 0.5);
+  background: $primary-white-color;
+  color: $secondary-bg-blue-color;
+}
+.subscribeButton:disabled {
+  background: $disabled-blue-color;
+  color: rgba(243, 243, 243, 0.2);
+}
+
+.errorText {
+  margin-bottom: 8px;
+  color: $error-red-color;
+  font-size: 12px;
+  line-height: 1.16;
+}
