@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { useGetCategoriesListQuery } from '../../redux/recipesSlice';
 import { useGetIngredientsListQuery } from '../../redux/recipesSlice';
 import sass from './DrinksSearch.module.scss';
+import { FiSearch } from 'react-icons/fi';
 
 const DrinksSearch = ({ onFilterChange }) => {
   const { data: categoryList } = useGetCategoriesListQuery();
@@ -43,34 +44,10 @@ const DrinksSearch = ({ onFilterChange }) => {
   };
 
   const selectStyles = {
-    control: styles => ({
-      ...styles,
-      borderRadius: '200px',
-      backgroundColor: '#161F37',
-      height: '54px',
-      color: '#F3F3F3',
-      paddingLeft: '14px',
-      border: 'none',
-    }),
-    input: styles => ({ ...styles, color: '#F3F3F3', border: 'none' }),
-    inputContainer: styles => ({ ...styles, color: '#F3F3F3' }),
-    option: styles => ({
-      ...styles,
-      color: '#F3F3F3',
-      backgroundColor: '#161F37',
-      border: 'none',
-    }),
-    singleValue: (provided, state) => ({
+    option: (provided, state) => ({
       ...provided,
-      color: '#F3F3F3',
-      fontFamily: 'Manrope',
-      fontSize: '14px',
+      color: state.isSelected ? '#f3f3f3' : 'rgba(243, 243, 243, 0.4)', // Колір тексту обраної опції
     }),
-    // menu: provided => ({
-    //   ...provided,
-    //   borderRadius: '100px !important',
-    //   boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
-    // }),
   };
 
   return (
@@ -91,11 +68,13 @@ const DrinksSearch = ({ onFilterChange }) => {
           type="text"
           name="name"
         ></input>
-        <button className={sass.submit} type="submit"></button>
+        <button className={sass.submit} type="submit">
+          <FiSearch className={sass.icon} />
+        </button>
       </form>
       <Select
-        className={sass.select}
-        classNamePrefix="select"
+        // className={sass.select}
+        classNamePrefix="drinks-page-selector"
         placeholder="Select..."
         defaultValue=""
         name="category"
@@ -107,8 +86,8 @@ const DrinksSearch = ({ onFilterChange }) => {
         styles={selectStyles}
       />
       <Select
-        className={sass.select}
-        classNamePrefix="select"
+        // className={sass.select}
+        classNamePrefix="drinks-page-selector"
         placeholder="Select..."
         defaultValue=""
         name="glasses"

@@ -77,7 +77,7 @@ const DrinksPage = () => {
 
   return (
     <Container>
-      <MainTitle title="Drinks"></MainTitle>
+      <MainTitle title="Drinks" className="title"></MainTitle>
       <DrinksSearch onFilterChange={handleFilterChange}></DrinksSearch>
       <DrinksList cocktails={data}></DrinksList>
       {/* <Pagination

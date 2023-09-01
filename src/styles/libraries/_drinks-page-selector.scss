@@ -1,0 +1,101 @@
+.drinks-page-selector {
+    &__control {
+        width: 100% !important;
+        height: 54px;
+        position: relative;
+        background-color: $secondary-bg-blue-color !important;
+        border: none !important;
+        padding: 18px 17px 18px 24px !important;
+        border-radius: 200px !important;
+
+        @media screen and (min-width: 768px) {
+            padding: 14px 18px 14px 24px !important;
+            width: 199px !important;
+            height: 56px;
+        }
+    }
+
+    &__input-container {
+        padding: 0 !important;
+        margin: 0 !important;
+        line-height: calc(18 / 14) !important;
+        color: $primary-white-color !important;
+
+        @media screen and (min-width: 768px) {
+            font-size: 17px !important;
+            line-height: 26.52px !important;
+            
+        }
+    }
+
+    &__value-container {
+        padding: 0 !important;
+    }
+
+    &__indicator {
+        padding: 0 !important;
+        cursor: pointer !important;
+    }
+
+    &__placeholder {
+        margin: 0 !important;
+        color: $primary-white-color !important;
+        opacity: 0.5 !important;
+
+        @media screen and (min-width: 768px) {
+            font-size: 17px !important;
+        }
+    }
+
+    &__single-value {
+        color: $primary-white-color !important;
+        margin: 0 !important;
+    }
+
+    &__menu {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100% !important;
+        padding: 18px 4px 18px 14px !important;
+        border-radius: 20px !important;
+        background: #161f37 !important;
+        gap: 0 !important;
+        z-index: 1112 !important;
+     
+
+        @media screen and (min-width: 768px) {
+            padding-left: 14px  !important;
+            width: 199px !important;
+        }
+    }
+
+    &__menu-list {
+        margin: 0 !important;
+        gap: 8px !important;
+        padding: 0 !important;
+        height: 314px !important;
+
+        @media screen and (min-width: 768px) {
+            height: 405px !important;
+        }
+   }     
+
+    &__option {
+        margin-bottom: 8px !important;
+        padding: 0 !important;
+        background-color: inherit !important;
+        font-size: 14px !important;
+        line-height: calc(18 / 14) !important;
+
+        @media screen and (min-width: 768px) {
+            font-size: 17px !important;
+            line-height: 26.52px !important;        
+        }
+    }
+
+   
+    &__indicator-separator {
+        background-color: inherit !important;
+    }
+}
