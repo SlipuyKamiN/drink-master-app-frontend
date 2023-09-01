@@ -1,5 +1,5 @@
 import AddRecipeForm from 'components/AddRecipePage/AddResipeForm/AddRecipeForm';
-import FollowUs from 'components/AddRecipePage/FollowUs';
+import FollowUsResipe from 'components/AddRecipePage/FollowUs';
 import PopularRecipe from 'components/AddRecipePage/PopularRecipe';
 import Container from 'components/Shared/Container';
 import MainTitle from 'components/Shared/MainTitle';
@@ -13,7 +13,7 @@ const AddRecipePage = () => {
       <div className={scss.addRecipe}>
       <AddRecipeForm />
       <div className={scss.addRecipe__wrapper}>
-      <FollowUs />
+      <FollowUsResipe />
       <PopularRecipe />
       </div>
       </div>
