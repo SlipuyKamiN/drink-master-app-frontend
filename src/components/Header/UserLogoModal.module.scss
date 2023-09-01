@@ -39,18 +39,4 @@
     border: 1px solid rgba(64, 112, 205, 0.50);
   }
 }
-.logoutBtn {
-  padding: 12px 45px;
-  font-weight: 600;
-  line-height: 1.29;
-  margin-top: 38px;
-  border: 1px solid $primary-white-color;
-  border-radius: 42px;
-  color: $secondary-bg-blue-color;
-  background-color: $primary-white-color;
 
-  &:hover {
-    color: $primary-white-color;
-    background-color: $secondary-bg-blue-color;
-  }
-}

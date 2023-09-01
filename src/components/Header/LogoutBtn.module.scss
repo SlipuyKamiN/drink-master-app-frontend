@@ -1,0 +1,36 @@
+@import '../../index.scss';
+
+.btn {
+  width: 143px;
+  height: 45px;
+  padding: 12px 45px;
+  margin-top: 38px;
+  text-align: center;
+  color: $secondary-bg-blue-color;
+  background-color: $primary-white-color;
+  text-decoration: none;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.29;
+  font-style: normal;
+  font-weight: 600;
+  border: 1px solid $primary-white-color;
+  border-radius: 42px;
+  transition: all $transition-duration;
+  color: $secondary-bg-blue-color;
+
+  &:hover,
+  &:focus {
+    color: $primary-white-color;
+    background-color: $secondary-bg-blue-color;
+  }
+  &:active {
+    border-color: rgba(64, 112, 205, 0.5);
+  }
+  &:disabled {
+    color: rgba(243, 243, 243, 0.2);
+    background-color: $disabled-blue-color;
+    border-color: $disabled-blue-color;
+  }
+}
+
