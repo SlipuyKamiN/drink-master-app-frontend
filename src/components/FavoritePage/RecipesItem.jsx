@@ -1,6 +1,8 @@
 import { FiTrash2 } from 'react-icons/fi';
 import css from './RecipesItem.module.scss';
 import placeholder from '../../images/thumb-placeholder-large.png';
+import { Link, } from 'react-router-dom';
+
 
 const RecipesItem = ({
   id,
@@ -8,8 +10,7 @@ const RecipesItem = ({
   drink,
   drinkThumb,
   removeFavorite,
-}) => {
-  const { REACT_APP_BASE_URL } = process.env;
+})=> {
 
   return (
     <>
@@ -25,19 +26,18 @@ const RecipesItem = ({
           <p className={css.RecipesItemText}>{description || 'descr'}</p>
 
           <div className={css.wraperBottom}>
-            <a
+            <Link
               className={css.RecipesItemLink}
-              href={`${REACT_APP_BASE_URL}/api/recipes/${id}}`}
+              to={`/recipe/${id}`}
               target="_blank"
               rel="noreferrer"
             >
               See recipe
-            </a>
+            </Link>
             <button
               className={css.RecipesItemButton}
               type="button"
               onClick={() => removeFavorite(id)}
-              // disabled={isLoading}
             >
               <FiTrash2 className={css.RecipesItemIcon} size={24} />
             </button>

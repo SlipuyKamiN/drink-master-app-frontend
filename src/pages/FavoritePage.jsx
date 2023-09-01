@@ -1,13 +1,15 @@
+import ItemNotCocktails from 'components/FavoritePage/ItemNotCocktails';
 import Paginator from 'components/FavoritePage/Paginator';
 import RecipesList from 'components/FavoritePage/RecipesList';
 import LoadingSpinner from 'components/Shared/LoadingSpinner';
 import { notification } from 'components/Shared/notification';
 import { useEffect } from 'react';
-import { useParams, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import {
   useGetFavoritesQuery,
   useToggleFavoriteMutation,
 } from 'redux/recipesSlice';
+
 
 const FavoritePage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -38,6 +40,13 @@ const FavoritePage = () => {
       });
   };
 
+  const style = {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: '100vh',
+  } 
+  
   return (
     <>
       {data?.totalHits && !isError ? (
@@ -45,9 +54,7 @@ const FavoritePage = () => {
           <RecipesList data={data} removeFavorite={removeFavorite} />
           <Paginator pagesQty={pagesQty} />
         </>
-      ) : (
-        <div>Your favorite list is empty</div>
-      )}
+      ) : <ItemNotCocktails/>}
     </>
   );
 };

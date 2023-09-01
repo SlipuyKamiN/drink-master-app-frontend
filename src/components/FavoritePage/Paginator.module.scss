@@ -30,6 +30,10 @@
     &:active{
         background-color: #555964;
     }
+    
+    &:disabled {
+        display: none;
+    }
 }
 
 .arrow{

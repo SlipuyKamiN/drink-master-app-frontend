@@ -2,10 +2,7 @@ import RecipesItem from './RecipesItem';
 import css from './RecipesList.module.scss';
 
 const RecipesList = ({ data, removeFavorite }) => {
-  /*
-  отрумую зі стейту інформацію про коктейлі
-  прокидую пробсом необхідні для рендеру дані
-  */
+ 
 
   const { favorites } = data;
 
