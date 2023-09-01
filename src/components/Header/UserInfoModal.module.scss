@@ -9,24 +9,53 @@
   border-radius: 16px;
   // outline: auto;
 }
+.imgWrapper {
+  position: relative;
+}
 .closeBtn {
   position: absolute;
   top: 14px;
   right: 14px;
   padding: 0;
-  border: 0;
+  border: 1px solid transparent;
   background-color: transparent;
   text-decoration: none;
+
+  &:hover,
+  &:focus {
+    border-color: $primary-white-color;
+  }
+
+  &:active {
+    border-color: rgba(64, 112, 205, 0.50);
+  }
+}
+.editBtn {
+  position: absolute;
+  top: 18px;
+  right: 24px;
+  border: none;
+}
+.addImgBtn {
+  position: absolute;
+  // width: 100%;
+  left: 26px;
+  bottom: 0;
+  display: inline-flex;
+	justify-content: center;
+	align-items: center;
 }
 .closeIcon {
   fill: $primary-white-color;
+}
+.editIcon {
+  color: $primary-white-color;
 }
 .img {
   width: 80px;
   height: 80px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 50px;
   border-radius: 50%;
 }
 .input {
@@ -35,8 +64,8 @@
   height: 54px;
   margin-top: 39px;
   margin-bottom: 18px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 0;
+  margin-right: 0;
   padding-top: 18px;
   padding-bottom: 18px;
   padding-left: 24px;
@@ -57,4 +86,30 @@
     border: 1px solid rgba(243, 243, 243, 0.5);
   }
 }
+.btn {
+  display: block;
+  padding: 18px 90px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.29;
+  margin-top: 18px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid $primary-white-color;
+  border-radius: 42px;
+  color: $secondary-bg-blue-color;
+  background-color: $primary-white-color;
 
+  &:hover,
+  &:focus {
+    color: $primary-white-color;
+    background-color: $secondary-bg-blue-color;
+  }
+
+  &:active {
+    border: 1px solid rgba(64, 112, 205, 0.50);
+  }
+}
+.editWrapper {
+  position: relative;
+}
