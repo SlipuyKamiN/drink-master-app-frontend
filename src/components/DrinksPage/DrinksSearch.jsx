@@ -66,6 +66,11 @@ const DrinksSearch = ({ onFilterChange }) => {
       fontFamily: 'Manrope',
       fontSize: '14px',
     }),
+    // menu: provided => ({
+    //   ...provided,
+    //   borderRadius: '100px !important',
+    //   boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
+    // }),
   };
 
   return (
@@ -91,7 +96,7 @@ const DrinksSearch = ({ onFilterChange }) => {
       <Select
         className={sass.select}
         classNamePrefix="select"
-        placeholder="Select a category..."
+        placeholder="Select..."
         defaultValue=""
         name="category"
         options={[
@@ -104,7 +109,7 @@ const DrinksSearch = ({ onFilterChange }) => {
       <Select
         className={sass.select}
         classNamePrefix="select"
-        placeholder="Select ingredient..."
+        placeholder="Select..."
         defaultValue=""
         name="glasses"
         options={[
