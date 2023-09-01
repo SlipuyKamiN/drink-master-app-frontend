@@ -1,13 +1,10 @@
 @import '../../index.scss';
 
 .wrapper {
-  // width: 335px;
-  // height: 345px;
   position: relative;
   padding: 50px 25px;
   background-color: $secondary-bg-blue-color;
   border-radius: 16px;
-  // outline: auto;
 }
 .imgWrapper {
   position: relative;
@@ -38,12 +35,26 @@
 }
 .addImgBtn {
   position: absolute;
-  // width: 100%;
-  left: 26px;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 1px solid transparent;
+  background-color: transparent;
+  text-decoration: none;
   bottom: 0;
-  display: inline-flex;
-	justify-content: center;
-	align-items: center;
+	left: 50%;
+	transform: translateX(-50%) translateY(50%);
+  border: 1px solid transparent;
+  border-radius: 50%;
+  transition: all $transition-duration;
+
+  &:hover,
+  &:focus {
+    border-color: $primary-white-color;
+  }
+  &:active {
+    border-color: rgba(64, 112, 205, 0.50);
+  }
 }
 .closeIcon {
   fill: $primary-white-color;

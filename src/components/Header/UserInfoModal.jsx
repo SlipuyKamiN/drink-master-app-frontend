@@ -4,6 +4,7 @@ import { IoMdClose } from 'react-icons/io';
 import { FiEdit2 } from 'react-icons/fi';
 import css from './UserInfoModal.module.scss';
 import Modal from 'components/Shared/Modal';
+import { ReactComponent as AddIcon } from "../../images/add photo.svg";
 
 const UserInfoModal = ({ toggleModalShown }) => {
   const { name, avatarURL } = useSelector(({ user }) => user);
@@ -47,10 +48,10 @@ const UserInfoModal = ({ toggleModalShown }) => {
           <img src={avatarURL} alt="User icon" className={css.img} />
           <button
             type="button"
-            className={`${css.closeBtn} ${css.addImgBtn}`}
+            className={`${css.addImgBtn}`}
             onClick={handleAddIcon}
           >
-            <FiEdit2 size={28} className={css.editIcon} />
+            <AddIcon size={28} className={css.editIcon} />
           </button>
         </div>
         <div className={css.editWrapper}>
