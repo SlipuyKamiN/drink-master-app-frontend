@@ -40,12 +40,6 @@ const FavoritePage = () => {
       });
   };
 
-  const style = {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: '100vh',
-  } 
   
   return (
     <>

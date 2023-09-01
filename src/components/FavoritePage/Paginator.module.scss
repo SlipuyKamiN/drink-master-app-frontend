@@ -25,29 +25,28 @@
 
     &:hover{
         background-color: #434D67;
+            &:disabled{
+             background-color: transparent;
+            }
     }
 
     &:active{
         background-color: #555964;
-    }
-    
-    &:disabled {
-        display: none;
+            
     }
 }
 
 .arrow{
     opacity: 0.3;
     transition: color 250ms linear;
-    
-    &:active{
-        opacity: 1;
-        color: inherit;
-    }
 }
 
 .PaginatorList{
     display: flex;
     margin-left: 50px;
     margin-right: 50px;
+}
+
+.active{
+    background-color: #434D67;
 }

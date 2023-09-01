@@ -44,7 +44,7 @@ const Paginator = ({ pagesQty }) => {
         {buttons.map(buttonNumber => (
           <button
             key={buttonNumber}
-            className={css.PaginatorBtn}
+            className={`${css.PaginatorBtn} ${buttonNumber === currentPage ? css.active : ''}`}
             onClick={() => handleChangePage(buttonNumber)}
             name={buttonNumber}
             type="button"
