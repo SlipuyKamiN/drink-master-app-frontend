@@ -45,20 +45,21 @@ const FavoritePage = () => {
       });
   };
 
-  return <section className={scss.wraper} >
-    <Container>
-    <AuthNavTitle title={title} />
-      {data?.totalHits && !isError ? (
-        <>
-          <RecipesList data={data} removeFavorite={removeFavorite} />
-          <Paginator pagesQty={pagesQty} />
-        </>
-      ) : (
-        <ItemNotCocktails />
-      )}
-    </Container>
-  </section>
+  return (
+    <section className={scss.wraper}>
+      <Container>
+        <AuthNavTitle title={title} />
+        {data?.totalHits && !isError ? (
+          <>
+            <RecipesList data={data} removeFavorite={removeFavorite} />
+            <Paginator pagesQty={pagesQty} />
+          </>
+        ) : (
+          <ItemNotCocktails />
+        )}
+      </Container>
+    </section>
+  );
 };
 
 export default FavoritePage;
-

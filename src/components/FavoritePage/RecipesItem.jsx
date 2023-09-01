@@ -1,8 +1,7 @@
 import { FiTrash2 } from 'react-icons/fi';
 import scss from './RecipesItem.module.scss';
 import placeholder from '../../images/thumb-placeholder-large.png';
-import { Link, } from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
 
 const RecipesItem = ({
   id,
@@ -10,8 +9,7 @@ const RecipesItem = ({
   drink,
   drinkThumb,
   removeFavorite,
-})=> {
-
+}) => {
   return (
     <>
       <li className={scss.recipesItem}>
@@ -22,14 +20,13 @@ const RecipesItem = ({
             alt={drink}
           />
           <h3 className={scss.recipesItemTitle}>{drink}</h3>
-          <h4 className={scss.recipesItemSubTitle}>ingridients</h4>
-          <p className={scss.recipesItemText}>{description || 'description is absent'}</p>
+          <h4 className={scss.recipesItemSubTitle}>Іngridients</h4>
+          <p className={scss.recipesItemText}>
+            {description || 'description is absent'}
+          </p>
 
           <div className={scss.wraperBottom}>
-            <Link
-              className={scss.recipesItemLink}
-              to={`/recipe/${id}`}
-            >
+            <Link className={scss.recipesItemLink} to={`/recipe/${id}`}>
               See recipe
             </Link>
             <button
