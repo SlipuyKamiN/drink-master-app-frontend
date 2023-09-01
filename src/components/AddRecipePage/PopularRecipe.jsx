@@ -1,19 +1,19 @@
 import { useGetPopularListQuery} from "redux/recipesSlice";
 import scss from './PopularRecipe.module.scss'
-// import LoadingSpinner from "components/Shared/LoadingSpinner";
+import LoadingSpinner from "components/Shared/LoadingSpinner";
 import { LiaCocktailSolid } from 'react-icons/lia';
 
 const PopularRecipe = () => {
-  const {data, isSuccess} = useGetPopularListQuery('');
+  const {data, isSuccess, isLoading} = useGetPopularListQuery('');
   const checkLengthBookTitle = (title, length) => {
     if (title.length > length) {
       return `${title.slice(0, length)}...`;
     }
-  
     return title;
   };
   return <div className={scss.popular}>
     <h2 className={scss.popular__title}>Popular recipe</h2>
+    {isLoading && <LoadingSpinner size={100}/>}
   <ul className={scss.popular__list}>
 {isSuccess && data.map(({_id, drinkThumb, drink, instructions})=> 
         <li key={_id} className={scss.popular__item}>

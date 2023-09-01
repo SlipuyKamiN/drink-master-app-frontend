@@ -6,7 +6,11 @@ import {
   useGetGlassListQuery,
 } from 'redux/recipesSlice';
 
-const RecipeDescriptionFields = ({ handleInputChange, value}) => {
+const RecipeDescriptionFields = ({ handleInputChange: {handleFileChange,
+  handleDrinkChange,
+  handleCategoryChange,
+  handleDescriptionChange,
+  handleGlassChange,}, value: {selectedImage, drink, description, category, glass, isShowError}}) => {
   const { data: categoryList, isSuccess: isCategory } =
     useGetCategoriesListQuery('');
   const { data: glassList, isSuccess: isGlass } = useGetGlassListQuery('');
@@ -23,10 +27,10 @@ const RecipeDescriptionFields = ({ handleInputChange, value}) => {
   return (
     <div className={scss.form}>
       <div className={scss.form__wrapper}>
-        {value.selectedImage ? (
+        {selectedImage ? (
           <img
             className={scss.img}
-            src={URL.createObjectURL(value.selectedImage)}
+            src={URL.createObjectURL(selectedImage)}
             alt="Preview"
           />
         ) : (
@@ -36,13 +40,13 @@ const RecipeDescriptionFields = ({ handleInputChange, value}) => {
               type="file"
               name="drink-photo"
               accept="image/png, image/jpeg"
-              onChange={handleInputChange.handleFileChange}
+              onChange={handleFileChange}
             />
             <button className={scss.file__btn} type="button">
               <FiPlus size="28" color="#161F37" />
             </button>
             <p className={scss.file__text}>Add image</p>
-            {value.isShowError && value.selectedImage === null && <p className={`${scss.error} ${scss.error__img}`}>The field image must be filled</p>}
+            {isShowError && selectedImage === null && <p className={`${scss.error} ${scss.error__img}`}>The field image must be filled</p>}
             </div>
           
         )}
@@ -54,40 +58,37 @@ const RecipeDescriptionFields = ({ handleInputChange, value}) => {
           name="drink"
           id=""
           placeholder="Enter item title"
-          onChange={handleInputChange.handleDrinkChange}
-          value={value.drink}
+          onChange={handleDrinkChange}
+          value={drink}
         />
-         {value.isShowError && value.drink === '' && <p className={`${scss.error} ${scss.error__drink}` }>The field drink must be filled</p>}
+         {isShowError && drink === '' && <p className={`${scss.error} ${scss.error__drink}` }>The field drink must be filled</p>}
         <input
           className={scss.form__input}
           type="text"
           name="description"
           id=""
-          onChange={handleInputChange.handleDescriptionChange}
-          value={value.description}
+          onChange={handleDescriptionChange}
+          value={description}
           placeholder="Enter about recipe"
-          // required
         />
-       {value.isShowError && value.description === '' && <p className={`${scss.error} ${scss.error__description}` }>The field description must be filled</p>}
+       {isShowError && description === '' && <p className={`${scss.error} ${scss.error__description}` }>The field description must be filled</p>}
           <Select
             classNamePrefix="select-description"
             placeholder=""
-            onChange={handleInputChange.handleCategoryChange}
-            defaultValue={value.category}
+            onChange={handleCategoryChange}
+            defaultValue={category}
             options={isCategory ? getOptionsForSelect(categoryList) : []}
-            // required
           />
-        {value.isShowError && value.category === '' && <p className={`${scss.error} ${scss.error__category}` }>The field category must be filled</p>}
+        {isShowError && category === '' && <p className={`${scss.error} ${scss.error__category}` }>The field category must be filled</p>}
         
           <Select
             classNamePrefix="select-description-glass"
             placeholder=""
-            onChange={handleInputChange.handleGlassChange}
-            defaultValue={value.glass}
+            onChange={handleGlassChange}
+            defaultValue={glass}
             options={isGlass ? getOptionsForSelect(glassList) : []}
-            // required
           />
-       {value.isShowError && value.glass === '' && <p className={`${scss.error} ${scss.error__glass}` }>The field glass must be filled</p>}
+       {isShowError && glass === '' && <p className={`${scss.error} ${scss.error__glass}` }>The field glass must be filled</p>}
       </div>
     </div>
   );

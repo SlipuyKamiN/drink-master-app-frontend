@@ -7,6 +7,7 @@ import { useState} from 'react';
 import { useCreateNewRecipeMutation } from 'redux/myRecipesSlice';
 import { useNavigate } from "react-router-dom";
 import { notification } from 'components/Shared/notification';
+import LoadingSpinner from "components/Shared/LoadingSpinner";
 
 const AddRecipeForm = () => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -21,9 +22,7 @@ const AddRecipeForm = () => {
   const [instructions, setInstructions] = useState([]);
   const [isShowError, setisShowError] = useState(false)
 
-  const [dispatch, {isLoading}] =
-    useCreateNewRecipeMutation();
-
+  const [dispatch, {isLoading}] = useCreateNewRecipeMutation();
     const navigate = useNavigate();
 
   const handleFileChange = event => {
@@ -57,7 +56,7 @@ const AddRecipeForm = () => {
 
     setIngredients(prev => [
       ...prev,
-      { id: nanoid(), ingredient: '', amount: '', measurement: '' },
+      { id: nanoid(), ingredient: '', amount: '1', measurement: 'cl' },
     ]);
   };
 
@@ -75,6 +74,7 @@ const AddRecipeForm = () => {
 
   const handleFormSubmit = event => {
     event.preventDefault();
+  
     const ingredient = ingredients.map(item => {
       return {
         title: item.ingredient,
@@ -82,6 +82,7 @@ const AddRecipeForm = () => {
       };
     });
 
+    const  ingredientsError = !ingredients.find(({ingredient})=> ingredient === '')
     const formData = new FormData();
 
     formData.append('drink', drink);
@@ -92,11 +93,11 @@ const AddRecipeForm = () => {
     formData.append('instructions', JSON.stringify(instructions));
     formData.append('recipe', selectedImage);
 
-    if(selectedImage === null || drink === '' || category === '' || glass === '' || description === '' || instructions.length === 0) return setisShowError(true)
+    if(selectedImage === null || drink === '' || category === '' || glass === '' || description === '' || ingredientsError.ingredient === '' || instructions.length === 0) return setisShowError(true)
     dispatch(formData).unwrap().then(()=> {
       navigate("/my");
       setisShowError(false)
-    }).catch(error => notification(error.message));
+    }).catch(error => notification(error.data.message));
   
   };
   return (
@@ -125,6 +126,7 @@ const AddRecipeForm = () => {
       <button className={scss.btn} type="submit" disabled={isLoading ? true : false}>
         Add
       </button>
+      {isLoading && <LoadingSpinner size={50}/>}
     </form>
   );
 };

@@ -7,6 +7,7 @@
     border-bottom: 1px solid rgba(243, 243, 243, 0.5) !important;
     border-radius: 0 !important;
     padding: 0 0 5px 0;
+    opacity: 0.5 !important;
     @media screen and (min-width: 768px) {
       width: 352px !important;
     }
@@ -65,14 +66,12 @@
     padding: 0 !important;
     font-size: 12px !important;
     line-height: calc(16 / 12) !important;
-    height: 256px !important;
+    height: 200px !important;
     @media screen and (min-width: 768px) {
       font-size: 14px !important;
     line-height: calc(18 / 12) !important;
-      height: 284px !important;
     }
    @media screen and (min-width: 1440px) {
-    height:306px !important;
  }
   
   }
@@ -87,6 +86,12 @@
   &__indicator-separator {
     background-color: inherit !important;
   }
+
+  &__option--is--focused{
+    outline: none !important;
+    border: none !important;
+  }
+
 
   &__input-container {
     margin: 0 !important;
@@ -107,9 +112,7 @@
     background-color: inherit !important;
     border: none !important;
     font-family: 'Manrope' !important;
-    font-size: 14px !important;
-    font-weight: 400 !important;
-    letter-spacing: -0.28px !important;
+    opacity: 0.5 !important;
     border-bottom: 1px solid rgba(243, 243, 243, 0.5) !important;
     border-radius: 0 !important;
     @media screen and (min-width: 768px) {
@@ -164,14 +167,13 @@
     margin: 0 !important;
     gap: 0 !important;
     padding: 0 !important;
-    height: 286px !important;
+    height: 200px !important;
     @media screen and (min-width: 768px) {
       font-size: 14px !important;
     line-height: calc(18 / 12) !important;
-      height: 284px !important;
     }
    @media screen and (min-width: 1440px) {
-    height:306px !important;
+    height:180px !important;
  }
   }
   &__option {
@@ -214,7 +216,7 @@
     padding: 0 16px !important;
     border-radius: 200px !important;
     border: 1px solid rgba(243, 243, 243, 0.5) !important;
-    opacity: 0.8 !important;
+    opacity: 0.5 !important;
     @media screen and (min-width: 768px) {
       width: 352px !important;
     }
@@ -259,8 +261,6 @@
     border-radius: 12px !important;
     background: #161f37 !important;
     padding: 10px !important;
-    margin: 0 !important;
-    gap: 0 !important;
     z-index: 1112 !important;
 
     @media screen and (min-width: 768px) {
@@ -277,14 +277,12 @@
     margin: 0 !important;
     gap: 0 !important;
     padding: 0 !important;
-    height: 286px !important;
+    height: 180px !important;
     @media screen and (min-width: 768px) {
       font-size: 14px !important;
     line-height: calc(18 / 12) !important;
-      height: 284px !important;
     }
    @media screen and (min-width: 1440px) {
-    height:306px !important;
  }
   }
 
@@ -309,7 +307,7 @@
     padding: 0 16px !important;
     border-radius: 200px !important;
     border: 1px solid rgba(243, 243, 243, 0.5) !important;
-    opacity: 0.8 !important;
+    opacity: 0.5 !important;
     padding-right: 8px !important;
     outline: none !important;
   }
@@ -347,10 +345,10 @@
     margin: 0 !important;
     gap: 0 !important;
     padding: 0 !important;
+    height: 180px !important;
     @media screen and (min-width: 768px) {
       font-size: 14px !important;
     line-height: calc(18 / 12) !important;
-      height: 268px !important;
     }
   }
   &__option {

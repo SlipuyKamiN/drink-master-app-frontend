@@ -34,7 +34,8 @@
   }
 
   &__input {
-    
+    font-family: 'Manrope', sans-serif;
+    font-size: 14px;
     display: block;
     margin-bottom: 34px;
     color: $primary-white-color;
@@ -50,7 +51,7 @@
       width: 352px;
       margin-bottom: 40px;
       padding-bottom: 18px;
-      font-size: 17px;
+      font-size: 16px;
     }
     @media screen and (min-width: 1440px) {
       width: 393px;
