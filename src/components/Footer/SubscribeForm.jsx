@@ -7,13 +7,14 @@ import { validationSchema } from './validationSchema';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 const SubscribeForm = () => {
-  const [dispatch, { data, isLoading, isError }] = useSubscribeMutation();
+  const [dispatch, { isLoading }] = useSubscribeMutation();
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors, dirtyFields },
   } = useForm({
+    mode: 'onChange',
     defaultValues: { email: '' },
     resolver: yupResolver(validationSchema),
   });
@@ -23,13 +24,10 @@ const SubscribeForm = () => {
       .unwrap()
       .then(() => {
         reset({ email: '' });
+        notification('Email has been successfully sent!', 'success');
       })
-      .catch(notification);
+      .catch(e => notification(e.data.message));
   };
-
-  if (isError && !data) {
-    notification('There is no user with this email registered!');
-  }
 
   return (
     <div className={styles.subscribeForm}>
@@ -45,9 +43,9 @@ const SubscribeForm = () => {
           type="text"
           name="email"
           placeholder="Enter the email"
-          className={`${styles.subscribeFormInput} ${
-            errors.email && dirtyFields.email ? styles.invalid : styles.valid
-          }`}
+          className={`${styles.subscribeFormInput} 
+          ${errors.email && styles.invalid}
+           ${!errors.email && dirtyFields.email && styles.valid}`}
           {...register('email')}
         />
         {errors.email && (

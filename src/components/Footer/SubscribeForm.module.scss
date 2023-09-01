@@ -48,14 +48,16 @@
 }
 
 .subscribeFormInput.valid {
-  outline: 2px solid $success-green-color;
+  outline: 1px solid $success-green-color;
+  border: transparent;
   background: url(../../images/icon_Done.png);
   background-repeat: no-repeat;
   background-position: 95% 50%;
 }
 
 .subscribeFormInput.invalid {
-  outline: 2px solid $error-red-color;
+  outline: 1px solid $error-red-color;
+  border: transparent;
   background: url(../../images/icon_Error.png);
   background-repeat: no-repeat;
   background-position: 95% 50%;
