@@ -1,5 +1,5 @@
 import Container from 'components/Shared/Container';
-import empty_bottles from '../../images/empty_bottles.jpg';
+import cocktail from 'images/cocktail.jpg';
 import sass from './RecipePreparation.module.scss';
 
 const {
@@ -25,19 +25,20 @@ const RecipePreparation = ({ instructions }) => {
             <p className={description}></p>
             <ul className={preparationList}>
               {splittedSentence.map(
-                item =>
+                (item, index) =>
                   item?.length > 0 && (
-                    <li
-                      className={preparationItem}
-                      key={item + splittedSentence.indexOf(item)}
-                    >
+                    <li className={preparationItem} key={item + index}>
                       {item}
                     </li>
                   )
               )}
             </ul>
           </div>
-          <img src={empty_bottles} className={img} alt={'Empty bottles'} />
+          <img
+            src={cocktail}
+            className={img}
+            alt={'A person pouring a drink into a glass'}
+          />
         </div>
       </Container>
     </section>
