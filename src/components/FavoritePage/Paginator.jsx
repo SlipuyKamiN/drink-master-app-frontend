@@ -29,8 +29,7 @@ const Paginator = ({ pagesQty }) => {
     };
   }; 
   
-  return (
-    <div className={scss.PaginatorContainer}>
+  return <div className={scss.PaginatorContainer}>
       <button
         className={scss.PaginatorBtn}
         type="button"
@@ -63,7 +62,6 @@ const Paginator = ({ pagesQty }) => {
         <FiChevronRight className={scss.arrow} size={27} />
       </button>
     </div>
-  );
 };
 
 export default Paginator;

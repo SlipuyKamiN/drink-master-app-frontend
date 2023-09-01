@@ -23,14 +23,12 @@ const RecipesItem = ({
           />
           <h3 className={scss.RecipesItemTitle}>{drink}</h3>
           <h4 className={scss.RecipesItemSubTitle}>ingridients</h4>
-          <p className={scss.RecipesItemText}>{description || 'descr'}</p>
+          <p className={scss.RecipesItemText}>{description || 'description is absent'}</p>
 
           <div className={scss.wraperBottom}>
             <Link
               className={scss.RecipesItemLink}
               to={`/recipe/${id}`}
-              target="_blank"
-              rel="noreferrer"
             >
               See recipe
             </Link>

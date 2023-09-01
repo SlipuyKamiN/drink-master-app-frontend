@@ -6,9 +6,7 @@ const RecipesList = ({ data, removeFavorite }) => {
 
   const { favorites } = data;
 
-  return (
-    <section className={scss.ContainerRecipesList}>
-      <ul className={scss.RecipesList}>
+  return <ul className={scss.RecipesList}>
         {favorites.map(({ _id, description, drink, drinkThumb }) => (
           <RecipesItem
             key={_id}
@@ -20,8 +18,6 @@ const RecipesList = ({ data, removeFavorite }) => {
           />
         ))}
       </ul>
-    </section>
-  );
 };
 
 export default RecipesList;

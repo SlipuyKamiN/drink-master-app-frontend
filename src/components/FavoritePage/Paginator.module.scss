@@ -3,13 +3,7 @@
 .PaginatorContainer{
     display: flex;
     justify-content: center;
-    margin-left: 40px;
-    margin-right: 40px;
-    margin-bottom: 40px;
-
-    @media screen and (min-width: 768px) {
-        margin-bottom: 140px;
-    }
+    gap: 50px;
 }
 
 .PaginatorBtn {
@@ -18,12 +12,14 @@
     justify-content: center;
     width: 27px;
     height: 27px;
+    font-size: 12px;
+    font-weight: 500;
     background-color: transparent;
     border: none;
     padding: 0px;
     border-radius: 50%;
     color: $primary-white-color;
-    transition: color 250ms linear;
+    transition: $transition-duration;
 
     &:hover,
     &:focus {
@@ -43,13 +39,12 @@
 
 .arrow{
     opacity: 0.3;
-    transition: color 250ms linear;
+    transition: $transition-duration;
 }
 
 .PaginatorList{
     display: flex;
-    margin-left: 50px;
-    margin-right: 50px;
+    gap: 5px;
 }
 
 .active{
