@@ -19,6 +19,7 @@ const SigninForm = () => {
     handleSubmit,
     reset,
   } = useForm({
+    mode: 'onChange',
     defaultValues: { email: '', password: '' },
   });
 
