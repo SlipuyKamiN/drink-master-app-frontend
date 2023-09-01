@@ -54,7 +54,7 @@ const Paginator = ({ pagesQty }) => {
         }
       </ul>
       <button
-        className={scss.PaginatorBtn}
+        className={scss.paginatorBtn}
         type="button" name="NextBtn"
         onClick={() => handleNextBtn()}
         disabled={ currentPage === pagesQty}
