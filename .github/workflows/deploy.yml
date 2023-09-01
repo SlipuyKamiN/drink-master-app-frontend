@@ -3,6 +3,9 @@ name: Build and deploy to GitHub Pages
 on:
   push:
     branches: [main]
+    
+env:
+    REACT_APP_BASE_URL: ${{ vars.REACT_APP_BASE_URL }}
 
 jobs:
   build-and-deploy:
@@ -16,8 +19,7 @@ jobs:
           npm install
           npm run lint:js
           npm run build
-        env:
-            REACT_APP_BASE_URL: ${{ vars.REACT_APP_BASE_URL }}
+
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.0
         with:
