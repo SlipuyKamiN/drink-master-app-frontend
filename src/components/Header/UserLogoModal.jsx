@@ -40,7 +40,7 @@ const UserLogoModal = () => {
           Log out
         </button>
       </div>
-      {showInfoModal && <UserInfoModal/>}
+      {showInfoModal && <UserInfoModal toggleModalShown={handleEditProfileClick}/>}
     </>
   );
 };
