@@ -4,21 +4,15 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  //   margin-top: calc(100vh / 3);
-  //   margin-bottom: auto;
   margin-left: 20px;
   width: 335px;
-  // background-image: url('../images/welcomePage-background-image.png');
-  // background-color: transparent;
 
   @media screen and (min-width: 768px) {
-    // margin-top: 400px;
     margin-left: 64px;
     width: 470px;
   }
 
   @media screen and (min-width: 1440px) {
-    // margin-top: 273px;
     margin-left: 100px;
     width: 485px;
   }
