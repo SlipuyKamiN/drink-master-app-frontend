@@ -3,7 +3,6 @@ import Paginator from 'components/FavoritePage/Paginator';
 import RecipesList from 'components/FavoritePage/RecipesList';
 import LoadingSpinner from 'components/Shared/LoadingSpinner';
 import Container from 'components/Shared/Container';
-import AuthNavTitle from 'components/WelcomePage/AuthNavTitle';
 import useWindowDimensions from 'hooks/useWindowDimensions';
 import { useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
@@ -12,6 +11,7 @@ import {
   useToggleFavoriteMutation,
 } from 'redux/recipesSlice';
 import scss from './FavoritePage.module.scss';
+import MainTitle from 'components/Shared/MainTitle';
 
 const FavoritePage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -48,7 +48,7 @@ const FavoritePage = () => {
   return (
     <section className={scss.wraper}>
       <Container>
-        <AuthNavTitle title={title} />
+        <MainTitle title={title} style={{ padding: '0' }} />
         {data?.totalHits && !isError ? (
           <>
             <RecipesList data={data} removeFavorite={removeFavorite} />
