@@ -3,6 +3,7 @@ import Paginator from 'components/FavoritePage/Paginator';
 import RecipesList from 'components/FavoritePage/RecipesList';
 import LoadingSpinner from 'components/Shared/LoadingSpinner';
 import { notification } from 'components/Shared/notification';
+import useWindowDimensions from 'hooks/useWindowDimensions';
 import { useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import {
@@ -10,15 +11,16 @@ import {
   useToggleFavoriteMutation,
 } from 'redux/recipesSlice';
 
-
 const FavoritePage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
+  const { width } = useWindowDimensions();
+  const limit = width >= 1440 ? 9 : 8;
   const { data, isLoading, isError } = useGetFavoritesQuery(
-    `?page=${searchParams.get('page')}&limit=2`
+    `?page=${searchParams.get('page')}&limit=${limit}`
   );
   const [toggleFavorite] = useToggleFavoriteMutation();
-  const pagesQty = Math.ceil(data?.totalHits / 2);
-  
+  const pagesQty = Math.ceil(data?.totalHits / limit);
+
   useEffect(() => {
     if (!searchParams.get('page')) {
       setSearchParams({ page: 1 });
@@ -40,7 +42,6 @@ const FavoritePage = () => {
       });
   };
 
-  console.log("data", data.totalHits);
   return (
     <>
       {data?.totalHits && !isError ? (
@@ -48,13 +49,15 @@ const FavoritePage = () => {
           <RecipesList data={data} removeFavorite={removeFavorite} />
           <Paginator pagesQty={pagesQty} />
         </>
-      ) : <ItemNotCocktails />}
+      ) : (
+        <ItemNotCocktails />
+      )}
     </>
-  )
+  );
 };
 
 export default FavoritePage;
 
-      // {data?.totalHits && !isError && <RecipesList data={data} removeFavorite={removeFavorite} />}
-      // {pagesQty > 1 && <Paginator pagesQty={pagesQty} />}
-      // {!data.totalHits && <ItemNotCocktails />}
+// {data?.totalHits && !isError && <RecipesList data={data} removeFavorite={removeFavorite} />}
+// {pagesQty > 1 && <Paginator pagesQty={pagesQty} />}
+// {!data.totalHits && <ItemNotCocktails />}
