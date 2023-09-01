@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/drink-master-app-frontend/static/css/main.40a851b2.css",
-    "main.js": "/drink-master-app-frontend/static/js/main.4091cf88.js",
+    "main.css": "/drink-master-app-frontend/static/css/main.ca594dc6.css",
+    "main.js": "/drink-master-app-frontend/static/js/main.dbbb096a.js",
     "static/css/340.cee10079.chunk.css": "/drink-master-app-frontend/static/css/340.cee10079.chunk.css",
     "static/js/340.7aba2529.chunk.js": "/drink-master-app-frontend/static/js/340.7aba2529.chunk.js",
     "static/js/236.8dc02091.chunk.js": "/drink-master-app-frontend/static/js/236.8dc02091.chunk.js",
@@ -21,8 +21,9 @@
     "static/media/hero-cocktail-small@1x.png": "/drink-master-app-frontend/static/media/hero-cocktail-small@1x.e84d2e419ccd117d47a7.png",
     "static/media/no-content-cocktail.png": "/drink-master-app-frontend/static/media/no-content-cocktail.575a33f8acc537f0bd25.png",
     "index.html": "/drink-master-app-frontend/index.html",
-    "main.40a851b2.css.map": "/drink-master-app-frontend/static/css/main.40a851b2.css.map",
-    "main.4091cf88.js.map": "/drink-master-app-frontend/static/js/main.4091cf88.js.map",
+    "static/media/logo.svg": "/drink-master-app-frontend/static/media/logo.80126d4702763ace5a9f9504fd7203b4.svg",
+    "main.ca594dc6.css.map": "/drink-master-app-frontend/static/css/main.ca594dc6.css.map",
+    "main.dbbb096a.js.map": "/drink-master-app-frontend/static/js/main.dbbb096a.js.map",
     "340.cee10079.chunk.css.map": "/drink-master-app-frontend/static/css/340.cee10079.chunk.css.map",
     "340.7aba2529.chunk.js.map": "/drink-master-app-frontend/static/js/340.7aba2529.chunk.js.map",
     "236.8dc02091.chunk.js.map": "/drink-master-app-frontend/static/js/236.8dc02091.chunk.js.map",
@@ -33,7 +34,7 @@
     "326.cd54d1c6.chunk.js.map": "/drink-master-app-frontend/static/js/326.cd54d1c6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.40a851b2.css",
-    "static/js/main.4091cf88.js"
+    "static/css/main.ca594dc6.css",
+    "static/js/main.dbbb096a.js"
   ]
 }
