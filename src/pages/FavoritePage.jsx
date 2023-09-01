@@ -18,7 +18,7 @@ const FavoritePage = () => {
   );
   const [toggleFavorite] = useToggleFavoriteMutation();
   const pagesQty = Math.ceil(data?.totalHits / 2);
-
+  
   useEffect(() => {
     if (!searchParams.get('page')) {
       setSearchParams({ page: 1 });
@@ -40,7 +40,7 @@ const FavoritePage = () => {
       });
   };
 
-  
+  console.log("data", data.totalHits);
   return (
     <>
       {data?.totalHits && !isError ? (
@@ -48,9 +48,13 @@ const FavoritePage = () => {
           <RecipesList data={data} removeFavorite={removeFavorite} />
           <Paginator pagesQty={pagesQty} />
         </>
-      ) : <ItemNotCocktails/>}
+      ) : <ItemNotCocktails />}
     </>
-  );
+  )
 };
 
 export default FavoritePage;
+
+      // {data?.totalHits && !isError && <RecipesList data={data} removeFavorite={removeFavorite} />}
+      // {pagesQty > 1 && <Paginator pagesQty={pagesQty} />}
+      // {!data.totalHits && <ItemNotCocktails />}

@@ -1,5 +1,5 @@
 import { useSearchParams } from 'react-router-dom';
-import css from './Paginator.module.scss';
+import scss from './Paginator.module.scss';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
 const Paginator = ({ pagesQty }) => {
@@ -30,36 +30,37 @@ const Paginator = ({ pagesQty }) => {
   }; 
   
   return (
-    <div className={css.PaginatorContainer}>
+    <div className={scss.PaginatorContainer}>
       <button
-        className={css.PaginatorBtn}
+        className={scss.PaginatorBtn}
         type="button"
         name="PreviousBtn"
         onClick={() => handlePreviousBtn()}
         disabled={ currentPage === 1}
       >
-        <FiChevronLeft className={css.arrow} size={27} />
+        <FiChevronLeft className={scss.arrow} size={27} />
       </button>
-      <ul className={css.PaginatorList}>
+      <ul className={scss.PaginatorList}>
         {buttons.map(buttonNumber => (
-          <button
-            key={buttonNumber}
-            className={`${css.PaginatorBtn} ${buttonNumber === currentPage ? css.active : ''}`}
-            onClick={() => handleChangePage(buttonNumber)}
-            name={buttonNumber}
-            type="button"
-          >
-            {buttonNumber}
-          </button>
-        ))}
+            <button
+              key={buttonNumber}
+              className={`${scss.PaginatorBtn} ${buttonNumber === currentPage ? scss.active : ''}`}
+              onClick={() => handleChangePage(buttonNumber)}
+              name={buttonNumber}
+              type="button"
+            >
+              {buttonNumber}
+            </button>
+          ))
+        }
       </ul>
       <button
-        className={css.PaginatorBtn}
+        className={scss.PaginatorBtn}
         type="button" name="NextBtn"
         onClick={() => handleNextBtn()}
         disabled={ currentPage === pagesQty}
       >
-        <FiChevronRight className={css.arrow} size={27} />
+        <FiChevronRight className={scss.arrow} size={27} />
       </button>
     </div>
   );

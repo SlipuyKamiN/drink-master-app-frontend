@@ -1,3 +1,5 @@
+@import 'styles/common/vars';
+
 .PaginatorContainer{
     display: flex;
     justify-content: center;
@@ -20,18 +22,21 @@
     border: none;
     padding: 0px;
     border-radius: 50%;
-    color: #f3f3f3;
+    color: $primary-white-color;
     transition: color 250ms linear;
 
-    &:hover{
-        background-color: #434D67;
+    &:hover,
+    &:focus {
+        background-color: $disabled-blue-color;
+
             &:disabled{
              background-color: transparent;
+             cursor: not-allowed;
             }
     }
 
     &:active{
-        background-color: #555964;
+        background-color: $link-color;
             
     }
 }
@@ -48,5 +53,5 @@
 }
 
 .active{
-    background-color: #434D67;
+    background-color: $disabled-blue-color;
 }

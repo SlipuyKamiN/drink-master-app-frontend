@@ -1,5 +1,5 @@
 import { FiTrash2 } from 'react-icons/fi';
-import css from './RecipesItem.module.scss';
+import scss from './RecipesItem.module.scss';
 import placeholder from '../../images/thumb-placeholder-large.png';
 import { Link, } from 'react-router-dom';
 
@@ -14,20 +14,20 @@ const RecipesItem = ({
 
   return (
     <>
-      <li className={css.RecipesItem}>
-        <div className={css.wraperCard}>
+      <li className={scss.RecipesItem}>
+        <div className={scss.wraperCard}>
           <img
-            className={css.RecipesItemImg}
+            className={scss.RecipesItemImg}
             src={drinkThumb || placeholder}
             alt={drink}
           />
-          <h3 className={css.RecipesItemTitle}>{drink}</h3>
-          <h4 className={css.RecipesItemSubTitle}>ingridients</h4>
-          <p className={css.RecipesItemText}>{description || 'descr'}</p>
+          <h3 className={scss.RecipesItemTitle}>{drink}</h3>
+          <h4 className={scss.RecipesItemSubTitle}>ingridients</h4>
+          <p className={scss.RecipesItemText}>{description || 'descr'}</p>
 
-          <div className={css.wraperBottom}>
+          <div className={scss.wraperBottom}>
             <Link
-              className={css.RecipesItemLink}
+              className={scss.RecipesItemLink}
               to={`/recipe/${id}`}
               target="_blank"
               rel="noreferrer"
@@ -35,11 +35,11 @@ const RecipesItem = ({
               See recipe
             </Link>
             <button
-              className={css.RecipesItemButton}
+              className={scss.RecipesItemButton}
               type="button"
               onClick={() => removeFavorite(id)}
             >
-              <FiTrash2 className={css.RecipesItemIcon} size={24} />
+              <FiTrash2 className={scss.RecipesItemIcon} size={24} />
             </button>
           </div>
         </div>
