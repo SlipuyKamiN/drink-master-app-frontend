@@ -30,16 +30,8 @@
   }
 }
 
-// @media (min-device-pixel-ratio: 2),
-// (min-resolution: 192dpi),
-// (min-resolution: 2dppx) {
-// background-image: url('../../images/no-content-cocktail@2x.png');
-// }
-
 .wrapper {
   height: 100vh;
-
-  // change image
   background: radial-gradient(
       circle,
       rgba(64, 112, 205, 0.5) 10%,
@@ -58,7 +50,7 @@
     linear-gradient(0deg, rgba(10, 10, 17, 0.2) 0%, rgba(10, 10, 17, 0.2) 100%),
     linear-gradient(1deg, #0a0a11 -0.56%, rgba(10, 10, 17, 0) 21.93%),
     linear-gradient(82deg, #0a0a11 11.89%, rgba(10, 10, 17, 0) 82.65%),
-    url('../images/welcomePage-background-image.jpeg');
+    url('../images/welcomePage-background-image.jpg');
   background-color: $main-bg-color;
   background-repeat: no-repeat;
 
@@ -66,6 +58,34 @@
     cover;
   background-position-y: 20px, 84px, 498px, center, center, center, center;
   background-position-x: -300px, 42px, 200px, 80px, 80px, 80px, 80px;
+
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    background-image: radial-gradient(
+        circle,
+        rgba(64, 112, 205, 0.5) 10%,
+        rgba(64, 112, 205, 0) 70%
+      ),
+      radial-gradient(
+        circle,
+        rgba(188, 230, 210, 0.4) -15%,
+        rgba(188, 230, 210, 0) 70%
+      ),
+      radial-gradient(
+        circle,
+        rgba(64, 112, 205, 0.5) 10%,
+        rgba(64, 112, 205, 0) 70%
+      ),
+      linear-gradient(
+        0deg,
+        rgba(10, 10, 17, 0.2) 0%,
+        rgba(10, 10, 17, 0.2) 100%
+      ),
+      linear-gradient(1deg, #0a0a11 -0.56%, rgba(10, 10, 17, 0) 21.93%),
+      linear-gradient(82deg, #0a0a11 11.89%, rgba(10, 10, 17, 0) 82.65%),
+      url('../images/welcomePage-background-image@2x.jpg');
+  }
 
   @media screen and (min-width: 768px) {
     background-image: radial-gradient(
@@ -90,11 +110,39 @@
       ),
       linear-gradient(1deg, #0a0a11 -0.56%, rgba(10, 10, 17, 0) 21.93%),
       linear-gradient(78deg, #0a0a11 14.73%, rgba(10, 10, 17, 0) 52.34%),
-      url('../images/welcomePage-background-image.jpeg');
+      url('../images/welcomePage-background-image.jpg');
     background-size: 784px 830px, 387px 372px, 549px 543px, cover, cover, cover,
       cover;
     background-position-y: -50px, 40px, 498px, center, center, center, center;
     background-position-x: -620px, -10px, 600px, 300px, 300px, 300px, 300px;
+
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: radial-gradient(
+          circle,
+          rgba(64, 112, 205, 0.5) 35%,
+          rgba(64, 112, 205, 0) 70%
+        ),
+        radial-gradient(
+          circle,
+          rgba(188, 230, 210, 0.3) -15%,
+          rgba(188, 230, 210, 0) 70%
+        ),
+        radial-gradient(
+          circle,
+          rgba(64, 112, 205, 0.5) 20%,
+          rgba(64, 112, 205, 0) 70%
+        ),
+        linear-gradient(
+          0deg,
+          rgba(10, 10, 17, 0.2) 0%,
+          rgba(10, 10, 17, 0.2) 100%
+        ),
+        linear-gradient(1deg, #0a0a11 -0.56%, rgba(10, 10, 17, 0) 21.93%),
+        linear-gradient(78deg, #0a0a11 14.73%, rgba(10, 10, 17, 0) 52.34%),
+        url('../images/welcomePage-background-image@2x.jpg');
+    }
   }
 
   @media screen and (min-width: 1440px) {
@@ -121,11 +169,39 @@
       ),
       linear-gradient(1deg, #0a0a11 -0.56%, rgba(10, 10, 17, 0) 21.93%),
       linear-gradient(85deg, #060609 5.92%, rgba(10, 10, 17, 0) 51.07%),
-      url('../images/welcomePage-background-image.jpeg');
+      url('../images/welcomePage-background-image.jpg');
     background-size: 784px 849px, 387px 381px, 549px 543px, contain, contain,
       contain, contain;
     background-position-y: -231px, -130px, 458px, 0, 0, 0, 0;
     background-position-x: -460px, 150px, 1181px, right, right, right, right;
+
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: radial-gradient(
+          circle,
+          rgba(64, 112, 205, 0.5) 25%,
+          rgba(64, 112, 205, 0) 65%
+        ),
+        radial-gradient(
+          circle,
+          rgba(188, 230, 210, 0.4) -15%,
+          rgba(188, 230, 210, 0) 70%
+        ),
+        radial-gradient(
+          circle,
+          rgba(64, 112, 205, 0.5) 20%,
+          rgba(64, 112, 205, 0) 70%
+        ),
+        linear-gradient(
+          0deg,
+          rgba(10, 10, 17, 0.2) 0%,
+          rgba(10, 10, 17, 0.2) 100%
+        ),
+        linear-gradient(1deg, #0a0a11 -0.56%, rgba(10, 10, 17, 0) 21.93%),
+        linear-gradient(85deg, #060609 5.92%, rgba(10, 10, 17, 0) 51.07%),
+        url('../images/welcomePage-background-image@2x.jpg');
+    }
   }
 
   // @media (min-device-pixel-ratio: 2),
