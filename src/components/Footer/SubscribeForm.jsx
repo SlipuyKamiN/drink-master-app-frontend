@@ -42,27 +42,15 @@ const SubscribeForm = () => {
         className={styles.subscribeFormFields}
         onSubmit={handleSubmit(formSubmit)}
       >
-        <label className={styles.label}>
-          <input
-            type="text"
-            name="email"
-            placeholder="Enter the email"
-            className={`${styles.subscribeFormInput} ${
-              errors.email && dirtyFields.email ? styles.invalid : styles.valid
-            }`}
-            {...register('email')}
-          />
-          {/* <span className={styles.circle}>
-            <BiCheckCircle
-              style={{
-                width: '24px',
-                height: '24px',
-                color: '#3CBC81',
-              }}
-            />
-          </span> */}
-        </label>
-
+        <input
+          type="text"
+          name="email"
+          placeholder="Enter the email"
+          className={`${styles.subscribeFormInput} ${
+            errors.email && dirtyFields.email ? styles.invalid : styles.valid
+          }`}
+          {...register('email')}
+        />
         {errors.email && (
           <p className={styles.errorText}>{errors.email.message}</p>
         )}
