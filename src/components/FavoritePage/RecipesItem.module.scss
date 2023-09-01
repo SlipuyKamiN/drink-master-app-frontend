@@ -1,6 +1,6 @@
 @import 'styles/common/vars';
 
-.RecipesItem{
+.recipesItem{
     list-style-type: none;
 
     width: 335px;
@@ -27,7 +27,7 @@
     }
 }
 
-.RecipesItemImg{
+.recipesItemImg{
     margin-bottom: 18px;
     border-radius: 10px;
     height: 360px
@@ -42,7 +42,7 @@
     }
 }
 
-.RecipesItemTitle{
+.recipesItemTitle{
     margin-bottom: 4px;
     font-weight: 500;
     font-size: 18px;
@@ -54,7 +54,7 @@
     }
 }
 
-.RecipesItemSubTitle{
+.recipesItemSubTitle{
     font-weight: 500;
     color: rgba($color: #f3f3f3, $alpha: 0.5);    
     line-height: 1.28;
@@ -66,7 +66,7 @@
     }
 }
 
-.RecipesItemText{
+.recipesItemText{
     margin-bottom: 18px;
     color: $primary-white-color;
         
@@ -81,7 +81,7 @@
     gap: 8px;
 }
 
-.RecipesItemLink{
+.recipesItemLink{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -107,7 +107,7 @@
     }
 }
 
-.RecipesItemButton{
+.recipesItemButton{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -133,6 +133,6 @@
     }
 }
 
-.RecipesItemIcon{
+.recipesItemIcon{
     color: inherit
 }

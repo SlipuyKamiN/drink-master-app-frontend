@@ -29,9 +29,9 @@ const Paginator = ({ pagesQty }) => {
     };
   }; 
   
-  return <div className={scss.PaginatorContainer}>
+  return <div className={scss.paginatorContainer}>
       <button
-        className={scss.PaginatorBtn}
+        className={scss.paginatorBtn}
         type="button"
         name="PreviousBtn"
         onClick={() => handlePreviousBtn()}
@@ -39,11 +39,11 @@ const Paginator = ({ pagesQty }) => {
       >
         <FiChevronLeft className={scss.arrow} size={27} />
       </button>
-      <ul className={scss.PaginatorList}>
+      <ul className={scss.paginatorList}>
         {buttons.map(buttonNumber => (
             <button
               key={buttonNumber}
-              className={`${scss.PaginatorBtn} ${buttonNumber === currentPage ? scss.active : ''}`}
+              className={`${scss.paginatorBtn} ${buttonNumber === currentPage ? scss.active : ''}`}
               onClick={() => handleChangePage(buttonNumber)}
               name={buttonNumber}
               type="button"

@@ -6,7 +6,7 @@ const RecipesList = ({ data, removeFavorite }) => {
 
   const { favorites } = data;
 
-  return <ul className={scss.RecipesList}>
+  return <ul className={scss.recipesList}>
         {favorites.map(({ _id, description, drink, drinkThumb }) => (
           <RecipesItem
             key={_id}

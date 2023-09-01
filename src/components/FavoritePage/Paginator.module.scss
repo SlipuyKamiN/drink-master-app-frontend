@@ -1,12 +1,12 @@
 @import 'styles/common/vars';
 
-.PaginatorContainer{
+.paginatorContainer{
     display: flex;
     justify-content: center;
     gap: 50px;
 }
 
-.PaginatorBtn {
+.paginatorBtn {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -42,7 +42,7 @@
     transition: $transition-duration;
 }
 
-.PaginatorList{
+.paginatorList{
     display: flex;
     gap: 5px;
 }

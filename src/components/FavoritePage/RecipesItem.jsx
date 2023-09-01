@@ -14,30 +14,30 @@ const RecipesItem = ({
 
   return (
     <>
-      <li className={scss.RecipesItem}>
+      <li className={scss.recipesItem}>
         <div className={scss.wraperCard}>
           <img
-            className={scss.RecipesItemImg}
+            className={scss.recipesItemImg}
             src={drinkThumb || placeholder}
             alt={drink}
           />
-          <h3 className={scss.RecipesItemTitle}>{drink}</h3>
-          <h4 className={scss.RecipesItemSubTitle}>ingridients</h4>
-          <p className={scss.RecipesItemText}>{description || 'description is absent'}</p>
+          <h3 className={scss.recipesItemTitle}>{drink}</h3>
+          <h4 className={scss.recipesItemSubTitle}>ingridients</h4>
+          <p className={scss.recipesItemText}>{description || 'description is absent'}</p>
 
           <div className={scss.wraperBottom}>
             <Link
-              className={scss.RecipesItemLink}
+              className={scss.recipesItemLink}
               to={`/recipe/${id}`}
             >
               See recipe
             </Link>
             <button
-              className={scss.RecipesItemButton}
+              className={scss.recipesItemButton}
               type="button"
               onClick={() => removeFavorite(id)}
             >
-              <FiTrash2 className={scss.RecipesItemIcon} size={24} />
+              <FiTrash2 className={scss.recipesItemIcon} size={24} />
             </button>
           </div>
         </div>
