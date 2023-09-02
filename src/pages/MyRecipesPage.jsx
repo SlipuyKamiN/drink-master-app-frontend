@@ -1,5 +1,5 @@
 import ItemNotCocktails from 'components/FavoritePage/ItemNotCocktails';
-import Paginator from 'components/FavoritePage/Paginator';
+// import Paginator from 'components/FavoritePage/Paginator';
 import RecipesList from 'components/MyRecipesPage/RecipesList';
 import LoadingSpinner from 'components/Shared/LoadingSpinner';
 import Container from 'components/Shared/Container';
@@ -21,7 +21,7 @@ const MyRecipesPage = () => {
     `?page=${searchParams.get('page')}&limit=${limit}`
   );
   const [toggleFavorite] = useDeleteMyRecipeMutation();
-  const pagesQty = Math.ceil(data?.totalHits / limit);
+  const pagesQty = Math.ceil(data?.length === 0 ? 1 : data?.length / limit);
   const title = 'My recipes';
 
   useEffect(() => {
@@ -39,22 +39,23 @@ const MyRecipesPage = () => {
       .then(() => {
         if (pagesQty === 1) return;
 
-        if (data.favorites.length === 1) {
+        if (data.length === 1) {
           setSearchParams({ page: pagesQty - 1 });
         }
       });
   };
 
-  console.log("data", data.length);
-
+  console.log("pagesQty", pagesQty);
+  
+  
   return (
     <section className={scss.wraper}>
       <Container>
         <MainTitle title={title} style={{ padding: '0' }} />
-        {data.length> 0 && !isError ? (
+        {(data.length > 0) && !isError ? (
           <>
             <RecipesList data={data} removeFavorite={removeFavorite} />
-            <Paginator pagesQty={pagesQty} />
+            {/* <Paginator pagesQty={pagesQty} /> */}
           </>
         ) : (
           <ItemNotCocktails title={title} />
