@@ -1,7 +1,7 @@
 import DrinksSearch from 'components/DrinksPage/DrinksSearch';
 import DrinksList from 'components/DrinksPage/DrinksList';
 import Container from 'components/Shared/Container';
-import MainTitle from 'components/Shared/MainTitle';
+import DrinkPageTitle from 'components/DrinksPage/DrinkPageTitle';
 import { useLocation, useSearchParams } from 'react-router-dom';
 import useWindowDimensions from '../hooks/useWindowDimensions';
 import { useCallback, useEffect, useState } from 'react';
@@ -77,9 +77,9 @@ const DrinksPage = () => {
 
   return (
     <Container>
-      <MainTitle title="Drinks" style={{ marginBottom: '80px' }}></MainTitle>
-      <DrinksSearch onFilterChange={handleFilterChange}></DrinksSearch>
-      <DrinksList cocktails={data}></DrinksList>
+      <DrinkPageTitle title="Drinks" />
+      <DrinksSearch onFilterChange={handleFilterChange} />
+      <DrinksList cocktails={data} />
       {/* <Pagination
         onPageChange={handlePageChange}
         limit={getSearchParams().limit}
