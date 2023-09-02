@@ -33,7 +33,7 @@
   }
 
   &:active {
-    border-color: rgba(64, 112, 205, 0.50);
+    border-color: rgba(64, 112, 205, 0.5);
   }
 }
 .editBtn {
@@ -51,8 +51,8 @@
   background-color: transparent;
   text-decoration: none;
   bottom: 0;
-	left: 50%;
-	transform: translateX(-50%) translateY(50%);
+  left: 50%;
+  transform: translateX(-50%) translateY(50%);
   border: 1px solid transparent;
   border-radius: 50%;
   transition: all $transition-duration;
@@ -62,7 +62,7 @@
     border-color: $primary-white-color;
   }
   &:active {
-    border-color: rgba(64, 112, 205, 0.50);
+    border-color: rgba(64, 112, 205, 0.5);
   }
 }
 .closeIcon {
@@ -77,6 +77,11 @@
   margin-left: auto;
   margin-right: auto;
   border-radius: 50%;
+
+  @media screen and (min-width: 768px) {
+    width: 100px;
+    height: 100px;
+  }
 }
 .input {
   display: block;
@@ -93,7 +98,7 @@
   background-color: transparent;
   border: 1px solid rgba(243, 243, 243, 0.2);
   font-family: inherit;
-  color: rgba(243, 243, 243, 0.50);
+  color: rgba(243, 243, 243, 0.5);
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -105,16 +110,27 @@
     color: $primary-white-color;
     border: 1px solid rgba(243, 243, 243, 0.5);
   }
+
+  @media screen and (min-width: 768px) {
+    width: 400px;
+    height: 56px;
+    margin-top: 66px;
+    margin-bottom: 25px;
+    padding-top: 14px;
+    padding-bottom: 15px;
+    border-radius: 28px;
+    font-size: 17px;
+    line-height: 1.56;
+  }
 }
 .btn {
   width: 285px;
   height: 54px;
   display: block;
-  padding: 18px 90px;
+  padding: 18px 0px;
   font-size: 14px;
   font-weight: 600;
   line-height: 1.29;
-  margin-top: 18px;
   margin-left: 0;
   margin-right: 0;
   border: 1px solid $primary-white-color;
@@ -129,12 +145,21 @@
   }
 
   &:active {
-    border: 1px solid rgba(64, 112, 205, 0.50);
+    border: 1px solid rgba(64, 112, 205, 0.5);
   }
   &:disabled {
     color: rgba(243, 243, 243, 0.2);
     background-color: $disabled-blue-color;
     border-color: $disabled-blue-color;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 400px;
+    padding: 18px 0px;
+    font-size: 16px;
+    line-height: calc(18 / 16);
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 .editWrapper {
@@ -145,7 +170,12 @@
   height: 28px;
   position: absolute;
   bottom: 0;
-	left: 50%;
-	transform: translateX(-50%) translateY(50%);
+  left: 50%;
+  transform: translateX(-50%) translateY(50%);
   opacity: 0;
+
+  @media screen and (min-width: 768px) {
+    width: 32px;
+    height: 32px;
+  }
 }

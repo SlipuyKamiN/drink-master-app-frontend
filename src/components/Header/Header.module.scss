@@ -8,8 +8,9 @@
   align-items: center;
   padding-top: 20px;
   padding-bottom: 20px;
+  z-index: 101;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1440px) {
     padding-top: 22.5px;
     padding-bottom: 22.5px;
   }
@@ -51,15 +52,20 @@
 }
 .mobile {
   width: 100vw;
-	height: 100vh;
+	height: 100%;
   position: fixed;
-	top: 72;
-	left: 0;
+	top: 75px;
+	left: 0px;
   padding-bottom: auto;
   background-color: $main-bg-color;
-  z-index: 100;
-  transform: translateY(0%);
+  z-index: 1;
+  transform: translateY(-120%);
+  transition: transform $transition-duration;
+
+  @media screen and (min-width:768px) {
+    top: 86px;
+  }
 }
-.menuHide {
-  transform: translateY(-150%);
+.visible {
+  transform: translateY(0%);
 }

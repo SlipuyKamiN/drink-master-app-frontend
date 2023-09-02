@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Container from 'components/Shared/Container';
 import Logo from './Logo';
 import Navigation from './Navigation';
@@ -11,6 +11,7 @@ import { ReactComponent as CloseIcon } from '../../images/x.svg';
 const Header = () => {
   const [mobileMenuVisible, setMobilMenuVisible] = useState(false);
   const { width } = useWindowDimensions();
+  const {visible} = css;
 
   const handleMobileToggle = () => {
     setMobilMenuVisible(!mobileMenuVisible);
@@ -22,6 +23,15 @@ const Header = () => {
     handleMobileToggle();
     }
   }
+
+  useEffect(() => {
+    if (mobileMenuVisible) {
+      document.body.style.overflow = 'hidden';
+    } 
+    if (!mobileMenuVisible) {
+      document.body.style.overflow = 'unset';;
+    } 
+ }, [mobileMenuVisible ]);
 
   return (
     <header className={css.header}>
@@ -42,11 +52,11 @@ const Header = () => {
             )}
           </div>
         </div>
-        {mobileMenuVisible && (
-          <div className={css.mobile} onClick={handleNavClick}>
+        
+          <div className={`${css.mobile} ${mobileMenuVisible ? visible : ""}`} onClick={handleNavClick}>
             {width < 1440 && <Navigation />}
           </div>
-        )}
+        
       </Container>
     </header>
   );

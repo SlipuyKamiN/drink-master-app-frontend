@@ -1,5 +1,5 @@
 import css from './UserLogoModal.module.scss';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FiEdit2 } from 'react-icons/fi';
 import UserInfoModal from './UserInfoModal';
 import LogoutBtn from './LogoutBtn';
@@ -9,9 +9,9 @@ const UserLogoModal = () => {
 
   const handleEditProfileClick = () => {
     setShowInfoModal(!showInfoModal);
-  };
+ };
 
-  return (
+return (
     <>
       <div className={css.modal}>
         <button

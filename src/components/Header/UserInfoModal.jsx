@@ -65,7 +65,6 @@ const UserInfoModal = ({ toggleModalShown }) => {
             <button
               type="button"
               className={`${css.addImgBtn}`}
-              // onClick={handleChooseIcon}
             >
               <AddIcon size={28} className={css.editIcon} />
             </button>

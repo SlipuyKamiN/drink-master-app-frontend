@@ -14,6 +14,10 @@
   margin: 0;
   margin-top: 160px;
 
+  @media screen and (min-width: 768px) {
+    margin-top: 256px;
+  }
+  
   @media screen and (min-width: 1440px) {
     flex-direction: row;
     gap: 16px;
