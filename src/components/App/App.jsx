@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import { lazy } from 'react';
 import WelcomePage from 'pages/WelcomePage';
 import SigninPage from 'pages/SigninPage';
@@ -43,7 +43,11 @@ const App = () => {
           element={<RestrictedRoute component={SigninPage} />}
         />
         <Route path="/" element={<PrivateRoute component={SharedLayout} />}>
-          <Route index element={<MainPage />} />
+          <Route index element={<MainPage />} />{' '}
+          <Route
+            path="/drinks/"
+            element={<Navigate to={'/drinks/allCategories'} />}
+          />
           <Route path="/drinks/:categoryName" element={<DrinksPage />} />
           <Route path="/add" element={<AddRecipePage />} />
           <Route path="/my" element={<MyRecipesPage />} />
