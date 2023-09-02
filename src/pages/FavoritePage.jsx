@@ -52,7 +52,7 @@ const FavoritePage = () => {
         <MainTitle title={title} style={{ padding: '0' }} />
         {data?.totalHits && !isError ? (
           <>
-            <RecipesList data={data} removeFavorite={removeFavorite} />
+            <RecipesList data={data} removeResipes={removeFavorite} />
             <Paginator pagesQty={pagesQty} />
           </>
         ) : (

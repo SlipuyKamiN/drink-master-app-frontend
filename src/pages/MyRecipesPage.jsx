@@ -1,6 +1,6 @@
 import ItemNotCocktails from 'components/FavoritePage/ItemNotCocktails';
-// import Paginator from 'components/FavoritePage/Paginator';
-import RecipesList from 'components/MyRecipesPage/RecipesList';
+import Paginator from 'components/FavoritePage/Paginator';
+import RecipesList from 'components/FavoritePage/RecipesList';
 import LoadingSpinner from 'components/Shared/LoadingSpinner';
 import Container from 'components/Shared/Container';
 import useWindowDimensions from 'hooks/useWindowDimensions';
@@ -20,7 +20,7 @@ const MyRecipesPage = () => {
   const { data, isLoading, isError } = useGetMyRecipesQuery(
     `?page=${searchParams.get('page')}&limit=${limit}`
   );
-  const [toggleFavorite] = useDeleteMyRecipeMutation();
+  const [deleteMyRecipe] = useDeleteMyRecipeMutation();
   const pagesQty = Math.ceil(data?.length / limit);
   const title = 'My recipes';
 
@@ -33,22 +33,17 @@ const MyRecipesPage = () => {
 
   if (isLoading) return <LoadingSpinner />;
 
-  // const removeFavorite = id => {
-  //   toggleFavorite(id)
-  //     .unwrap()
-  //     .then(() => {
-  //       if (pagesQty === 1) return;
+  const handleDeleteRecipes = id => {
+    deleteMyRecipe(id)
+      .unwrap()
+      .then(() => {
+        if (pagesQty === 1) return;
 
-  //       if (data.length === 1) {
-  //         setSearchParams({ page: pagesQty - 1 });
-  //       }
-  //     });
-  // };
-
-  const handleDeleteRecipes = (id) => {
-    console.log('handleDeleteRecipes', id);
+        if (data.length === 1) {
+          setSearchParams({ page: pagesQty - 1 });
+        }
+      });
   };
-
   
   return (
     <section className={scss.wraper}>
@@ -57,7 +52,7 @@ const MyRecipesPage = () => {
         {(data?.length > 0) && !isError ? (
           <>
             <RecipesList data={data} removeResipes={handleDeleteRecipes} />
-            {/* <Paginator pagesQty={pagesQty} /> */}
+            <Paginator pagesQty={pagesQty} />
           </>
         ) : (
           <ItemNotCocktails title={title} />

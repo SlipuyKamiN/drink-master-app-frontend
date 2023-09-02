@@ -10,6 +10,8 @@ const RecipesItem = ({
   drinkThumb,
   removeResipes,
 }) => {
+
+  
   return (
     <>
       <li className={scss.recipesItem}>
