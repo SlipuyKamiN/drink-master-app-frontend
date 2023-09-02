@@ -21,7 +21,7 @@ const MyRecipesPage = () => {
     `?page=${searchParams.get('page')}&limit=${limit}`
   );
   const [toggleFavorite] = useDeleteMyRecipeMutation();
-  const pagesQty = Math.ceil(data?.length === 0 ? 1 : data?.length / limit);
+  const pagesQty = Math.ceil(data?.length / limit);
   const title = 'My recipes';
 
   useEffect(() => {
@@ -33,28 +33,30 @@ const MyRecipesPage = () => {
 
   if (isLoading) return <LoadingSpinner />;
 
-  const removeFavorite = id => {
-    toggleFavorite(id)
-      .unwrap()
-      .then(() => {
-        if (pagesQty === 1) return;
+  // const removeFavorite = id => {
+  //   toggleFavorite(id)
+  //     .unwrap()
+  //     .then(() => {
+  //       if (pagesQty === 1) return;
 
-        if (data.length === 1) {
-          setSearchParams({ page: pagesQty - 1 });
-        }
-      });
+  //       if (data.length === 1) {
+  //         setSearchParams({ page: pagesQty - 1 });
+  //       }
+  //     });
+  // };
+
+  const handleDeleteRecipes = (id) => {
+    console.log('handleDeleteRecipes', id);
   };
 
-  console.log("pagesQty", pagesQty);
-  
   
   return (
     <section className={scss.wraper}>
       <Container>
         <MainTitle title={title} style={{ padding: '0' }} />
-        {(data.length > 0) && !isError ? (
+        {(data?.length > 0) && !isError ? (
           <>
-            <RecipesList data={data} removeFavorite={removeFavorite} />
+            <RecipesList data={data} removeResipes={handleDeleteRecipes} />
             {/* <Paginator pagesQty={pagesQty} /> */}
           </>
         ) : (

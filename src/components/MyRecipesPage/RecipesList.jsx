@@ -1,7 +1,7 @@
 import RecipesItem from '../FavoritePage/RecipesItem';
 import scss from '../FavoritePage/RecipesList.module.scss';
 
-const RecipesList = ({ data, removeFavorite, }) => {
+const RecipesList = ({ data, removeResipes }) => {
  
 console.log(Array.isArray(data));
 
@@ -16,7 +16,7 @@ console.log(Array.isArray(data));
                             description={description}
                             drink={drink}
                             drinkThumb={drinkThumb}
-                            removeFavorite={removeFavorite}
+                            removeResipes={removeResipes}
                         />
                     ))}
                 </ul>
@@ -28,7 +28,7 @@ console.log(Array.isArray(data));
                             description={description}
                             drink={drink}
                             drinkThumb={drinkThumb}
-                            removeFavorite={removeFavorite}
+                            removeResipes={removeResipes}
                         />
                     ))}
                 </ul>
