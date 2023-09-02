@@ -54,8 +54,9 @@ const SignupForm = () => {
           <input
             type="text"
             placeholder="Name"
-            className={`${scss.input}${errors.name && scss.invalid}
-           ${!errors.name && dirtyFields.name && scss.valid}`}
+            className={`${scss.input} ${errors.name && scss.invalid}
+             ${!errors.name && dirtyFields.name && scss.valid}`}
+            // className={scss.input}
             {...register('name')}
           />
           <span className={scss.circle}>
@@ -83,7 +84,7 @@ const SignupForm = () => {
         <label className={scss.label}>
           <input
             type="email"
-            className={`${scss.input}${errors.email && scss.invalid}
+            className={`${scss.input} ${errors.email && scss.invalid}
            ${!errors.email && dirtyFields.email && scss.valid}`}
             placeholder="Email"
             {...register('email')}
@@ -118,7 +119,7 @@ const SignupForm = () => {
         <label className={scss.label}>
           <input
             type={hidePassword ? 'password' : 'text'}
-            className={`${scss.input}${errors.password && scss.invalid}
+            className={`${scss.input} ${errors.password && scss.invalid}
            ${!errors.password && dirtyFields.password && scss.valid}`}
             placeholder="Password"
             {...register('password')}

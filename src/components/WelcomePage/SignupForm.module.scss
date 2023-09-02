@@ -1,3 +1,5 @@
+@import '../../styles/common/vars';
+
 .div {
   display: flex;
   flex-direction: column;
@@ -9,6 +11,16 @@
   width: 100%;
   margin-top: 14px;
 }
+
+// .input:hover,
+// .input:focus {
+//   border: 1px solid rgba(243, 243, 243, 0.5);
+// }
+
+// .input:hover::placeholder {
+//   color: #f3f3f3;
+//   opacity: 1;
+// }
 
 .input {
   color: #f3f3f3;
@@ -34,14 +46,14 @@
   }
 }
 
-.input:hover,
-.input:focus {
-  border: 1px solid rgba(243, 243, 243, 0.5);
+.input.valid {
+  outline: 1px solid $success-green-color;
+  border: transparent;
 }
 
-.input:hover::placeholder {
-  color: #f3f3f3;
-  opacity: 1;
+.input.invalid {
+  outline: 1px solid $error-red-color;
+  border: transparent;
 }
 
 .btn {
