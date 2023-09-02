@@ -1,0 +1,18 @@
+.followUs {
+    margin-bottom: 40px;
+    @media screen and (min-width: 768px) {
+    margin-bottom: 80px;
+}
+
+&__title {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: calc(24 / 18); 
+    margin-bottom: 20px;
+    @media screen and (min-width: 768px) {
+    font-size: 24px;
+    line-height: calc(32 / 24);
+    margin-bottom: 24px;
+    } 
+}
+}
