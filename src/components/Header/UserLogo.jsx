@@ -2,7 +2,6 @@ import css from './UserLogo.module.scss';
 import { useSelector } from 'react-redux';
 import UserLogoModal from './UserLogoModal';
 import { useState } from 'react';
-import { ReactComponent as BurgerIcon } from '../../images/burger.svg';
 
 const tempIcon =
   'https://icon-library.com/images/no-user-image-icon/no-user-image-icon-10.jpg';

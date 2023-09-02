@@ -5,6 +5,10 @@
   padding: 50px 25px;
   background-color: $secondary-bg-blue-color;
   border-radius: 16px;
+
+  @media screen and (min-width: 768px) {
+    padding: 50px 50px 75px 50px;
+  }
 }
 .imgWrapper {
   position: relative;
@@ -17,6 +21,11 @@
   border: 1px solid transparent;
   background-color: transparent;
   text-decoration: none;
+
+  @media screen and (min-width: 768px) {
+    top: 18px;
+    right: 18px;
+  }
 
   &:hover,
   &:focus {
@@ -35,8 +44,8 @@
 }
 .addImgBtn {
   position: absolute;
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
   padding: 0;
   border: 1px solid transparent;
   background-color: transparent;

@@ -1,7 +1,6 @@
 import css from './UserLogoModal.module.scss';
 import { useState } from 'react';
 import { FiEdit2 } from 'react-icons/fi';
-import { notification } from 'components/Shared/notification';
 import UserInfoModal from './UserInfoModal';
 import LogoutBtn from './LogoutBtn';
 
