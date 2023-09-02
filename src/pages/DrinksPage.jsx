@@ -9,6 +9,7 @@ import { useSearchRecipesQuery } from '../redux/recipesSlice';
 import { useParams } from 'react-router-dom';
 import { notification } from 'components/Shared/notification';
 import { useGetCategoriesListQuery } from '../redux/recipesSlice';
+import Paginator from 'components/FavoritePage/Paginator';
 
 const DrinksPage = () => {
   const { categoryName: category } = useParams();
@@ -88,6 +89,8 @@ const DrinksPage = () => {
     );
   }, [getSearchParams, isError]);
 
+  const pagesQty = Math.ceil(data?.totalHits / searchParams.get('limit'));
+
   if (isError) {
     notification('No drinks were found');
   }
@@ -97,11 +100,7 @@ const DrinksPage = () => {
       <DrinkPageTitle title="Drinks" />
       <DrinksSearch onFilterChange={handleFilterChange} />
       <DrinksList cocktails={data} />
-      {/* <Pagination
-        onPageChange={handlePageChange}
-        limit={getSearchParams().limit}
-        totalDrinks={data.totalHits}
-      ></Pagination> */}
+      <Paginator pagesQty={pagesQty} params={{ ...getSearchParams() }} />
     </Container>
   );
 };
