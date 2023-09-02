@@ -24,7 +24,7 @@ const {
 const RecipePageHero = ({ recipe }) => {
   const userId = useSelector(state => state.user._id);
 
-  const isFavorite = recipe?.users.find(() => userId);
+  const isFavorite = recipe?.users.includes(userId);
 
   const [dispatch, { isLoading }] = useToggleFavoriteMutation();
 
