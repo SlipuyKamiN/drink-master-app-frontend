@@ -1,0 +1,79 @@
+.popular{
+ 
+
+&__title{
+    font-size: 18px;
+    font-weight: 500;
+    line-height: calc(24 / 18); 
+    margin-bottom: 28px;
+    @media screen and (min-width: 768px) {
+    font-size: 24px;
+    line-height: calc(32 / 24);
+    margin-bottom: 40px;
+    }
+   
+}
+
+&__thumb {
+    display: flex;
+    gap: 14px;
+    justify-content: space-between;
+}
+
+&__list {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 24px;
+
+@media screen and (min-width: 768px) {
+    gap: 32px;
+    justify-content: space-between;
+  }
+
+  @media screen and (min-width: 1440px) {
+    gap: 28px;
+  }
+}
+// &__item:not(:last-child){
+//     margin-bottom: 24px;
+// }
+
+&__img{
+    width: 90px;
+    height: 90px;
+    margin: 0;
+    border-radius: 5px;
+}
+
+&__wrapper{
+width: 232px;
+height: 89px;
+}
+
+&__name{
+    font-size: 16px;
+    font-weight: 500;
+    line-height: calc(22 / 16);
+    margin-bottom: 8px;
+}
+
+&__description{
+    color: rgba(243, 243, 243, 0.50);
+    overflow: hidden;
+    text-overflow: ellipsis;
+   max-height: 64px;
+   
+}
+}
+
+.spinner {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.text {
+    color: rgba(243, 243, 243, 0.50);
+    overflow: hidden;
+    text-overflow: ellipsis;
+   max-width: 200px;
+}
