@@ -1,0 +1,147 @@
+@import 'styles/common/vars';
+
+.recipesItem {
+  list-style-type: none;
+
+  max-width: 335px;
+
+  @media screen and (min-width: 768px) {
+    width: 342px;
+    max-width: none;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 400px;
+  }
+}
+
+.wraperCard {
+  display: block;
+  max-width: 335px;
+
+  @media screen and (min-width: 768px) {
+    width: 342px;
+    max-width: none;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 400px;
+  }
+}
+
+.recipesItemImg {
+  margin-bottom: 18px;
+  border-radius: 10px;
+  height: 360px;
+
+  background: rgb(74, 63, 63);
+  background: linear-gradient(
+    140deg,
+    rgba(74, 63, 63, 0.8660714285714286) 0%,
+    rgba(98, 66, 66, 0.8380602240896359) 32%,
+    rgba(130, 110, 110, 0.8772759103641457) 94%
+  );
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 24px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    height: 400px;
+  }
+}
+
+.recipesItemTitle {
+  margin-bottom: 4px;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.28;
+  color: $primary-white-color;
+
+  @media screen and (min-width: 768px) {
+    font-size: 24px;
+  }
+}
+
+.recipesItemSubTitle {
+  font-weight: 500;
+  color: rgba($color: $primary-white-color, $alpha: 0.5);
+  line-height: 1.28;
+  margin-bottom: 18px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    margin-bottom: 24px;
+  }
+}
+
+.recipesItemText {
+  margin-bottom: 18px;
+  color: $primary-white-color;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 24px;
+    font-size: 16px;
+  }
+}
+
+.wraperBottom {
+  display: flex;
+  gap: 8px;
+}
+
+.recipesItemLink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 151px;
+  height: 46px;
+  background-color: $secondary-bg-blue-color;
+  border-radius: 50px;
+  font-weight: 600;
+
+  &:hover,
+  &:focus {
+    background-color: $primary-white-color;
+    color: $secondary-bg-blue-color;
+  }
+
+  &:active {
+    background-color: $link-color;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 169px;
+    height: 54px;
+  }
+}
+
+.recipesItemButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  border-radius: 50px;
+  border: none;
+  background-color: $secondary-bg-blue-color;
+  color: $primary-white-color;
+  transition: color 250ms linear;
+
+  &:hover,
+  &:focus {
+    background-color: $primary-white-color;
+    color: $secondary-bg-blue-color;
+  }
+
+  &:active {
+    background-color: $link-color;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 56px;
+  }
+}
+
+.recipesItemIcon {
+  color: inherit;
+}
