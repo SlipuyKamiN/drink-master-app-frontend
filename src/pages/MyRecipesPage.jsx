@@ -1,6 +1,6 @@
 import ItemNotCocktails from 'components/FavoritePage/ItemNotCocktails';
 import Paginator from 'components/FavoritePage/Paginator';
-import RecipesList from 'components/FavoritePage/RecipesList';
+import RecipesList from 'components/MyRecipesPage/RecipesList';
 import LoadingSpinner from 'components/Shared/LoadingSpinner';
 import Container from 'components/Shared/Container';
 import useWindowDimensions from 'hooks/useWindowDimensions';
@@ -45,11 +45,13 @@ const MyRecipesPage = () => {
       });
   };
 
+  console.log("data", data.length);
+
   return (
     <section className={scss.wraper}>
       <Container>
         <MainTitle title={title} style={{ padding: '0' }} />
-        {data?.totalHits && !isError ? (
+        {data.length> 0 && !isError ? (
           <>
             <RecipesList data={data} removeFavorite={removeFavorite} />
             <Paginator pagesQty={pagesQty} />

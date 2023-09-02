@@ -45,7 +45,6 @@ const FavoritePage = () => {
       });
   };
 
-  console.log('data', data);
 
   return (
     <section className={scss.wraper}>
