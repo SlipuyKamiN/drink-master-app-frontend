@@ -58,7 +58,7 @@
 	left: 0px;
   padding-bottom: auto;
   background-color: $main-bg-color;
-  z-index: 1;
+  z-index: 1000;
   transform: translateY(-120%);
   transition: transform $transition-duration;
 
