@@ -46,7 +46,7 @@ const DrinksSearch = ({ onFilterChange }) => {
   const selectStyles = {
     option: (provided, state) => ({
       ...provided,
-      color: state.isSelected ? '#f3f3f3' : 'rgba(243, 243, 243, 0.4)', // Колір тексту обраної опції
+      color: state.isSelected ? '#f3f3f3' : 'rgba(243, 243, 243, 0.4)',
     }),
   };
 
@@ -73,7 +73,6 @@ const DrinksSearch = ({ onFilterChange }) => {
         </button>
       </form>
       <Select
-        // className={sass.select}
         classNamePrefix="drinks-page-selector"
         placeholder="Select..."
         defaultValue=""
@@ -86,7 +85,6 @@ const DrinksSearch = ({ onFilterChange }) => {
         styles={selectStyles}
       />
       <Select
-        // className={sass.select}
         classNamePrefix="drinks-page-selector"
         placeholder="Select..."
         defaultValue=""
