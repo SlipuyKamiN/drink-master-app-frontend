@@ -39,6 +39,11 @@
   border: 1px solid rgba(243, 243, 243, 0.5);
 }
 
+.input:hover::placeholder {
+  color: #f3f3f3;
+  opacity: 1;
+}
+
 .btn {
   color: #161f37;
   font-family: Manrope;
