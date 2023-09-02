@@ -45,6 +45,8 @@ const FavoritePage = () => {
       });
   };
 
+  console.log('data', data);
+
   return (
     <section className={scss.wraper}>
       <Container>
@@ -55,7 +57,7 @@ const FavoritePage = () => {
             <Paginator pagesQty={pagesQty} />
           </>
         ) : (
-          <ItemNotCocktails />
+          <ItemNotCocktails title={title} />
         )}
       </Container>
     </section>
