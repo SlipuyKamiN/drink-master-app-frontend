@@ -3,11 +3,11 @@ import RecipeDescriptionFields from '././ComponentForm/RecipeDescriptionFields';
 import RecipeIngredientsFields from '././ComponentForm/RecipeIngredientsFields';
 import RecipePreparationFields from '././ComponentForm/RecipePreparationFields';
 import scss from './AddRecipeForm.module.scss';
-import { useState} from 'react';
+import { useState } from 'react';
 import { useCreateNewRecipeMutation } from 'redux/myRecipesSlice';
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 import { notification } from 'components/Shared/notification';
-import LoadingSpinner from "components/Shared/LoadingSpinner";
+import LoadingSpinner from 'components/Shared/LoadingSpinner';
 
 const AddRecipeForm = () => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -20,10 +20,10 @@ const AddRecipeForm = () => {
   ]);
   const [quantity, setQuantity] = useState(1);
   const [instructions, setInstructions] = useState([]);
-  const [isShowError, setisShowError] = useState(false)
+  const [isShowError, setisShowError] = useState(false);
 
-  const [dispatch, {isLoading}] = useCreateNewRecipeMutation();
-    const navigate = useNavigate();
+  const [dispatch, { isLoading }] = useCreateNewRecipeMutation();
+  const navigate = useNavigate();
 
   const handleFileChange = event => {
     const file = event.target.files[0];
@@ -61,6 +61,7 @@ const AddRecipeForm = () => {
   };
 
   const removeIngredient = idToRemove => {
+    setQuantity(prev => prev - 1);
     setIngredients(prev => prev.filter(({ id }) => id !== idToRemove));
   };
 
@@ -74,7 +75,7 @@ const AddRecipeForm = () => {
 
   const handleFormSubmit = event => {
     event.preventDefault();
-  
+
     const ingredient = ingredients.map(item => {
       return {
         title: item.ingredient,
@@ -82,7 +83,9 @@ const AddRecipeForm = () => {
       };
     });
 
-    const  ingredientsError = !ingredients.find(({ingredient})=> ingredient === '')
+    const ingredientsError = !ingredients.find(
+      ({ ingredient }) => ingredient === ''
+    );
     const formData = new FormData();
 
     formData.append('drink', drink);
@@ -93,15 +96,25 @@ const AddRecipeForm = () => {
     formData.append('instructions', JSON.stringify(instructions));
     formData.append('recipe', selectedImage);
 
-    if(selectedImage === null || drink === '' || category === '' || glass === '' || description === '' || ingredientsError.ingredient === '' || instructions.length === 0) return setisShowError(true)
-    dispatch(formData).unwrap().then(()=> {
-      navigate("/my");
-      setisShowError(false)
-    }).catch(error => notification(error.data.message));
-  
+    if (
+      selectedImage === null ||
+      drink === '' ||
+      category === '' ||
+      glass === '' ||
+      description === '' ||
+      ingredientsError.ingredient === '' ||
+      instructions.length === 0
+    )
+      return setisShowError(true);
+    dispatch(formData)
+      .unwrap()
+      .then(() => {
+        navigate('/my');
+        setisShowError(false);
+      })
+      .catch(error => notification(error.data.message));
   };
   return (
-    
     <form onSubmit={handleFormSubmit} className={scss.form} action="">
       <RecipeDescriptionFields
         handleInputChange={{
@@ -111,7 +124,14 @@ const AddRecipeForm = () => {
           handleDescriptionChange,
           handleGlassChange,
         }}
-        value={{ selectedImage, drink, description, category, glass, isShowError }}
+        value={{
+          selectedImage,
+          drink,
+          description,
+          category,
+          glass,
+          isShowError,
+        }}
       />
       <RecipeIngredientsFields
         ingredients={ingredients}
@@ -123,12 +143,16 @@ const AddRecipeForm = () => {
         removeIngredient={removeIngredient}
         reductionIngredient={reductionIngredient}
       />
-      <RecipePreparationFields handleTextareaChange={handleTextareaChange} instructions={instructions} isShowErrorr={isShowError}/>
+      <RecipePreparationFields
+        handleTextareaChange={handleTextareaChange}
+        instructions={instructions}
+        isShowErrorr={isShowError}
+      />
       <div className={scss.spinner__wrapper}>
-      <button className={scss.btn} type="submit" disabled={isLoading}>
-        Add
-      </button>
-      {isLoading && <LoadingSpinner size={40}/>}
+        <button className={scss.btn} type="submit" disabled={isLoading}>
+          Add
+        </button>
+        {isLoading && <LoadingSpinner size={40} />}
       </div>
     </form>
   );

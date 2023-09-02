@@ -11,11 +11,11 @@
       width: 352px !important;
     }
     @media screen and (min-width: 1440px) {
-      width: 393px !important; 
+      width: 393px !important;
     }
   }
 
-  &__option--is--selected{
+  &__option--is--selected {
     color: $primary-white-color !important;
     opacity: 0;
   }
@@ -27,7 +27,7 @@
     opacity: 0.3 !important;
     @media screen and (min-width: 768px) {
       font-size: 16px !important;
-   }
+    }
   }
 
   &__single-value {
@@ -37,10 +37,10 @@
 
     padding: 0 !important;
     @media screen and (min-width: 768px) {
-     font-size: 16px !important;
+      font-size: 16px !important;
+    }
   }
-  }
- 
+
   &__menu {
     position: absolute;
     right: 0;
@@ -54,18 +54,18 @@
     z-index: 2222 !important;
     @media screen and (min-width: 768px) {
       padding: 14px !important;
-     width: 139px !important;
-  }
-   @media screen and (min-width: 1440px) {  
-    width: 154px !important;
- }
+      width: 139px !important;
+    }
+    @media screen and (min-width: 1440px) {
+      width: 154px !important;
+    }
   }
 
   &__indicator {
     padding: 0 !important;
     cursor: pointer !important;
   }
-  
+
   &__menu-list {
     margin: 0 !important;
     gap: 0 !important;
@@ -75,11 +75,10 @@
     height: 200px !important;
     @media screen and (min-width: 768px) {
       font-size: 14px !important;
-    line-height: calc(18 / 12) !important;
+      line-height: calc(18 / 12) !important;
     }
-   @media screen and (min-width: 1440px) {
- }
-  
+    @media screen and (min-width: 1440px) {
+    }
   }
 
   &__option {
@@ -93,11 +92,10 @@
     background-color: inherit !important;
   }
 
-  &__option--is--focused{
+  &__option--is--focused {
     outline: none !important;
     border: none !important;
   }
-
 
   &__input-container {
     margin: 0 !important;
@@ -136,10 +134,10 @@
     left: 0 !important;
     bottom: 15px !important;
     opacity: 0.3 !important;
-  @media screen and (min-width: 768px) {  
-    font-size: 16px !important;
- }
-}
+    @media screen and (min-width: 768px) {
+      font-size: 16px !important;
+    }
+  }
 
   &__single-value {
     color: $primary-white-color !important;
@@ -161,12 +159,11 @@
 
     @media screen and (min-width: 768px) {
       padding: 14px !important;
-     width: 139px !important;
-  }
-   @media screen and (min-width: 1440px) {  
-    width: 154px !important;
- }
-  
+      width: 139px !important;
+    }
+    @media screen and (min-width: 1440px) {
+      width: 154px !important;
+    }
   }
 
   &__menu-list {
@@ -176,11 +173,11 @@
     height: 200px !important;
     @media screen and (min-width: 768px) {
       font-size: 14px !important;
-    line-height: calc(18 / 12) !important;
+      line-height: calc(18 / 12) !important;
     }
-   @media screen and (min-width: 1440px) {
-    height:180px !important;
- }
+    @media screen and (min-width: 1440px) {
+      height: 180px !important;
+    }
   }
   &__option {
     background-color: inherit !important;
@@ -208,7 +205,6 @@
   &__input {
     color: $primary-white-color !important;
     opacity: 0.5 !important;
-    
   }
 }
 
@@ -273,12 +269,11 @@
 
     @media screen and (min-width: 768px) {
       padding: 14px !important;
-     width: 139px !important;
-  }
-   @media screen and (min-width: 1440px) {  
-    width: 154px !important;
- }
-  
+      width: 139px !important;
+    }
+    @media screen and (min-width: 1440px) {
+      width: 154px !important;
+    }
   }
 
   &__menu-list {
@@ -288,10 +283,10 @@
     height: 180px !important;
     @media screen and (min-width: 768px) {
       font-size: 14px !important;
-    line-height: calc(18 / 12) !important;
+      line-height: calc(18 / 12) !important;
     }
-   @media screen and (min-width: 1440px) {
- }
+    @media screen and (min-width: 1440px) {
+    }
   }
 
   &__option {
@@ -308,7 +303,7 @@
 
 .amount-select {
   &__control {
-    max-width: 101px !important;
+    width: 101px !important;
     height: 50px !important;
     background-color: inherit !important;
     border: none !important;
@@ -317,10 +312,6 @@
     border: 1px solid rgba(243, 243, 243, 0.5) !important;
     padding-right: 8px !important;
     outline: none !important;
-    @media screen and (min-width: 375px) {
-      
-     width: 101px !important;
-  }
   }
 
   &__value-container {
@@ -359,7 +350,7 @@
     height: 180px !important;
     @media screen and (min-width: 768px) {
       font-size: 14px !important;
-    line-height: calc(18 / 12) !important;
+      line-height: calc(18 / 12) !important;
     }
   }
   &__option {

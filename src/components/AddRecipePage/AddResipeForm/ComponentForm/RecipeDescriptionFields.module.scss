@@ -4,11 +4,11 @@
   @media screen and (min-width: 768px) {
     max-height: 320px;
     display: flex;
-    justify-content: space-between; 
+    justify-content: space-between;
   }
   @media screen and (min-width: 1440px) {
+    max-height: none;
     width: 833px;
-    margin-bottom: 160px;
   }
 
   &__wrapper {
@@ -25,7 +25,6 @@
     @media screen and (min-width: 1440px) {
       width: 400px;
       height: 400px;
-      
     }
   }
 
@@ -58,8 +57,6 @@
   }
 }
 
-
-
 .file {
   padding-top: 116px;
   @media screen and (min-width: 1440px) {
@@ -82,7 +79,7 @@
       letter-spacing: -0.32px;
     }
     @media screen and (min-width: 1440px) {
-    //  left: 175px;
+      //  left: 175px;
     }
   }
 
@@ -101,7 +98,7 @@
       // left: 135px;
     }
     @media screen and (min-width: 1440px) {
-      top:  150px;
+      top: 150px;
       // left: 175px;
     }
   }
@@ -116,7 +113,7 @@
     line-height: calc(20 / 16);
     color: $primary-white-color;
     @media screen and (min-width: 768px) {
-    //  left: 118px;
+      //  left: 118px;
     }
     @media screen and (min-width: 1440px) {
       // left: 160px;
@@ -141,23 +138,22 @@
   position: absolute;
   color: red;
   font-size: 12px;
- 
 
-  &__drink{
-    top:34px;
+  &__drink {
+    top: 34px;
     @media screen and (min-width: 768px) {
       top: 43px;
-    } 
-  }
-
-  &__description{
-    top: 103px;
-    @media screen and (min-width: 768px) {
-      top: 122px
     }
   }
 
-  &__category{
+  &__description {
+    top: 103px;
+    @media screen and (min-width: 768px) {
+      top: 122px;
+    }
+  }
+
+  &__category {
     bottom: 56px;
     @media screen and (min-width: 768px) {
       bottom: 105px;
@@ -165,9 +161,9 @@
     @media screen and (min-width: 1440px) {
       bottom: 185px;
     }
-  } 
+  }
 
-  &__img{
+  &__img {
     bottom: 100px;
     left: 50%;
     transform: translateX(-50%);
@@ -179,10 +175,7 @@
       bottom: 140px;
     }
   }
-
 }
-
-
 
 .category {
   position: relative;
