@@ -1,0 +1,137 @@
+@import 'styles/common/vars';
+
+.wrapper {
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.ingredients {
+  margin-bottom: 80px;
+  @media screen and (min-width: 1440px) {
+    width: 540px;
+  }
+
+  &__title {
+    font-size: 28px;
+    font-weight: 600;
+    line-height: calc(32 / 28);
+    @media screen and (min-width: 768px) {
+      font-size: 40px;
+      line-height: calc(44 / 40);
+    }
+  }
+
+  &__thumb:not(:last-child) {
+    margin-bottom: 18px;
+
+    @media screen and (min-width: 768px) {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__thumb {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__wrapper {
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+
+    @media screen and (min-width: 768px) {
+      gap: 14px;
+    }
+
+    & > div {
+      flex-grow: 1;
+    }
+  }
+
+  &__icon {
+    width: 18px;
+    @media screen and (min-width: 768px) {
+      width: 20px;
+    }
+  }
+
+  &__input {
+    position: absolute;
+    top: 1px;
+    right: 32%;
+    width: 30px;
+    height: 50px;
+    border-radius: 200px;
+    border: 1px solid rgba(243, 243, 243, 0.5);
+    color: $primary-white-color;
+    background-color: inherit;
+    text-align: center;
+    border: none;
+    z-index: 111;
+    outline: none;
+
+    @media screen and (min-width: 375px) {
+      right: 68px;
+    }
+
+    @media screen and (min-width: 768px) {
+      font-size: 17px;
+      line-height: 156%;
+      right: 60px;
+    }
+  }
+
+  &__btn {
+    display: block;
+    background-color: inherit;
+    border: none;
+    color: inherit;
+  }
+}
+
+.counter {
+  display: flex;
+  gap: 16px;
+  padding: 10px 16px;
+  align-items: center;
+  border-radius: 200px;
+  border: 1px solid rgba(243, 243, 243, 0.5);
+  line-height: calc(18 / 14);
+  @media screen and (min-width: 768px) {
+    gap: 18px;
+    padding: 8px 18px;
+  }
+
+  &__btn {
+    display: block;
+    background-color: inherit;
+    border: none;
+    color: inherit;
+    padding: 0;
+    height: 16px;
+  }
+
+  &__quantity {
+    text-align: center;
+    color: $primary-white-color;
+    @media screen and (min-width: 768px) {
+      font-size: 17px;
+      line-height: 156%;
+    }
+  }
+}
+
+.error {
+  position: absolute;
+  color: red;
+  font-size: 12px;
+  bottom: -17px;
+  left: 10px;
+}
