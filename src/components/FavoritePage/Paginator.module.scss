@@ -4,6 +4,11 @@
     display: flex;
     justify-content: center;
     gap: 50px;
+    margin-bottom: 80px;
+
+    @media screen and (min-width: 768px) {
+        margin-bottom: 140px;
+    }
 }
 
 .paginatorBtn {
