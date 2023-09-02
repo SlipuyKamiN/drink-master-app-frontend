@@ -98,14 +98,16 @@
   }
 }
 .btn {
+  width: 285px;
+  height: 54px;
   display: block;
   padding: 18px 90px;
   font-size: 14px;
   font-weight: 600;
   line-height: 1.29;
   margin-top: 18px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 0;
+  margin-right: 0;
   border: 1px solid $primary-white-color;
   border-radius: 42px;
   color: $secondary-bg-blue-color;
@@ -120,7 +122,21 @@
   &:active {
     border: 1px solid rgba(64, 112, 205, 0.50);
   }
+  &:disabled {
+    color: rgba(243, 243, 243, 0.2);
+    background-color: $disabled-blue-color;
+    border-color: $disabled-blue-color;
+  }
 }
 .editWrapper {
   position: relative;
+}
+.chooseFile {
+  width: 28px;
+  height: 28px;
+  position: absolute;
+  bottom: 0;
+	left: 50%;
+	transform: translateX(-50%) translateY(50%);
+  opacity: 0;
 }

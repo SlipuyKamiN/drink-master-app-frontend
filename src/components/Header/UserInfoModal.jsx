@@ -5,14 +5,16 @@ import { FiEdit2 } from 'react-icons/fi';
 import css from './UserInfoModal.module.scss';
 import Modal from 'components/Shared/Modal';
 import { ReactComponent as AddIcon } from '../../images/add photo.svg';
-import { setUser } from 'redux/userSlice';
+import { useUpdateUserMutation } from 'redux/authSlice';
+import LoadingSpinner from 'components/Shared/LoadingSpinner';
+import { notification } from 'components/Shared/notification';
 
 const UserInfoModal = ({ toggleModalShown }) => {
   const { name, avatarURL } = useSelector(({ user }) => user);
   const [nameValue, setNameValue] = useState(name);
   const [nameIsDisabled, setNameIsDisabled] = useState(true);
   const [selectedImage, setSelectedImage] = useState(null);
-  const [dispatch] = setUser();
+  const [dispatch, {isLoading, isSuccess, isError}] = useUpdateUserMutation();
   const inputField = useRef(null);
 
   const handleCloseModal = () => {
@@ -23,15 +25,13 @@ const UserInfoModal = ({ toggleModalShown }) => {
     setNameValue(e.target.value);
   };
 
-  const handleFormSubmit = e => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
-    console.log(nameValue);
-    console.log(selectedImage);
     const formData = new FormData();
     formData.append('name', nameValue);
-    formData.append('avatarURL', selectedImage);
-    console.log(formData);
-    // dispatch(formData);
+    formData.append('avatar', selectedImage);
+    await dispatch(formData);
+    toggleModalShown();
   };
 
   const handleEditName = async () => {
@@ -65,14 +65,16 @@ const UserInfoModal = ({ toggleModalShown }) => {
             <button
               type="button"
               className={`${css.addImgBtn}`}
-              onClick={handleChooseIcon}
+              // onClick={handleChooseIcon}
             >
               <AddIcon size={28} className={css.editIcon} />
             </button>
             <input
               name="name"
+              className={css.chooseFile}
               type="file"
               accept="image/png, image/jpeg"
+              disabled={isLoading}
               onChange={handleChooseIcon}
             />
           </div>
@@ -83,21 +85,24 @@ const UserInfoModal = ({ toggleModalShown }) => {
               onChange={handleNameChange}
               placeholder={name}
               ref={inputField}
-              disabled={nameIsDisabled}
+              disabled={isLoading || nameIsDisabled}
             ></input>
             <button
               type="button"
               className={`${css.closeBtn} ${css.editBtn}`}
               onClick={handleEditName}
+              disabled={isLoading}
             >
               <FiEdit2 size={20} className={css.editIcon} />
             </button>
           </div>
-          <button type="submit" className={css.btn}>
-            Save changes
+          <button type="submit" className={css.btn} disabled={isLoading}>
+          {isLoading ? <LoadingSpinner size={44} /> : 'Save changes'}
           </button>
         </form>
       </div>
+      {isSuccess && notification("Your profile has been updated", "success")}
+      {isError && notification()}
     </Modal>
   );
 };
