@@ -1,0 +1,52 @@
+@import 'styles/common/vars';
+
+.paginatorContainer{
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.paginatorBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 27px;
+    height: 27px;
+    font-size: 12px;
+    font-weight: 500;
+    background-color: transparent;
+    border: none;
+    padding: 0px;
+    border-radius: 50%;
+    color: $primary-white-color;
+    transition: $transition-duration;
+
+    &:hover,
+    &:focus {
+        background-color: $disabled-blue-color;
+
+            &:disabled{
+             background-color: transparent;
+             cursor: not-allowed;
+            }
+    }
+
+    &:active{
+        background-color: $link-color;
+            
+    }
+}
+
+.arrow{
+    opacity: 0.3;
+    transition: $transition-duration;
+}
+
+.paginatorList{
+    display: flex;
+    gap: 5px;
+}
+
+.active{
+    background-color: $disabled-blue-color;
+}
