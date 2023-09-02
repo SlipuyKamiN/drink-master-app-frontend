@@ -17,7 +17,7 @@ const MyRecipesPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const { width } = useWindowDimensions();
   const limit = width >= 1440 ? 9 : 8;
-  const { data, isLoading, isError } = useGetMyRecipesQuery(
+  const { data, isLoading, isError, refetch } = useGetMyRecipesQuery(
     `?page=${searchParams.get('page')}&limit=${limit}`
   );
   const [deleteMyRecipe] = useDeleteMyRecipeMutation();
@@ -37,6 +37,7 @@ const MyRecipesPage = () => {
     deleteMyRecipe(id)
       .unwrap()
       .then(() => {
+        refetch();
         if (pagesQty === 1) return;
 
         if (data.length === 1) {
