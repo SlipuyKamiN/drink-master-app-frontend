@@ -7,9 +7,9 @@ import useWindowDimensions from '../hooks/useWindowDimensions';
 import { useCallback, useEffect, useState } from 'react';
 import { useSearchRecipesQuery } from '../redux/recipesSlice';
 import { useParams } from 'react-router-dom';
-import { notification } from 'components/Shared/notification';
 import { useGetCategoriesListQuery } from '../redux/recipesSlice';
 import Paginator from 'components/FavoritePage/Paginator';
+import ItemNotCocktails from 'components/FavoritePage/ItemNotCocktails';
 
 const DrinksPage = () => {
   const { categoryName: category } = useParams();
@@ -66,16 +66,6 @@ const DrinksPage = () => {
     [getSearchParams, setSearchParams]
   );
 
-  // const handlePageChange = useCallback(
-  //   page => {
-  //     setSearchParams({
-  //       ...getSearchParams(),
-  //       ...page,
-  //     });
-  //   },
-  //   [getSearchParams, setSearchParams]
-  // );
-
   useEffect(() => {
     const {
       search = '',
@@ -87,20 +77,22 @@ const DrinksPage = () => {
     setQuery(
       `?search=${search}&category=${category}&ingredient=${ingredient}&limit=${limit}&page=${page}`
     );
-  }, [getSearchParams, isError]);
+  }, [getSearchParams]);
 
   const pagesQty = Math.ceil(data?.totalHits / searchParams.get('limit'));
-
-  if (isError) {
-    notification('No drinks were found');
-  }
 
   return (
     <Container>
       <DrinkPageTitle title="Drinks" />
       <DrinksSearch onFilterChange={handleFilterChange} />
-      <DrinksList cocktails={data} />
-      <Paginator pagesQty={pagesQty} params={{ ...getSearchParams() }} />
+      {!isError ? (
+        <>
+          <DrinksList cocktails={data} />
+          <Paginator pagesQty={pagesQty} params={{ ...getSearchParams() }} />
+        </>
+      ) : (
+        <ItemNotCocktails title={'No drinks were found'} />
+      )}
     </Container>
   );
 };
