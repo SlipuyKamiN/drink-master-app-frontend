@@ -101,6 +101,7 @@ const AddRecipeForm = () => {
   
   };
   return (
+    
     <form onSubmit={handleFormSubmit} className={scss.form} action="">
       <RecipeDescriptionFields
         handleInputChange={{
@@ -123,10 +124,12 @@ const AddRecipeForm = () => {
         reductionIngredient={reductionIngredient}
       />
       <RecipePreparationFields handleTextareaChange={handleTextareaChange} instructions={instructions} isShowErrorr={isShowError}/>
-      <button className={scss.btn} type="submit" disabled={isLoading ? true : false}>
+      <div className={scss.spinner__wrapper}>
+      <button className={scss.btn} type="submit" disabled={isLoading}>
         Add
       </button>
-      {isLoading && <LoadingSpinner size={50}/>}
+      {isLoading && <LoadingSpinner size={40}/>}
+      </div>
     </form>
   );
 };

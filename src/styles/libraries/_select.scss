@@ -7,7 +7,6 @@
     border-bottom: 1px solid rgba(243, 243, 243, 0.5) !important;
     border-radius: 0 !important;
     padding: 0 0 5px 0;
-    opacity: 0.5 !important;
     @media screen and (min-width: 768px) {
       width: 352px !important;
     }
@@ -16,11 +15,16 @@
     }
   }
 
+  &__option--is--selected{
+    color: $primary-white-color !important;
+    opacity: 0;
+  }
+
   &__control::after {
     content: 'Category' !important;
     position: absolute !important;
-    width: 100px !important;
-    opacity: 0.5 !important;
+    max-width: 100px !important;
+    opacity: 0.3 !important;
     @media screen and (min-width: 768px) {
       font-size: 16px !important;
    }
@@ -28,7 +32,9 @@
 
   &__single-value {
     color: $primary-white-color !important;
+    opacity: 1 !important;
     text-align: right !important;
+
     padding: 0 !important;
     @media screen and (min-width: 768px) {
      font-size: 16px !important;
@@ -39,7 +45,7 @@
     position: absolute;
     right: 0;
     top: 0;
-    width: 131px !important;
+    max-width: 131px !important;
     border-radius: 12px !important;
     background: #161f37 !important;
     padding: 10px !important;
@@ -112,7 +118,7 @@
     background-color: inherit !important;
     border: none !important;
     font-family: 'Manrope' !important;
-    opacity: 0.5 !important;
+    // opacity: 0.5 !important;
     border-bottom: 1px solid rgba(243, 243, 243, 0.5) !important;
     border-radius: 0 !important;
     @media screen and (min-width: 768px) {
@@ -129,7 +135,7 @@
     width: 100px !important;
     left: 0 !important;
     bottom: 15px !important;
-    opacity: 0.5 !important;
+    opacity: 0.3 !important;
   @media screen and (min-width: 768px) {  
     font-size: 16px !important;
  }
@@ -208,7 +214,7 @@
 
 .ingredient-select {
   &__control {
-    width: 200px !important;
+    max-width: 200px !important;
     height: 50px;
     position: relative;
     background-color: inherit !important;
@@ -216,7 +222,9 @@
     padding: 0 16px !important;
     border-radius: 200px !important;
     border: 1px solid rgba(243, 243, 243, 0.5) !important;
-    opacity: 0.5 !important;
+    @media screen and (min-width: 375px) {
+      width: 200px !important;
+    }
     @media screen and (min-width: 768px) {
       width: 352px !important;
     }
@@ -300,16 +308,19 @@
 
 .amount-select {
   &__control {
-    width: 101px !important;
+    max-width: 101px !important;
     height: 50px !important;
     background-color: inherit !important;
     border: none !important;
     padding: 0 16px !important;
     border-radius: 200px !important;
     border: 1px solid rgba(243, 243, 243, 0.5) !important;
-    opacity: 0.5 !important;
     padding-right: 8px !important;
     outline: none !important;
+    @media screen and (min-width: 375px) {
+      
+     width: 101px !important;
+  }
   }
 
   &__value-container {

@@ -13,7 +13,6 @@
 
   &__wrapper {
     position: relative;
-    width: 335px;
     height: 320px;
     margin-bottom: 40px;
     border-radius: 8px;
@@ -21,32 +20,32 @@
     background: rgba(22, 31, 55, 0.5);
     @media screen and (min-width: 768px) {
       width: 320px;
+      margin-bottom: 0;
     }
     @media screen and (min-width: 1440px) {
       width: 400px;
       height: 400px;
-      margin-bottom: 0;
+      
     }
-  }
-
-  &__thumb{
-    
   }
 
   &__input {
     font-family: 'Manrope', sans-serif;
     font-size: 14px;
     display: block;
+    max-width: 335px;
     margin-bottom: 34px;
     color: $primary-white-color;
     letter-spacing: -0.28px;
     background-color: inherit;
-    width: 335px;
     padding-bottom: 14px;
     border: none;
     opacity: 0.5;
     letter-spacing: -0.28px;
-    border-bottom: 1px solid rgba(243, 243, 243, 0.5);
+    border-bottom: 1px solid rgba(243, 243, 243, 0.7);
+    @media screen and (min-width: 375px) {
+      width: 335px;
+    }
     @media screen and (min-width: 768px) {
       width: 352px;
       margin-bottom: 40px;
@@ -69,53 +68,58 @@
 
   &__input {
     position: absolute;
-    left: 142px;
+    left: 50%;
+    transform: translateX(-50%);
     display: block;
     width: 50px;
     height: 50px;
     margin: auto 0;
     cursor: pointer;
+    opacity: 0;
     @media screen and (min-width: 768px) {
-      left: 135px;
+      // left: 135px;
       font-size: 16px;
       letter-spacing: -0.32px;
     }
     @media screen and (min-width: 1440px) {
-     left: 175px;
+    //  left: 175px;
     }
   }
 
   &__btn {
     position: absolute;
     top: 110px;
-    left: 142px;
+    left: 50%;
+    transform: translateX(-50%);
     display: block;
     width: 50px;
     height: 50px;
     pointer-events: none;
     z-index: 111;
+    border-radius: 6px;
     @media screen and (min-width: 768px) {
-      left: 135px;
+      // left: 135px;
     }
     @media screen and (min-width: 1440px) {
       top:  150px;
-      left: 175px;
+      // left: 175px;
     }
   }
 
   &__text {
     position: absolute;
-    left: 128px;
-    bottom: 116px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 122px;
     font-size: 16px;
     font-weight: 500;
     line-height: calc(20 / 16);
     color: $primary-white-color;
     @media screen and (min-width: 768px) {
-     left: 118px;
+    //  left: 118px;
     }
     @media screen and (min-width: 1440px) {
-      left: 160px;
+      // left: 160px;
       bottom: 156px;
     }
   }
@@ -140,14 +144,14 @@
  
 
   &__drink{
-    top:33px;
+    top:34px;
     @media screen and (min-width: 768px) {
       top: 43px;
     } 
   }
 
   &__description{
-    top: 99px;
+    top: 103px;
     @media screen and (min-width: 768px) {
       top: 122px
     }
@@ -156,16 +160,23 @@
   &__category{
     bottom: 56px;
     @media screen and (min-width: 768px) {
-      bottom: 106px;
+      bottom: 105px;
+    }
+    @media screen and (min-width: 1440px) {
+      bottom: 185px;
     }
   } 
 
   &__img{
     bottom: 100px;
-    left: 90px;
+    left: 50%;
+    transform: translateX(-50%);
+    @media screen and (min-width: 768px) {
+      bottom: 105px;
+      width: 170px;
+    }
     @media screen and (min-width: 1440px) {
       bottom: 140px;
-      left: 125px;
     }
   }
 

@@ -4,14 +4,17 @@
 
   &__value {
     display: block;
-    width: 335px;
+    max-width: 335px;
     height: 184px;
     padding: 16px 18px;
     background-color: inherit;
     border-radius: 14px;
     border: 1px solid rgba(243, 243, 243, 0.5);
     color: rgba(243, 243, 243, 0.5);
-
+    
+    @media screen and (min-width:375px) {
+      width: 335px;
+    }
     @media screen and (min-width: 768px) {
       width: 480px;
     height: 184px;

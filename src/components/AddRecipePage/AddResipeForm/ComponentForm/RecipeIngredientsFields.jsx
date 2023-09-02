@@ -49,7 +49,7 @@ const RecipeIngredientsFields = ({
             type="button"
             onClick={reductionIngredient}
           >
-            <FiMinus className={scss.counter__icon} />
+            <FiMinus className={scss.counter__icon} size='16px'/>
           </button>
           <p className={scss.counter__quantity}>{quantity}</p>
           <button
@@ -57,7 +57,7 @@ const RecipeIngredientsFields = ({
             type="button"
             onClick={addIngredient}
           >
-            <FiPlus className={scss.counter__icon} />
+            <FiPlus className={scss.counter__icon} size='16px'/>
           </button>
         </div>
       </div>
@@ -107,7 +107,7 @@ const RecipeIngredientsFields = ({
                 removeIngredient(id);
               }}
             >
-              <FiX className={scss.ingridients__icon} />
+              <FiX className={scss.ingridients__icon} size='18px'/>
             </button>
           )}
         </li>

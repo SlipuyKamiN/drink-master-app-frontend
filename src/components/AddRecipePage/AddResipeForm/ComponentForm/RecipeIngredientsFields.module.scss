@@ -31,6 +31,7 @@
   position: relative;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 8px;
 }
 
@@ -48,7 +49,7 @@
   &__icon {
     width: 18px;
     @media screen and (min-width: 768px) {
-      width: 20px;
+    width: 20px;
     }
   }
 
@@ -85,17 +86,14 @@
 .counter {
   display: flex;
   gap: 16px;
-  padding: 10px 11px;
+  padding: 10px 16px;
   align-items: center;
-  justify-content: center;
-  width: 104px;
   border-radius: 200px;
   border: 1px solid rgba(243, 243, 243, 0.5);
-  opacity: 0.8;
   line-height: calc(18 / 14);
   @media screen and (min-width: 768px) {
     gap: 18px;
-    width: 114px;
+    padding: 8px 18px;
   }
 
   &__btn {
@@ -103,15 +101,15 @@
     background-color: inherit;
     border: none;
     color: inherit;
-  }
-  
-  &__icon {
-    width: 16px;
+    padding: 0;
     height: 16px;
+   
   }
+
   
   &__quantity {
-    padding: 0 0 10px;
+    text-align: center;
+color: $primary-white-color;
     @media screen and (min-width: 768px) {
       font-size: 17px;
   line-height: 156%;

@@ -5,14 +5,9 @@ import { LiaCocktailSolid } from 'react-icons/lia';
 
 const PopularRecipe = () => {
   const {data, isSuccess, isLoading} = useGetPopularListQuery('');
-  const checkLengthBookTitle = (title, length) => {
-    if (title.length > length) {
-      return `${title.slice(0, length)}...`;
-    }
-    return title;
-  };
+  
   return <div className={scss.popular}>
-    <h2 className={scss.popular__title}>Popular recipe</h2>
+    <h3 className={scss.popular__title}>Popular recipe</h3>
     {isLoading && <LoadingSpinner size={100}/>}
   <ul className={scss.popular__list}>
 {isSuccess && data.map(({_id, drinkThumb, drink, instructions})=> 
@@ -22,7 +17,7 @@ const PopularRecipe = () => {
             <img src={drinkThumb} alt="coctail" className={scss.popular__img} width='90px' />
             <div className={scss.popular__wrapper}>
             <h3 className={scss.popular__name}>{drink}</h3>
-            <p className={scss.popular__description}>{checkLengthBookTitle(instructions, 88)}</p>
+            <p className={scss.popular__description}>{instructions.substring(0, 88) + '...'}</p>
             </div>
             </div>
           </a>
