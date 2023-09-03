@@ -52,25 +52,30 @@
 }
 .mobile {
   display: flex;
-  // flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  // justify-content: center;
+  // align-items: center;
   
   width: 100vw;
 	height: 100vh;
   position: fixed;
-	// top: 75px;
+	top: 75px;
 	left: 0px;
+  padding-top: 160px;
   background-color: $main-bg-color;
-  overflow-y: scroll;
+  overflow: auto;
   z-index: 1000;
   transform: translateY(-150vh);
   transition: transform $transition-duration;
 
   @media screen and (min-width:768px) {
     top: 86px;
+    padding-top: 256px;
   }
 }
 .visible {
   transform: translateY(0);
+}
+.mobileWrapper {
+  overflow-y: scroll;
 }

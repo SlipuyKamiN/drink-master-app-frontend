@@ -53,8 +53,10 @@ const Header = () => {
           </div>
         </div>
         {width < 1440 && (
+          
           <div className={`${css.mobile} ${mobileMenuVisible ? visible : ""}`} onClick={handleNavClick}>
             {width < 1440 && <Navigation />}
+         
           </div>
         )}
       </Container>
