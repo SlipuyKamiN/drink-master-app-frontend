@@ -1,12 +1,29 @@
 import { useEffect, useState } from 'react';
 import Select from 'react-select';
 import { useForm } from 'react-hook-form';
+import { useLocation } from 'react-router-dom';
 import { useGetCategoriesListQuery } from '../../redux/recipesSlice';
 import { useGetIngredientsListQuery } from '../../redux/recipesSlice';
 import sass from './DrinksSearch.module.scss';
 import { FiSearch } from 'react-icons/fi';
 
 const DrinksSearch = ({ onFilterChange }) => {
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const initialSearch = searchParams.get('search') || '';
+  const initialCategory = searchParams.get('category') || 'All categories';
+  const initialIngredient = searchParams.get('ingredient') || 'All ingredients';
+
+  useEffect(() => {
+    setSearch(initialSearch);
+    setCategory(initialCategory);
+    setIngredient(initialIngredient);
+  }, [location, initialSearch, initialCategory, initialIngredient]);
+
+  const [search, setSearch] = useState(initialSearch);
+  const [category, setCategory] = useState(initialCategory);
+  const [ingredient, setIngredient] = useState(initialIngredient);
+
   const { data: categoryList } = useGetCategoriesListQuery();
   const { data: ingredientsList } = useGetIngredientsListQuery();
   const { register, handleSubmit } = useForm();
@@ -30,6 +47,7 @@ const DrinksSearch = ({ onFilterChange }) => {
   }, [filter, onFilterChange]);
 
   const handleSelectCategory = evt => {
+    setCategory(evt.value === 'All categories' ? '' : evt.value);
     setFilter({
       ...filter,
       category: evt.value === 'All categories' ? '' : evt.value,
@@ -37,6 +55,7 @@ const DrinksSearch = ({ onFilterChange }) => {
   };
 
   const handleSelectingredients = evt => {
+    setIngredient(evt.value === 'All ingredients' ? '' : evt.value);
     setFilter({
       ...filter,
       ingredient: evt.value === 'All ingredients' ? '' : evt.value,
@@ -67,6 +86,8 @@ const DrinksSearch = ({ onFilterChange }) => {
           placeholder="Enter the text"
           type="text"
           name="name"
+          value={search}
+          onChange={e => setSearch(e.target.value)}
         ></input>
         <button className={sass.submit} type="submit">
           <FiSearch className={sass.icon} />
@@ -77,6 +98,7 @@ const DrinksSearch = ({ onFilterChange }) => {
         placeholder="Select..."
         defaultValue=""
         name="category"
+        value={{ value: category, label: category }}
         options={[
           { value: 'All categories', label: 'All categories' },
           ...categoriesOptions,
@@ -88,7 +110,8 @@ const DrinksSearch = ({ onFilterChange }) => {
         classNamePrefix="drinks-page-selector"
         placeholder="Select..."
         defaultValue=""
-        name="glasses"
+        name="ingredient"
+        value={{ value: ingredient, label: ingredient }}
         options={[
           { value: 'All ingredients', label: 'All ingredients' },
           ...ingredientsOptions,

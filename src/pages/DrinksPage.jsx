@@ -6,13 +6,16 @@ import { useSearchParams } from 'react-router-dom';
 import useWindowDimensions from '../hooks/useWindowDimensions';
 import { useCallback, useEffect, useState } from 'react';
 import { useSearchRecipesQuery } from '../redux/recipesSlice';
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import { useGetCategoriesListQuery } from '../redux/recipesSlice';
 import Paginator from 'components/FavoritePage/Paginator';
 import ItemNotCocktails from 'components/FavoritePage/ItemNotCocktails';
 import scss from './DrinksPage.module.scss';
 
 const DrinksPage = () => {
+  const location = useLocation();
+  const urlParams = new URLSearchParams(location.search);
+  const urlCategory = urlParams.get('category');
   const { categoryName: category } = useParams();
   const { data: categoryList } = useGetCategoriesListQuery();
   const [query, setQuery] = useState('');
@@ -21,9 +24,10 @@ const DrinksPage = () => {
   const { width } = useWindowDimensions();
   const [searchParams, setSearchParams] = useSearchParams({
     category:
-      !category.replace('_', '/') || ''
-        ? 'Cocktail'
-        : category.replace('_', '/'),
+      // !category.replace('_', '/') || ''
+      //   ? 'Cocktail'
+      //   :
+      category.replace('_', '/'),
     limit: 10,
     page: 1,
   });
@@ -36,12 +40,22 @@ const DrinksPage = () => {
       if (!categoryList.includes(category)) {
         setSearchParams({
           ...getSearchParams(),
-          category: 'Cocktail',
+          category: categoryList.includes(urlCategory)
+            ? urlCategory
+            : 'Cocktail',
         });
+        console.log(urlCategory);
         setIsFirstRender(false);
       }
     }
-  }, [categoryList, isFirstRender, category, setSearchParams, getSearchParams]);
+  }, [
+    categoryList,
+    isFirstRender,
+    category,
+    setSearchParams,
+    getSearchParams,
+    urlCategory,
+  ]);
 
   useEffect(() => {
     setSearchParams({
@@ -76,7 +90,11 @@ const DrinksPage = () => {
       page,
     } = getSearchParams();
     setQuery(
-      `?search=${search}&category=${category}&ingredient=${ingredient}&limit=${limit}&page=${page}`
+      `?search=${search}&category=${
+        category === 'All categories' ? '' : category
+      }&ingredient=${
+        ingredient === 'All ingredients' ? '' : ingredient
+      }&limit=${limit}&page=${page}`
     );
   }, [getSearchParams]);
 
