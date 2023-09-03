@@ -1,5 +1,5 @@
 import css from './UserLogoModal.module.scss';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { FiEdit2 } from 'react-icons/fi';
 import UserInfoModal from './UserInfoModal';
 import LogoutBtn from './LogoutBtn';

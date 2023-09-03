@@ -1,4 +1,4 @@
-@import '../../index.scss';
+@import '../../styles/common/vars';
 
 .btn {
   width: 143px;
@@ -25,10 +25,10 @@
     background-color: $secondary-bg-blue-color;
   }
   &:active {
-    border-color: rgba(64, 112, 205, 0.5);
+    border-color: rgba($color: $main-blue-color, $alpha: 0.5);
   }
   &:disabled {
-    color: rgba(243, 243, 243, 0.2);
+    color: rgba($color: $primary-white-color, $alpha: 0.2);
     background-color: $disabled-blue-color;
     border-color: $disabled-blue-color;
   }

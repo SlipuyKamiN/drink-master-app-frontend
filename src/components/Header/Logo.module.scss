@@ -1,9 +1,14 @@
+@import '../../styles/common/vars';
 .link {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    color: #F3F3F3;
+    color: $primary-white-color;
     gap: 8px;
+
+    @media screen and (min-width: 768px) {
+        gap: 14px;
+    }
 }
 .logoText {
     font-size: 16px;
@@ -13,7 +18,6 @@
     @media screen and (min-width: 768px) {
         font-size: 18px;
         line-height: 1.22;
-        margin-left: 14px;
     }
 }
 .logoImg {

@@ -1,6 +1,6 @@
-@import '../../index.scss';
+@import '../../styles/common/vars';
 .header {
-  border-bottom: 1px solid rgba(243, 243, 243, 0.2);
+  border-bottom: 1px solid rgba($color: $primary-white-color, $alpha: 0.2);;
 }
 .wrapper {
   display: flex;
@@ -38,7 +38,7 @@
     background-color: $secondary-bg-blue-color;
   }
   &:active {
-    border: 1px solid rgba(64, 112, 205, 0.5);
+    border: 1px solid rgba($color: $main-blue-color, $alpha: 0.5);
   }
 }
 .img {
@@ -51,15 +51,20 @@
   }
 }
 .mobile {
+  display: flex;
+  // flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
   width: 100vw;
-	height: 100%;
+	height: 100vh;
   position: fixed;
-	top: 75px;
+	// top: 75px;
 	left: 0px;
-  padding-bottom: auto;
   background-color: $main-bg-color;
+  overflow-y: scroll;
   z-index: 1000;
-  transform: translateY(-120%);
+  transform: translateY(-150vh);
   transition: transform $transition-duration;
 
   @media screen and (min-width:768px) {
@@ -67,5 +72,5 @@
   }
 }
 .visible {
-  transform: translateY(0%);
+  transform: translateY(0);
 }

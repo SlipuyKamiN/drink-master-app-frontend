@@ -38,7 +38,7 @@ const Header = () => {
       <Container>
         <div className={css.wrapper}>
           <Logo />
-          {width > 1439 && <Navigation />}
+          {width > 1440 && <Navigation />}
           <div className={css.rightWrapper}>
             <UserLogo />
             {width < 1440 && (
@@ -52,11 +52,11 @@ const Header = () => {
             )}
           </div>
         </div>
-        
+        {width < 1440 && (
           <div className={`${css.mobile} ${mobileMenuVisible ? visible : ""}`} onClick={handleNavClick}>
             {width < 1440 && <Navigation />}
           </div>
-        
+        )}
       </Container>
     </header>
   );

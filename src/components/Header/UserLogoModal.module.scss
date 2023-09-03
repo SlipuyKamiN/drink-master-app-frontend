@@ -1,4 +1,4 @@
-@import '../../index.scss';
+@import '../../styles/common/vars';
 
 .modal {
   display: block;
@@ -36,7 +36,7 @@
     background-color: $primary-white-color;
   }
   &:active {
-    border: 1px solid rgba(64, 112, 205, 0.50);
+    border: 1px solid rgba($color: $main-blue-color, $alpha: 0.5);
   }
 }
 

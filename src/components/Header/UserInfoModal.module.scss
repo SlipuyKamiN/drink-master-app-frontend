@@ -1,4 +1,4 @@
-@import '../../index.scss';
+@import '../../styles/common/vars';
 
 .wrapper {
   position: relative;
@@ -33,7 +33,7 @@
   }
 
   &:active {
-    border-color: rgba(64, 112, 205, 0.5);
+    border-color: rgba($color: $main-blue-color, $alpha: 0.5);
   }
 }
 .editBtn {
@@ -62,7 +62,7 @@
     border-color: $primary-white-color;
   }
   &:active {
-    border-color: rgba(64, 112, 205, 0.5);
+    border-color: rgba($color: $main-blue-color, $alpha: 0.5);;
   }
 }
 .closeIcon {
@@ -96,9 +96,9 @@
   padding-left: 24px;
   border-radius: 27px;
   background-color: transparent;
-  border: 1px solid rgba(243, 243, 243, 0.2);
+  border: 1px solid rgba($color: $primary-white-color, $alpha: 0.2);
   font-family: inherit;
-  color: rgba(243, 243, 243, 0.5);
+  color: rgba($color: $primary-white-color, $alpha: 0.5);
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -108,7 +108,7 @@
   &:hover,
   &:focus {
     color: $primary-white-color;
-    border: 1px solid rgba(243, 243, 243, 0.5);
+    border: 1px solid rgba($color: $primary-white-color, $alpha: 0.5);
   }
 
   @media screen and (min-width: 768px) {
@@ -127,7 +127,6 @@
   width: 285px;
   height: 54px;
   display: block;
-  padding: 18px 0px;
   font-size: 14px;
   font-weight: 600;
   line-height: 1.29;
@@ -137,6 +136,7 @@
   border-radius: 42px;
   color: $secondary-bg-blue-color;
   background-color: $primary-white-color;
+  transition: all $transition-duration;
 
   &:hover,
   &:focus {
@@ -145,10 +145,10 @@
   }
 
   &:active {
-    border: 1px solid rgba(64, 112, 205, 0.5);
+    border: 1px solid rgba($color: $main-blue-color, $alpha: 0.5);
   }
   &:disabled {
-    color: rgba(243, 243, 243, 0.2);
+    color: rgba($color: $primary-white-color, $alpha: 0.2);
     background-color: $disabled-blue-color;
     border-color: $disabled-blue-color;
   }
@@ -172,10 +172,17 @@
   bottom: 0;
   left: 50%;
   transform: translateX(-50%) translateY(50%);
+  cursor: pointer;
   opacity: 0;
+  border-radius: 50%;
 
+  &::file-selector-button {
+    cursor: pointer;
+  }
+  
   @media screen and (min-width: 768px) {
     width: 32px;
     height: 32px;
   }
 }
+
