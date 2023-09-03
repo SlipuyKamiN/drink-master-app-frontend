@@ -2,8 +2,7 @@ name: Build and deploy to GitHub Pages
 
 on:
   push:
-    branches: [main]
-    
+    branches: [main]  
 env:
     REACT_APP_BASE_URL: ${{ secrets.REACT_APP_BASE_URL }}
 
