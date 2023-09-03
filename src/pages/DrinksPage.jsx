@@ -39,9 +39,10 @@ const DrinksPage = () => {
       if (!categoryList.includes(category)) {
         setSearchParams({
           ...getSearchParams(),
-          category: categoryList.includes(urlCategory)
-            ? urlCategory
-            : 'Cocktail',
+          category:
+            !categoryList.includes(urlCategory) && 'All categories'
+              ? 'Cocktail'
+              : urlCategory,
         });
         console.log(urlCategory);
         setIsFirstRender(false);
