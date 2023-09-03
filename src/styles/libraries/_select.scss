@@ -305,23 +305,27 @@
 
 .amount-select {
   &__control {
-    width: 100% !important;
+    width: 70px !important;
     height: 50px !important;
     background-color: inherit !important;
     border: none !important;
-    padding: 0 16px !important;
+    padding: 0 10px !important;
     border-radius: 200px !important;
     border: 1px solid rgba(243, 243, 243, 0.5) !important;
-    padding-right: 8px !important;
+   
     outline: none !important;
 
     @media screen and (min-width: 375px) {
       width: 101px !important;
+      padding: 0 16px !important;
     }
   }
 
   &__value-container {
-    padding: 0 0 0 25px !important;
+    padding: 0 !important;
+    @media screen and (min-width: 375px) {
+      padding: 0 10px 0 0 !important;
+    }
   }
 
   &__indicator {
@@ -338,6 +342,7 @@
   &__single-value {
     color: $primary-white-color !important;
     margin: 0 !important;
+    text-align: right !important;
   }
   &__input-container {
     margin: 0 !important;
