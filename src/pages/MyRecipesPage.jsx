@@ -33,7 +33,7 @@ const MyRecipesPage = () => {
   }, [searchParams, setSearchParams]);
 
   if (isLoading) return <LoadingSpinner />;
-  if (isError) return navigate('/404Page');
+  if (isError && !data) return navigate('/404Page');
 
   const handleDeleteRecipes = id => {
     deleteMyRecipe(id)
