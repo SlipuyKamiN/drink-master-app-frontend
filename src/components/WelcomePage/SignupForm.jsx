@@ -7,7 +7,7 @@ import { useSigninMutation, useSignupMutation } from 'redux/authSlice';
 import { notification } from 'components/Shared/notification';
 import LoadingSpinner from 'components/Shared/LoadingSpinner';
 import { useState } from 'react';
-import { validationSchema } from './validationSchema';
+import { signupSchema } from './signupSchema';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 // const emailRegexp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -30,7 +30,7 @@ const SignupForm = () => {
   } = useForm({
     mode: 'onChange',
     defaultValues: { name: '', email: '', password: '' },
-    resolver: yupResolver(validationSchema),
+    resolver: yupResolver(signupSchema),
   });
 
   const onSubmit = ({ name, email, password }) => {

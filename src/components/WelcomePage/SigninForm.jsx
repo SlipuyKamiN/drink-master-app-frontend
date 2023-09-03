@@ -7,8 +7,8 @@ import { useSigninMutation } from 'redux/authSlice';
 import { notification } from 'components/Shared/notification';
 import LoadingSpinner from 'components/Shared/LoadingSpinner';
 import { useState } from 'react';
-// import { validationSchema } from './validationSchema';
-// import { yupResolver } from '@hookform/resolvers/yup';
+import { signinSchema } from './signinSchema';
+import { yupResolver } from '@hookform/resolvers/yup';
 
 const SigninForm = () => {
   const [dispatch, { data, isLoading, isError }] = useSigninMutation();
@@ -23,7 +23,7 @@ const SigninForm = () => {
   } = useForm({
     mode: 'onChange',
     defaultValues: { email: '', password: '' },
-    // resolver: yupResolver(validationSchema),
+    resolver: yupResolver(signinSchema),
   });
 
   const onSubmit = data => {
@@ -48,13 +48,7 @@ const SigninForm = () => {
             className={`${scss.input} ${errors.email && scss.invalid}
            ${!errors.email && dirtyFields.email && scss.valid}`}
             placeholder="Email"
-            {...register('email', {
-              required: 'Must be filled!',
-              pattern: {
-                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                message: 'This is an ERROR email',
-              },
-            })}
+            {...register('email')}
           />
           <span className={scss.circle}>
             {errors.email?.message && (
@@ -89,22 +83,7 @@ const SigninForm = () => {
             className={`${scss.input} ${errors.password && scss.invalid}
            ${!errors.password && dirtyFields.password && scss.valid}`}
             placeholder="Password"
-            {...register('password', {
-              required: 'Must be filled!',
-              minLength: {
-                value: 6,
-                message: 'Must be between 6 and 16 characters!',
-              },
-              maxLength: {
-                value: 16,
-                message: 'Must be between 6 and 16 characters!',
-              },
-              pattern: {
-                value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$/,
-                message:
-                  'Must contain at least 1 uppercase letter, 1 lowercase letter and 1 number!',
-              },
-            })}
+            {...register('password')}
           />
           <span
             onClick={() => {
