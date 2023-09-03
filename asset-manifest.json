@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/drink-master-app-frontend/static/css/main.2c912d97.css",
-    "main.js": "/drink-master-app-frontend/static/js/main.8bb78756.js",
+    "main.css": "/drink-master-app-frontend/static/css/main.ed2e1e38.css",
+    "main.js": "/drink-master-app-frontend/static/js/main.943a8e33.js",
     "static/css/340.cee10079.chunk.css": "/drink-master-app-frontend/static/css/340.cee10079.chunk.css",
     "static/js/340.7aba2529.chunk.js": "/drink-master-app-frontend/static/js/340.7aba2529.chunk.js",
     "static/css/218.84d0a8f3.chunk.css": "/drink-master-app-frontend/static/css/218.84d0a8f3.chunk.css",
@@ -31,9 +31,12 @@
     "static/media/welcomePage-background_tab.jpg": "/drink-master-app-frontend/static/media/welcomePage-background_tab.3a68dd6fedb3f24a8241.jpg",
     "static/media/welcomePage-background_mob.jpg": "/drink-master-app-frontend/static/media/welcomePage-background_mob.61d2db8005da79c4ea3b.jpg",
     "index.html": "/drink-master-app-frontend/index.html",
+    "static/media/burger.svg": "/drink-master-app-frontend/static/media/burger.0b8f03f7a8ae17d54a7bde2a240ccf34.svg",
+    "static/media/add photo.svg": "/drink-master-app-frontend/static/media/add photo.0176940aef843e86785782121035d3ee.svg",
     "static/media/logo.svg": "/drink-master-app-frontend/static/media/logo.80126d4702763ace5a9f9504fd7203b4.svg",
-    "main.2c912d97.css.map": "/drink-master-app-frontend/static/css/main.2c912d97.css.map",
-    "main.8bb78756.js.map": "/drink-master-app-frontend/static/js/main.8bb78756.js.map",
+    "static/media/x.svg": "/drink-master-app-frontend/static/media/x.358abb3c7267c7a7485d2f239b2827e0.svg",
+    "main.ed2e1e38.css.map": "/drink-master-app-frontend/static/css/main.ed2e1e38.css.map",
+    "main.943a8e33.js.map": "/drink-master-app-frontend/static/js/main.943a8e33.js.map",
     "340.cee10079.chunk.css.map": "/drink-master-app-frontend/static/css/340.cee10079.chunk.css.map",
     "340.7aba2529.chunk.js.map": "/drink-master-app-frontend/static/js/340.7aba2529.chunk.js.map",
     "218.84d0a8f3.chunk.css.map": "/drink-master-app-frontend/static/css/218.84d0a8f3.chunk.css.map",
@@ -49,7 +52,7 @@
     "958.076e6642.chunk.js.map": "/drink-master-app-frontend/static/js/958.076e6642.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2c912d97.css",
-    "static/js/main.8bb78756.js"
+    "static/css/main.ed2e1e38.css",
+    "static/js/main.943a8e33.js"
   ]
 }
