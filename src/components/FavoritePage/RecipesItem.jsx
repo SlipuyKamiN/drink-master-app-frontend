@@ -8,8 +8,10 @@ const RecipesItem = ({
   description,
   drink,
   drinkThumb,
-  removeFavorite,
+  removeResipes,
 }) => {
+
+  
   return (
     <>
       <li className={scss.recipesItem}>
@@ -32,7 +34,7 @@ const RecipesItem = ({
             <button
               className={scss.recipesItemButton}
               type="button"
-              onClick={() => removeFavorite(id)}
+              onClick={() => removeResipes(id)}
             >
               <FiTrash2 className={scss.recipesItemIcon} size={24} />
             </button>

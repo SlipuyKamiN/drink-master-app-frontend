@@ -1,0 +1,366 @@
+.select-description {
+  &__control {
+    height: 34px !important;
+    margin-bottom: 34px;
+    background-color: inherit !important;
+    border: none !important;
+    border-bottom: 1px solid rgba(243, 243, 243, 0.5) !important;
+    border-radius: 0 !important;
+    padding: 0 0 5px 0;
+    @media screen and (min-width: 768px) {
+      width: 352px !important;
+    }
+    @media screen and (min-width: 1440px) {
+      width: 393px !important;
+    }
+  }
+
+  &__option--is--selected {
+    color: $primary-white-color !important;
+    opacity: 0;
+  }
+
+  &__control::after {
+    content: 'Category' !important;
+    position: absolute !important;
+    max-width: 100px !important;
+    opacity: 0.3 !important;
+    @media screen and (min-width: 768px) {
+      font-size: 16px !important;
+    }
+  }
+
+  &__single-value {
+    color: $primary-white-color !important;
+    opacity: 1 !important;
+    text-align: right !important;
+
+    padding: 0 !important;
+    @media screen and (min-width: 768px) {
+      font-size: 16px !important;
+    }
+  }
+
+  &__menu {
+    position: absolute;
+    right: 0;
+    top: 0;
+    max-width: 131px !important;
+    border-radius: 12px !important;
+    background: #161f37 !important;
+    padding: 10px !important;
+    margin-top: -6px !important;
+    gap: 0 !important;
+    z-index: 2222 !important;
+    @media screen and (min-width: 768px) {
+      padding: 14px !important;
+      width: 139px !important;
+    }
+    @media screen and (min-width: 1440px) {
+      width: 154px !important;
+    }
+  }
+
+  &__indicator {
+    padding: 0 !important;
+    cursor: pointer !important;
+  }
+
+  &__menu-list {
+    margin: 0 !important;
+    gap: 0 !important;
+    padding: 0 !important;
+    font-size: 12px !important;
+    line-height: calc(16 / 12) !important;
+    height: 200px !important;
+    @media screen and (min-width: 768px) {
+      font-size: 14px !important;
+      line-height: calc(18 / 12) !important;
+    }
+    @media screen and (min-width: 1440px) {
+    }
+  }
+
+  &__option {
+    background-color: inherit !important;
+    font-size: 12px !important;
+    line-height: calc(16 / 14) !important;
+    color: rgba(243, 243, 243, 0.4) !important;
+  }
+
+  &__indicator-separator {
+    background-color: inherit !important;
+  }
+
+  &__option--is--focused {
+    outline: none !important;
+    border: none !important;
+  }
+
+  &__input-container {
+    margin: 0 !important;
+    padding: 0 !important;
+    padding-left: 275px !important;
+    text-align: right !important;
+  }
+
+  &__input {
+    color: $primary-white-color !important;
+    opacity: 0.5 !important;
+  }
+}
+
+.select-description-glass {
+  &__control {
+    padding: 0 0 5px 0;
+    background-color: inherit !important;
+    border: none !important;
+    font-family: 'Manrope' !important;
+    // opacity: 0.5 !important;
+    border-bottom: 1px solid rgba(243, 243, 243, 0.5) !important;
+    border-radius: 0 !important;
+    @media screen and (min-width: 768px) {
+      width: 352px !important;
+    }
+    @media screen and (min-width: 1440px) {
+      width: 393px !important;
+    }
+  }
+
+  &__control::after {
+    content: 'Glass' !important;
+    position: absolute !important;
+    width: 100px !important;
+    left: 0 !important;
+    bottom: 15px !important;
+    opacity: 0.3 !important;
+    @media screen and (min-width: 768px) {
+      font-size: 16px !important;
+    }
+  }
+
+  &__single-value {
+    color: $primary-white-color !important;
+    text-align: right !important;
+    padding: 0 !important;
+  }
+
+  &__menu {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 139px !important;
+    border-radius: 12px !important;
+    background: #161f37 !important;
+    padding: 10px !important;
+    margin: 0 !important;
+    gap: 0 !important;
+    z-index: 1112 !important;
+
+    @media screen and (min-width: 768px) {
+      padding: 14px !important;
+      width: 139px !important;
+    }
+    @media screen and (min-width: 1440px) {
+      width: 154px !important;
+    }
+  }
+
+  &__menu-list {
+    margin: 0 !important;
+    gap: 0 !important;
+    padding: 0 !important;
+    height: 200px !important;
+    @media screen and (min-width: 768px) {
+      font-size: 14px !important;
+      line-height: calc(18 / 12) !important;
+    }
+    @media screen and (min-width: 1440px) {
+      height: 180px !important;
+    }
+  }
+  &__option {
+    background-color: inherit !important;
+    font-size: 12px !important;
+    line-height: calc(16 / 14) !important;
+    color: rgba(243, 243, 243, 0.4) !important;
+  }
+
+  &__indicator {
+    padding: 0 !important;
+    cursor: pointer !important;
+  }
+
+  &__indicator-separator {
+    background-color: inherit !important;
+  }
+
+  &__input-container {
+    margin: 0 !important;
+    padding: 0 !important;
+    padding-left: 275px !important;
+    outline: none !important;
+  }
+
+  &__input {
+    color: $primary-white-color !important;
+    opacity: 0.5 !important;
+  }
+}
+
+.ingredient-select {
+  &__control {
+    max-width: 200px !important;
+    height: 50px;
+    position: relative;
+    background-color: inherit !important;
+    border: none !important;
+    padding: 0 16px !important;
+    border-radius: 200px !important;
+    border: 1px solid rgba(243, 243, 243, 0.5) !important;
+    @media screen and (min-width: 375px) {
+      width: 200px !important;
+    }
+    @media screen and (min-width: 768px) {
+      width: 352px !important;
+    }
+    @media screen and (min-width: 1440px) {
+      width: 316px !important;
+    }
+  }
+
+  &__input {
+    color: $primary-white-color !important;
+    opacity: 0.5 !important;
+  }
+
+  &__value-container {
+    padding: 0 !important;
+  }
+
+  &__indicator {
+    padding: 0 !important;
+    cursor: pointer !important;
+  }
+
+  &__placeholder {
+    margin: 0 !important;
+    color: $primary-white-color !important;
+    opacity: 0.5 !important;
+    @media screen and (min-width: 768px) {
+      font-size: 17px !important;
+      color: red;
+    }
+  }
+
+  &__single-value {
+    color: $primary-white-color !important;
+  }
+
+  &__menu {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 139px !important;
+    border-radius: 12px !important;
+    background: #161f37 !important;
+    padding: 10px !important;
+    z-index: 1112 !important;
+
+    @media screen and (min-width: 768px) {
+      padding: 14px !important;
+      width: 139px !important;
+    }
+    @media screen and (min-width: 1440px) {
+      width: 154px !important;
+    }
+  }
+
+  &__menu-list {
+    margin: 0 !important;
+    gap: 0 !important;
+    padding: 0 !important;
+    height: 180px !important;
+    @media screen and (min-width: 768px) {
+      font-size: 14px !important;
+      line-height: calc(18 / 12) !important;
+    }
+    @media screen and (min-width: 1440px) {
+    }
+  }
+
+  &__option {
+    background-color: inherit !important;
+    font-size: 12px !important;
+    line-height: calc(16 / 14) !important;
+    color: rgba(243, 243, 243, 0.4) !important;
+  }
+
+  &__indicator-separator {
+    background-color: inherit !important;
+  }
+}
+
+.amount-select {
+  &__control {
+    width: 101px !important;
+    height: 50px !important;
+    background-color: inherit !important;
+    border: none !important;
+    padding: 0 16px !important;
+    border-radius: 200px !important;
+    border: 1px solid rgba(243, 243, 243, 0.5) !important;
+    padding-right: 8px !important;
+    outline: none !important;
+  }
+
+  &__value-container {
+    padding: 0 0 0 25px !important;
+  }
+
+  &__indicator {
+    padding: 0 !important;
+    cursor: pointer !important;
+  }
+
+  &__placeholder {
+    margin: 0 !important;
+    color: $primary-white-color !important;
+    opacity: 0.5 !important;
+  }
+
+  &__single-value {
+    color: $primary-white-color !important;
+    margin: 0 !important;
+  }
+  &__input-container {
+    margin: 0 !important;
+  }
+  &__menu {
+    border-radius: 12px !important;
+    background: #161f37 !important;
+    padding: 15px !important;
+    z-index: 22222 !important;
+  }
+
+  &__menu-list {
+    margin: 0 !important;
+    gap: 0 !important;
+    padding: 0 !important;
+    height: 180px !important;
+    @media screen and (min-width: 768px) {
+      font-size: 14px !important;
+      line-height: calc(18 / 12) !important;
+    }
+  }
+  &__option {
+    background-color: inherit !important;
+    font-size: 12px !important;
+    line-height: calc(16 / 14) !important;
+    color: rgba(243, 243, 243, 0.4) !important;
+  }
+
+  &__indicator-separator {
+    background-color: inherit !important;
+  }
+}
