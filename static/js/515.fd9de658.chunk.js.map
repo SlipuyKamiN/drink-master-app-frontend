@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/515.fd9de658.chunk.js","mappings":"+JAIA,UAJmB,WACjB,OAAO,yBAAK,cACb,C","sources":["pages/DrinksPage.jsx"],"sourcesContent":["const DrinksPage = () => {\n  return <div>DrinksPage</div>;\n};\n\nexport default DrinksPage;\n"],"names":[],"sourceRoot":""}
