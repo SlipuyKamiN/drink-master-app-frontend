@@ -24,7 +24,7 @@
     &:hover,
     &:focus {
         background-color: $disabled-blue-color;
-
+        transition: $transition-duration;
             &:disabled{
              background-color: transparent;
              cursor: not-allowed;
@@ -33,7 +33,7 @@
 
     &:active{
         background-color: $link-color;
-            
+        transition: $transition-duration;
     }
 }
 
@@ -49,4 +49,5 @@
 
 .active{
     background-color: $disabled-blue-color;
+    transition: $transition-duration;
 }
