@@ -1,7 +1,7 @@
 @import 'styles/common/vars';
 
 .wrapperOne {
-  max-width: 375px;
+  max-width: 335px;
   padding: 272px 0px 271px;
 
   background-color: $secondary-bg-blue-color;
@@ -18,14 +18,14 @@
 
   @media screen and (min-width: 375px) {
     max-width: none;
-    width: 375px;
+    width: 335px;
+    padding: 218px 0px 40px;
+
+    border-radius: 30px;
   }
 
   @media screen and (min-width: 768px) {
     width: 500px;
-    padding: 218px 0px 40px;
-
-    border-radius: 30px;
 
     background-image: url('../../images/motivation-one-large@1x.png');
     background-size: 500px 500px;
@@ -39,8 +39,8 @@
 }
 
 .wrapperTwo {
-  max-width: 375px;
-  padding: 272px 0px 271px;
+  max-width: 335px;
+  padding: 272px 32px 271px;
 
   background-color: $secondary-bg-blue-color;
   background-image: url('../../images/motivation-two-small@1x.png');
@@ -56,14 +56,14 @@
 
   @media screen and (min-width: 375px) {
     max-width: none;
-    width: 375px;
+    width: 335px;
+    padding: 218px 0px 40px;
+
+    border-radius: 30px;
   }
 
   @media screen and (min-width: 768px) {
     width: 500px;
-    padding: 218px 0px 40px;
-
-    border-radius: 30px;
 
     background-image: url('../../images/motivation-two-large@1x.png');
     background-size: 500px 500px;
@@ -77,8 +77,8 @@
 }
 
 .wrapperThree {
-  max-width: 375px;
-  padding: 272px 0px 271px;
+  max-width: 335px;
+  padding: 272px 32px 271px;
 
   background-color: $secondary-bg-blue-color;
   background-image: url('../../images/motivation-three-small@1x.png');
@@ -94,14 +94,14 @@
 
   @media screen and (min-width: 375px) {
     max-width: none;
-    width: 375px;
+    width: 335px;
+    padding: 218px 0px 40px;
+
+    border-radius: 30px;
   }
 
   @media screen and (min-width: 768px) {
     width: 500px;
-    padding: 218px 0px 40px;
-
-    border-radius: 30px;
 
     background-image: url('../../images/motivation-three-large@1x.png');
     background-size: 500px 500px;
@@ -117,7 +117,7 @@
 .thumb {
   position: relative;
 
-  max-width: 299px;
+  width: 299px;
   height: 269px;
   margin: 0 auto;
 
@@ -134,8 +134,7 @@
 
 .image {
   height: 100%;
-
-  filter: saturate(200%) brightness(150%);
+  // filter: blur(1px) saturate(200%) brightness(150%);
 }
 
 .box {
@@ -143,6 +142,10 @@
   top: 50px;
   left: 50%;
   transform: translateX(-50%);
+
+  @media screen and (max-width: 374.99px) {
+    top: 2px;
+  }
 
   @media screen and (min-width: 768px) {
     top: 32px;
