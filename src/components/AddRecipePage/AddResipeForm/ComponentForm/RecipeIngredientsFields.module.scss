@@ -40,7 +40,7 @@
   }
 
   &__wrapper {
-    width: 100%;
+   
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -50,9 +50,7 @@
       gap: 14px;
     }
 
-    & > div {
-      flex-grow: 1;
-    }
+   
   }
 
   &__icon {
