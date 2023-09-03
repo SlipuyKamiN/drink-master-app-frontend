@@ -24,7 +24,7 @@ const FavoritePage = () => {
   const pagesQty = Math.ceil(data?.totalHits / limit);
   const title = 'Favorites';
   const navigate = useNavigate();
-  
+
   useEffect(() => {
     if (!searchParams.get('page')) {
       setSearchParams({ page: 1 });
@@ -57,7 +57,9 @@ const FavoritePage = () => {
             <Paginator pagesQty={pagesQty} />
           </>
         ) : (
-          <ItemNotCocktails title={title} />
+          <ItemNotCocktails
+            title={"You haven't added any favorite cocktails yet"}
+          />
         )}
       </Container>
     </section>
