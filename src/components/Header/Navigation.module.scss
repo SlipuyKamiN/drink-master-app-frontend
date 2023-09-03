@@ -1,0 +1,54 @@
+@import '../../styles/common/vars';
+
+.container {
+  max-width: 1280px;
+  margin: 0px auto;
+  padding: 20px 40px;
+}
+.list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  @media screen and (min-width: 1440px) {
+    flex-direction: row;
+    gap: 16px;
+    margin: 0;
+  }
+}
+.link {
+  display: block;
+  height: 36px;
+  font-size: 14px;
+  line-height: 1.43;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 40px;
+  border: 1px solid rgba($color: $primary-white-color, $alpha: 0.2);
+  padding: 8px 16px;
+  background-color: transparent;
+  transition: background-color $transition-duration;
+
+  &[aria-current] {
+    background-color: $secondary-bg-blue-color;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $secondary-bg-blue-color;
+  }
+
+  @media screen and (min-width: 768px) {
+    height: 39px;
+    line-height: 1.6;
+  }
+}
+
+// .active {
+//   composes: link;
+//   background-color: $secondary-bg-blue-color;
+// }

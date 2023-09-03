@@ -1,0 +1,42 @@
+@import '../../styles/common/vars';
+
+.modal {
+  display: block;
+  width: 177px;
+  position: absolute;
+  top: 45px;
+  left: 50%;
+  padding: 18px;
+  background-color: $secondary-bg-blue-color;
+  border-radius: 8px;
+  transform: translateX(-50%);
+}
+.btn {
+  display: flex;
+  width: 143px;
+  align-items: center;
+  justify-content: center;
+  gap: 56px;
+  border: none;
+  padding: 0;
+  text-align: center;
+  background-color: transparent;
+  text-decoration: none;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 18px;
+  font-style: normal;
+  font-weight: 500;
+  transition: all $transition-duration;
+  color: $primary-white-color;
+
+  &:hover,
+  &:focus {
+    color: $secondary-bg-blue-color;
+    background-color: $primary-white-color;
+  }
+  &:active {
+    border: 1px solid rgba($color: $main-blue-color, $alpha: 0.5);
+  }
+}
+
