@@ -12,18 +12,18 @@
   margin-top: 14px;
 }
 
-// .input:hover,
-// .input:focus {
-//   border: 1px solid rgba(243, 243, 243, 0.5);
-// }
+.input:hover,
+.input:focus {
+  border: 1px solid rgba(243, 243, 243, 0.5);
+}
 
-// .input:hover::placeholder {
-//   color: #f3f3f3;
-//   opacity: 1;
-// }
+.input:hover::placeholder {
+  color: #f3f3f3;
+  opacity: 1;
+}
 
 .input {
-  color: #f3f3f3;
+  color: $primary-white-color;
   font-family: Manrope;
   font-size: 14px;
   line-height: 1.29;
@@ -57,7 +57,7 @@
 }
 
 .btn {
-  color: #161f37;
+  color: $secondary-bg-blue-color;
   font-family: Manrope;
   font-size: 14px;
   font-weight: 600;
@@ -71,7 +71,7 @@
   margin-top: 14px;
   margin-bottom: 14px;
   border-radius: 42px;
-  background: #f3f3f3;
+  background: $primary-white-color;
 
   @media screen and (min-width: 768px) {
     margin-top: 26px;
@@ -81,7 +81,7 @@
 }
 
 .nav {
-  color: #f3f3f3;
+  color: $primary-white-color;
   font-family: Manrope;
   font-size: 12px;
   font-style: normal;
@@ -102,7 +102,7 @@
   padding-left: 24px;
   margin-top: -6px;
   margin-bottom: 8px;
-  color: #da1414;
+  color: $error-red-color;
   font-family: Manrope;
   font-size: 12px;
   font-style: normal;

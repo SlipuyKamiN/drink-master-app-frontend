@@ -7,6 +7,8 @@ import { useSigninMutation } from 'redux/authSlice';
 import { notification } from 'components/Shared/notification';
 import LoadingSpinner from 'components/Shared/LoadingSpinner';
 import { useState } from 'react';
+// import { validationSchema } from './validationSchema';
+// import { yupResolver } from '@hookform/resolvers/yup';
 
 const SigninForm = () => {
   const [dispatch, { data, isLoading, isError }] = useSigninMutation();
@@ -21,6 +23,7 @@ const SigninForm = () => {
   } = useForm({
     mode: 'onChange',
     defaultValues: { email: '', password: '' },
+    // resolver: yupResolver(validationSchema),
   });
 
   const onSubmit = data => {
@@ -42,7 +45,8 @@ const SigninForm = () => {
         <label className={scss.label}>
           <input
             type="email"
-            className={scss.input}
+            className={`${scss.input} ${errors.email && scss.invalid}
+           ${!errors.email && dirtyFields.email && scss.valid}`}
             placeholder="Email"
             {...register('email', {
               required: 'Must be filled!',
@@ -82,7 +86,8 @@ const SigninForm = () => {
         <label className={scss.label}>
           <input
             type={hidePassword ? 'password' : 'text'}
-            className={scss.input}
+            className={`${scss.input} ${errors.password && scss.invalid}
+           ${!errors.password && dirtyFields.password && scss.valid}`}
             placeholder="Password"
             {...register('password', {
               required: 'Must be filled!',

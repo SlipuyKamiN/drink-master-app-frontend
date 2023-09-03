@@ -7,6 +7,11 @@
   margin-left: 20px;
   width: 335px;
 
+  @media screen and (max-width: 375px) {
+    width: 100%;
+    margin-left: 0;
+  }
+
   @media screen and (min-width: 768px) {
     margin-left: 64px;
     width: 470px;
@@ -51,12 +56,12 @@
     linear-gradient(1deg, #0a0a11 -0.56%, rgba(10, 10, 17, 0) 21.93%),
     linear-gradient(82deg, #0a0a11 11.89%, rgba(10, 10, 17, 0) 131.65%),
     url('../images/welcome-page/welcomePage-background_mob.jpg');
-    
+
   background-color: $main-bg-color;
   background-repeat: no-repeat;
 
-  background-size: 520px 550px, 300px 300px, 549px 543px, contain, contain, contain,
-    contain;
+  background-size: 520px 550px, 300px 300px, 549px 543px, contain, contain,
+    contain, contain;
   background-position-y: 20px, 38px, 498px, center, center, center, center;
   background-position-x: -300px, 42px, 200px, right, right, right, right;
 
@@ -78,7 +83,11 @@
         rgba(64, 112, 205, 0.5) 10%,
         rgba(64, 112, 205, 0) 70%
       ),
-      linear-gradient(0deg, rgba(10, 10, 17, 0.2) 0%, rgba(10, 10, 17, 0.2) 100%),
+      linear-gradient(
+        0deg,
+        rgba(10, 10, 17, 0.2) 0%,
+        rgba(10, 10, 17, 0.2) 100%
+      ),
       linear-gradient(1deg, #0a0a11 -0.56%, rgba(10, 10, 17, 0) 21.93%),
       linear-gradient(82deg, #0a0a11 11.89%, rgba(10, 10, 17, 0) 131.65%),
       url('../images/welcome-page/welcomePage-background_mob@2x.jpg');
@@ -100,12 +109,16 @@
         rgba(64, 112, 205, 0.5) 20%,
         rgba(64, 112, 205, 0) 70%
       ),
-      linear-gradient(0deg, rgba(10, 10, 17, 0.2) 0%, rgba(10, 10, 17, 0.2) 100%),
-      linear-gradient(1deg, #0A0A11 -0.56%, rgba(10, 10, 17, 0.00) 21.93%),
-      linear-gradient(78deg, #0A0A11 14.73%, rgba(10, 10, 17, 0.00) 102.34%),
+      linear-gradient(
+        0deg,
+        rgba(10, 10, 17, 0.2) 0%,
+        rgba(10, 10, 17, 0.2) 100%
+      ),
+      linear-gradient(1deg, #0a0a11 -0.56%, rgba(10, 10, 17, 0) 21.93%),
+      linear-gradient(78deg, #0a0a11 14.73%, rgba(10, 10, 17, 0) 102.34%),
       url('../images/welcome-page/welcomePage-background_tab.jpg');
-    background-size: 784px 830px, 387px 372px, 549px 543px, contain, contain, contain,
-      contain;
+    background-size: 784px 830px, 387px 372px, 549px 543px, contain, contain,
+      contain, contain;
     background-position-y: -50px, 40px, 498px, center, center, center, center;
     background-position-x: -620px, -10px, 600px, right, right, right, right;
 

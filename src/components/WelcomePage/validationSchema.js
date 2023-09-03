@@ -18,7 +18,7 @@ export const validationSchema = yup.object().shape({
     .max(16, 'Must be between 6 and 16 characters!')
     .required('Must be filled!')
     .matches(
-      '/^(?=.*[a-z])(?=.*[A-Z])(?=.*d)[A-Za-zd@$!%*?&]{8,}$/',
+      /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).+$/,
       'Must contain at least 1 uppercase letter, 1 lowercase letter and 1 number!'
     ),
 });

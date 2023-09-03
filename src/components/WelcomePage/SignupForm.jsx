@@ -56,7 +56,6 @@ const SignupForm = () => {
             placeholder="Name"
             className={`${scss.input} ${errors.name && scss.invalid}
              ${!errors.name && dirtyFields.name && scss.valid}`}
-            // className={scss.input}
             {...register('name')}
           />
           <span className={scss.circle}>
