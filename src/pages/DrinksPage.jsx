@@ -44,7 +44,6 @@ const DrinksPage = () => {
               ? 'Cocktail'
               : urlCategory,
         });
-        console.log(urlCategory);
         setIsFirstRender(false);
       }
     }
