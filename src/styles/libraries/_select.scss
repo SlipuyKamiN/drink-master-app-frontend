@@ -23,7 +23,7 @@
   &__control::after {
     content: 'Category' !important;
     position: absolute !important;
-    max-width: 100px !important;
+    width: 100px !important;
     opacity: 0.3 !important;
     @media screen and (min-width: 768px) {
       font-size: 16px !important;
@@ -210,7 +210,7 @@
 
 .ingredient-select {
   &__control {
-    max-width: 200px !important;
+    width: 100% !important;
     height: 50px;
     position: relative;
     background-color: inherit !important;
@@ -218,11 +218,13 @@
     padding: 0 16px !important;
     border-radius: 200px !important;
     border: 1px solid rgba(243, 243, 243, 0.5) !important;
+    margin: 0 !important;
     @media screen and (min-width: 375px) {
-      width: 200px !important;
+     width: 200px !important;
     }
+   
     @media screen and (min-width: 768px) {
-      width: 352px !important;
+      width: 332px !important;
     }
     @media screen and (min-width: 1440px) {
       width: 316px !important;
@@ -303,7 +305,7 @@
 
 .amount-select {
   &__control {
-    width: 101px !important;
+    width: 100% !important;
     height: 50px !important;
     background-color: inherit !important;
     border: none !important;
@@ -312,6 +314,10 @@
     border: 1px solid rgba(243, 243, 243, 0.5) !important;
     padding-right: 8px !important;
     outline: none !important;
+
+    @media screen and (min-width: 375px) {
+      width: 101px !important;
+    }
   }
 
   &__value-container {
