@@ -11,20 +11,18 @@ const DrinksList = ({ cocktails }) => {
   // console.log(drinks);
 
   return (
-    <div>
-      <ul className={sass.list}>
-        {drinks.map(item => {
-          return (
-            <DrinkCard
-              key={item._id}
-              id={item._id.$oid}
-              drink={item.drink}
-              drinkThumb={item.drinkThumb}
-            />
-          );
-        })}
-      </ul>
-    </div>
+    <ul className={sass.list}>
+      {drinks.map(item => {
+        return (
+          <DrinkCard
+            key={item._id}
+            id={item._id}
+            drink={item.drink}
+            drinkThumb={item.drinkThumb}
+          />
+        );
+      })}
+    </ul>
   );
 };
 

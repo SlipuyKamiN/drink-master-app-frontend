@@ -10,6 +10,7 @@ import { useParams } from 'react-router-dom';
 import { useGetCategoriesListQuery } from '../redux/recipesSlice';
 import Paginator from 'components/FavoritePage/Paginator';
 import ItemNotCocktails from 'components/FavoritePage/ItemNotCocktails';
+import scss from './DrinksPage.module.scss';
 
 const DrinksPage = () => {
   const { categoryName: category } = useParams();
@@ -82,18 +83,20 @@ const DrinksPage = () => {
   const pagesQty = Math.ceil(data?.totalHits / searchParams.get('limit'));
 
   return (
-    <Container>
-      <DrinkPageTitle title="Drinks" />
-      <DrinksSearch onFilterChange={handleFilterChange} />
-      {!isError ? (
-        <>
-          <DrinksList cocktails={data} />
-          <Paginator pagesQty={pagesQty} params={{ ...getSearchParams() }} />
-        </>
-      ) : (
-        <ItemNotCocktails title={'No drinks were found'} />
-      )}
-    </Container>
+    <section className={scss.wrapper}>
+      <Container>
+        <DrinkPageTitle title="Drinks" />
+        <DrinksSearch onFilterChange={handleFilterChange} />
+        {!isError ? (
+          <>
+            <DrinksList cocktails={data} />
+            <Paginator pagesQty={pagesQty} params={{ ...getSearchParams() }} />
+          </>
+        ) : (
+          <ItemNotCocktails title={'No drinks were found'} />
+        )}
+      </Container>
+    </section>
   );
 };
 
