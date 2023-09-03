@@ -21,7 +21,7 @@ const MyRecipesPage = () => {
     `?page=${searchParams.get('page')}&limit=${limit}`
   );
   const [deleteMyRecipe] = useDeleteMyRecipeMutation();
-  const pagesQty = Math.ceil(data?.length / limit);
+  const pagesQty = Math.ceil(data?.totalHits / limit);
   const title = 'My recipes';
   const navigate = useNavigate();
 
@@ -53,7 +53,7 @@ const MyRecipesPage = () => {
     <section className={scss.wraper}>
       <Container>
         <MainTitle title={title} style={{ padding: '0' }} />
-        {(data?.length > 0) && !isError ? (
+        {data?.totalHits  && !isError ? (
           <>
             <RecipesList data={data} removeResipes={handleDeleteRecipes} />
             <Paginator pagesQty={pagesQty} />
