@@ -69,13 +69,6 @@ const DrinksPage = () => {
     });
   }, [setSearchParams, width, getSearchParams, category]);
 
-  // if (category === 'All categories') {
-  //   setSearchParams({
-  //     ...getSearchParams(),
-  //     category: '',
-  //   });
-  // }
-
   const handleFilterChange = useCallback(
     filter => {
       setSearchParams({
