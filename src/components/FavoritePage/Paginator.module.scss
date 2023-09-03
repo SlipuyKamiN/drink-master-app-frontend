@@ -19,12 +19,12 @@
     padding: 0px;
     border-radius: 50%;
     color: $primary-white-color;
-    transition: $transition-duration;
+    transition: color $transition-duration, 
+    background-color $transition-duration;
 
     &:hover,
     &:focus {
         background-color: $disabled-blue-color;
-        transition: $transition-duration;
             &:disabled{
              background-color: transparent;
              cursor: not-allowed;
@@ -33,13 +33,12 @@
 
     &:active{
         background-color: $link-color;
-        transition: $transition-duration;
     }
 }
 
 .arrow{
     opacity: 0.3;
-    transition: $transition-duration;
+    transition: opacity $transition-duration;
 }
 
 .paginatorList{
@@ -49,5 +48,5 @@
 
 .active{
     background-color: $disabled-blue-color;
-    transition: $transition-duration;
+    transition: background-color $transition-duration;
 }
