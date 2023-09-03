@@ -24,10 +24,9 @@ const DrinksPage = () => {
   const { width } = useWindowDimensions();
   const [searchParams, setSearchParams] = useSearchParams({
     category:
-      // !category.replace('_', '/') || ''
-      //   ? 'Cocktail'
-      //   :
-      category.replace('_', '/'),
+      !category.replace('_', '/') || ''
+        ? 'All categories'
+        : category.replace('_', '/'),
     limit: 10,
     page: 1,
   });
@@ -58,18 +57,24 @@ const DrinksPage = () => {
   ]);
 
   useEffect(() => {
+    if (category === 'All categories') {
+      setSearchParams({
+        ...getSearchParams(),
+        category: '',
+      });
+    }
     setSearchParams({
       ...getSearchParams(),
       limit: width >= 1440 ? 9 : 10,
     });
-  }, [setSearchParams, width, getSearchParams]);
+  }, [setSearchParams, width, getSearchParams, category]);
 
-  if (category === 'All categories') {
-    setSearchParams({
-      ...getSearchParams(),
-      category: '',
-    });
-  }
+  // if (category === 'All categories') {
+  //   setSearchParams({
+  //     ...getSearchParams(),
+  //     category: '',
+  //   });
+  // }
 
   const handleFilterChange = useCallback(
     filter => {
