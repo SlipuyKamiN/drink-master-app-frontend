@@ -2,9 +2,7 @@ import scss from './ItemNotCocktails.module.scss';
 import heroCocktailImage1x from '../../images/no-content-cocktail.png';
 import heroCocktailImage2x from '../../images/no-content-cocktail@2x.png';
 
-const ItemNotCocktails = ({
-  title = "You haven't added any favorite cocktails yet",
-}) => {
+const ItemNotCocktails = ({ title }) => {
   return (
     <section className={scss.wraper}>
       <img
