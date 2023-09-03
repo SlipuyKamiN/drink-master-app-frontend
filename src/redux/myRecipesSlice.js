@@ -28,7 +28,7 @@ export const myRecipesApi = createApi({
       invalidatesTags: ['myRecipes'],
     }),
     getMyRecipes: builder.query({
-      query: () => ({ url: '/' }),
+      query: (searchParams) => ({ url: `/${searchParams}` }),
       providesTags: ['myRecipes'],
     }),
     deleteMyRecipe: builder.mutation({
