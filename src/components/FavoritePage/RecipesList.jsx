@@ -2,12 +2,12 @@ import RecipesItem from './RecipesItem';
 import scss from '../FavoritePage/RecipesList.module.scss';
 
 const RecipesList = ({ data, removeResipes }) => {
- 
+    
     return <>
         {
-            Array.isArray(data)
+            data?.result
                 ? <ul className={scss.recipesList}>
-                    {data.map(({ _id, description, drink, drinkThumb }) => (
+                    {data.result.map(({ _id, description, drink, drinkThumb }) => (
                         <RecipesItem
                             key={_id}
                             id={_id}
