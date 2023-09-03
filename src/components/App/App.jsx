@@ -46,7 +46,7 @@ const App = () => {
           <Route index element={<MainPage />} />{' '}
           <Route
             path="/drinks/"
-            element={<Navigate to={'/drinks/All categories'} />}
+            element={<Navigate to={'/drinks/Cocktail'} />}
           />
           <Route path="/drinks/:categoryName" element={<DrinksPage />} />
           <Route path="/add" element={<AddRecipePage />} />
