@@ -13,7 +13,7 @@
   list-style: none;
   margin: 0;
   padding: 0;
-   // margin-top: 160px;
+  // margin-top: 160px;
   // margin-top: auto;
   // margin-bottom: auto;
 
@@ -22,7 +22,7 @@
     // margin-top: auto;
     // margin-bottom: auto;
   }
-  
+
   @media screen and (min-width: 1440px) {
     flex-direction: row;
     gap: 16px;
@@ -42,17 +42,21 @@
   background-color: transparent;
   transition: background-color $transition-duration;
 
+  &[aria-current] {
+    background-color: $secondary-bg-blue-color;
+  }
+
   &:hover,
   &:focus {
     background-color: $secondary-bg-blue-color;
   }
 
-
   @media screen and (min-width: 768px) {
     height: 39px;
   }
 }
-.active {
-  composes: link;
-  background-color: $secondary-bg-blue-color;
-}
+
+// .active {
+//   composes: link;
+//   background-color: $secondary-bg-blue-color;
+// }
