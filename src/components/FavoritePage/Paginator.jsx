@@ -2,9 +2,9 @@ import { useSearchParams } from 'react-router-dom';
 import scss from './Paginator.module.scss';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
-const Paginator = ({ pagesQty }) => {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const currentPage = parseInt(searchParams.get('page') || 1);
+const Paginator = ({ pagesQty, params = {} }) => {
+  const [searchParams, setSearchParams] = useSearchParams({ page: 1 });
+  const currentPage = parseInt(searchParams.get('page'));
   const buttons = [];
   const buttonsRange = [
     currentPage - 3 < 0 ? 0 : currentPage - 3,
@@ -15,24 +15,19 @@ const Paginator = ({ pagesQty }) => {
     buttons.push(i + 1);
   }
 
-  const handleChangePage = value => {
-    const params = Object.fromEntries([...searchParams]);
-
-    setSearchParams({
-      ...params,
-      page: value,
-    });
+  const handleChangePage = page => {
+    setSearchParams({ ...params, page });
   };
 
   const handlePreviousBtn = () => {
     if (currentPage > 1) {
-      handleChangePage(currentPage - 1);
+      setSearchParams({ ...params, page: currentPage - 1 });
     }
   };
 
   const handleNextBtn = () => {
     if (currentPage < pagesQty) {
-      handleChangePage(currentPage + 1);
+      setSearchParams({ ...params, page: currentPage + 1 });
     }
   };
 
@@ -42,7 +37,7 @@ const Paginator = ({ pagesQty }) => {
         className={scss.paginatorBtn}
         type="button"
         name="PreviousBtn"
-        onClick={handlePreviousBtn}
+        onClick={() => handlePreviousBtn()}
         disabled={currentPage === 1}
       >
         <FiChevronLeft className={scss.arrow} size={27} />
@@ -66,7 +61,7 @@ const Paginator = ({ pagesQty }) => {
         className={scss.paginatorBtn}
         type="button"
         name="NextBtn"
-        onClick={handleNextBtn}
+        onClick={() => handleNextBtn()}
         disabled={currentPage === pagesQty}
       >
         <FiChevronRight className={scss.arrow} size={27} />
