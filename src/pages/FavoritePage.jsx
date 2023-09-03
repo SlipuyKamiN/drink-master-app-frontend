@@ -5,7 +5,7 @@ import LoadingSpinner from 'components/Shared/LoadingSpinner';
 import Container from 'components/Shared/Container';
 import useWindowDimensions from 'hooks/useWindowDimensions';
 import { useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, useNavigate } from 'react-router-dom';
 import {
   useGetFavoritesQuery,
   useToggleFavoriteMutation,
@@ -23,7 +23,8 @@ const FavoritePage = () => {
   const [toggleFavorite] = useToggleFavoriteMutation();
   const pagesQty = Math.ceil(data?.totalHits / limit);
   const title = 'Favorites';
-
+  const navigate = useNavigate();
+  
   useEffect(() => {
     if (!searchParams.get('page')) {
       setSearchParams({ page: 1 });
@@ -32,6 +33,7 @@ const FavoritePage = () => {
   }, [searchParams, setSearchParams]);
 
   if (isLoading) return <LoadingSpinner />;
+  if (isError) return navigate('/404Page');
 
   const removeFavorite = id => {
     toggleFavorite(id)
@@ -44,7 +46,6 @@ const FavoritePage = () => {
         }
       });
   };
-
 
   return (
     <section className={scss.wraper}>

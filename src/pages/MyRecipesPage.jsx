@@ -5,7 +5,7 @@ import LoadingSpinner from 'components/Shared/LoadingSpinner';
 import Container from 'components/Shared/Container';
 import useWindowDimensions from 'hooks/useWindowDimensions';
 import { useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, useNavigate } from 'react-router-dom';
 import {
   useGetMyRecipesQuery,
   useDeleteMyRecipeMutation,
@@ -23,6 +23,7 @@ const MyRecipesPage = () => {
   const [deleteMyRecipe] = useDeleteMyRecipeMutation();
   const pagesQty = Math.ceil(data?.length / limit);
   const title = 'My recipes';
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (!searchParams.get('page')) {
@@ -32,6 +33,7 @@ const MyRecipesPage = () => {
   }, [searchParams, setSearchParams]);
 
   if (isLoading) return <LoadingSpinner />;
+  if (isError) return navigate('/404Page');
 
   const handleDeleteRecipes = id => {
     deleteMyRecipe(id)
@@ -45,7 +47,8 @@ const MyRecipesPage = () => {
         }
       });
   };
-  
+  console.log('data', data);
+  console.log('pagesQty', pagesQty);
   return (
     <section className={scss.wraper}>
       <Container>
