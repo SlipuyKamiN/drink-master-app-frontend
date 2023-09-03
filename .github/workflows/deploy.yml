@@ -5,7 +5,7 @@ on:
     branches: [main]
     
 env:
-    REACT_APP_BASE_URL: ${{ vars.REACT_APP_BASE_URL }}
+    REACT_APP_BASE_URL: ${{ secrets.REACT_APP_BASE_URL }}
 
 jobs:
   build-and-deploy:
