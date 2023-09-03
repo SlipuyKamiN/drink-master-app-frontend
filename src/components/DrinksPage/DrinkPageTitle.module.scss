@@ -1,0 +1,22 @@
+@import 'styles/common/vars';
+
+.title {
+  font-size: 32px;
+  line-height: calc(38 / 32);
+  letter-spacing: 0em;
+  text-align: left;
+  color: $primary-white-color;
+  margin-bottom: 40px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 56px;
+    line-height: calc(60 / 56);
+    margin-bottom: 60px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    font-size: 64px;
+    line-height: calc(68 / 64);
+    margin-bottom: 80px;
+  }
+}

@@ -24,8 +24,8 @@
   background-color: $main-bg-color;
 
   @media screen and (min-width: 768px) {
-    max-width: none;
-    width: 500px;
+    // max-width: none;
+    max-width: 500px;
 
     border-radius: 30px;
   }

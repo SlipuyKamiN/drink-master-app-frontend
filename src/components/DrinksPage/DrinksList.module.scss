@@ -1,0 +1,19 @@
+@import 'styles/common/vars';
+
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 32px;
+
+    @media screen and (min-width: 768px) {
+        margin-bottom: 60px;
+    }
+
+    @media screen and (min-width: 1440px) {
+        margin-bottom: 20px;
+    }
+}
+
+// 80
+// 140

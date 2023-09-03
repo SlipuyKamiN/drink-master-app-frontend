@@ -1,0 +1,81 @@
+@import '../../styles/common/vars';
+.header {
+  border-bottom: 1px solid rgba($color: $primary-white-color, $alpha: 0.2);;
+}
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  z-index: 101;
+
+  @media screen and (min-width: 1440px) {
+    padding-top: 22.5px;
+    padding-bottom: 22.5px;
+  }
+}
+.rightWrapper {
+  display: flex;
+  gap: 14px;
+
+  @media screen and (min-width: 768px) {
+    gap: 24px;
+  }
+}
+.btn {
+  display: flex;
+  align-items: center;
+  border: none;
+  padding: 0;
+  background-color: transparent;
+  border: 1px solid transparent;
+  font-family: inherit;
+  transition: all $transition-duration;
+
+  &:hover,
+  &:focus {
+    background-color: $secondary-bg-blue-color;
+  }
+  &:active {
+    border: 1px solid rgba($color: $main-blue-color, $alpha: 0.5);
+  }
+}
+.img {
+  width: 32px;
+  height: 32px;
+
+  @media screen and (min-width: 768px) {
+    width: 38px;
+    height: 38px;
+  }
+}
+.mobile {
+  display: flex;
+  flex-direction: column;
+  // justify-content: center;
+  // align-items: center;
+  
+  width: 100vw;
+	height: 100vh;
+  position: fixed;
+	top: 75px;
+	left: 0px;
+  padding-top: 160px;
+  background-color: $main-bg-color;
+  overflow: auto;
+  z-index: 1000;
+  transform: translateY(-150vh);
+  transition: transform $transition-duration;
+
+  @media screen and (min-width:768px) {
+    top: 86px;
+    padding-top: 256px;
+  }
+}
+.visible {
+  transform: translateY(0);
+}
+.mobileWrapper {
+  overflow-y: scroll;
+}

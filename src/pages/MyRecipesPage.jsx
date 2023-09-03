@@ -53,13 +53,13 @@ const MyRecipesPage = () => {
     <section className={scss.wraper}>
       <Container>
         <MainTitle title={title} style={{ padding: '0' }} />
-        {data?.totalHits  && !isError ? (
+        {data?.totalHits && !isError ? (
           <>
             <RecipesList data={data} removeResipes={handleDeleteRecipes} />
             <Paginator pagesQty={pagesQty} />
           </>
         ) : (
-          <ItemNotCocktails title={title} />
+          <ItemNotCocktails title={"You haven't created any recipes yet"} />
         )}
       </Container>
     </section>
@@ -67,4 +67,3 @@ const MyRecipesPage = () => {
 };
 
 export default MyRecipesPage;
-
