@@ -44,10 +44,7 @@ const App = () => {
         />
         <Route path="/" element={<PrivateRoute component={SharedLayout} />}>
           <Route index element={<MainPage />} />{' '}
-          <Route
-            path="/drinks/"
-            element={<Navigate to={'/drinks/Cocktail'} />}
-          />
+          <Route path="/drinks/" element={<Navigate to={'/drinks/all'} />} />
           <Route path="/drinks/:categoryName" element={<DrinksPage />} />
           <Route path="/add" element={<AddRecipePage />} />
           <Route path="/my" element={<MyRecipesPage />} />
