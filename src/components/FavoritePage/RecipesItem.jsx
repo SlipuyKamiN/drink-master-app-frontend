@@ -3,15 +3,7 @@ import scss from './RecipesItem.module.scss';
 import placeholder from '../../images/thumb-placeholder-large.png';
 import { Link } from 'react-router-dom';
 
-const RecipesItem = ({
-  id,
-  description,
-  drink,
-  drinkThumb,
-  removeResipes,
-}) => {
-
-  
+const RecipesItem = ({ id, description, drink, drinkThumb, removeResipes }) => {
   return (
     <>
       <li className={scss.recipesItem}>
@@ -22,9 +14,9 @@ const RecipesItem = ({
             alt={drink}
           />
           <h3 className={scss.recipesItemTitle}>{drink}</h3>
-          <h4 className={scss.recipesItemSubTitle}>Іngridients</h4>
+          <h4 className={scss.recipesItemSubTitle}>Іngredients</h4>
           <p className={scss.recipesItemText}>
-            {description || 'description is absent'}
+            {description || 'No description'}
           </p>
 
           <div className={scss.wraperBottom}>
