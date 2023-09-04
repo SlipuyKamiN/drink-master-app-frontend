@@ -52,7 +52,7 @@ const MyRecipesPage = () => {
         {data?.totalHits && !isError
           ? (<>
             <RecipesList data={data} removeResipes={handleDeleteRecipes} />
-            {+searchParams.get('page') > 1 && <Paginator pagesQty={pagesQty} />}
+            {pagesQty > 1 && <Paginator pagesQty={pagesQty} />}
           </>)
           : <ItemNotCocktails title={"You haven't created any recipes yet"} />
         }
