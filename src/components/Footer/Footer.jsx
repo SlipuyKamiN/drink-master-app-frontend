@@ -30,11 +30,11 @@ const Footer = () => {
             <FooterModal
               title={privacyPolicy.title}
               content={privacyPolicy.content}
-            ></FooterModal>
+            />
             <FooterModal
               title={termsOfService.title}
               content={termsOfService.content}
-            ></FooterModal>
+            />
           </div>
         </div>
       </Container>
