@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import Modal from 'components/Shared/Modal';
 import styles from './FooterModal.module.scss';
-import { AiOutlineCloseCircle } from 'react-icons/ai';
 
 const FooterModal = ({ title, content }) => {
   const [isOpen, setIsopen] = useState(false);
@@ -17,11 +16,6 @@ const FooterModal = ({ title, content }) => {
       {isOpen && (
         <Modal className={styles.modal} toggleModal={toggleModal}>
           <section className={styles.section}>
-            <AiOutlineCloseCircle
-              size={30}
-              cursor="pointer"
-              onClick={toggleModal}
-            />
             <ul>
               {content.split('\n').map(item => (
                 <li>
@@ -30,6 +24,13 @@ const FooterModal = ({ title, content }) => {
                 </li>
               ))}
             </ul>
+            <button
+              type="button"
+              className={styles.modalBtn}
+              onClick={toggleModal}
+            >
+              Close
+            </button>
           </section>
         </Modal>
       )}

@@ -1,5 +1,48 @@
+@import '../../styles/common/vars';
+
 .section {
   padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background-image: radial-gradient(
+      circle,
+      rgba(188, 230, 210, 0.4) -51%,
+      rgba(188, 230, 210, 0) 70%
+    ),
+    radial-gradient(
+      circle,
+      rgba(64, 112, 205, 0.5) -10%,
+      rgba(64, 112, 205, 0) 70%
+    );
+
+  background-color: $secondary-bg-blue-color;
+  background-repeat: no-repeat;
+
+  background-size: 304px 326px, 372px 398px;
+  background-position-y: -130px, 205px;
+  background-position-x: -70px, 220px;
+
+  @media screen and (min-width: 768px) {
+    padding: 50px 50px 75px 50px;
+
+    background-image: radial-gradient(
+        circle,
+        rgba(188, 230, 210, 0.4) -28%,
+        rgba(188, 230, 210, 0) 70%
+      ),
+      radial-gradient(
+        circle,
+        rgba(64, 112, 205, 0.5) -10%,
+        rgba(64, 112, 205, 0) 70%
+      );
+
+    background-size: 404px 416px, 372px 398px;
+    background-position-y: -174px, 205px;
+    background-position-x: -160px, 314px;
+  }
 }
 
 .btn {
@@ -8,4 +51,30 @@
   font: inherit;
   color: inherit;
   background-color: transparent;
+}
+
+.modalBtn {
+  height: 56px;
+  // max-width: 150px;
+  padding-left: 50px;
+  padding-right: 50px;
+  flex-shrink: 0;
+  border-radius: 200px;
+  border: 1px solid rgb(243, 243, 243, 0.2);
+  color: $primary-white-color;
+  background-color: inherit;
+  text-align: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+.modalBtn:hover,
+.modalBtn:focus {
+  background: $primary-white-color;
+  color: $secondary-bg-blue-color;
+}
+.modalBtn:active {
+  border: 2px solid rgba(64, 112, 205, 0.5);
 }

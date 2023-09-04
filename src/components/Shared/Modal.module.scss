@@ -30,7 +30,13 @@
     max-width: 900px;
 
     border-radius: 30px;
-    border: 2px solid red;
+
     // overflow: scroll;
   }
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #800808; /* Цвет ползунка */
+  border-radius: 5px; /* Скругление углов ползунка */
+  height: 50px;
 }
