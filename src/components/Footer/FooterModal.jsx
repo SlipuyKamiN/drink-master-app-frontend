@@ -22,7 +22,14 @@ const FooterModal = ({ title, content }) => {
               cursor="pointer"
               onClick={toggleModal}
             />
-            <p>{content}</p>
+            <ul>
+              {content.split('\n').map(item => (
+                <li>
+                  <p>{item}</p>
+                  <br />
+                </li>
+              ))}
+            </ul>
           </section>
         </Modal>
       )}

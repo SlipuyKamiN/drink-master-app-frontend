@@ -23,7 +23,7 @@ If you have any questions or concerns regarding this Privacy Policy or your info
 
 export const termsOfService = {
   title: 'Terms of Service',
-  content: `	This "User Agreement" (the "Agreement") sets forth the terms and conditions governing the use of the Drink Master application ("App") and its services.
+  content: `This "User Agreement" (the "Agreement") sets forth the terms and conditions governing the use of the Drink Master application ("App") and its services.
 
 Acceptance of Terms:
 By accessing or using the Drink Master app, you agree to comply with and be bound by the terms and conditions of this Agreement. If you do not agree with any part of this Agreement, you should immediately discontinue the use of the App.
