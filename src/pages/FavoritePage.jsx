@@ -44,7 +44,7 @@ const FavoritePage = () => {
         }
       });
   };
-
+  
   return (
     <section className={scss.wraper}>
       <Container>
@@ -52,7 +52,7 @@ const FavoritePage = () => {
         {data?.totalHits && !isError
           ? (<>
             <RecipesList data={data} removeResipes={removeFavorite} />
-            <Paginator pagesQty={pagesQty} />
+            {+searchParams.get('page') > 1 && <Paginator pagesQty={pagesQty} />}
           </>)
           :
           <ItemNotCocktails title={"You haven't added any favorite cocktails yet"} />
