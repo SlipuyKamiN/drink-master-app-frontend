@@ -2,42 +2,56 @@ import Footer from 'components/Footer/Footer';
 import Header from 'components/Header/Header';
 import { Outlet } from 'react-router-dom';
 import styles from './SharedLayout.module.scss';
-import { Suspense, useState, useEffect, useCallback } from 'react';
+import { Suspense, useState, useEffect } from 'react';
 import LoadingSpinner from 'components/Shared/LoadingSpinner';
 import Modal from 'components/Shared/Modal';
-import Motivation from 'components/Shared/Motivation';
+import MotivatingModal from 'components/Shared/MotivatingModal';
 import { useGetFavoritesQuery } from 'redux/recipesSlice';
-import { useCurrentUserQuery } from 'redux/authSlice';
+import sass from '../Shared/MotivatingModal.module.scss';
+import { useSelector } from 'react-redux';
 
 const SharedLayout = () => {
-  const [showModal, setShowModal] = useState(true);
-  const [contentMotivation, setContentMotivation] = useState(
-    'Wow! You have added the first recipe to your favorites!'
-  );
-  const [styleMotivation, setStyleMotivation] = useState('sass.wrapperOne');
+  // const [showModal, setShowModal] = useState(true);
+  const [contentMotivation, setContentMotivation] = useState('');
+  const [styleMotivation, setStyleMotivation] = useState(null);
+
+  const [isOneMotivation, setIsOneMotivation] = useState(false);
+  const [isTwoMotivation, setIsTwoMotivation] = useState(false);
+  // const [isThreeMotivation, setIsThreeMotivation] = useState(false);
+
+  const dataUser = useSelector(state => state.authApi.queries);
+  console.log(dataUser);
+  // console.log(dataUser);
 
   const { data } = useGetFavoritesQuery('');
-  console.log(data);
 
-  // useEffect(() => {
-  //   const handleToggleModal = () => {
-  //     setShowModal(!showModal);
-  //   };
+  const handleToggleModal = () => {
+    if (isOneMotivation) {
+      setIsOneMotivation(!isOneMotivation);
+      return;
+    }
 
-  //   if (data.totalHits === 1) {
-  //     setContentMotivation(
-  //       'Wow! You have added the first recipe to your favorites!'
-  //     );
-  //     setStyleMotivation('wrapperOne');
-  //     handleToggleModal();
-  //     return;
-  //   }
-  //   if (data.totalHits === 10) {
-  //     setContentMotivation('Wow! You have added 10 recipes to your favorites!');
-  //     setStyleMotivation('sass.wrapperTwo');
-  //     handleToggleModal();
-  //   }
-  // }, [data.totalHits, showModal]);
+    if (isTwoMotivation) {
+      setIsTwoMotivation(!isTwoMotivation);
+      return;
+    }
+  };
+
+  useEffect(() => {
+    if (data && data.totalHits === 1) {
+      setContentMotivation(
+        'Wow! You have added the first recipe to your favorites!'
+      );
+      setStyleMotivation(sass.wrapperOne);
+      setIsOneMotivation(true);
+    }
+
+    if (data && data.totalHits === 10) {
+      setContentMotivation('Wow! You have added 10 recipes to your favorites!');
+      setStyleMotivation(sass.wrapperTwo);
+      setIsTwoMotivation(true);
+    }
+  }, [data]);
 
   return (
     <div className={styles.wrapper}>
@@ -48,12 +62,12 @@ const SharedLayout = () => {
         </Suspense>
       </main>
       <Footer />
-      {showModal && (
-        <Modal>
-          <Motivation
+      {(isOneMotivation || isTwoMotivation) && (
+        <Modal toggleModal={handleToggleModal}>
+          <MotivatingModal
             title={contentMotivation}
             style={styleMotivation}
-            // closeModal={handleToggleModal}
+            toggleModal={handleToggleModal}
           />
         </Modal>
       )}
