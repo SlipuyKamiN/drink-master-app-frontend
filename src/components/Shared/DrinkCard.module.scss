@@ -18,7 +18,7 @@
 }
 
 .cardThumb {
-  max-width: 335px;
+  width: 100%;
   max-height: 360px;
 
   border-radius: 8px;
@@ -26,7 +26,6 @@
   overflow: hidden;
 
   @media screen and (min-width: 375px) {
-    max-width: none;
     max-height: none;
     width: 335px;
     height: 360px;
@@ -45,7 +44,7 @@
 
 .cardThumb > img {
   height: 100%;
-  // width: 100%;
+  width: 100%;
   background-color: rgba(22, 31, 55, 0.5);
 }
 
