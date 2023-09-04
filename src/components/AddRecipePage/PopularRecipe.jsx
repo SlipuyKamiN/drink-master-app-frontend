@@ -28,7 +28,7 @@ const PopularRecipe = () => {
                     <p className={scss.popular__description}>
                       {description
                         ? description.substring(0, 88) + '...'
-                        : 'Description none'}
+                        : 'No description'}
                     </p>
                   </div>
                 </div>
