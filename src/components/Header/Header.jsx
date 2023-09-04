@@ -11,27 +11,28 @@ import { ReactComponent as CloseIcon } from '../../images/x.svg';
 const Header = () => {
   const [mobileMenuVisible, setMobilMenuVisible] = useState(false);
   const { width } = useWindowDimensions();
-  const {visible} = css;
+  const { visible } = css;
 
   const handleMobileToggle = () => {
     setMobilMenuVisible(!mobileMenuVisible);
-  }
+    
+  };
 
-  const handleNavClick = (event) => {
-    if(event.target.tagName === 'A') {
-      console.log(event.target.tagName)
-    handleMobileToggle();
+  const handleNavClick = event => {
+    if (event.target.tagName === 'A') {
+      console.log(event.target.tagName);
+      handleMobileToggle();
     }
-  }
+  };
 
   useEffect(() => {
     if (mobileMenuVisible) {
       document.body.style.overflow = 'hidden';
-    } 
+    }
     if (!mobileMenuVisible) {
-      document.body.style.overflow = 'unset';;
-    } 
- }, [mobileMenuVisible ]);
+      document.body.style.overflow = 'unset';
+    }
+  }, [mobileMenuVisible]);
 
   return (
     <header className={css.header}>
@@ -42,7 +43,11 @@ const Header = () => {
           <div className={css.rightWrapper}>
             <UserLogo />
             {width < 1440 && (
-              <button className={css.btn} type="button" onClick={handleMobileToggle}>
+              <button
+                className={css.btn}
+                type="button"
+                onClick={handleMobileToggle}
+              >
                 {mobileMenuVisible ? (
                   <CloseIcon className={css.img} />
                 ) : (
@@ -53,10 +58,11 @@ const Header = () => {
           </div>
         </div>
         {width < 1440 && (
-          
-          <div className={`${css.mobile} ${mobileMenuVisible ? visible : ""}`} onClick={handleNavClick}>
+          <div
+            className={`${css.mobile} ${mobileMenuVisible ? visible : ''}`}
+            onClick={handleNavClick}
+          >
             {width < 1440 && <Navigation />}
-         
           </div>
         )}
       </Container>
