@@ -9,7 +9,7 @@ import { useUpdateUserMutation } from 'redux/authSlice';
 import LoadingSpinner from 'components/Shared/LoadingSpinner';
 import { notification } from 'components/Shared/notification';
 
-const UserInfoModal = ({ toggleModalShown }) => {
+const UserInfoModal = ({ toggleModal }) => {
   const { name, avatarURL } = useSelector(({ user }) => user);
   const [nameValue, setNameValue] = useState(name);
   const [nameIsDisabled, setNameIsDisabled] = useState(true);
@@ -18,7 +18,7 @@ const UserInfoModal = ({ toggleModalShown }) => {
   const inputField = useRef(null);
 
   const handleCloseModal = () => {
-    toggleModalShown();
+    toggleModal();
   };
 
   const handleNameChange = e => {
@@ -31,7 +31,7 @@ const UserInfoModal = ({ toggleModalShown }) => {
     formData.append('name', nameValue);
     formData.append('avatar', selectedImage);
     await dispatch(formData);
-    toggleModalShown();
+    toggleModal();
   };
 
   const handleEditName = async () => {
@@ -44,7 +44,7 @@ const UserInfoModal = ({ toggleModalShown }) => {
   };
 
   return (
-    <Modal>
+    <Modal toggleModal={toggleModal}>
       <div className={css.wrapper}>
         <button
           type="button"
