@@ -1,27 +1,26 @@
+import { Suspense, useState, useEffect } from 'react';
+import { Outlet } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+
+import { useGetFavoritesQuery } from 'redux/recipesSlice';
+import { getUserState } from 'redux/userSelectors';
+
 import Footer from 'components/Footer/Footer';
 import Header from 'components/Header/Header';
-import { Outlet } from 'react-router-dom';
-import styles from './SharedLayout.module.scss';
-import { Suspense, useState, useEffect } from 'react';
 import LoadingSpinner from 'components/Shared/LoadingSpinner';
 import Modal from 'components/Shared/Modal';
 import MotivatingModal from 'components/Shared/MotivatingModal';
-import { useGetFavoritesQuery } from 'redux/recipesSlice';
+
+import styles from './SharedLayout.module.scss';
 import sass from '../Shared/MotivatingModal.module.scss';
-import { useSelector } from 'react-redux';
 
 const SharedLayout = () => {
-  // const [showModal, setShowModal] = useState(true);
   const [contentMotivation, setContentMotivation] = useState('');
   const [styleMotivation, setStyleMotivation] = useState(null);
-
   const [isOneMotivation, setIsOneMotivation] = useState(false);
   const [isTwoMotivation, setIsTwoMotivation] = useState(false);
-  // const [isThreeMotivation, setIsThreeMotivation] = useState(false);
-
-  const dataUser = useSelector(state => state.authApi.queries);
-  console.log(dataUser);
-  // console.log(dataUser);
+  const [isThreeMotivation, setIsThreeMotivation] = useState(false);
+  const dataUser = useSelector(getUserState);
 
   const { data } = useGetFavoritesQuery('');
 
@@ -33,6 +32,11 @@ const SharedLayout = () => {
 
     if (isTwoMotivation) {
       setIsTwoMotivation(!isTwoMotivation);
+      return;
+    }
+
+    if (isThreeMotivation) {
+      setIsThreeMotivation(!isThreeMotivation);
       return;
     }
   };
@@ -51,7 +55,16 @@ const SharedLayout = () => {
       setStyleMotivation(sass.wrapperTwo);
       setIsTwoMotivation(true);
     }
-  }, [data]);
+
+    const quantityDay = Math.round(dataUser.sinceSignUp / 1000 / 60 / 60 / 24);
+    if (quantityDay >= 6 && quantityDay <= 8) {
+      setContentMotivation(
+        `Wow! You have been using the application for ${quantityDay} days!`
+      );
+      setStyleMotivation(sass.wrapperThree);
+      setIsThreeMotivation(true);
+    }
+  }, [data, dataUser.sinceSignUp]);
 
   return (
     <div className={styles.wrapper}>
@@ -62,7 +75,7 @@ const SharedLayout = () => {
         </Suspense>
       </main>
       <Footer />
-      {(isOneMotivation || isTwoMotivation) && (
+      {(isOneMotivation || isTwoMotivation || isThreeMotivation) && (
         <Modal toggleModal={handleToggleModal}>
           <MotivatingModal
             title={contentMotivation}

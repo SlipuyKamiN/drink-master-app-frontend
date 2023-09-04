@@ -121,11 +121,6 @@
   height: 269px;
   margin: 0 auto;
 
-  @media screen and (min-width: 375px) {
-    max-width: none;
-    width: 299px;
-  }
-
   @media screen and (min-width: 768px) {
     width: 268px;
     height: 242px;
@@ -134,7 +129,6 @@
 
 .image {
   height: 100%;
-  // filter: blur(1px) saturate(200%) brightness(150%);
 }
 
 .box {
@@ -184,6 +178,17 @@
   border-radius: 50%;
 
   background-color: $secondary-bg-blue-color;
+
+  transition: background-color $transition-duration;
+
+  &:hover,
+  &:focus {
+    background-color: $primary-white-color;
+  }
+
+  &:active {
+    border: 2px solid rgba($color: $main-blue-color, $alpha: 0.5);
+  }
 }
 
 .icon {
@@ -191,4 +196,11 @@
   height: 28px;
 
   fill: $primary-white-color;
+
+  transition: fill $transition-duration;
+
+  &:hover,
+  &:focus {
+    fill: $secondary-bg-blue-color;
+  }
 }
