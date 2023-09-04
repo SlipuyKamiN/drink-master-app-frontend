@@ -1,10 +1,14 @@
 @import 'styles/common/vars';
 
 .card {
-  max-width: 360px;
+  max-width: 335px;
+
+  @media screen and (min-width: 375px) {
+    max-width: none;
+    width: 335px;
+  }
 
   @media screen and (min-width: 768px) {
-    max-width: none;
     width: 342px;
   }
 
@@ -14,31 +18,34 @@
 }
 
 .cardThumb {
-  height: 360px;
+  width: 100%;
+  max-height: 360px;
 
   border-radius: 8px;
 
   overflow: hidden;
 
+  @media screen and (min-width: 375px) {
+    max-height: none;
+    width: 335px;
+    height: 360px;
+  }
+
   @media screen and (min-width: 768px) {
+    width: 342px;
     height: 360px;
   }
 
   @media screen and (min-width: 1440px) {
+    width: 400px;
     height: 400px;
   }
 }
 
 .cardThumb > img {
   height: 100%;
-  // width: 100%;
-  background: rgb(74, 63, 63);
-  background: linear-gradient(
-    140deg,
-    rgba(74, 63, 63, 0.8660714285714286) 0%,
-    rgba(98, 66, 66, 0.8380602240896359) 32%,
-    rgba(130, 110, 110, 0.8772759103641457) 94%
-  );
+  width: 100%;
+  background-color: rgba(22, 31, 55, 0.5);
 }
 
 .cardInfo {
