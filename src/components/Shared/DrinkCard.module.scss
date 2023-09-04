@@ -19,7 +19,7 @@
 
 .cardThumb {
   max-width: 335px;
-  height: 360px;
+  max-height: 360px;
 
   border-radius: 8px;
 
@@ -27,7 +27,9 @@
 
   @media screen and (min-width: 375px) {
     max-width: none;
+    max-height: none;
     width: 335px;
+    height: 360px;
   }
 
   @media screen and (min-width: 768px) {
