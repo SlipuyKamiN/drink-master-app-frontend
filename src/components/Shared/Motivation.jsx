@@ -1,15 +1,11 @@
 import { AiOutlineClose } from 'react-icons/ai';
 
-// import { useGetMyRecipesQuery } from 'redux/myRecipesSlice';
-
 import imageSvgSmall from '../../images/motivation-thumb-small.svg';
 import imageSvgLarge from '../../images/motivation-thumb-large.svg';
 import sass from './Motivation.module.scss';
 
-const Motivation = ({ closeModal }) => {
-  // const { data } = useGetMyRecipesQuery('');
-  // console.log(data);
-
+const Motivation = ({ title, style, closeModal }) => {
+  console.log(style);
   return (
     <div className={sass.wrapperOne}>
       <div className={sass.thumb}>
@@ -21,9 +17,7 @@ const Motivation = ({ closeModal }) => {
           alt="motivation"
         />
         <div className={sass.box}>
-          <p className={sass.content}>
-            Wow! You have added the first recipe to your favorites!
-          </p>
+          <p className={sass.content}>{title}</p>
           <button type="button" className={sass.btn} onClick={closeModal}>
             <AiOutlineClose className={sass.icon} />
           </button>
