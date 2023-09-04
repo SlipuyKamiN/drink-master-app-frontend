@@ -1,7 +1,6 @@
-
 import { useEffect, useState } from 'react';
 import Select from 'react-select';
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import { useLocation } from 'react-router-dom';
 import { useGetCategoriesListQuery } from '../../redux/recipesSlice';
 import { useGetIngredientsListQuery } from '../../redux/recipesSlice';
@@ -15,22 +14,22 @@ const DrinksSearch = ({ onFilterChange }) => {
   const initialCategory = searchParams.get('category') || 'All categories';
   const initialIngredient = searchParams.get('ingredient') || 'All ingredients';
 
-  useEffect(() => {
-    setSearch(initialSearch);
-    setCategory(initialCategory);
-    setIngredient(initialIngredient);
-  }, [location, initialSearch, initialCategory, initialIngredient]);
-
   const [search, setSearch] = useState(initialSearch);
   const [category, setCategory] = useState(initialCategory);
   const [ingredient, setIngredient] = useState(initialIngredient);
 
   const { data: categoryList } = useGetCategoriesListQuery();
   const { data: ingredientsList } = useGetIngredientsListQuery();
-  const { register, handleSubmit } = useForm();
+  const { handleSubmit, control } = useForm();
   const [filter, setFilter] = useState({});
   let categoriesOptions = [];
   let ingredientsOptions = [];
+
+  useEffect(() => {
+    setSearch(initialSearch);
+    setCategory(initialCategory);
+    setIngredient(initialIngredient);
+  }, [location, initialCategory, initialIngredient, initialSearch]);
 
   if (categoryList && ingredientsList) {
     const categories = categoryList.map(item => {
@@ -81,15 +80,12 @@ const DrinksSearch = ({ onFilterChange }) => {
           });
         })}
       >
-        <input
-          className={sass.input}
-          {...register('name')}
-          placeholder="Enter the text"
-          type="text"
+        <Controller
           name="name"
-          value={search}
-          onChange={e => setSearch(e.target.value)}
-        ></input>
+          control={control}
+          defaultValue={search}
+          render={({ field }) => <input className={sass.input} {...field} />}
+        />
         <button className={sass.submit} type="submit">
           <FiSearch className={sass.icon} />
         </button>
