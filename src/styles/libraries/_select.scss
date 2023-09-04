@@ -220,9 +220,9 @@
     border: 1px solid rgba(243, 243, 243, 0.5) !important;
     margin: 0 !important;
     @media screen and (min-width: 375px) {
-     width: 200px !important;
+      width: 200px !important;
     }
-   
+
     @media screen and (min-width: 768px) {
       width: 332px !important;
     }
@@ -312,11 +312,15 @@
     padding: 0 10px !important;
     border-radius: 200px !important;
     border: 1px solid rgba(243, 243, 243, 0.5) !important;
-   
+
     outline: none !important;
 
     @media screen and (min-width: 375px) {
       width: 101px !important;
+      padding: 0 16px !important;
+    }
+    @media screen and (min-width: 768px) {
+      width: 150px !important;
       padding: 0 16px !important;
     }
   }
@@ -324,7 +328,7 @@
   &__value-container {
     padding: 0 !important;
     @media screen and (min-width: 375px) {
-      padding: 0 10px 0 0 !important;
+      padding: 0 !important;
     }
   }
 
@@ -343,7 +347,11 @@
     color: $primary-white-color !important;
     margin: 0 !important;
     text-align: right !important;
+    @media screen and (min-width: 768px) {
+      text-align: center !important;
+    }
   }
+
   &__input-container {
     margin: 0 !important;
   }
