@@ -8,6 +8,8 @@
   width: 100dvw;
   height: 100dvh;
 
+  padding: 0 20px;
+
   backdrop-filter: blur(4px);
 }
 
@@ -18,6 +20,7 @@
   transform: translate(-50%, -50%);
 
   max-width: 335px;
+  width: 100%;
   max-height: 80%;
   overflow-y: auto;
 
@@ -26,12 +29,9 @@
   background-color: $main-bg-color;
 
   @media screen and (min-width: 768px) {
-    // max-width: none;
     max-width: 900px;
 
     border-radius: 30px;
-
-    // overflow: scroll;
   }
 }
 
