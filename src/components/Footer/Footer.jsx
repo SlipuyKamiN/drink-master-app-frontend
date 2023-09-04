@@ -4,14 +4,13 @@ import Nav from './Nav';
 import SubscribeForm from './SubscribeForm';
 import Logo from 'components/Header/Logo';
 import styles from './Footer.module.scss';
-import Modal from 'components/Shared/Modal';
-import { useState } from 'react';
+import FooterModal from './FooterModal';
+import {
+  termsOfService,
+  privacyPolicy,
+} from './PrivacyPolicyAndTermsOfService';
 
 const Footer = () => {
-  const [isOpen, setIsopen] = useState(false);
-  const toggleModal = () => {
-    setIsopen(prev => !prev);
-  };
   return (
     <footer className={styles.footer}>
       <Container>
@@ -28,28 +27,17 @@ const Footer = () => {
         <div className={styles.bottomString}>
           <p>©2023 Drink Master. All rights reserved.</p>
           <div className={styles.privacyAndTerms}>
-            <p>Privacy Policy</p>
-            <button type="button" onClick={toggleModal}>
-              Terms of Service
-            </button>
+            <FooterModal
+              title={privacyPolicy.title}
+              content={privacyPolicy.content}
+            ></FooterModal>
+            <FooterModal
+              title={termsOfService.title}
+              content={termsOfService.content}
+            ></FooterModal>
           </div>
         </div>
       </Container>
-      {isOpen && (
-        <Modal toggleModal={toggleModal}>
-          <section>
-            <button type="button" onClick={toggleModal}>
-              close
-            </button>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci
-              obcaecati reiciendis placeat quae, corrupti quibusdam dolor nobis
-              amet neque voluptatum dolore. Provident officiis, facere quaerat
-              sequi quis alias voluptatibus expedita!20
-            </p>
-          </section>
-        </Modal>
-      )}
     </footer>
   );
 };
