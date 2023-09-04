@@ -40,6 +40,7 @@
   line-height: 1.29;
   border-radius: 42px;
   border: 1px solid rgba(243, 243, 243, 0.2);
+  transition: color $transition-duration, background-color $transition-duration;
 
   @media screen and (min-width: 768px) {
     padding: 18px 44px;
@@ -47,6 +48,7 @@
     line-height: 1.13;
   }
 }
+
 .btn:hover,
 .btn:focus {
   background: $primary-white-color;

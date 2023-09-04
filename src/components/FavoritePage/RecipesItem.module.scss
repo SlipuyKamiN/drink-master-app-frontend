@@ -99,6 +99,7 @@
   background-color: $secondary-bg-blue-color;
   border-radius: 50px;
   font-weight: 600;
+  transition: color $transition-duration, background-color $transition-duration;
 
   &:hover,
   &:focus {
@@ -125,7 +126,7 @@
   border: none;
   background-color: $secondary-bg-blue-color;
   color: $primary-white-color;
-  transition: color 250ms linear;
+  transition: color $transition-duration, background-color $transition-duration;
 
   &:hover,
   &:focus {

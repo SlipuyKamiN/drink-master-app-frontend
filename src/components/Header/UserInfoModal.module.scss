@@ -3,11 +3,43 @@
 .wrapper {
   position: relative;
   padding: 50px 25px;
-  background-color: $secondary-bg-blue-color;
   border-radius: 16px;
+
+  background-image: radial-gradient(
+      circle,
+      rgba(188, 230, 210, 0.4) -51%,
+      rgba(188, 230, 210, 0) 70%
+    ),
+    radial-gradient(
+      circle,
+      rgba(64, 112, 205, 0.5) -10%,
+      rgba(64, 112, 205, 0) 70%
+    );
+
+  background-color: $secondary-bg-blue-color;
+  background-repeat: no-repeat;
+
+  background-size: 304px 326px, 372px 398px;
+  background-position-y: -130px, 205px;
+  background-position-x: -70px, 220px;
 
   @media screen and (min-width: 768px) {
     padding: 50px 50px 75px 50px;
+
+    background-image: radial-gradient(
+        circle,
+        rgba(188, 230, 210, 0.4) -28%,
+        rgba(188, 230, 210, 0) 70%
+      ),
+      radial-gradient(
+        circle,
+        rgba(64, 112, 205, 0.5) -10%,
+        rgba(64, 112, 205, 0) 70%
+      );
+
+    background-size: 404px 416px, 372px 398px;
+    background-position-y: -174px, 205px;
+    background-position-x: -160px, 314px;
   }
 }
 .imgWrapper {
@@ -62,7 +94,7 @@
     border-color: $primary-white-color;
   }
   &:active {
-    border-color: rgba($color: $main-blue-color, $alpha: 0.5);;
+    border-color: rgba($color: $main-blue-color, $alpha: 0.5);
   }
 }
 .closeIcon {
@@ -155,7 +187,6 @@
 
   @media screen and (min-width: 768px) {
     width: 400px;
-    padding: 18px 0px;
     font-size: 16px;
     line-height: calc(18 / 16);
     margin-left: 0;
@@ -179,10 +210,9 @@
   &::file-selector-button {
     cursor: pointer;
   }
-  
+
   @media screen and (min-width: 768px) {
     width: 32px;
     height: 32px;
   }
 }
-
