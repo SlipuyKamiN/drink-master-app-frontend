@@ -9,6 +9,8 @@
   height: 100dvh;
 
   backdrop-filter: blur(4px);
+
+  overflow-y: scroll;
 }
 
 .modal {

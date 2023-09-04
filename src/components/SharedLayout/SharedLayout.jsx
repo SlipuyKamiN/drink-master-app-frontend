@@ -57,7 +57,7 @@ const SharedLayout = () => {
     }
 
     const quantityDay = Math.round(dataUser.sinceSignUp / 1000 / 60 / 60 / 24);
-    if (quantityDay >= 6 && quantityDay <= 8) {
+    if (quantityDay >= 10 && quantityDay <= 11) {
       setContentMotivation(
         `Wow! You have been using the application for ${quantityDay} days!`
       );
