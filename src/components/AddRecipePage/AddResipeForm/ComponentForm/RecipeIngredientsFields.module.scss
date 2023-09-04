@@ -40,7 +40,6 @@
   }
 
   &__wrapper {
-   
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -49,8 +48,6 @@
     @media screen and (min-width: 768px) {
       gap: 14px;
     }
-
-   
   }
 
   &__icon {
@@ -72,8 +69,8 @@
     background-color: inherit;
     text-align: center;
     border: none;
-    z-index: 1112;
     outline: none;
+    z-index: 1;
 
     @media screen and (min-width: 375px) {
       right: 63px;
@@ -82,7 +79,7 @@
     @media screen and (min-width: 768px) {
       font-size: 17px;
       line-height: 156%;
-      right: 60px;
+      right: 100px;
     }
   }
 
