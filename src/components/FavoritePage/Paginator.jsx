@@ -51,6 +51,7 @@ const Paginator = ({ pagesQty, params = {} }) => {
             }`}
             onClick={() => handleChangePage(buttonNumber)}
             name={buttonNumber}
+            disabled={buttons.length === 1}
             type="button"
           >
             {buttonNumber}
