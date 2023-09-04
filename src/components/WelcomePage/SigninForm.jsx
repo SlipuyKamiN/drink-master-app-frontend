@@ -11,8 +11,7 @@ import { signinSchema } from './signinSchema';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 const SigninForm = () => {
-  const [dispatch, { data, isLoading, isError }] = useSigninMutation();
-  console.log(data, isLoading, isError);
+  const [dispatch, { isLoading }] = useSigninMutation();
   const [hidePassword, setHidePassword] = useState(true);
 
   const {

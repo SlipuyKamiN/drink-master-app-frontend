@@ -1,6 +1,6 @@
 @import '../../styles/common/vars';
 .header {
-  border-bottom: 1px solid rgba($color: $primary-white-color, $alpha: 0.2);;
+  border-bottom: 1px solid rgba($color: $primary-white-color, $alpha: 0.2);
 }
 .wrapper {
   display: flex;
@@ -55,22 +55,54 @@
   flex-direction: column;
   // justify-content: center;
   // align-items: center;
-  
+
   width: 100vw;
-	height: 100vh;
+  height: 100vh;
   position: fixed;
-	top: 75px;
-	left: 0px;
+  top: 75px;
+  left: 0px;
   padding-top: 160px;
-  background-color: $main-bg-color;
+
   overflow: auto;
   z-index: 1000;
   transform: translateY(-150vh);
   transition: transform $transition-duration;
 
-  @media screen and (min-width:768px) {
+  background-image: radial-gradient(circle,
+        rgba(64, 112, 205, 0.5) -10%,
+        rgba(64, 112, 205, 0) 65%),
+      radial-gradient(circle,
+        rgba(188, 230, 210, 0.4) -51%,
+        rgba(188, 230, 210, 0) 70%),
+      radial-gradient(circle,
+        rgba(64, 112, 205, 0.5) -10%,
+        rgba(64, 112, 205, 0) 70%);
+  
+    background-color: $main-bg-color;
+    background-repeat: no-repeat;
+  
+    background-size: 620px 650px, 357px 347px, 549px 543px;
+    background-position-y: -170px, -70px, 370px;
+    background-position-x: -350px, 20px, 240px;
+
+  @media screen and (min-width: 768px) {
     top: 86px;
     padding-top: 256px;
+    
+    background-image: radial-gradient(
+        circle,
+        rgba(188, 230, 210, 0.4) -51%,
+        rgba(188, 230, 210, 0) 70%
+      ),
+      radial-gradient(
+        circle,
+        rgba(64, 112, 205, 0.5) -10%,
+        rgba(64, 112, 205, 0) 70%
+      );
+
+    background-size: 500px 490px, 549px 543px;
+    background-position-y: -70px, 400px;
+    background-position-x: -188px, 600px;;
   }
 }
 .visible {

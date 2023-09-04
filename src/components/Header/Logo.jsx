@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Logo = () => {
   return (
-    <Link to="/main" className={styles.link} >
+    <Link to="/" className={styles.link}>
       <SiteLogo className={styles.logoImg} />
       <p className={styles.logoText}>Drink Master</p>
     </Link>
@@ -12,4 +12,3 @@ const Logo = () => {
 };
 
 export default Logo;
-

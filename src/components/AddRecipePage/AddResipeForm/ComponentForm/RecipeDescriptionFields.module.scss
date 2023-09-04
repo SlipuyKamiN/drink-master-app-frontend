@@ -32,14 +32,13 @@
     font-family: 'Manrope', sans-serif;
     font-size: 14px;
     display: block;
-    max-width: 335px;
+    width: 100%;
     margin-bottom: 34px;
     color: $primary-white-color;
     letter-spacing: -0.28px;
     background-color: inherit;
     padding-bottom: 14px;
     border: none;
-    opacity: 0.5;
     letter-spacing: -0.28px;
     border-bottom: 1px solid rgba(243, 243, 243, 0.7);
     @media screen and (min-width: 375px) {
@@ -53,6 +52,10 @@
     }
     @media screen and (min-width: 1440px) {
       width: 393px;
+    }
+
+    &__::placeholder {
+      opacity: 0.5;
     }
   }
 }
@@ -164,9 +167,10 @@
   }
 
   &__img {
-    bottom: 100px;
+    bottom: 90px;
     left: 50%;
     transform: translateX(-50%);
+    text-align: center;
     @media screen and (min-width: 768px) {
       bottom: 105px;
       width: 170px;
