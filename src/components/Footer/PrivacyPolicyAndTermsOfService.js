@@ -1,6 +1,6 @@
 export const privacyPolicy = {
   title: 'Privacy Policy',
-  content: `Your privacy is important to us. This section outlines how we collect, use, process, and protect your personal data. This Privacy Policy applies to the use of our website, applications, and services, so please take a moment to read it.<br>
+  content: `Your privacy is important to us. This section outlines how we collect, use, process, and protect your personal data. This Privacy Policy applies to the use of our website, applications, and services, so please take a moment to read it.
 
 What personal data do we collect:
 We may collect various types of personal data that you voluntarily provide when interacting with our website, registering an account or filling out forms. This may include your name, email address, phone number and more.

@@ -17,13 +17,11 @@ const FooterModal = ({ title, content }) => {
       {isOpen && (
         <Modal className={styles.modal} toggleModal={toggleModal}>
           <section className={styles.section}>
-            {/* <button type="button" onClick={toggleModal}> */}
             <AiOutlineCloseCircle
               size={30}
               cursor="pointer"
               onClick={toggleModal}
             />
-            {/* </button> */}
             <p>{content}</p>
           </section>
         </Modal>
