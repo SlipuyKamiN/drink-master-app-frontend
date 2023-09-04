@@ -9,43 +9,9 @@ const UserLogoModal = ({ showModal, setShowModal }) => {
   const dropMenu = useRef(null);
 
   const handleEditProfileClick = () => {
-    setShowInfoModal(!showInfoModal);
-    setShowModal(false);
+    setShowInfoModal(prev => !prev);
+    setShowModal();
   };
-
-  const handleToggleModal = async event => {
-      console.log(showModal);
-
-    if (
-      dropMenu.current &&
-      !dropMenu.current.contains(event.target) 
-    ) {
-      if (showModal) {
-      await setShowModal(false);
-      console.log(showModal);
-      }
-      return;
-    }
-  };
-
-  // const handleToggleModal = event => {
-  //   const isEventModalControlElement =
-  //     event.target.dataset?.dropmenu || event.code === 'Escape';
-
-  //   if (isEventModalControlElement) {
-  //     console.log(event.target.dataset);
-  //     return;
-  //   }
-  // };
-
-  useEffect(() => {
-    window.addEventListener('keydown', handleToggleModal);
-    window.addEventListener('click', handleToggleModal);
-    return () => {
-      window.removeEventListener('keydown', handleToggleModal);
-      window.removeEventListener('click', handleToggleModal);
-    };
-  });
 
   return (
     <>
@@ -64,7 +30,7 @@ const UserLogoModal = ({ showModal, setShowModal }) => {
         <LogoutBtn />
       </div>
       {showInfoModal && (
-        <UserInfoModal toggleModalShown={handleEditProfileClick} />
+        <UserInfoModal  toggleModal={handleEditProfileClick}/>
       )}
     </>
   );
