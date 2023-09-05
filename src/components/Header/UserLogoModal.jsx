@@ -1,5 +1,5 @@
 import css from './UserLogoModal.module.scss';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { FiEdit2 } from 'react-icons/fi';
 import UserInfoModal from './UserInfoModal';
 import LogoutBtn from './LogoutBtn';
@@ -13,11 +13,21 @@ const UserLogoModal = ({ showModal, setShowModal }) => {
     setShowModal();
   };
 
+  useEffect(() => {
+    if (showInfoModal) {
+      document.body.classList.add('is-open');
+    }
+    if (!showInfoModal) {
+      document.body.classList.remove('is-open');
+    }
+  }, [showInfoModal]);
+
   return (
     <>
       <div
         className={`${css.modal} ${showModal ? css.visible : css.hidden}`}
-        ref={dropMenu} data-dropmenu
+        ref={dropMenu}
+        data-dropmenu
       >
         <button
           type="button"
@@ -29,9 +39,7 @@ const UserLogoModal = ({ showModal, setShowModal }) => {
         </button>
         <LogoutBtn />
       </div>
-      {showInfoModal && (
-        <UserInfoModal  toggleModal={handleEditProfileClick}/>
-      )}
+      {showInfoModal && <UserInfoModal toggleModal={handleEditProfileClick} />}
     </>
   );
 };
