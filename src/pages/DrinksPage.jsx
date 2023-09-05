@@ -4,109 +4,41 @@ import Container from 'components/Shared/Container';
 import DrinkPageTitle from 'components/DrinksPage/DrinkPageTitle';
 import { useSearchParams } from 'react-router-dom';
 import useWindowDimensions from '../hooks/useWindowDimensions';
-import { useCallback, useEffect, useState } from 'react';
 import { useSearchRecipesQuery } from '../redux/recipesSlice';
-import { useParams, useLocation } from 'react-router-dom';
-import { useGetCategoriesListQuery } from '../redux/recipesSlice';
 import Paginator from 'components/FavoritePage/Paginator';
 import ItemNotCocktails from 'components/FavoritePage/ItemNotCocktails';
 import scss from './DrinksPage.module.scss';
+import LoadingSpinner from 'components/Shared/LoadingSpinner';
 
 const DrinksPage = () => {
-  const location = useLocation();
-  const urlParams = new URLSearchParams(location.search);
-  const urlCategory = urlParams.get('category');
-  const { categoryName: category } = useParams();
-  const { data: categoryList } = useGetCategoriesListQuery();
-  const [query, setQuery] = useState('');
-  const [isFirstRender, setIsFirstRender] = useState(true);
-  const { data, isError } = useSearchRecipesQuery(query);
+  const [searchParams] = useSearchParams();
   const { width } = useWindowDimensions();
-  const [searchParams, setSearchParams] = useSearchParams({
-    category:
-      !category.replace('_', '/') || ''
-        ? 'All categories'
-        : category.replace('_', '/'),
-    limit: 10,
-    page: 1,
-  });
-  const getSearchParams = useCallback(() => {
-    return Object.fromEntries([...searchParams]);
-  }, [searchParams]);
+  const limit = width >= 1440 ? 9 : 10;
 
-  useEffect(() => {
-    if (categoryList && isFirstRender) {
-      if (!categoryList.includes(category)) {
-        setSearchParams({
-          ...getSearchParams(),
-          category:
-            !categoryList.includes(urlCategory) && 'All categories'
-              ? 'Cocktail'
-              : urlCategory,
-        });
-        setIsFirstRender(false);
-      }
-    }
-  }, [
-    categoryList,
-    isFirstRender,
-    category,
-    setSearchParams,
-    getSearchParams,
-    urlCategory,
-  ]);
+  const category = searchParams.get('category') || 'All categories';
+  const page = searchParams.get('page') || 1;
+  const ingredient = searchParams.get('ingredient') || '';
+  const search = searchParams.get('search') || '';
 
-  useEffect(() => {
-    if (category === 'All categories') {
-      setSearchParams({
-        ...getSearchParams(),
-        category: '',
-      });
-    }
-    setSearchParams({
-      ...getSearchParams(),
-      limit: width >= 1440 ? 9 : 10,
-    });
-  }, [setSearchParams, width, getSearchParams, category]);
-
-  const handleFilterChange = useCallback(
-    filter => {
-      setSearchParams({
-        ...getSearchParams(),
-        ...filter,
-      });
-    },
-    [getSearchParams, setSearchParams]
+  const { data, isError, isFetching } = useSearchRecipesQuery(
+    `?category=${category === 'All categories' ? '' : category}&${`ingredient=${
+      ingredient === 'All ingredients' ? '' : ingredient
+    }`}&limit=${limit}&page=${page}&${`search=${search}`}`
   );
 
-  useEffect(() => {
-    const {
-      search = '',
-      category,
-      ingredient = '',
-      limit,
-      page,
-    } = getSearchParams();
-    setQuery(
-      `?search=${search}&category=${
-        category === 'All categories' ? '' : category
-      }&ingredient=${
-        ingredient === 'All ingredients' ? '' : ingredient
-      }&limit=${limit}&page=${page}`
-    );
-  }, [getSearchParams]);
-
-  const pagesQty = Math.ceil(data?.totalHits / searchParams.get('limit'));
+  const pagesQty = Math.ceil(data?.totalHits / limit);
 
   return (
     <section className={scss.wrapper}>
       <Container>
         <DrinkPageTitle title="Drinks" />
-        <DrinksSearch onFilterChange={handleFilterChange} />
-        {!isError ? (
+        <DrinksSearch />
+        {isFetching ? (
+          <LoadingSpinner size={100} />
+        ) : !isError ? (
           <>
             <DrinksList cocktails={data} />
-            <Paginator pagesQty={pagesQty} params={{ ...getSearchParams() }} />
+            {pagesQty > 1 && <Paginator pagesQty={pagesQty} />}
           </>
         ) : (
           <ItemNotCocktails title={'No drinks were found'} />
