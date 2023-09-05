@@ -17,7 +17,6 @@ const UserLogoModal = ({ showModal, setShowModal }) => {
      if (event.target.dataset?.dropmenu || event.target.dataset?.dropbutton) {
         return
       } else if (event.code === 'Escape') {
-        // window.focus();
         setShowModal();
       } else {
         setShowModal();
