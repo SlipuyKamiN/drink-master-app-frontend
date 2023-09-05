@@ -8,6 +8,7 @@ import { useSearchRecipesQuery } from '../redux/recipesSlice';
 import Paginator from 'components/FavoritePage/Paginator';
 import ItemNotCocktails from 'components/FavoritePage/ItemNotCocktails';
 import scss from './DrinksPage.module.scss';
+import LoadingSpinner from 'components/Shared/LoadingSpinner';
 
 const DrinksPage = () => {
   const [searchParams] = useSearchParams();
@@ -19,7 +20,7 @@ const DrinksPage = () => {
   const ingredient = searchParams.get('ingredient') || '';
   const search = searchParams.get('search') || '';
 
-  const { data, isError } = useSearchRecipesQuery(
+  const { data, isError, isFetching } = useSearchRecipesQuery(
     `?category=${category === 'All categories' ? '' : category}&${`ingredient=${
       ingredient === 'All ingredients' ? '' : ingredient
     }`}&limit=${limit}&page=${page}&${`search=${search}`}`
@@ -32,7 +33,9 @@ const DrinksPage = () => {
       <Container>
         <DrinkPageTitle title="Drinks" />
         <DrinksSearch />
-        {!isError ? (
+        {isFetching ? (
+          <LoadingSpinner size={100} />
+        ) : !isError ? (
           <>
             <DrinksList cocktails={data} />
             {pagesQty > 1 && <Paginator pagesQty={pagesQty} />}
