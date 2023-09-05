@@ -34,7 +34,7 @@ const SignupForm = () => {
   });
 
   const onSubmit = ({ name, email, password }) => {
-    dispatch({ name, email, password })
+    dispatch({ name, email: email.toLowerCase(), password })
       .unwrap()
       .then(() => {
         login({ email, password });

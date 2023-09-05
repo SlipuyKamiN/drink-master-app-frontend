@@ -3,8 +3,6 @@ import Select from 'react-select';
 import { FiX, FiMinus, FiPlus } from 'react-icons/fi';
 import { useGetIngredientsListQuery } from 'redux/recipesSlice';
 
-
-
 const RecipeIngredientsFields = ({
   ingredients,
   quantity,
@@ -49,7 +47,7 @@ const RecipeIngredientsFields = ({
             type="button"
             onClick={reductionIngredient}
           >
-            <FiMinus className={scss.counter__icon} size='16px'/>
+            <FiMinus className={scss.counter__icon} size="16px" />
           </button>
           <p className={scss.counter__quantity}>{quantity}</p>
           <button
@@ -57,61 +55,68 @@ const RecipeIngredientsFields = ({
             type="button"
             onClick={addIngredient}
           >
-            <FiPlus className={scss.counter__icon} size='16px'/>
+            <FiPlus className={scss.counter__icon} size="16px" />
           </button>
         </div>
       </div>
       <ul>
-      {ingredients.map(({ id, amount, measurement, ingredient }) => (
-        <li key={id} className={scss.ingredients__thumb}>
-          <div className={scss.ingredients__wrapper}>
-          <Select
-            classNamePrefix="ingredient-select"
-            options={isIngredients ? ingredientsOptions() : []}
-            name="ingredient"
-            onChange={event =>
-              handleIngredientChange(id, 'ingredient', event.value)
-            }
-            placeholder="Ingredient"
-           
-          />
-  {isShowError && ingredient === '' && <p className={scss.error}>The field ingredient must be filled</p>}
-          <input
-            className={scss.ingredients__input}
-            type="text"
-            name="amount"
-            onChange={event =>
-              handleIngredientChange(id, event.target.name, event.target.value)
-            }
-            defaultValue='1'
-            required
-          />
+        {ingredients.map(({ id, amount, measurement, ingredient }) => (
+          <li key={id} className={scss.ingredients__thumb}>
+            <div className={scss.ingredients__wrapper}>
+              <Select
+                classNamePrefix="ingredient-select"
+                options={isIngredients ? ingredientsOptions() : []}
+                name="ingredient"
+                onChange={event =>
+                  handleIngredientChange(id, 'ingredient', event.value)
+                }
+                placeholder="Ingredient"
+              />
+              {isShowError && ingredient === '' && (
+                <p className={scss.error}>
+                  The field ingredient must be filled
+                </p>
+              )}
+              <input
+                className={scss.ingredients__input}
+                type="text"
+                name="amount"
+                onChange={event =>
+                  handleIngredientChange(
+                    id,
+                    event.target.name,
+                    event.target.value
+                  )
+                }
+                defaultValue="1"
+                required
+              />
 
-          <Select
-            classNamePrefix="amount-select"
-            options={options2}
-            name="measurement"
-            onChange={event =>
-              handleIngredientChange(id, 'measurement', event.value)
-            }
-            placeholder=""
-            defaultValue={options2[0]}
-            required
-          />
-          </div>
-          {ingredients.length !== 1 && (
-            <button
-              className={scss.ingredients__btn}
-              type="button"
-              onClick={() => {
-                removeIngredient(id);
-              }}
-            >
-              <FiX className={scss.ingridients__icon} size='18px'/>
-            </button>
-          )}
-        </li>
-      ))}
+              <Select
+                classNamePrefix="amount-select"
+                options={options2}
+                name="measurement"
+                onChange={event =>
+                  handleIngredientChange(id, 'measurement', event.value)
+                }
+                placeholder=""
+                defaultValue={options2[0]}
+                required
+              />
+            </div>
+            {ingredients.length !== 1 && (
+              <button
+                className={scss.ingredients__btn}
+                type="button"
+                onClick={() => {
+                  removeIngredient(id);
+                }}
+              >
+                <FiX className={scss.ingridients__icon} size="18px" />
+              </button>
+            )}
+          </li>
+        ))}
       </ul>
     </div>
   );

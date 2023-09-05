@@ -17,8 +17,8 @@
   font-weight: 600;
   border: 1px solid $primary-white-color;
   border-radius: 42px;
-  transition: all $transition-duration;
-  color: $secondary-bg-blue-color;
+  transition: color $transition-duration, border-color $transition-duration,
+    background-color $transition-duration;
 
   &:hover,
   &:focus {
@@ -34,4 +34,3 @@
     border-color: $disabled-blue-color;
   }
 }
-

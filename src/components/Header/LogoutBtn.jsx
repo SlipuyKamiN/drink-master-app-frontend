@@ -20,7 +20,7 @@ const LogoutBtn = () => {
         onClick={handleSignoutClick}
         disabled={isLoading || isDisabled}
       >
-        {isLoading ? <LoadingSpinner size={40} /> : 'Log out'}
+        {isLoading ? <LoadingSpinner size={30} /> : 'Log out'}
       </button>
     </>
   );

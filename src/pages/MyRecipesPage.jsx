@@ -29,10 +29,10 @@ const MyRecipesPage = () => {
       setSearchParams({ page: 1 });
       return;
     }
-  }, [searchParams, setSearchParams,]);
+  }, [searchParams, setSearchParams]);
 
-  if (isLoading) return <LoadingSpinner />;
-  
+  if (isLoading) return <LoadingSpinner size={100} />;
+
   const handleDeleteRecipes = id => {
     deleteMyRecipe(id)
       .unwrap()
@@ -49,13 +49,14 @@ const MyRecipesPage = () => {
     <section className={scss.wraper}>
       <Container>
         <MainTitle title={title} style={{ padding: '0' }} />
-        {data?.totalHits && !isError
-          ? (<>
+        {data?.totalHits && !isError ? (
+          <>
             <RecipesList data={data} removeResipes={handleDeleteRecipes} />
             {pagesQty > 1 && <Paginator pagesQty={pagesQty} />}
-          </>)
-          : <ItemNotCocktails title={"You haven't created any recipes yet"} />
-        }
+          </>
+        ) : (
+          <ItemNotCocktails title={"You haven't created any recipes yet"} />
+        )}
       </Container>
     </section>
   );

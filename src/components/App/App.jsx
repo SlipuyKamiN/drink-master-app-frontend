@@ -43,7 +43,7 @@ const App = () => {
           element={<RestrictedRoute component={SigninPage} />}
         />
         <Route path="/" element={<PrivateRoute component={SharedLayout} />}>
-          <Route index element={<MainPage />} />{' '}
+          <Route index element={<MainPage />} />
           <Route
             path="/drinks/"
             element={<Navigate to={'/drinks/All categories'} />}

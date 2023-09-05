@@ -19,8 +19,8 @@ const SubscribeForm = () => {
     resolver: yupResolver(validationSchema),
   });
 
-  const formSubmit = data => {
-    dispatch(data)
+  const formSubmit = ({ email }) => {
+    dispatch({ email: email.toLowerCase() })
       .unwrap()
       .then(() => {
         reset({ email: '' });

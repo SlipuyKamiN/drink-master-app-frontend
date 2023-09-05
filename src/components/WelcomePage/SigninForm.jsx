@@ -25,8 +25,8 @@ const SigninForm = () => {
     resolver: yupResolver(signinSchema),
   });
 
-  const onSubmit = data => {
-    dispatch(data)
+  const onSubmit = ({ email, password }) => {
+    dispatch({ email: email.toLowerCase(), password })
       .unwrap()
       .then(() => {
         reset();
