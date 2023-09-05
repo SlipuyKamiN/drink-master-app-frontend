@@ -51,6 +51,13 @@
   font-family: inherit;
   color: inherit;
   background-color: transparent;
+  transition: color $transition-duration, background-color $transition-duration,
+    border-color $transition-duration;
+
+  &:hover,
+  &:focus {
+    color: $primary-white-color;
+  }
 }
 
 .modalBtn {
@@ -68,6 +75,9 @@
   font-style: normal;
   font-weight: 600;
   line-height: 18px;
+
+  transition: color $transition-duration, background-color $transition-duration,
+    border-color $transition-duration;
 }
 
 .modalBtn:hover,

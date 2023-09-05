@@ -15,22 +15,20 @@ const Header = () => {
 
   const handleMobileToggle = () => {
     setMobilMenuVisible(!mobileMenuVisible);
-    
   };
 
   const handleNavClick = event => {
     if (event.target.tagName === 'A') {
-      console.log(event.target.tagName);
       handleMobileToggle();
     }
   };
 
   useEffect(() => {
     if (mobileMenuVisible) {
-      document.body.style.overflow = 'hidden';
+      document.body.classList.add('is-open');
     }
     if (!mobileMenuVisible) {
-      document.body.style.overflow = 'unset';
+      document.body.classList.remove('is-open');
     }
   }, [mobileMenuVisible]);
 
