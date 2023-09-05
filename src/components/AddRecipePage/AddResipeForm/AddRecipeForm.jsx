@@ -68,7 +68,7 @@ const AddRecipeForm = () => {
 
   const reductionIngredient = () => {
     if (quantity === 1) {
-      return notification('Must have at leastone ingredient');
+      return notification('Must have at least one ingredient');
     }
     setQuantity(prev => prev - 1);
     setIngredients(prev => prev.slice(0, prev.length - 1));

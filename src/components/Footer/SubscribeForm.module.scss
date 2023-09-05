@@ -27,7 +27,7 @@
 .subscribeFormInput {
   height: 56px;
   border-radius: 200px;
-  border: 1px solid rgb(243, 243, 243, 0.2);
+  border: 1px solid rgb($primary-white-color, 0.2);
   background-color: inherit;
   color: $primary-white-color;
   padding-left: 24px;
@@ -37,7 +37,7 @@
 
   @media screen and (min-width: 768px) {
     font-size: 17px;
-    line-height: 156%; /* 26.52px */
+    line-height: 156%;
     width: 100%;
   }
 }
@@ -67,8 +67,7 @@
   height: 56px;
   flex-shrink: 0;
   border-radius: 200px;
-  border: 1px solid rgb(243, 243, 243, 0.2);
-  // opacity: 0.2;
+  border: 1px solid rgba($primary-white-color, 0.2);
   color: $primary-white-color;
   background-color: inherit;
   text-align: center;
@@ -77,9 +76,12 @@
   font-weight: 600;
   line-height: 18px;
 
+  transition: background-color $transition-duration, color $transition-duration,
+    border-color $transition-duration;
+
   @media screen and (min-width: 768px) {
     font-size: 17px;
-    line-height: 156%; /* 26.52px */
+    line-height: 156%;
   }
 }
 
@@ -89,13 +91,13 @@
   color: $primary-white-color;
 }
 .subscribeButton:active {
-  border: 2px solid rgba(64, 112, 205, 0.5);
+  border: 2px solid rgba($main-blue-color, 0.5);
   background: $primary-white-color;
   color: $secondary-bg-blue-color;
 }
 .subscribeButton:disabled {
   background: $disabled-blue-color;
-  color: rgba(243, 243, 243, 0.2);
+  color: rgba($primary-white-color, 0.2);
 }
 
 .errorText {

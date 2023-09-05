@@ -25,7 +25,7 @@ const App = () => {
 
   const { isLoading } = useCurrentUserQuery('', { skip });
 
-  if (isLoading) return <LoadingSpinner size={150} />;
+  if (isLoading) return <LoadingSpinner size={100} />;
 
   return (
     <>
