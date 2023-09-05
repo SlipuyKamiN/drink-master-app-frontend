@@ -40,7 +40,8 @@
 
 ## Команда розробників
 
-[Михайло Фисюк](https://github.com/SlipuyKamiN),
+[![vbhvghg](https://res.cloudinary.com/dsnmulvwe/image/upload/v1693936565/%D0%91%D0%B5%D0%B7_%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8-1_lwmcvc.png)](https://github.com/SlipuyKamiN)
+
 [Віктор Починок](https://github.com/VitekVP),
 [Марія Стецюк](https://github.com/mariastetciuk),
 [Віталій Коростильов](https://github.com/aslanukr),
@@ -56,4 +57,10 @@
 
 ## Технології
 
-### HTML, CSS, SASS, JS, React, Redux Toolkit, GitHub
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)
+![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
