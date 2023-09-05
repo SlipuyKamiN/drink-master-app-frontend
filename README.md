@@ -40,18 +40,17 @@
 
 ## Команда розробників
 
-[![vbhvghg](https://res.cloudinary.com/dsnmulvwe/image/upload/v1693936565/%D0%91%D0%B5%D0%B7_%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8-1_lwmcvc.png)](https://github.com/SlipuyKamiN)
-
-[Віктор Починок](https://github.com/VitekVP),
-[Марія Стецюк](https://github.com/mariastetciuk),
-[Віталій Коростильов](https://github.com/aslanukr),
-[Павло Туржанський](https://github.com/PashkaTurzhanskyi),
-[Катерина Хаєцька](https://github.com/Khayetska),
-[Наталія Шевченко](https://github.com/Nataliia-Shevchenko),
-[Станіслав Гусєв](https://github.com/Bad-Raider),
-[Олексій Ковальов](https://github.com/alex-k22),
-[Андрій Шиманюк](https://github.com/Andrii-Sh),
-[Тарас Дерев'янко](https://github.com/TarasDer),
+[![Михайло Фесюк](https://res.cloudinary.com/dsnmulvwe/image/upload/v1693936565/%D0%91%D0%B5%D0%B7_%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8-1_lwmcvc.png)](https://github.com/SlipuyKamiN)
+[![Віктор Починок](https://res.cloudinary.com/dsnmulvwe/image/upload/v1693938228/2_es3ctz.png)](https://github.com/VitekVP)
+[![Марія Стецюк](https://res.cloudinary.com/dsnmulvwe/image/upload/v1693938890/3_kq2xvr.png)](https://github.com/mariastetciuk)
+[![Павло Туржанський](https://res.cloudinary.com/dsnmulvwe/image/upload/v1693938892/5_yk33xy.png)](https://github.com/PashkaTurzhanskyi)
+[![Катерина Хаєцька](https://res.cloudinary.com/dsnmulvwe/image/upload/v1693938893/6_zzbjyt.png)](https://github.com/Khayetska)
+[![Станіслав Гусєв](https://res.cloudinary.com/dsnmulvwe/image/upload/v1693938896/8_bk9ya7.png)](https://github.com/Bad-Raider)
+[![Олексій Ковальов](https://res.cloudinary.com/dsnmulvwe/image/upload/v1693938897/9_jvdcf2.png)](https://github.com/alex-k22)
+[![Андрій Шиманюк](https://res.cloudinary.com/dsnmulvwe/image/upload/v1693938899/10_eirjdk.png)](https://github.com/Andrii-Sh)
+[![Тарас Дерев'янко](https://res.cloudinary.com/dsnmulvwe/image/upload/v1693938900/11_swvxdi.png)](https://github.com/TarasDer)
+[![Наталія Шевченко](https://res.cloudinary.com/dsnmulvwe/image/upload/v1693938895/7_ufjnfz.png)](https://github.com/Nataliia-Shevchenko)
+[![Віталій Коростильов](https://res.cloudinary.com/dsnmulvwe/image/upload/v1693938891/4_swmfcf.png)](https://github.com/aslanukr)
 
 ---
 
