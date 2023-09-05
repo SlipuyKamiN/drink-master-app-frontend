@@ -17,13 +17,21 @@ const UserLogoModal = ({ showModal, setShowModal }) => {
      if (event.target.dataset?.dropmenu || event.target.dataset?.dropbutton) {
         return
       } else if (event.code === 'Escape') {
-        window.focus();
-        console.log("esc")
+        // window.focus();
         setShowModal();
       } else {
         setShowModal();
       }
   };
+
+  useEffect(() => {
+    if (showInfoModal) {
+      document.body.classList.add('is-open');
+    }
+    if (!showInfoModal) {
+      document.body.classList.remove('is-open');
+    }
+  }, [showInfoModal]);
 
   useEffect(() => {
     window.addEventListener('keydown', handleToggleModal);
@@ -38,7 +46,8 @@ const UserLogoModal = ({ showModal, setShowModal }) => {
     <>
       <div
         className={`${css.modal} ${showModal ? css.visible : css.hidden}`}
-        ref={dropMenu} data-dropmenu
+        ref={dropMenu}
+        data-dropmenu
       >
         <button
           type="button"
@@ -50,9 +59,7 @@ const UserLogoModal = ({ showModal, setShowModal }) => {
         </button>
         <LogoutBtn />
       </div>
-      {showInfoModal && (
-        <UserInfoModal  toggleModal={handleEditProfileClick}/>
-      )}
+      {showInfoModal && <UserInfoModal toggleModal={handleEditProfileClick} />}
     </>
   );
 };

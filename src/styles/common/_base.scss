@@ -4,7 +4,6 @@
 
 body {
   margin: 0;
-  margin-right: calc(-1 * (100vw - 100%));
   font-family: 'Manrope', sans-serif;
   font-size: 14px;
   font-weight: 400;
@@ -15,11 +14,21 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-y: scroll;
-  overflow-x: hidden;
 
   @media screen and (min-width: 768px) {
     font-size: 16px;
     line-height: 1.37;
+  }
+
+  &.is-open {
+    padding-right: calc(-1 * (100vw - 100%));
+    overflow-y: hidden;
+  }
+
+  @media screen and (min-width: 1440px) {
+    &.is-open {
+      padding-right: 10px;
+    }
   }
 }
 

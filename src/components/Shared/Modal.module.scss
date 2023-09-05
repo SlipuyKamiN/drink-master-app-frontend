@@ -4,7 +4,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 102;
+  z-index: 23;
 
   width: 100dvw;
   height: 100dvh;
@@ -20,8 +20,6 @@
   left: 50%;
   transform: translate(-50%, -50%);
 
-  max-width: 335px;
-  width: 100%;
   max-height: 80%;
   overflow-y: auto;
 
@@ -34,10 +32,4 @@
 
     border-radius: 30px;
   }
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: #800808; /* Цвет ползунка */
-  border-radius: 5px; /* Скругление углов ползунка */
-  height: 50px;
 }

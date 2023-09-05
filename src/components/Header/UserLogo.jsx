@@ -20,18 +20,25 @@ const UserLogo = () => {
   };
 
   return (
-      <div className={css.userWrapper}>
-        <button className={css.btn} type="button" onClick={handleShowModal} data-dropbutton>
-          <img
-            src={avatarURL}
-            alt="User icon"
-            className={css.img}
-            data-dropbutton
-          />
-          <p className={css.text} data-dropbutton>{name}</p>
-        </button>
-        <UserLogoModal showModal={showModal} setShowModal={setShowModal}/>
-      </div>
+    <div className={css.userWrapper}>
+      <button
+        className={css.btn}
+        type="button"
+        onClick={handleShowModal}
+        data-dropbutton
+      >
+        <img
+          src={avatarURL}
+          alt="User icon"
+          className={css.img}
+          data-dropbutton
+        />
+        <p className={css.text} data-dropbutton>
+          {name}
+        </p>
+      </button>
+      <UserLogoModal showModal={showModal} setShowModal={setShowModal} />
+    </div>
   );
 };
 
