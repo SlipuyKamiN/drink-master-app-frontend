@@ -3,11 +3,21 @@ import scss from './Nav.module.scss';
 
 const Nav = () => {
   return (
-    <nav className={scss.navigate}>
-      <Link to="/drinks">Drinks</Link>
-      <Link to="/add">Add recipes</Link>
-      <Link to="/my">My recipes</Link>
-      <Link to="/favorite">Favorites</Link>
+    <nav>
+      <ul className={scss.navigate}>
+        <li>
+          <Link to="/drinks">Drinks</Link>
+        </li>
+        <li>
+          <Link to="/add">Add recipes</Link>
+        </li>
+        <li>
+          <Link to="/my">My recipes</Link>
+        </li>
+        <li>
+          <Link to="/favorite">Favorites</Link>
+        </li>
+      </ul>
     </nav>
   );
 };

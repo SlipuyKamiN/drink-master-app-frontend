@@ -75,6 +75,8 @@
   font-style: normal;
   font-weight: 600;
   line-height: 18px;
+  transition: color $transition-duration, background-color $transition-duration,
+    border $transition-duration;
 
   transition: background-color $transition-duration, color $transition-duration,
     border-color $transition-duration;
@@ -105,4 +107,5 @@
   color: $error-red-color;
   font-size: 12px;
   line-height: 1.16;
+  padding-left: 24px;
 }
