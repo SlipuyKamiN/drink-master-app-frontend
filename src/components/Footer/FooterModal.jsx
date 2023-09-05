@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Modal from 'components/Shared/Modal';
 import styles from './FooterModal.module.scss';
 
@@ -8,8 +8,17 @@ const FooterModal = ({ title, content }) => {
     setIsopen(prev => !prev);
   };
 
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add('is-open');
+    }
+    if (!isOpen) {
+      document.body.classList.remove('is-open');
+    }
+  }, [isOpen]);
+
   return (
-    <div>
+    <li>
       <button type="button" className={styles.btn} onClick={toggleModal}>
         {title}
       </button>
@@ -17,8 +26,8 @@ const FooterModal = ({ title, content }) => {
         <Modal className={styles.modal} toggleModal={toggleModal}>
           <section className={styles.section}>
             <ul>
-              {content.split('\n').map(item => (
-                <li>
+              {content.split('\n').map((item, index) => (
+                <li key={item + index}>
                   <p>{item}</p>
                   <br />
                 </li>
@@ -34,7 +43,7 @@ const FooterModal = ({ title, content }) => {
           </section>
         </Modal>
       )}
-    </div>
+    </li>
   );
 };
 

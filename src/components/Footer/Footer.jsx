@@ -26,7 +26,7 @@ const Footer = () => {
         </div>
         <div className={styles.bottomString}>
           <p>©2023 Drink Master. All rights reserved.</p>
-          <div className={styles.privacyAndTerms}>
+          <ul className={styles.privacyAndTerms}>
             <FooterModal
               title={privacyPolicy.title}
               content={privacyPolicy.content}
@@ -35,7 +35,7 @@ const Footer = () => {
               title={termsOfService.title}
               content={termsOfService.content}
             />
-          </div>
+          </ul>
         </div>
       </Container>
     </footer>
