@@ -1,5 +1,5 @@
 import css from './UserLogoModal.module.scss';
-import { useState, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { FiEdit2 } from 'react-icons/fi';
 import UserInfoModal from './UserInfoModal';
 import LogoutBtn from './LogoutBtn';
@@ -12,6 +12,27 @@ const UserLogoModal = ({ showModal, setShowModal }) => {
     setShowInfoModal(prev => !prev);
     setShowModal();
   };
+
+    const handleToggleModal = event => {
+     if (event.target.dataset?.dropmenu || event.target.dataset?.dropbutton) {
+        return
+      } else if (event.code === 'Escape') {
+        window.focus();
+        console.log("esc")
+        setShowModal();
+      } else {
+        setShowModal();
+      }
+  };
+
+  useEffect(() => {
+    window.addEventListener('keydown', handleToggleModal);
+    window.addEventListener('click', handleToggleModal);
+    return () => {
+      window.removeEventListener('keydown', handleToggleModal);
+      window.removeEventListener('click', handleToggleModal);
+    };
+  });
 
   return (
     <>
