@@ -41,16 +41,32 @@ const DrinksSearch = () => {
   }
 
   useEffect(() => {
+    if (
+      categoryList &&
+      !category &&
+      categoryFromLink &&
+      categoryFromLink !== 'All categories' &&
+      !categoryList.includes(categoryFromLink)
+    ) {
+      handleSetSearchtParams('category', 'All categories');
+      return;
+    }
+
     if (!category && categoryFromLink === 'All categories') {
       handleSetSearchtParams('category', 'All categories');
       return;
     }
 
-    if (!category && categoryFromLink) {
+    if (
+      categoryList &&
+      !category &&
+      categoryFromLink &&
+      categoryList.includes(categoryFromLink)
+    ) {
       handleSetSearchtParams('category', categoryFromLink);
       return;
     }
-  }, [categoryFromLink, handleSetSearchtParams, category]);
+  }, [categoryFromLink, handleSetSearchtParams, category, categoryList]);
 
   const selectStyles = {
     option: (provided, state) => ({
