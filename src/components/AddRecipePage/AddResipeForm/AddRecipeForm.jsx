@@ -51,6 +51,7 @@ const AddRecipeForm = () => {
     setInstructions(lines);
   };
 
+  const clearImage = () => setSelectedImage(null);
   const addIngredient = () => {
     setQuantity(prev => prev + 1);
 
@@ -132,6 +133,7 @@ const AddRecipeForm = () => {
           glass,
           isShowError,
         }}
+        clearImage={clearImage}
       />
       <RecipeIngredientsFields
         ingredients={ingredients}

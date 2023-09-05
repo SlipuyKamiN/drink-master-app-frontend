@@ -1,19 +1,24 @@
 import css from './UserLogoModal.module.scss';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { FiEdit2 } from 'react-icons/fi';
 import UserInfoModal from './UserInfoModal';
 import LogoutBtn from './LogoutBtn';
 
-const UserLogoModal = () => {
+const UserLogoModal = ({ showModal, setShowModal }) => {
   const [showInfoModal, setShowInfoModal] = useState(false);
+  const dropMenu = useRef(null);
 
   const handleEditProfileClick = () => {
-    setShowInfoModal(!showInfoModal);
- };
+    setShowInfoModal(prev => !prev);
+    setShowModal();
+  };
 
-return (
+  return (
     <>
-      <div className={css.modal}>
+      <div
+        className={`${css.modal} ${showModal ? css.visible : css.hidden}`}
+        ref={dropMenu} data-dropmenu
+      >
         <button
           type="button"
           className={css.btn}
@@ -25,7 +30,7 @@ return (
         <LogoutBtn />
       </div>
       {showInfoModal && (
-        <UserInfoModal toggleModalShown={handleEditProfileClick} />
+        <UserInfoModal  toggleModal={handleEditProfileClick}/>
       )}
     </>
   );

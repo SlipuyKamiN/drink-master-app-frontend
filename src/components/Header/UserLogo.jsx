@@ -7,21 +7,28 @@ const UserLogo = () => {
   const { name, avatarURL } = useSelector(({ user }) => user);
   const [showModal, setShowModal] = useState(false);
 
-  const handleShowModal = () => {
-    setShowModal(!showModal);
+  const handleShowModal = async () => {
+    if (!showModal) {
+      await setShowModal(true);
+    }
+    else {
+      await setShowModal(false);
+    }
+    
   };
 
   return (
       <div className={css.userWrapper}>
-        <button className={css.btn} type="button" onClick={handleShowModal}>
+        <button className={css.btn} type="button" onClick={handleShowModal} data-dropbutton>
           <img
             src={avatarURL}
             alt="User icon"
             className={css.img}
+            data-dropbutton
           />
-          <p className={css.text}>{name}</p>
+          <p className={css.text} data-dropbutton>{name}</p>
         </button>
-        {showModal && <UserLogoModal />}
+        <UserLogoModal showModal={showModal} setShowModal={setShowModal}/>
       </div>
   );
 };

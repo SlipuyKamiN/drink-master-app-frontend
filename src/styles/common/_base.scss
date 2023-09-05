@@ -4,6 +4,7 @@
 
 body {
   margin: 0;
+  margin-right: calc(-1 * (100vw - 100%));
   font-family: 'Manrope', sans-serif;
   font-size: 14px;
   font-weight: 400;
@@ -14,6 +15,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-y: scroll;
+  overflow-x: hidden;
 
   @media screen and (min-width: 768px) {
     font-size: 16px;

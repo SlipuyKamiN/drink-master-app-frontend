@@ -4,6 +4,11 @@ import Nav from './Nav';
 import SubscribeForm from './SubscribeForm';
 import Logo from 'components/Header/Logo';
 import styles from './Footer.module.scss';
+import FooterModal from './FooterModal';
+import {
+  termsOfService,
+  privacyPolicy,
+} from './PrivacyPolicyAndTermsOfService';
 
 const Footer = () => {
   return (
@@ -22,8 +27,14 @@ const Footer = () => {
         <div className={styles.bottomString}>
           <p>©2023 Drink Master. All rights reserved.</p>
           <div className={styles.privacyAndTerms}>
-            <p>Privacy Policy</p>
-            <p>Terms of Service</p>
+            <FooterModal
+              title={privacyPolicy.title}
+              content={privacyPolicy.content}
+            />
+            <FooterModal
+              title={termsOfService.title}
+              content={termsOfService.content}
+            />
           </div>
         </div>
       </Container>

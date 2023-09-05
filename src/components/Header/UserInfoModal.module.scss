@@ -2,6 +2,7 @@
 
 .wrapper {
   position: relative;
+  width: 335px;
   padding: 50px 25px;
   border-radius: 16px;
 
@@ -25,6 +26,7 @@
 
   @media screen and (min-width: 768px) {
     padding: 50px 50px 75px 50px;
+    width: 500px;
 
     background-image: radial-gradient(
         circle,
