@@ -8,7 +8,7 @@
   align-items: center;
   padding-top: 20px;
   padding-bottom: 20px;
-  z-index: 101;
+  z-index: 21;
 
   @media screen and (min-width: 1440px) {
     padding-top: 22.5px;
@@ -53,8 +53,6 @@
 .mobile {
   display: flex;
   flex-direction: column;
-  // justify-content: center;
-  // align-items: center;
 
   width: 100vw;
   height: 100vh;
@@ -64,31 +62,37 @@
   padding-top: 160px;
 
   overflow: auto;
-  z-index: 1000;
+  z-index: 20;
   transform: translateY(-150vh);
   transition: transform $transition-duration;
 
-  background-image: radial-gradient(circle,
-        rgba(64, 112, 205, 0.5) -10%,
-        rgba(64, 112, 205, 0) 65%),
-      radial-gradient(circle,
-        rgba(188, 230, 210, 0.4) -51%,
-        rgba(188, 230, 210, 0) 70%),
-      radial-gradient(circle,
-        rgba(64, 112, 205, 0.5) -10%,
-        rgba(64, 112, 205, 0) 70%);
-  
-    background-color: $main-bg-color;
-    background-repeat: no-repeat;
-  
-    background-size: 620px 650px, 357px 347px, 549px 543px;
-    background-position-y: -170px, -70px, 370px;
-    background-position-x: -350px, 20px, 240px;
+  background-image: radial-gradient(
+      circle,
+      rgba(64, 112, 205, 0.5) -10%,
+      rgba(64, 112, 205, 0) 65%
+    ),
+    radial-gradient(
+      circle,
+      rgba(188, 230, 210, 0.4) -51%,
+      rgba(188, 230, 210, 0) 70%
+    ),
+    radial-gradient(
+      circle,
+      rgba(64, 112, 205, 0.5) -10%,
+      rgba(64, 112, 205, 0) 70%
+    );
+
+  background-color: $main-bg-color;
+  background-repeat: no-repeat;
+
+  background-size: 620px 650px, 357px 347px, 549px 543px;
+  background-position-y: -170px, -70px, 370px;
+  background-position-x: -350px, 20px, 240px;
 
   @media screen and (min-width: 768px) {
     top: 86px;
     padding-top: 256px;
-    
+
     background-image: radial-gradient(
         circle,
         rgba(188, 230, 210, 0.4) -51%,
@@ -102,7 +106,7 @@
 
     background-size: 500px 490px, 549px 543px;
     background-position-y: -70px, 400px;
-    background-position-x: -188px, 600px;;
+    background-position-x: -188px, 600px;
   }
 }
 .visible {

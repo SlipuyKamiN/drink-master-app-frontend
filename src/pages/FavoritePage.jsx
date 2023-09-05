@@ -5,7 +5,7 @@ import LoadingSpinner from 'components/Shared/LoadingSpinner';
 import Container from 'components/Shared/Container';
 import useWindowDimensions from 'hooks/useWindowDimensions';
 import { useEffect } from 'react';
-import { useSearchParams, useNavigate } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import {
   useGetFavoritesQuery,
   useToggleFavoriteMutation,
@@ -21,9 +21,8 @@ const FavoritePage = () => {
     `?page=${searchParams.get('page')}&limit=${limit}`
   );
   const [toggleFavorite] = useToggleFavoriteMutation();
-  const pagesQty = Math.ceil(data?.totalHits / limit);
+  const pagesQty = data ? Math.ceil(data?.totalHits / limit) : 1;
   const title = 'Favorites';
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (!searchParams.get('page')) {
@@ -33,7 +32,6 @@ const FavoritePage = () => {
   }, [searchParams, setSearchParams]);
 
   if (isLoading) return <LoadingSpinner />;
-  if (isError && !data) return navigate('/404Page');
 
   const removeFavorite = id => {
     toggleFavorite(id)
@@ -51,16 +49,14 @@ const FavoritePage = () => {
     <section className={scss.wraper}>
       <Container>
         <MainTitle title={title} style={{ padding: '0' }} />
-        {data?.totalHits && !isError ? (
-          <>
+        {data?.totalHits && !isError
+          ? (<>
             <RecipesList data={data} removeResipes={removeFavorite} />
-            <Paginator pagesQty={pagesQty} />
-          </>
-        ) : (
-          <ItemNotCocktails
-            title={"You haven't added any favorite cocktails yet"}
-          />
-        )}
+            {pagesQty > 1 && <Paginator pagesQty={pagesQty} />}
+          </>)
+          :
+          <ItemNotCocktails title={"You haven't added any favorite cocktails yet"} />
+        }
       </Container>
     </section>
   );

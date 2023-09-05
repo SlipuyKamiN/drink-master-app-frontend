@@ -4,9 +4,12 @@
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 23;
 
   width: 100dvw;
   height: 100dvh;
+
+  padding: 0 20px;
 
   backdrop-filter: blur(4px);
 }
@@ -17,15 +20,15 @@
   left: 50%;
   transform: translate(-50%, -50%);
 
-  max-width: 335px;
+  max-height: 80%;
+  overflow-y: auto;
 
   border-radius: 16px;
 
   background-color: $main-bg-color;
 
   @media screen and (min-width: 768px) {
-    // max-width: none;
-    max-width: 500px;
+    max-width: 900px;
 
     border-radius: 30px;
   }
