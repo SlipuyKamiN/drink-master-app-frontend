@@ -9,7 +9,7 @@ const SharedLayout = () => {
   return (
     <div className={styles.wrapper}>
       <Header />
-      <main>
+      <main className={styles.main}>
         <Suspense fallback={<LoadingSpinner size={150} />}>
           <Outlet />
         </Suspense>

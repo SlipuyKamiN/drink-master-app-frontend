@@ -29,7 +29,7 @@ const PreviewDrinks = () => {
   const { data, isLoading, isError } = useGetMainPageRecipesQuery('');
 
   if (!data || isLoading) {
-    return <LoadingSpinner size={60} />;
+    return <LoadingSpinner size={100} />;
   }
 
   if (isError) {

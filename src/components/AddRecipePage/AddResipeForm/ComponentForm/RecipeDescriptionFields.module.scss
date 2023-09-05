@@ -77,12 +77,8 @@
     cursor: pointer;
     opacity: 0;
     @media screen and (min-width: 768px) {
-      // left: 135px;
       font-size: 16px;
       letter-spacing: -0.32px;
-    }
-    @media screen and (min-width: 1440px) {
-      //  left: 175px;
     }
   }
 
@@ -97,12 +93,9 @@
     pointer-events: none;
     z-index: 2;
     border-radius: 6px;
-    @media screen and (min-width: 768px) {
-      // left: 135px;
-    }
+
     @media screen and (min-width: 1440px) {
       top: 150px;
-      // left: 175px;
     }
   }
 
@@ -115,11 +108,8 @@
     font-weight: 500;
     line-height: calc(20 / 16);
     color: $primary-white-color;
-    @media screen and (min-width: 768px) {
-      //  left: 118px;
-    }
+
     @media screen and (min-width: 1440px) {
-      // left: 160px;
       bottom: 156px;
     }
   }
@@ -142,10 +132,12 @@
     right: -10px;
     top: -10px;
     background-color: $disabled-blue-color;
-    padding: 1px 2px;
+    padding: 2px 2px;
     border: none;
     border-radius: 50%;
     transition: background-color $transition-duration;
+
+    line-height: 0.5;
 
     &:hover,
     &:focus {
@@ -156,7 +148,7 @@
 
 .error {
   position: absolute;
-  color: red;
+  color: $error-red-color;
   font-size: 12px;
 
   &__drink {

@@ -35,7 +35,10 @@
   border: none;
   font-weight: 600;
   color: $secondary-bg-blue-color;
-  transition: color $transition-duration, background-color $transition-duration;
+  transition: color $transition-duration, background-color $transition-duration,
+    border-color $transition-duration;
+  border: 2px solid transparent;
+
   @media screen and (min-width: 768px) {
     padding: 18px 44px;
     font-size: 16px;
@@ -43,7 +46,7 @@
   }
 
   &:active {
-    border: 2px solid rgba(64, 112, 205, 0.5);
+    border: 2px solid rgba($main-blue-color, 0.5);
   }
 
   &:hover,

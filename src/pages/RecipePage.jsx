@@ -14,7 +14,7 @@ const RecipePage = () => {
   if (isError) notification();
 
   if (!data || isLoading) {
-    return <LoadingSpinner size={200} />;
+    return <LoadingSpinner size={100} />;
   }
 
   return (

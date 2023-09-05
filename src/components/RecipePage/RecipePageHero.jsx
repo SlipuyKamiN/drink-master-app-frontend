@@ -54,7 +54,7 @@ const RecipePageHero = ({ recipe }) => {
               <a
                 href={recipe.video}
                 target="_blank"
-                rel="noreferrer"
+                rel="noreferrer noopener"
                 className={videoLink}
               >
                 Click to see a video instruction

@@ -1,7 +1,9 @@
+@import '../../styles/common/vars';
+
 .footer {
   padding-top: 40px;
   padding-bottom: 18px;
-  border-top: 1px solid rgba(243, 243, 243, 0.2);
+  border-top: 1px solid rgba($primary-white-color, 0.2);
 
   @media screen and (min-width: 768px) {
     padding-top: 80px;
@@ -41,7 +43,7 @@
   justify-content: space-between;
   flex-direction: column;
   gap: 8px;
-  color: rgba(243, 243, 243, 0.5);
+  color: rgba($primary-white-color, 0.5);
   font-size: 12px;
   line-height: 16px;
   letter-spacing: -0.24px;
