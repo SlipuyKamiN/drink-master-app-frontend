@@ -1,15 +1,12 @@
 import { useState } from 'react';
-import { useLogoutMutation } from 'redux/authSlice';
 import css from './LogoutBtn.module.scss';
-import LoadingSpinner from 'components/Shared/LoadingSpinner';
+import UserLogoutModal from './UserLogoutModal';
 
 const LogoutBtn = () => {
-  const [dispatch, { isLoading }] = useLogoutMutation();
-  const [isDisabled, setIsDisabled] = useState(false);
+const [showLogoutModal, setShowLogoutModal] = useState(false);
 
   const handleSignoutClick = () => {
-    setIsDisabled(true);
-    dispatch();
+    setShowLogoutModal(prev => !prev);
   };
 
   return (
@@ -18,10 +15,10 @@ const LogoutBtn = () => {
         type="button"
         className={css.btn}
         onClick={handleSignoutClick}
-        disabled={isLoading || isDisabled}
       >
-        {isLoading ? <LoadingSpinner size={30} /> : 'Log out'}
+        Log out
       </button>
+      {showLogoutModal && <UserLogoutModal toggleModal={handleSignoutClick}/>}
     </>
   );
 };

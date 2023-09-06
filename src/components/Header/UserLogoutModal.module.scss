@@ -1,0 +1,143 @@
+@import '../../styles/common/vars';
+
+.wrapper {
+  position: relative;
+  width: 335px;
+  padding: 50px 25.5px;
+  border-radius: 16px;
+
+  background-image: radial-gradient(
+      circle,
+      rgba(188, 230, 210, 0.4) -51%,
+      rgba(188, 230, 210, 0) 70%
+    ),
+    radial-gradient(
+      circle,
+      rgba(64, 112, 205, 0.5) -10%,
+      rgba(64, 112, 205, 0) 70%
+    );
+
+  background-color: $secondary-bg-blue-color;
+  background-repeat: no-repeat;
+
+  background-size: 304px 326px, 372px 398px;
+  background-position-y: -130px, 205px;
+  background-position-x: -70px, 220px;
+
+  @media screen and (min-width: 768px) {
+    padding: 50px;
+    width: 500px;
+
+    background-image: radial-gradient(
+        circle,
+        rgba(188, 230, 210, 0.4) -28%,
+        rgba(188, 230, 210, 0) 70%
+      ),
+      radial-gradient(
+        circle,
+        rgba(64, 112, 205, 0.5) -10%,
+        rgba(64, 112, 205, 0) 70%
+      );
+
+    background-size: 404px 416px, 372px 398px;
+    background-position-y: -174px, 205px;
+    background-position-x: -160px, 314px;
+  }
+}
+.closeBtn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  padding: 0;
+  border: 1px solid transparent;
+  background-color: transparent;
+  text-decoration: none;
+
+  @media screen and (min-width: 768px) {
+    top: 18px;
+    right: 18px;
+  }
+
+  &:hover,
+  &:focus {
+    border-color: $primary-white-color;
+  }
+
+  &:active {
+    border-color: rgba($color: $main-blue-color, $alpha: 0.5);
+  }
+}
+.closeIcon {
+  fill: $primary-white-color;
+}
+.text {
+  font-size: 14px;
+  line-height: 18px;
+  font-style: normal;
+  font-weight: 400;
+  text-align: center;
+//   margin-bottom: 25px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+    line-height: 24px;
+    // margin-bottom: 37px;
+  }
+}
+.btn {
+  width: 140px;
+  height: 50px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.29;
+  margin-top: 25px;
+  margin-left: 0;
+  margin-right: 0;
+  border: 1px solid $primary-white-color;
+  border-radius: 42px;
+  color: $secondary-bg-blue-color;
+  background-color: $primary-white-color;
+  transition: all $transition-duration;
+
+  &:hover,
+  &:focus {
+    color: $primary-white-color;
+    background-color: $secondary-bg-blue-color;
+  }
+
+  &:active {
+    border: 1px solid rgba($color: $main-blue-color, $alpha: 0.5);
+  }
+  &:disabled {
+    color: rgba($color: $primary-white-color, $alpha: 0.2);
+    background-color: $disabled-blue-color;
+    border-color: $disabled-blue-color;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 196px;
+    font-size: 16px;
+    line-height: calc(18 / 16);
+    margin-top: 37px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+.btnBlack {
+  width: 136px;
+  color: $primary-white-color;
+  background-color: $disabled-blue-color;
+  border: 1px solid $disabled-blue-color;
+  margin-left: 8px;
+
+  @media screen and (min-width: 768px) {
+    width: 192px;
+    margin-left: 12px;
+  }
+}
+.loader {
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
