@@ -1,20 +1,13 @@
 @import 'styles/common/vars';
-
-.wrapperOne {
+.wrapper {
   max-width: 335px;
   padding: 272px 0px 271px;
 
   background-color: $secondary-bg-blue-color;
-  background-image: url('../../images/motivation-one-small@1x.png');
+
   background-repeat: no-repeat;
   background-position: left top;
   background-size: 375px 812px;
-
-  @media (min-device-pixel-ratio: 2),
-    (min-resolution: 192dpi),
-    (min-resolution: 2dppx) {
-    background-image: url('../../images/motivation-one-small@2x.png');
-  }
 
   @media screen and (min-width: 375px) {
     max-width: none;
@@ -27,9 +20,22 @@
   @media screen and (min-width: 768px) {
     width: 500px;
 
-    background-image: url('../../images/motivation-one-large@1x.png');
     background-size: 500px 500px;
+  }
+}
 
+.wrapperOne {
+  @extend .wrapper;
+
+  background-image: url('../../images/motivation-one-small@1x.png');
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    background-image: url('../../images/motivation-one-small@2x.png');
+  }
+
+  @media screen and (min-width: 768px) {
+    background-image: url('../../images/motivation-one-large@1x.png');
     @media (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
@@ -39,35 +45,17 @@
 }
 
 .wrapperTwo {
-  max-width: 335px;
-  padding: 272px 32px 271px;
+  @extend .wrapper;
 
-  background-color: $secondary-bg-blue-color;
   background-image: url('../../images/motivation-two-small@1x.png');
-  background-repeat: no-repeat;
-  background-position: left top;
-  background-size: 375px 812px;
-
   @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
     background-image: url('../../images/motivation-two-small@2x.png');
   }
 
-  @media screen and (min-width: 375px) {
-    max-width: none;
-    width: 335px;
-    padding: 218px 0px 40px;
-
-    border-radius: 30px;
-  }
-
   @media screen and (min-width: 768px) {
-    width: 500px;
-
     background-image: url('../../images/motivation-two-large@1x.png');
-    background-size: 500px 500px;
-
     @media (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
@@ -77,35 +65,17 @@
 }
 
 .wrapperThree {
-  max-width: 335px;
-  padding: 272px 32px 271px;
+  @extend .wrapper;
 
-  background-color: $secondary-bg-blue-color;
   background-image: url('../../images/motivation-three-small@1x.png');
-  background-repeat: no-repeat;
-  background-position: left top;
-  background-size: 375px 812px;
-
   @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
     background-image: url('../../images/motivation-three-small@2x.png');
   }
 
-  @media screen and (min-width: 375px) {
-    max-width: none;
-    width: 335px;
-    padding: 218px 0px 40px;
-
-    border-radius: 30px;
-  }
-
   @media screen and (min-width: 768px) {
-    width: 500px;
-
     background-image: url('../../images/motivation-three-large@1x.png');
-    background-size: 500px 500px;
-
     @media (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
@@ -145,11 +115,6 @@
   font-weight: 500;
   line-height: calc(32 / 28);
   letter-spacing: -0.56px;
-
-  @media screen and (min-width: 375px) {
-    max-width: none;
-    width: 239px;
-  }
 
   @media screen and (min-width: 768px) {
     top: 32px;
