@@ -43,7 +43,7 @@
 [![Михайло Фисюк](https://res.cloudinary.com/dsnmulvwe/image/upload/v1693939937/%D0%91%D0%B5%D0%B7_%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8-1_hlpvw1.png)](https://github.com/SlipuyKamiN)
 [![Віктор Починок](https://res.cloudinary.com/dsnmulvwe/image/upload/v1693938228/2_es3ctz.png)](https://github.com/VitekVP)
 [![Марія Стецюк](https://res.cloudinary.com/dsnmulvwe/image/upload/v1693938890/3_kq2xvr.png)](https://github.com/mariastetciuk)
-[![Павло Туржанський](https://res.cloudinary.com/dsnmulvwe/image/upload/v1693938892/5_yk33xy.png)](https://github.com/PashkaTurzhanskyi)
+[![Павло Туржанський](https://res.cloudinary.com/dsnmulvwe/image/upload/v1693979154/%D0%91%D0%B5%D0%B7_%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8-1_hlnqxq.png)](https://github.com/PashkaTurzhanskyi)
 [![Катерина Хаєцька](https://res.cloudinary.com/dsnmulvwe/image/upload/v1693938893/6_zzbjyt.png)](https://github.com/Khayetska)
 [![Станіслав Гусєв](https://res.cloudinary.com/dsnmulvwe/image/upload/v1693938896/8_bk9ya7.png)](https://github.com/Bad-Raider)
 [![Олексій Ковальов](https://res.cloudinary.com/dsnmulvwe/image/upload/v1693938897/9_jvdcf2.png)](https://github.com/alex-k22)
