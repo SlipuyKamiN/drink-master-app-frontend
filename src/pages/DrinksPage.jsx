@@ -38,7 +38,12 @@ const DrinksPage = () => {
         ) : !isError ? (
           <>
             <DrinksList cocktails={data} />
-            {pagesQty > 1 && <Paginator pagesQty={pagesQty} />}
+            {pagesQty > 1 && (
+              <Paginator
+                pagesQty={pagesQty}
+                params={{ category, ingredient, search, page }}
+              />
+            )}
           </>
         ) : (
           <ItemNotCocktails title={'No drinks were found'} />
