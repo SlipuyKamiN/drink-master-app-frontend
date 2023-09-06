@@ -72,7 +72,6 @@ const RecipeDescriptionFields = ({
           className={scss.form__input}
           type="text"
           name="drink"
-          id=""
           placeholder="Enter item title"
           onChange={handleDrinkChange}
           value={drink}
@@ -86,7 +85,6 @@ const RecipeDescriptionFields = ({
           className={scss.form__input}
           type="text"
           name="description"
-          id=""
           onChange={handleDescriptionChange}
           value={description}
           placeholder="Enter about recipe"
@@ -98,9 +96,9 @@ const RecipeDescriptionFields = ({
         )}
         <Select
           classNamePrefix="select-description"
-          placeholder=""
           onChange={handleCategoryChange}
           defaultValue={category}
+          placeholder=""
           options={isCategory ? getOptionsForSelect(categoryList) : []}
         />
         {isShowError && category === '' && (
@@ -111,9 +109,9 @@ const RecipeDescriptionFields = ({
 
         <Select
           classNamePrefix="select-description-glass"
-          placeholder=""
           onChange={handleGlassChange}
           defaultValue={glass}
+          placeholder=""
           options={isGlass ? getOptionsForSelect(glassList) : []}
         />
         {isShowError && glass === '' && (

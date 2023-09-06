@@ -8,7 +8,6 @@ const DrinksList = ({ cocktails }) => {
   }
 
   const drinks = cocktails.drinks;
-  // console.log(drinks);
 
   return (
     <ul className={sass.list}>
@@ -27,11 +26,3 @@ const DrinksList = ({ cocktails }) => {
 };
 
 export default DrinksList;
-
-// <li key={item._id.$oid}>
-//   <img src={item.drinkThumb} alt="" className={sass.photo} />
-//   <div className={sass.wrapper}>
-//     <p>{item.drink}</p>
-//     <a href="">Ingridients</a>
-//   </div>
-// </li>

@@ -26,12 +26,12 @@
 .btn {
   display: flex;
   align-items: center;
-  border: none;
   padding: 0;
   background-color: transparent;
   border: 1px solid transparent;
   font-family: inherit;
-  transition: all $transition-duration;
+  transition: background-color $transition-duration,
+    border-color $transition-duration;
 
   &:hover,
   &:focus {

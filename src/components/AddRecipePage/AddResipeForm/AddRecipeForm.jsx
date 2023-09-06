@@ -67,9 +67,9 @@ const AddRecipeForm = () => {
   };
 
   const reductionIngredient = () => {
-    if (quantity === 1) {
-      return notification('Must have at leastone ingredient');
-    }
+    if (quantity === 1)
+      return notification('Must have at least one ingredient');
+
     setQuantity(prev => prev - 1);
     setIngredients(prev => prev.slice(0, prev.length - 1));
   };
@@ -116,7 +116,7 @@ const AddRecipeForm = () => {
       .catch(error => notification(error.data.message));
   };
   return (
-    <form onSubmit={handleFormSubmit} className={scss.form} action="">
+    <form onSubmit={handleFormSubmit} className={scss.form} autoComplete="off">
       <RecipeDescriptionFields
         handleInputChange={{
           handleFileChange,

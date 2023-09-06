@@ -14,7 +14,7 @@ const UserInfoModal = ({ toggleModal }) => {
   const [nameValue, setNameValue] = useState(name);
   const [nameIsDisabled, setNameIsDisabled] = useState(true);
   const [selectedImage, setSelectedImage] = useState(null);
-  const [dispatch, {isLoading, isSuccess, isError}] = useUpdateUserMutation();
+  const [dispatch, { isLoading }] = useUpdateUserMutation();
   const inputField = useRef(null);
 
   const handleCloseModal = () => {
@@ -25,17 +25,22 @@ const UserInfoModal = ({ toggleModal }) => {
     setNameValue(e.target.value);
   };
 
-  const handleFormSubmit = async (e) => {
+  const handleFormSubmit = e => {
     e.preventDefault();
     const formData = new FormData();
     formData.append('name', nameValue);
     formData.append('avatar', selectedImage);
-    await dispatch(formData);
+    dispatch(formData)
+      .unwrap()
+      .then(() => {
+        notification('Your profile has been updated', 'success');
+      })
+      .catch(e => notification(e.data.message));
     toggleModal();
   };
 
-  const handleEditName = async () => {
-    await setNameIsDisabled(false);
+  const handleEditName = () => {
+    setNameIsDisabled(false);
     inputField.current.focus();
   };
 
@@ -62,10 +67,7 @@ const UserInfoModal = ({ toggleModal }) => {
               alt="User icon"
               className={css.img}
             />
-            <button
-              type="button"
-              className={`${css.addImgBtn}`}
-            >
+            <button type="button" className={`${css.addImgBtn}`}>
               <AddIcon size={28} className={css.editIcon} />
             </button>
             <input
@@ -96,12 +98,10 @@ const UserInfoModal = ({ toggleModal }) => {
             </button>
           </div>
           <button type="submit" className={css.btn} disabled={isLoading}>
-          {isLoading ? <LoadingSpinner size={44} /> : 'Save changes'}
+            {isLoading ? <LoadingSpinner size={30} /> : 'Save changes'}
           </button>
         </form>
       </div>
-      {isSuccess && notification("Your profile has been updated", "success")}
-      {isError && notification()}
     </Modal>
   );
 };

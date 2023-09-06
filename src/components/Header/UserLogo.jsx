@@ -7,8 +7,9 @@ const UserLogo = () => {
   const { name, avatarURL } = useSelector(({ user }) => user);
   const [showModal, setShowModal] = useState(false);
 
-  const handleShowModal = async () => {
-    setShowModal(prev => !prev);
+  const handleShowModal = () => {
+    document.activeElement.blur();
+    setShowModal(prev => !prev)
   };
 
   return (
