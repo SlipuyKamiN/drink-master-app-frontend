@@ -15,12 +15,11 @@ const MotivatingModal = ({ title, style, toggleModal }) => {
           className={sass.image}
           alt="motivation"
         />
-        <div className={sass.box}>
-          <p className={sass.content}>{title}</p>
-          <button type="button" className={sass.btn} onClick={toggleModal}>
-            <AiOutlineClose className={sass.icon} />
-          </button>
-        </div>
+
+        <p className={sass.content}>{title}</p>
+        <button type="button" className={sass.btn} onClick={toggleModal}>
+          <AiOutlineClose className={sass.icon} />
+        </button>
       </div>
     </div>
   );
