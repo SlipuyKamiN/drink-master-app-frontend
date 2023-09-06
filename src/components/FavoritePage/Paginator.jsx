@@ -1,6 +1,7 @@
 import { useSearchParams } from 'react-router-dom';
 import scss from './Paginator.module.scss';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+import { scrollToTop } from 'helpers/scrollToTop';
 
 const Paginator = ({ pagesQty, params = {} }) => {
   const [searchParams, setSearchParams] = useSearchParams({ page: 1 });
@@ -17,17 +18,20 @@ const Paginator = ({ pagesQty, params = {} }) => {
 
   const handleChangePage = page => {
     setSearchParams({ ...params, page });
+    scrollToTop();
   };
 
   const handlePreviousBtn = () => {
     if (currentPage > 1) {
       setSearchParams({ ...params, page: currentPage - 1 });
+      scrollToTop();
     }
   };
 
   const handleNextBtn = () => {
     if (currentPage < pagesQty) {
       setSearchParams({ ...params, page: currentPage + 1 });
+      scrollToTop();
     }
   };
 

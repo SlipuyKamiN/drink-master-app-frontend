@@ -33,10 +33,10 @@ const UserInfoModal = ({ toggleModal }) => {
     dispatch(formData)
       .unwrap()
       .then(() => {
+        toggleModal();
         notification('Your profile has been updated', 'success');
       })
       .catch(e => notification(e.data.message));
-    toggleModal();
   };
 
   const handleEditName = () => {
