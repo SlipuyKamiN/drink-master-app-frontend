@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/drink-master-app-frontend/static/css/main.0574890b.css",
-    "main.js": "/drink-master-app-frontend/static/js/main.ca85a76b.js",
+    "main.js": "/drink-master-app-frontend/static/js/main.c4b1793e.js",
     "static/css/340.cee10079.chunk.css": "/drink-master-app-frontend/static/css/340.cee10079.chunk.css",
     "static/js/340.7aba2529.chunk.js": "/drink-master-app-frontend/static/js/340.7aba2529.chunk.js",
     "static/css/218.48dba796.chunk.css": "/drink-master-app-frontend/static/css/218.48dba796.chunk.css",
     "static/js/218.ec5dd3ef.chunk.js": "/drink-master-app-frontend/static/js/218.ec5dd3ef.chunk.js",
     "static/css/30.35bd4e48.chunk.css": "/drink-master-app-frontend/static/css/30.35bd4e48.chunk.css",
-    "static/js/30.c6284aff.chunk.js": "/drink-master-app-frontend/static/js/30.c6284aff.chunk.js",
+    "static/js/30.364031d4.chunk.js": "/drink-master-app-frontend/static/js/30.364031d4.chunk.js",
     "static/css/640.852d25db.chunk.css": "/drink-master-app-frontend/static/css/640.852d25db.chunk.css",
-    "static/js/640.27a88617.chunk.js": "/drink-master-app-frontend/static/js/640.27a88617.chunk.js",
+    "static/js/640.b8884335.chunk.js": "/drink-master-app-frontend/static/js/640.b8884335.chunk.js",
     "static/css/23.852d25db.chunk.css": "/drink-master-app-frontend/static/css/23.852d25db.chunk.css",
-    "static/js/23.89a52c62.chunk.js": "/drink-master-app-frontend/static/js/23.89a52c62.chunk.js",
+    "static/js/23.72a62da5.chunk.js": "/drink-master-app-frontend/static/js/23.72a62da5.chunk.js",
     "static/css/64.7827f685.chunk.css": "/drink-master-app-frontend/static/css/64.7827f685.chunk.css",
     "static/js/64.aa608c1d.chunk.js": "/drink-master-app-frontend/static/js/64.aa608c1d.chunk.js",
     "static/js/958.076e6642.chunk.js": "/drink-master-app-frontend/static/js/958.076e6642.chunk.js",
@@ -50,23 +50,23 @@
     "static/media/logo.svg": "/drink-master-app-frontend/static/media/logo.80126d4702763ace5a9f9504fd7203b4.svg",
     "static/media/x.svg": "/drink-master-app-frontend/static/media/x.358abb3c7267c7a7485d2f239b2827e0.svg",
     "main.0574890b.css.map": "/drink-master-app-frontend/static/css/main.0574890b.css.map",
-    "main.ca85a76b.js.map": "/drink-master-app-frontend/static/js/main.ca85a76b.js.map",
+    "main.c4b1793e.js.map": "/drink-master-app-frontend/static/js/main.c4b1793e.js.map",
     "340.cee10079.chunk.css.map": "/drink-master-app-frontend/static/css/340.cee10079.chunk.css.map",
     "340.7aba2529.chunk.js.map": "/drink-master-app-frontend/static/js/340.7aba2529.chunk.js.map",
     "218.48dba796.chunk.css.map": "/drink-master-app-frontend/static/css/218.48dba796.chunk.css.map",
     "218.ec5dd3ef.chunk.js.map": "/drink-master-app-frontend/static/js/218.ec5dd3ef.chunk.js.map",
     "30.35bd4e48.chunk.css.map": "/drink-master-app-frontend/static/css/30.35bd4e48.chunk.css.map",
-    "30.c6284aff.chunk.js.map": "/drink-master-app-frontend/static/js/30.c6284aff.chunk.js.map",
+    "30.364031d4.chunk.js.map": "/drink-master-app-frontend/static/js/30.364031d4.chunk.js.map",
     "640.852d25db.chunk.css.map": "/drink-master-app-frontend/static/css/640.852d25db.chunk.css.map",
-    "640.27a88617.chunk.js.map": "/drink-master-app-frontend/static/js/640.27a88617.chunk.js.map",
+    "640.b8884335.chunk.js.map": "/drink-master-app-frontend/static/js/640.b8884335.chunk.js.map",
     "23.852d25db.chunk.css.map": "/drink-master-app-frontend/static/css/23.852d25db.chunk.css.map",
-    "23.89a52c62.chunk.js.map": "/drink-master-app-frontend/static/js/23.89a52c62.chunk.js.map",
+    "23.72a62da5.chunk.js.map": "/drink-master-app-frontend/static/js/23.72a62da5.chunk.js.map",
     "64.7827f685.chunk.css.map": "/drink-master-app-frontend/static/css/64.7827f685.chunk.css.map",
     "64.aa608c1d.chunk.js.map": "/drink-master-app-frontend/static/js/64.aa608c1d.chunk.js.map",
     "958.076e6642.chunk.js.map": "/drink-master-app-frontend/static/js/958.076e6642.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.0574890b.css",
-    "static/js/main.ca85a76b.js"
+    "static/js/main.c4b1793e.js"
   ]
 }
