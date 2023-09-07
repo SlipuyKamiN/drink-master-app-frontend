@@ -10,13 +10,6 @@ import { useState } from 'react';
 import { signupSchema } from './signupSchema';
 import { yupResolver } from '@hookform/resolvers/yup';
 
-// const emailRegexp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-// const passwordRegexp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$/;
-// const nameRegexp = "^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-// "Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-// type={hidePassword ? "password" : "text"}
-// onClick={()=>{setHidePassword(!hidePassword)}}
-
 const SignupForm = () => {
   const [dispatch, { isLoading }] = useSignupMutation();
   const [login] = useSigninMutation();
