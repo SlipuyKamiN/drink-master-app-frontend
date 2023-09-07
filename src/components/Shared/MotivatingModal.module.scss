@@ -1,0 +1,169 @@
+@import 'styles/common/vars';
+
+.wrapper {
+  max-width: 335px;
+  padding: 50px 0px;
+
+  background-color: $secondary-bg-blue-color;
+
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-size: 375px 812px;
+
+  @media screen and (min-width: 375px) {
+    max-width: none;
+    width: 335px;
+    padding: 218px 0px 40px;
+
+    border-radius: 30px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 500px;
+
+    background-size: 500px 500px;
+  }
+}
+
+.wrapperOne {
+  @extend .wrapper;
+
+  background-image: url('../../images/motivation-one-small@1x.png');
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    background-image: url('../../images/motivation-one-small@2x.png');
+  }
+
+  @media screen and (min-width: 768px) {
+    background-image: url('../../images/motivation-one-large@1x.png');
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url('../../images/motivation-one-large@2x.png');
+    }
+  }
+}
+
+.wrapperTwo {
+  @extend .wrapper;
+
+  background-image: url('../../images/motivation-two-small@1x.png');
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    background-image: url('../../images/motivation-two-small@2x.png');
+  }
+
+  @media screen and (min-width: 768px) {
+    background-image: url('../../images/motivation-two-large@1x.png');
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url('../../images/motivation-two-large@2x.png');
+    }
+  }
+}
+
+.wrapperThree {
+  @extend .wrapper;
+
+  background-image: url('../../images/motivation-three-small@1x.png');
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    background-image: url('../../images/motivation-three-small@2x.png');
+  }
+
+  @media screen and (min-width: 768px) {
+    background-image: url('../../images/motivation-three-large@1x.png');
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url('../../images/motivation-three-large@2x.png');
+    }
+  }
+}
+
+.thumb {
+  position: relative;
+
+  width: 299px;
+  height: 269px;
+  margin: 0 auto;
+
+  @media screen and (min-width: 768px) {
+    width: 268px;
+    height: 242px;
+  }
+}
+
+.image {
+  height: 100%;
+}
+
+.content {
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 239px;
+  margin: 0 auto;
+
+  text-align: center;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: calc(32 / 28);
+  letter-spacing: -0.56px;
+
+  @media screen and (min-width: 768px) {
+    top: 32px;
+
+    width: 216px;
+  }
+}
+
+.btn {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 48px;
+  height: 48px;
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 50%;
+
+  background-color: $secondary-bg-blue-color;
+
+  transition: background-color $transition-duration;
+
+  &:hover,
+  &:focus {
+    background-color: $primary-white-color;
+  }
+
+  &:active {
+    border: 2px solid rgba($color: $main-blue-color, $alpha: 0.5);
+  }
+}
+
+.icon {
+  width: 28px;
+  height: 28px;
+
+  fill: $primary-white-color;
+
+  transition: fill $transition-duration;
+
+  &:hover,
+  &:focus {
+    fill: $secondary-bg-blue-color;
+  }
+}

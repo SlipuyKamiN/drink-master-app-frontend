@@ -123,21 +123,9 @@ const SignupForm = () => {
             className={scss.circle}
           >
             {hidePassword && dirtyFields.password && (
-              <FiEyeOff
-                style={{
-                  width: '24px',
-                  height: '24px',
-                }}
-              />
+              <FiEyeOff className={scss.eyeBtn} />
             )}
-            {!hidePassword && (
-              <FiEye
-                style={{
-                  width: '24px',
-                  height: '24px',
-                }}
-              />
-            )}
+            {!hidePassword && <FiEye className={scss.eyeBtn} />}
           </span>
         </label>
         {errors.password && (
