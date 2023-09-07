@@ -30,8 +30,12 @@ const SignupForm = () => {
     dispatch({ name, email: email.toLowerCase(), password })
       .unwrap()
       .then(() => {
-        login({ email, password });
-        reset();
+        login({ email, password })
+          .unwrap()
+          .then(() => {
+            reset();
+          })
+          .catch(e => notification(e.data.message));
       })
       .catch(e => notification(e.data.message));
   };
